@@ -17,12 +17,18 @@ int main(void)
 
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
     USB_CDC_1_CDC_Init();
+    Cycle_ISR_1_Start();
+    timer_clock_Start();
+    Timer_1_Start();
 
+    CyGlobalIntEnable;
+    
     for(;;)
     {
         /* Place your application code here. */
-        USB_CDC_1_PutString("Hello World \r \n");
         
+ 
+    
     }
 }
 

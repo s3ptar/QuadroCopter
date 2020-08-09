@@ -8,6 +8,7 @@
 <files />
 <projects>
 <v>.\Design01.cydsn\Design01.cyprj</v>
+<v>.\Interrupts_Example01.cydsn\Interrupts_Example01.cyprj</v>
 </projects>
 <workspace_id v="d945e3df-12db-42e1-aa26-30cc11c582fe" />
 <WriteAppVersionLastSavedWith v="4.3.0.1445" />
