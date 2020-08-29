@@ -36,7 +36,8 @@
 #define GYRO_ZOUT_L_REG                 0x22
 #define PWR_MGM_REG                     0x3E
 
-#define DeviceADR_Base                  0b1101000
+#define DeviceADR_Base                  0b110100
+
 
 /***********************************************************************
 * Global Variable
@@ -88,18 +89,50 @@ uint8 read_register_data(uint8 SlaveAddress, uint8_t Register){
 
 /***********************************************************************
 *! \fn          uint8_t set_sample_rate_divider(uint8_t rate_divider)
-*  \brief       
+*  \brief       This register determines the sample rate of the ITG-3200 gyros
 *  \param       uint8_t rate_divider
 *  \exception   none
 *  \return      0 = success
 ***********************************************************************/
-uint8_t set_sample_rate_divider(uint8_t rate_divider){
+static uint8_t set_sample_rate_divider(uint8_t rate_divider){
     
-    write_data(0x00, SMPLRT_DIV_REG, rate_divider);
-    
-    return 0;
+    return write_data(0x00, SMPLRT_DIV_REG, rate_divider);
     
 }
+
+/***********************************************************************
+*! \fn          uint8_t set_digital_low_pass_filter_configuration(uint8_t DLPF_CFG)
+*  \brief       The DLPF_CFG parameter sets the digital low pass filter configuration. It also determines the
+*               internal sampling rate used by the device as shown in the table below
+*  \param       uint8_t DLPF_CFG
+*  \exception   none
+*  \return      0 = success
+***********************************************************************/
+uint8_t set_digital_low_pass_filter_configuration(uint8_t DLPF_CFG){
+    
+    //Set to fullscale and filter configuration
+    return write_data(0x00, DLPF_FS_REG, ((0x03<<3) | (DLPF_CFG & 0x07)));
+    
+}
+
+/***********************************************************************
+*! \fn          set_interrupt_configuration(_Bool ACTL, _Bool Open, _Bool LATCH_INT_EN, _Bool INT_ANYRD_2CLEAR, _Bool ITG_RDY_EN, _Bool RAW_RDY_EN)
+*  \brief       This register configures the interrupt operation of the device
+*  \param       _Bool ACTL Logic level for INT output pin – 1=active low, 0=active high 
+*  \param       _Bool OPEN Drive type for INT output pin – 1=open drain, 0=push-pull
+*  \param       _Bool Latch mode – 1=latch until interrupt is cleared, 0=50us pulse
+*  \param       _Bool Latch clear method – 1=any register read, 0=status register read only
+*  \param       _Bool Enable interrupt when device is ready (PLL ready after changing clock source) 
+*  \param       _Bool Enable interrupt when data is available
+*  \exception   none
+*  \return      0 = success
+***********************************************************************/
+uint8_t set_interrupt_configuration(_Bool ACTL, _Bool Open, _Bool LATCH_INT_EN, _Bool INT_ANYRD_2CLEAR, _Bool ITG_RDY_EN, _Bool RAW_RDY_EN){
+    
+    //Set to fullscale and filter configuration
+    return write_data(0x00, INT_CFG_REG, ((ACTL<<7)|(Open<<6)|(LATCH_INT_EN<<5)|(INT_ANYRD_2CLEAR<<4)|(ITG_RDY_EN<<2)|(RAW_RDY_EN<<0)));
+    
+}   
 
 /***********************************************************************
 *! \fn          uint8_t setup_itg3200(_Bool ADRPin)
@@ -110,11 +143,20 @@ uint8_t set_sample_rate_divider(uint8_t rate_divider){
 *  \exception   none
 *  \return      0 = success
 ***********************************************************************/
-uint8_t setup_itg3200(_Bool ADRPin){
+uint8_t setup_itg3200(_Bool ADRPin, uint8_t rate_divider, uint8_t DLPF_CFG){
     
+    //setup ADR
     DeviceADR = ((uint8_t)DeviceADR_Base)<<1;
     if(ADRPin)
        DeviceADR |= 0x01;
+    /****** Check Chip ID ******/
+    if(! ((read_register_data(DeviceADR, WHO_AM_I_REG)>>1) == DeviceADR_Base))
+        return itg3200_device_id_error;
+    
+    set_sample_rate_divider(rate_divider);
+    set_digital_low_pass_filter_configuration(DLPF_CFG);
+    set_interrupt_configuration(Active_Interrupt_Level_High, Interrupt_Pin_PushPull, Interupt_Latch_50usPulse, 
+        Interrupt_Clear_after_read , Interrupt_deactivation , Interrupt_Data_Ready );
         
     return 0;
 }

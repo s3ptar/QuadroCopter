@@ -40,10 +40,14 @@
 #include "SCL_1.h"
 #include "I2C_Master_1.h"
 #include "I2C_Master_1_PVT.h"
+#include "itg3200_int.h"
+#include "ITG3200_Pin_aliases.h"
+#include "ITG3200_Pin.h"
 #include "USB_CDC_1_Dm_aliases.h"
 #include "USB_CDC_1_Dm.h"
 #include "USB_CDC_1_Dp_aliases.h"
 #include "USB_CDC_1_Dp.h"
+#include "cy_em_eeprom.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"
 #include "CyFlash.h"
@@ -52,7 +56,6 @@
 #include "cyPm.h"
 #include "CySpc.h"
 #include "cytypes.h"
-#include "cy_em_eeprom.h"
 
 /*[]*/
 

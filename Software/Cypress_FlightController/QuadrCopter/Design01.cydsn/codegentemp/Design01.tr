@@ -65,7 +65,7 @@ Port Name  Setup to Clk  Clock Name:Phase
 Port Name         Clock to Out  Clock Name:Phase             
 ----------------  ------------  ---------------------------  
 SCL_1(0)_PAD:out  25374         CyBUS_CLK(fixed-function):R  
-SDA_1(0)_PAD:out  25441         CyBUS_CLK(fixed-function):R  
+SDA_1(0)_PAD:out  25445         CyBUS_CLK(fixed-function):R  
 
 
                          3.3::Pad to Pad

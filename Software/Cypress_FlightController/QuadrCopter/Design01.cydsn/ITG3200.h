@@ -24,7 +24,25 @@
 /***********************************************************************
  * Declarations
  **********************************************************************/
- 
+ enum itg_error_codes{
+    
+    itg3200_okay = 0,
+    itg3200_device_id_error,
+    
+};
+
+#define Active_Interrupt_Level_High             0
+#define Active_Interrupt_Level_Low              1
+#define Interrupt_Pin_OpenDrain                 1
+#define Interrupt_Pin_PushPull                  0
+#define Interupt_Latch_unitl_Clear              1
+#define Interupt_Latch_50usPulse                0
+#define Interrupt_Clear_after_read              1
+#define Interrupt_Clear_after_read_Status_Reg   0 
+#define Interrupt_deactivation                  0
+#define Interrupt_PLL_Ready                     1
+#define Interrupt_Data_Ready                    1
+
 /***********************************************************************
  * Global Variable
  **********************************************************************/
