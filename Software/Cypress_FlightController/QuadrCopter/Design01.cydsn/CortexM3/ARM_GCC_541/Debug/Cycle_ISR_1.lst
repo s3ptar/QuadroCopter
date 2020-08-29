@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
   28:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/Cycle_ISR_1.c **** /* `#START Cycle_ISR_1_intc` */
   30:Generated_Source\PSoC5/Cycle_ISR_1.c **** #include "LED.h"
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 2
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 2
 
 
   31:Generated_Source\PSoC5/Cycle_ISR_1.c **** #include "Timer_1.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
   85:Generated_Source\PSoC5/Cycle_ISR_1.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
   86:Generated_Source\PSoC5/Cycle_ISR_1.c **** *  the interrupt to the interrupt controller.
   87:Generated_Source\PSoC5/Cycle_ISR_1.c **** *  
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 3
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 3
 
 
   88:Generated_Source\PSoC5/Cycle_ISR_1.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  142:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
  143:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
  144:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 4
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 4
 
 
  145:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
@@ -205,61 +205,64 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  166:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
  167:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /*  Place your Interrupt code here. */
  168:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* `#START Cycle_ISR_1_Interrupt` */
- 169:Generated_Source\PSoC5/Cycle_ISR_1.c ****     Cycle_ISR_1_ClearPending();
- 170:Generated_Source\PSoC5/Cycle_ISR_1.c ****     Timer_1_ReadStatusRegister();
- 171:Generated_Source\PSoC5/Cycle_ISR_1.c ****     LED_Write(!LED_Read());
- 172:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* `#END` */
- 173:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 174:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 175:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 176:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 177:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_SetVector
- 178:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 179:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 180:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 181:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Change the ISR vector for the Interrupt. Note calling Cycle_ISR_1_Start
- 182:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   will override any effect this method would have had. To set the vector 
- 183:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   before the component has been started use Cycle_ISR_1_StartEx instead.
- 184:Generated_Source\PSoC5/Cycle_ISR_1.c **** * 
- 185:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
- 186:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   used to provide consistent definition across compilers:
- 187:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 188:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Function definition example:
- 189:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   CY_ISR(MyISR)
- 190:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   {
- 191:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   }
- 192:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 193:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Function prototype example:
- 194:Generated_Source\PSoC5/Cycle_ISR_1.c **** *     CY_ISR_PROTO(MyISR);
+ 169:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /***************** Clear Pending INterrupts *****************************/
+ 170:Generated_Source\PSoC5/Cycle_ISR_1.c ****     Cycle_ISR_1_ClearPending();
+ 171:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /*********** Read Interruptsource to Bring Trigger Down *****************/
+ 172:Generated_Source\PSoC5/Cycle_ISR_1.c ****     Timer_1_ReadStatusRegister();
+ 173:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /************** Do Interruptaction *****/
+ 174:Generated_Source\PSoC5/Cycle_ISR_1.c ****     LED_Write(!LED_Read());
+ 175:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* `#END` */
+ 176:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 177:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 178:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 179:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 180:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_SetVector
+ 181:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
+ 182:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 183:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 184:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Change the ISR vector for the Interrupt. Note calling Cycle_ISR_1_Start
+ 185:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   will override any effect this method would have had. To set the vector 
+ 186:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   before the component has been started use Cycle_ISR_1_StartEx instead.
+ 187:Generated_Source\PSoC5/Cycle_ISR_1.c **** * 
+ 188:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 189:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   used to provide consistent definition across compilers:
+ 190:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 191:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Function definition example:
+ 192:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   CY_ISR(MyISR)
+ 193:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   {
+ 194:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   }
  195:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 196:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 197:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 196:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Function prototype example:
+ 197:Generated_Source\PSoC5/Cycle_ISR_1.c **** *     CY_ISR_PROTO(MyISR);
  198:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 199:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
- 200:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 199:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
+ 200:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   address: Address of the ISR to set in the interrupt vector table.
  201:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 5
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 5
 
 
- 202:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 203:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_SetVector(cyisraddress address)
- 204:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
-  28              		.loc 1 204 0
+ 202:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 203:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 204:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 205:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 206:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_SetVector(cyisraddress address)
+ 207:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+  28              		.loc 1 207 0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.LVL0:
- 205:Generated_Source\PSoC5/Cycle_ISR_1.c ****     cyisraddress * ramVectorTable;
- 206:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 207:Generated_Source\PSoC5/Cycle_ISR_1.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
-  34              		.loc 1 207 0
+ 208:Generated_Source\PSoC5/Cycle_ISR_1.c ****     cyisraddress * ramVectorTable;
+ 209:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 210:Generated_Source\PSoC5/Cycle_ISR_1.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  34              		.loc 1 210 0
   35 0000 014B     		ldr	r3, .L2
   36 0002 1B68     		ldr	r3, [r3]
   37              	.LVL1:
- 208:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 209:Generated_Source\PSoC5/Cycle_ISR_1.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)Cycle_ISR_1__INTC_NUMBER] = address;
-  38              		.loc 1 209 0
+ 211:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 212:Generated_Source\PSoC5/Cycle_ISR_1.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)Cycle_ISR_1__INTC_NUMBER] = address;
+  38              		.loc 1 212 0
   39 0004 1864     		str	r0, [r3, #64]
   40 0006 7047     		bx	lr
   41              	.L3:
@@ -277,44 +280,44 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
   53              		.type	Cycle_ISR_1_GetVector, %function
   54              	Cycle_ISR_1_GetVector:
   55              	.LFB5:
- 210:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 211:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 212:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 213:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 214:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_GetVector
- 215:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 216:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 217:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 218:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 213:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 214:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 215:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 216:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 217:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_GetVector
+ 218:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
  219:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 220:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 221:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 220:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 221:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
  222:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 223:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
- 224:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Address of the ISR in the interrupt vector table.
+ 223:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
+ 224:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
  225:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 226:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 227:Generated_Source\PSoC5/Cycle_ISR_1.c **** cyisraddress Cycle_ISR_1_GetVector(void)
- 228:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
-  56              		.loc 1 228 0
+ 226:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 227:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Address of the ISR in the interrupt vector table.
+ 228:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 229:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 230:Generated_Source\PSoC5/Cycle_ISR_1.c **** cyisraddress Cycle_ISR_1_GetVector(void)
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 6
+
+
+ 231:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+  56              		.loc 1 231 0
   57              		.cfi_startproc
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 6
-
-
   58              		@ args = 0, pretend = 0, frame = 0
   59              		@ frame_needed = 0, uses_anonymous_args = 0
   60              		@ link register save eliminated.
- 229:Generated_Source\PSoC5/Cycle_ISR_1.c ****     cyisraddress * ramVectorTable;
- 230:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 231:Generated_Source\PSoC5/Cycle_ISR_1.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
-  61              		.loc 1 231 0
+ 232:Generated_Source\PSoC5/Cycle_ISR_1.c ****     cyisraddress * ramVectorTable;
+ 233:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 234:Generated_Source\PSoC5/Cycle_ISR_1.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  61              		.loc 1 234 0
   62 0000 014B     		ldr	r3, .L5
   63 0002 1B68     		ldr	r3, [r3]
   64              	.LVL2:
- 232:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 233:Generated_Source\PSoC5/Cycle_ISR_1.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)Cycle_ISR_1__INTC_NUMBER];
- 234:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
-  65              		.loc 1 234 0
+ 235:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 236:Generated_Source\PSoC5/Cycle_ISR_1.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)Cycle_ISR_1__INTC_NUMBER];
+ 237:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+  65              		.loc 1 237 0
   66 0004 186C     		ldr	r0, [r3, #64]
   67 0006 7047     		bx	lr
   68              	.L6:
@@ -332,45 +335,45 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
   80              		.type	Cycle_ISR_1_SetPriority, %function
   81              	Cycle_ISR_1_SetPriority:
   82              	.LFB6:
- 235:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 236:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 237:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 238:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_SetPriority
- 239:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 240:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 241:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 242:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Sets the Priority of the Interrupt. 
+ 238:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 239:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 240:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 241:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_SetPriority
+ 242:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
  243:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 244:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Note calling Cycle_ISR_1_Start or Cycle_ISR_1_StartEx will 
- 245:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   override any effect this API would have had. This API should only be called
- 246:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   after Cycle_ISR_1_Start or Cycle_ISR_1_StartEx has been called. 
- 247:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   To set the initial priority for the component, use the Design-Wide Resources
- 248:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Interrupt Editor.
- 249:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 250:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
- 251:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 252:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 253:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   priority: Priority of the interrupt, 0 being the highest priority
- 254:Generated_Source\PSoC5/Cycle_ISR_1.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 255:Generated_Source\PSoC5/Cycle_ISR_1.c **** *             PSoC 4: Priority is from 0 to 3.
- 256:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 257:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
- 258:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 244:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 245:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Sets the Priority of the Interrupt. 
+ 246:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 247:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Note calling Cycle_ISR_1_Start or Cycle_ISR_1_StartEx will 
+ 248:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   override any effect this API would have had. This API should only be called
+ 249:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   after Cycle_ISR_1_Start or Cycle_ISR_1_StartEx has been called. 
+ 250:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 251:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Interrupt Editor.
+ 252:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 253:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 254:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 255:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
+ 256:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 257:Generated_Source\PSoC5/Cycle_ISR_1.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 258:Generated_Source\PSoC5/Cycle_ISR_1.c **** *             PSoC 4: Priority is from 0 to 3.
  259:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 260:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 7
+ 260:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 7
 
 
- 261:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_SetPriority(uint8 priority)
- 262:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
-  83              		.loc 1 262 0
+ 261:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 262:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 263:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 264:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_SetPriority(uint8 priority)
+ 265:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+  83              		.loc 1 265 0
   84              		.cfi_startproc
   85              		@ args = 0, pretend = 0, frame = 0
   86              		@ frame_needed = 0, uses_anonymous_args = 0
   87              		@ link register save eliminated.
   88              	.LVL3:
- 263:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_PRIOR = priority << 5;
-  89              		.loc 1 263 0
+ 266:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_PRIOR = priority << 5;
+  89              		.loc 1 266 0
   90 0000 4001     		lsls	r0, r0, #5
   91              	.LVL4:
   92 0002 C0B2     		uxtb	r0, r0
@@ -392,47 +395,47 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  108              		.type	Cycle_ISR_1_GetPriority, %function
  109              	Cycle_ISR_1_GetPriority:
  110              	.LFB7:
- 264:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 265:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 266:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 267:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 268:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_GetPriority
- 269:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 270:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 271:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 272:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Gets the Priority of the Interrupt.
+ 267:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 268:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 269:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 270:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 271:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_GetPriority
+ 272:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
  273:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 274:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 275:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 274:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 275:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Gets the Priority of the Interrupt.
  276:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 277:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
- 278:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Priority of the interrupt, 0 being the highest priority
- 279:Generated_Source\PSoC5/Cycle_ISR_1.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 280:Generated_Source\PSoC5/Cycle_ISR_1.c **** *    PSoC 4: Priority is from 0 to 3.
- 281:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 282:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 283:Generated_Source\PSoC5/Cycle_ISR_1.c **** uint8 Cycle_ISR_1_GetPriority(void)
- 284:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
- 111              		.loc 1 284 0
+ 277:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
+ 278:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 279:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 280:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 281:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Priority of the interrupt, 0 being the highest priority
+ 282:Generated_Source\PSoC5/Cycle_ISR_1.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 283:Generated_Source\PSoC5/Cycle_ISR_1.c **** *    PSoC 4: Priority is from 0 to 3.
+ 284:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 285:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 286:Generated_Source\PSoC5/Cycle_ISR_1.c **** uint8 Cycle_ISR_1_GetPriority(void)
+ 287:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+ 111              		.loc 1 287 0
  112              		.cfi_startproc
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 8
+
+
  113              		@ args = 0, pretend = 0, frame = 0
  114              		@ frame_needed = 0, uses_anonymous_args = 0
  115              		@ link register save eliminated.
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 8
-
-
- 285:Generated_Source\PSoC5/Cycle_ISR_1.c ****     uint8 priority;
- 286:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 287:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 288:Generated_Source\PSoC5/Cycle_ISR_1.c ****     priority = *Cycle_ISR_1_INTC_PRIOR >> 5;
- 116              		.loc 1 288 0
+ 288:Generated_Source\PSoC5/Cycle_ISR_1.c ****     uint8 priority;
+ 289:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 290:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 291:Generated_Source\PSoC5/Cycle_ISR_1.c ****     priority = *Cycle_ISR_1_INTC_PRIOR >> 5;
+ 116              		.loc 1 291 0
  117 0000 014B     		ldr	r3, .L11
  118 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
  119              	.LVL5:
- 289:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 290:Generated_Source\PSoC5/Cycle_ISR_1.c ****     return priority;
- 291:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 120              		.loc 1 291 0
+ 292:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 293:Generated_Source\PSoC5/Cycle_ISR_1.c ****     return priority;
+ 294:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 120              		.loc 1 294 0
  121 0004 4009     		lsrs	r0, r0, #5
  122              	.LVL6:
  123 0006 7047     		bx	lr
@@ -451,37 +454,37 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  136              		.type	Cycle_ISR_1_Enable, %function
  137              	Cycle_ISR_1_Enable:
  138              	.LFB8:
- 292:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 293:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 294:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 295:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_Enable
- 296:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 297:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 298:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 299:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
- 300:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
- 301:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   function, which sets the vector and the priority, has been called.
- 302:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 303:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 304:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 295:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 296:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 297:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 298:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_Enable
+ 299:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
+ 300:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 301:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 302:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 303:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 304:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   function, which sets the vector and the priority, has been called.
  305:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 306:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 306:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
  307:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
  308:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 309:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 310:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_Enable(void)
- 311:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
- 139              		.loc 1 311 0
+ 309:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 310:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 311:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 312:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 313:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_Enable(void)
+ 314:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+ 139              		.loc 1 314 0
  140              		.cfi_startproc
  141              		@ args = 0, pretend = 0, frame = 0
  142              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 9
+
+
  143              		@ link register save eliminated.
- 312:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* Enable the general interrupt. */
- 313:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_SET_EN = Cycle_ISR_1__INTC_MASK;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 9
-
-
- 144              		.loc 1 313 0
+ 315:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* Enable the general interrupt. */
+ 316:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_SET_EN = Cycle_ISR_1__INTC_MASK;
+ 144              		.loc 1 316 0
  145 0000 0122     		movs	r2, #1
  146 0002 014B     		ldr	r3, .L14
  147 0004 1A60     		str	r2, [r3]
@@ -501,46 +504,46 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  161              		.type	Cycle_ISR_1_GetState, %function
  162              	Cycle_ISR_1_GetState:
  163              	.LFB9:
- 314:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 315:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 316:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 317:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 318:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_GetState
- 319:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 320:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 321:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 322:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 317:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 318:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 319:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 320:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 321:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_GetState
+ 322:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
  323:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 324:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 325:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 324:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 325:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Gets the state (enabled, disabled) of the Interrupt.
  326:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 327:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
- 328:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   1 if enabled, 0 if disabled.
+ 327:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
+ 328:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
  329:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 330:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 331:Generated_Source\PSoC5/Cycle_ISR_1.c **** uint8 Cycle_ISR_1_GetState(void)
- 332:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
- 164              		.loc 1 332 0
+ 330:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 331:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   1 if enabled, 0 if disabled.
+ 332:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 333:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 334:Generated_Source\PSoC5/Cycle_ISR_1.c **** uint8 Cycle_ISR_1_GetState(void)
+ 335:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+ 164              		.loc 1 335 0
  165              		.cfi_startproc
  166              		@ args = 0, pretend = 0, frame = 0
  167              		@ frame_needed = 0, uses_anonymous_args = 0
  168              		@ link register save eliminated.
- 333:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* Get the state of the general interrupt. */
- 334:Generated_Source\PSoC5/Cycle_ISR_1.c ****     return ((*Cycle_ISR_1_INTC_SET_EN & (uint32)Cycle_ISR_1__INTC_MASK) != 0u) ? 1u:0u;
- 169              		.loc 1 334 0
+ 336:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* Get the state of the general interrupt. */
+ 337:Generated_Source\PSoC5/Cycle_ISR_1.c ****     return ((*Cycle_ISR_1_INTC_SET_EN & (uint32)Cycle_ISR_1__INTC_MASK) != 0u) ? 1u:0u;
+ 169              		.loc 1 337 0
  170 0000 024B     		ldr	r3, .L17
  171 0002 1868     		ldr	r0, [r3]
- 335:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 172              		.loc 1 335 0
+ 338:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 172              		.loc 1 338 0
  173 0004 00F00100 		and	r0, r0, #1
  174 0008 7047     		bx	lr
  175              	.L18:
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 10
+
+
  176 000a 00BF     		.align	2
  177              	.L17:
  178 000c 00E100E0 		.word	-536813312
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 10
-
-
  179              		.cfi_endproc
  180              	.LFE9:
  181              		.size	Cycle_ISR_1_GetState, .-Cycle_ISR_1_GetState
@@ -552,32 +555,32 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  187              		.type	Cycle_ISR_1_Disable, %function
  188              	Cycle_ISR_1_Disable:
  189              	.LFB10:
- 336:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 337:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 338:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 339:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_Disable
- 340:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 341:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 342:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 343:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Disables the Interrupt in the interrupt controller.
+ 339:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 340:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 341:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 342:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_Disable
+ 343:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
  344:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 345:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 346:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 345:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 346:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Disables the Interrupt in the interrupt controller.
  347:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 348:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 348:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
  349:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
  350:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 351:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 352:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_Disable(void)
- 353:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
- 190              		.loc 1 353 0
+ 351:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 352:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 353:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 354:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 355:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_Disable(void)
+ 356:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+ 190              		.loc 1 356 0
  191              		.cfi_startproc
  192              		@ args = 0, pretend = 0, frame = 0
  193              		@ frame_needed = 0, uses_anonymous_args = 0
  194              		@ link register save eliminated.
- 354:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* Disable the general interrupt. */
- 355:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_CLR_EN = Cycle_ISR_1__INTC_MASK;
- 195              		.loc 1 355 0
+ 357:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* Disable the general interrupt. */
+ 358:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_CLR_EN = Cycle_ISR_1__INTC_MASK;
+ 195              		.loc 1 358 0
  196 0000 0122     		movs	r2, #1
  197 0002 014B     		ldr	r3, .L20
  198 0004 1A60     		str	r2, [r3]
@@ -595,12 +598,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  210              		.thumb
  211              		.thumb_func
  212              		.type	Cycle_ISR_1_Start, %function
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 11
+
+
  213              	Cycle_ISR_1_Start:
  214              	.LFB0:
   63:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* For all we know the interrupt is active. */
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 11
-
-
  215              		.loc 1 63 0
  216              		.cfi_startproc
  217              		@ args = 0, pretend = 0, frame = 0
@@ -655,12 +658,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  261              		.cfi_offset 14, -4
  262 0002 0446     		mov	r4, r0
  108:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 12
+
+
  263              		.loc 1 108 0
  264 0004 FFF7FEFF 		bl	Cycle_ISR_1_Disable
  265              	.LVL12:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 12
-
-
  111:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
  266              		.loc 1 111 0
  267 0008 2046     		mov	r0, r4
@@ -715,47 +718,47 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  311              		.size	Cycle_ISR_1_Stop, .-Cycle_ISR_1_Stop
  312              		.section	.text.Cycle_ISR_1_SetPending,"ax",%progbits
  313              		.align	2
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 13
+
+
  314              		.global	Cycle_ISR_1_SetPending
  315              		.thumb
  316              		.thumb_func
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 13
-
-
  317              		.type	Cycle_ISR_1_SetPending, %function
  318              	Cycle_ISR_1_SetPending:
  319              	.LFB11:
- 356:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 357:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 358:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 359:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 360:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_SetPending
- 361:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 362:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 363:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 364:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Causes the Interrupt to enter the pending state, a software method of
- 365:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   generating the interrupt.
- 366:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 367:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 368:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 359:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 360:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 361:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 362:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 363:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_SetPending
+ 364:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
+ 365:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 366:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 367:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 368:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   generating the interrupt.
  369:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 370:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 370:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
  371:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
  372:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 373:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Side Effects:
- 374:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
- 375:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   entered (depending on the priority of this interrupt and other pending 
- 376:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   interrupts).
- 377:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 378:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 379:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_SetPending(void)
- 380:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
- 320              		.loc 1 380 0
+ 373:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 374:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 375:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 376:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Side Effects:
+ 377:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 378:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 379:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   interrupts).
+ 380:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 381:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 382:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_SetPending(void)
+ 383:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+ 320              		.loc 1 383 0
  321              		.cfi_startproc
  322              		@ args = 0, pretend = 0, frame = 0
  323              		@ frame_needed = 0, uses_anonymous_args = 0
  324              		@ link register save eliminated.
- 381:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_SET_PD = Cycle_ISR_1__INTC_MASK;
- 325              		.loc 1 381 0
+ 384:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_SET_PD = Cycle_ISR_1__INTC_MASK;
+ 325              		.loc 1 384 0
  326 0000 0122     		movs	r2, #1
  327 0002 014B     		ldr	r3, .L33
  328 0004 1A60     		str	r2, [r3]
@@ -775,40 +778,40 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  342              		.type	Cycle_ISR_1_ClearPending, %function
  343              	Cycle_ISR_1_ClearPending:
  344              	.LFB12:
- 382:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
- 383:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
- 384:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 14
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 14
 
 
- 385:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
- 386:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_ClearPending
- 387:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
- 388:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 389:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
- 390:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Clears a pending interrupt in the interrupt controller.
+ 385:Generated_Source\PSoC5/Cycle_ISR_1.c **** }
+ 386:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 387:Generated_Source\PSoC5/Cycle_ISR_1.c **** 
+ 388:Generated_Source\PSoC5/Cycle_ISR_1.c **** /*******************************************************************************
+ 389:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Function Name: Cycle_ISR_1_ClearPending
+ 390:Generated_Source\PSoC5/Cycle_ISR_1.c **** ********************************************************************************
  391:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 392:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Note Some interrupt sources are clear-on-read and require the block 
- 393:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
- 394:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
- 395:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   pending state even though the interrupt itself is cleared using this API.
- 396:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 397:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
- 398:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 392:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Summary:
+ 393:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Clears a pending interrupt in the interrupt controller.
+ 394:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 395:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 396:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 397:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 398:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   pending state even though the interrupt itself is cleared using this API.
  399:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 400:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 400:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Parameters:
  401:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
  402:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
- 403:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
- 404:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_ClearPending(void)
- 405:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
- 345              		.loc 1 405 0
+ 403:Generated_Source\PSoC5/Cycle_ISR_1.c **** * Return:
+ 404:Generated_Source\PSoC5/Cycle_ISR_1.c **** *   None
+ 405:Generated_Source\PSoC5/Cycle_ISR_1.c **** *
+ 406:Generated_Source\PSoC5/Cycle_ISR_1.c **** *******************************************************************************/
+ 407:Generated_Source\PSoC5/Cycle_ISR_1.c **** void Cycle_ISR_1_ClearPending(void)
+ 408:Generated_Source\PSoC5/Cycle_ISR_1.c **** {
+ 345              		.loc 1 408 0
  346              		.cfi_startproc
  347              		@ args = 0, pretend = 0, frame = 0
  348              		@ frame_needed = 0, uses_anonymous_args = 0
  349              		@ link register save eliminated.
- 406:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_CLR_PD = Cycle_ISR_1__INTC_MASK;
- 350              		.loc 1 406 0
+ 409:Generated_Source\PSoC5/Cycle_ISR_1.c ****     *Cycle_ISR_1_INTC_CLR_PD = Cycle_ISR_1__INTC_MASK;
+ 350              		.loc 1 409 0
  351 0000 0122     		movs	r2, #1
  352 0002 014B     		ldr	r3, .L36
  353 0004 1A60     		str	r2, [r3]
@@ -835,21 +838,21 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  373              		@ frame_needed = 0, uses_anonymous_args = 0
  374 0000 08B5     		push	{r3, lr}
  375              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 15
+
+
  376              		.cfi_offset 3, -8
  377              		.cfi_offset 14, -4
- 169:Generated_Source\PSoC5/Cycle_ISR_1.c ****     Timer_1_ReadStatusRegister();
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 15
-
-
- 378              		.loc 1 169 0
+ 170:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /*********** Read Interruptsource to Bring Trigger Down *****************/
+ 378              		.loc 1 170 0
  379 0002 FFF7FEFF 		bl	Cycle_ISR_1_ClearPending
  380              	.LVL18:
- 170:Generated_Source\PSoC5/Cycle_ISR_1.c ****     LED_Write(!LED_Read());
- 381              		.loc 1 170 0
+ 172:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /************** Do Interruptaction *****/
+ 381              		.loc 1 172 0
  382 0006 FFF7FEFF 		bl	Timer_1_ReadStatusRegister
  383              	.LVL19:
- 171:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* `#END` */
- 384              		.loc 1 171 0
+ 174:Generated_Source\PSoC5/Cycle_ISR_1.c ****     /* `#END` */
+ 384              		.loc 1 174 0
  385 000a FFF7FEFF 		bl	LED_Read
  386              	.LVL20:
  387 000e B0FA80F0 		clz	r0, r0
@@ -895,12 +898,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  427 003b 08       		.byte	0x8
  428 003c 04       		.byte	0x4
  429 003d 16030000 		.4byte	.LASF2
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 16
+
+
  430 0041 03       		.uleb128 0x3
  431 0042 01       		.byte	0x1
  432 0043 06       		.byte	0x6
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 16
-
-
  433 0044 22030000 		.4byte	.LASF3
  434 0048 03       		.uleb128 0x3
  435 0049 01       		.byte	0x1
@@ -955,12 +958,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  484 00a6 03       		.uleb128 0x3
  485 00a7 08       		.byte	0x8
  486 00a8 04       		.byte	0x4
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 17
+
+
  487 00a9 05010000 		.4byte	.LASF15
  488 00ad 06       		.uleb128 0x6
  489 00ae A6000000 		.4byte	.LASF16
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 17
-
-
  490 00b2 02       		.byte	0x2
  491 00b3 8E02     		.2byte	0x28e
  492 00b5 B9000000 		.4byte	0xb9
@@ -981,7 +984,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  507 00db 08       		.uleb128 0x8
  508 00dc 69000000 		.4byte	.LASF20
  509 00e0 01       		.byte	0x1
- 510 00e1 CB       		.byte	0xcb
+ 510 00e1 CE       		.byte	0xce
  511 00e2 00000000 		.4byte	.LFB4
  512 00e6 0C000000 		.4byte	.LFE4-.LFB4
  513 00ea 01       		.uleb128 0x1
@@ -990,14 +993,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  516 00f0 09       		.uleb128 0x9
  517 00f1 D0010000 		.4byte	.LASF22
  518 00f5 01       		.byte	0x1
- 519 00f6 CB       		.byte	0xcb
+ 519 00f6 CE       		.byte	0xce
  520 00f7 CF000000 		.4byte	0xcf
  521 00fb 01       		.uleb128 0x1
  522 00fc 50       		.byte	0x50
  523 00fd 0A       		.uleb128 0xa
  524 00fe D0020000 		.4byte	.LASF19
  525 0102 01       		.byte	0x1
- 526 0103 CD       		.byte	0xcd
+ 526 0103 D0       		.byte	0xd0
  527 0104 0B010000 		.4byte	0x10b
  528 0108 01       		.uleb128 0x1
  529 0109 53       		.byte	0x53
@@ -1008,20 +1011,20 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  534 0111 0B       		.uleb128 0xb
  535 0112 3B010000 		.4byte	.LASF24
  536 0116 01       		.byte	0x1
- 537 0117 E3       		.byte	0xe3
+ 537 0117 E6       		.byte	0xe6
  538 0118 CF000000 		.4byte	0xcf
  539 011c 00000000 		.4byte	.LFB5
  540 0120 0C000000 		.4byte	.LFE5-.LFB5
  541 0124 01       		.uleb128 0x1
  542 0125 9C       		.byte	0x9c
  543 0126 38010000 		.4byte	0x138
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 18
+
+
  544 012a 0A       		.uleb128 0xa
  545 012b D0020000 		.4byte	.LASF19
  546 012f 01       		.byte	0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 18
-
-
- 547 0130 E5       		.byte	0xe5
+ 547 0130 E8       		.byte	0xe8
  548 0131 0B010000 		.4byte	0x10b
  549 0135 01       		.uleb128 0x1
  550 0136 53       		.byte	0x53
@@ -1029,7 +1032,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  552 0138 0C       		.uleb128 0xc
  553 0139 0C010000 		.4byte	.LASF21
  554 013d 01       		.byte	0x1
- 555 013e 0501     		.2byte	0x105
+ 555 013e 0801     		.2byte	0x108
  556 0140 00000000 		.4byte	.LFB6
  557 0144 10000000 		.4byte	.LFE6-.LFB6
  558 0148 01       		.uleb128 0x1
@@ -1038,14 +1041,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  561 014e 0D       		.uleb128 0xd
  562 014f E8000000 		.4byte	.LASF23
  563 0153 01       		.byte	0x1
- 564 0154 0501     		.2byte	0x105
+ 564 0154 0801     		.2byte	0x108
  565 0156 87000000 		.4byte	0x87
  566 015a 00000000 		.4byte	.LLST0
  567 015e 00       		.byte	0
  568 015f 0E       		.uleb128 0xe
  569 0160 10000000 		.4byte	.LASF25
  570 0164 01       		.byte	0x1
- 571 0165 1B01     		.2byte	0x11b
+ 571 0165 1E01     		.2byte	0x11e
  572 0167 87000000 		.4byte	0x87
  573 016b 00000000 		.4byte	.LFB7
  574 016f 0C000000 		.4byte	.LFE7-.LFB7
@@ -1055,14 +1058,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  578 0179 0F       		.uleb128 0xf
  579 017a E8000000 		.4byte	.LASF23
  580 017e 01       		.byte	0x1
- 581 017f 1D01     		.2byte	0x11d
+ 581 017f 2001     		.2byte	0x120
  582 0181 87000000 		.4byte	0x87
  583 0185 21000000 		.4byte	.LLST1
  584 0189 00       		.byte	0
  585 018a 10       		.uleb128 0x10
  586 018b 56000000 		.4byte	.LASF26
  587 018f 01       		.byte	0x1
- 588 0190 3601     		.2byte	0x136
+ 588 0190 3901     		.2byte	0x139
  589 0192 00000000 		.4byte	.LFB8
  590 0196 0C000000 		.4byte	.LFE8-.LFB8
  591 019a 01       		.uleb128 0x1
@@ -1070,19 +1073,19 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  593 019c 11       		.uleb128 0x11
  594 019d 2E000000 		.4byte	.LASF40
  595 01a1 01       		.byte	0x1
- 596 01a2 4B01     		.2byte	0x14b
+ 596 01a2 4E01     		.2byte	0x14e
  597 01a4 87000000 		.4byte	0x87
  598 01a8 00000000 		.4byte	.LFB9
  599 01ac 10000000 		.4byte	.LFE9-.LFB9
  600 01b0 01       		.uleb128 0x1
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 19
+
+
  601 01b1 9C       		.byte	0x9c
  602 01b2 10       		.uleb128 0x10
  603 01b3 B7020000 		.4byte	.LASF27
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 19
-
-
  604 01b7 01       		.byte	0x1
- 605 01b8 6001     		.2byte	0x160
+ 605 01b8 6301     		.2byte	0x163
  606 01ba 00000000 		.4byte	.LFB10
  607 01be 0C000000 		.4byte	.LFE10-.LFB10
  608 01c2 01       		.uleb128 0x1
@@ -1135,12 +1138,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  655 0227 74020000 		.4byte	0x274
  656 022b 15       		.uleb128 0x15
  657 022c D0010000 		.4byte	.LASF22
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 20
+
+
  658 0230 01       		.byte	0x1
  659 0231 69       		.byte	0x69
  660 0232 CF000000 		.4byte	0xcf
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 20
-
-
  661 0236 38000000 		.4byte	.LLST2
  662 023a 12       		.uleb128 0x12
  663 023b 08000000 		.4byte	.LVL12
@@ -1189,18 +1192,18 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  706 029c 10       		.uleb128 0x10
  707 029d 24010000 		.4byte	.LASF31
  708 02a1 01       		.byte	0x1
- 709 02a2 7B01     		.2byte	0x17b
+ 709 02a2 7E01     		.2byte	0x17e
  710 02a4 00000000 		.4byte	.LFB11
  711 02a8 0C000000 		.4byte	.LFE11-.LFB11
  712 02ac 01       		.uleb128 0x1
  713 02ad 9C       		.byte	0x9c
  714 02ae 10       		.uleb128 0x10
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 21
+
+
  715 02af 8D000000 		.4byte	.LASF32
  716 02b3 01       		.byte	0x1
- 717 02b4 9401     		.2byte	0x194
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 21
-
-
+ 717 02b4 9701     		.2byte	0x197
  718 02b6 00000000 		.4byte	.LFB12
  719 02ba 0C000000 		.4byte	.LFE12-.LFB12
  720 02be 01       		.uleb128 0x1
@@ -1255,12 +1258,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  769 0007 03       		.uleb128 0x3
  770 0008 0E       		.uleb128 0xe
  771 0009 1B       		.uleb128 0x1b
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 22
+
+
  772 000a 0E       		.uleb128 0xe
  773 000b 55       		.uleb128 0x55
  774 000c 17       		.uleb128 0x17
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 22
-
-
  775 000d 11       		.uleb128 0x11
  776 000e 01       		.uleb128 0x1
  777 000f 10       		.uleb128 0x10
@@ -1315,12 +1318,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  826 0040 3B       		.uleb128 0x3b
  827 0041 05       		.uleb128 0x5
  828 0042 49       		.uleb128 0x49
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 23
+
+
  829 0043 13       		.uleb128 0x13
  830 0044 00       		.byte	0
  831 0045 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 23
-
-
  832 0046 07       		.uleb128 0x7
  833 0047 35       		.uleb128 0x35
  834 0048 00       		.byte	0
@@ -1375,12 +1378,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  883 007a 0E       		.uleb128 0xe
  884 007b 3A       		.uleb128 0x3a
  885 007c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 24
+
+
  886 007d 3B       		.uleb128 0x3b
  887 007e 0B       		.uleb128 0xb
  888 007f 49       		.uleb128 0x49
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 24
-
-
  889 0080 13       		.uleb128 0x13
  890 0081 02       		.uleb128 0x2
  891 0082 18       		.uleb128 0x18
@@ -1435,12 +1438,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  940 00b4 9742     		.uleb128 0x2117
  941 00b6 19       		.uleb128 0x19
  942 00b7 01       		.uleb128 0x1
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 25
+
+
  943 00b8 13       		.uleb128 0x13
  944 00b9 00       		.byte	0
  945 00ba 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 25
-
-
  946 00bb 0D       		.uleb128 0xd
  947 00bc 05       		.uleb128 0x5
  948 00bd 00       		.byte	0
@@ -1495,12 +1498,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  997 00ef 49       		.uleb128 0x49
  998 00f0 13       		.uleb128 0x13
  999 00f1 02       		.uleb128 0x2
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 26
+
+
  1000 00f2 17       		.uleb128 0x17
  1001 00f3 00       		.byte	0
  1002 00f4 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 26
-
-
  1003 00f5 10       		.uleb128 0x10
  1004 00f6 2E       		.uleb128 0x2e
  1005 00f7 00       		.byte	0
@@ -1555,12 +1558,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  1054 012c 11       		.uleb128 0x11
  1055 012d 01       		.uleb128 0x1
  1056 012e 31       		.uleb128 0x31
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 27
+
+
  1057 012f 13       		.uleb128 0x13
  1058 0130 00       		.byte	0
  1059 0131 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 27
-
-
  1060 0132 13       		.uleb128 0x13
  1061 0133 898201   		.uleb128 0x4109
  1062 0136 01       		.byte	0x1
@@ -1615,12 +1618,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  1111 016a 00       		.byte	0
  1112 016b 00       		.byte	0
  1113              		.section	.debug_loc,"",%progbits
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 28
+
+
  1114              	.Ldebug_loc0:
  1115              	.LLST0:
  1116 0000 00000000 		.4byte	.LVL3
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 28
-
-
  1117 0004 02000000 		.4byte	.LVL4
  1118 0008 0100     		.2byte	0x1
  1119 000a 50       		.byte	0x50
@@ -1675,12 +1678,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  1168 0034 0C000000 		.4byte	.LFE8-.LFB8
  1169 0038 00000000 		.4byte	.LFB9
  1170 003c 10000000 		.4byte	.LFE9-.LFB9
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 29
+
+
  1171 0040 00000000 		.4byte	.LFB10
  1172 0044 0C000000 		.4byte	.LFE10-.LFB10
  1173 0048 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 29
-
-
  1174 004c 1C000000 		.4byte	.LFE0-.LFB0
  1175 0050 00000000 		.4byte	.LFB1
  1176 0054 1A000000 		.4byte	.LFE1-.LFB1
@@ -1735,12 +1738,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  1221 0000 72656733 		.ascii	"reg32\000"
  1221      3200
  1222              	.LASF36:
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 30
+
+
  1223 0006 4C45445F 		.ascii	"LED_Write\000"
  1223      57726974 
  1223      6500
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 30
-
-
  1224              	.LASF25:
  1225 0010 4379636C 		.ascii	"Cycle_ISR_1_GetPriority\000"
  1225      655F4953 
@@ -1795,12 +1798,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  1243      6420696E 
  1243      7400
  1244              	.LASF12:
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 31
+
+
  1245 00bd 75696E74 		.ascii	"uint8\000"
  1245      3800
  1246              	.LASF38:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 31
-
-
  1247 00c3 47656E65 		.ascii	"Generated_Source\\PSoC5\\Cycle_ISR_1.c\000"
  1247      72617465 
  1247      645F536F 
@@ -1855,12 +1858,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  1267 0177 433A5C64 		.ascii	"C:\\data\\GitHub\\QuadroCopter\\Software\\Cypress_F"
  1267      6174615C 
  1267      47697448 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 32
+
+
  1267      75625C51 
  1267      75616472 
  1268 01a5 6C696768 		.ascii	"lightController\\QuadrCopter\\Design01.cydsn\000"
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 32
-
-
  1268      74436F6E 
  1268      74726F6C 
  1268      6C65725C 
@@ -1915,12 +1918,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 1
  1286      655F4953 
  1286      525F315F 
  1286      44697361 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccsWOISU.s 			page 33
+
+
  1286      626C6500 
  1287              	.LASF11:
  1288 02cb 63686172 		.ascii	"char\000"
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVgqnbh.s 			page 33
-
-
  1288      00
  1289              	.LASF19:
  1290 02d0 72616D56 		.ascii	"ramVectorTable\000"

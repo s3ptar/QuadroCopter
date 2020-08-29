@@ -1,0 +1,1135 @@
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	txChannel,1,1
+  20              		.comm	txTD,1,1
+  21              		.comm	rxChannel,1,1
+  22              		.comm	rxTD,1,1
+  23              		.global	txBuffer
+  24              		.data
+  25              		.align	2
+  26              		.type	txBuffer, %object
+  27              		.size	txBuffer, 8
+  28              	txBuffer:
+  29 0000 00       		.byte	0
+  30 0001 01       		.byte	1
+  31 0002 02       		.byte	2
+  32 0003 03       		.byte	3
+  33 0004 04       		.byte	4
+  34 0005 05       		.byte	5
+  35 0006 06       		.byte	6
+  36 0007 07       		.byte	7
+  37              		.comm	rxBuffer,8,4
+  38              		.section	.rodata
+  39              		.align	2
+  40              	.LC0:
+  41 0000 53504920 		.ascii	"SPI Master\000"
+  41      4D617374 
+  41      657200
+  42 000b 00       		.align	2
+  43              	.LC1:
+  44 000c 6578616D 		.ascii	"example\000"
+  44      706C6500 
+  45              		.align	2
+  46              	.LC2:
+  47 0014 4D617374 		.ascii	"Master Rx data:\000"
+  47      65722052 
+  47      78206461 
+  47      74613A00 
+  48              		.section	.text.main,"ax",%progbits
+  49              		.align	2
+  50              		.global	main
+  51              		.thumb
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 2
+
+
+  52              		.thumb_func
+  53              		.type	main, %function
+  54              	main:
+  55              	.LFB63:
+  56              		.file 1 "main.c"
+   1:main.c        **** /*******************************************************************************
+   2:main.c        **** * File Name: main.c
+   3:main.c        **** *
+   4:main.c        **** * Version: 1.10
+   5:main.c        **** *
+   6:main.c        **** * Description:
+   7:main.c        **** *  This is source code for example project of the SPI Master component.
+   8:main.c        **** *  Parameters used:
+   9:main.c        **** *   Mode                CPHA == 0, CPOL == 0                
+  10:main.c        **** *   Data lines          MOSI+MISO
+  11:main.c        **** *   Shift direction     MSB First
+  12:main.c        **** *   DataBits:           8 
+  13:main.c        **** *   Bit Rate            1 Mbps
+  14:main.c        **** *   Clock source        External 
+  15:main.c        **** *
+  16:main.c        **** *  SPI communication test using DMA. 8 bytes are transmitted
+  17:main.c        **** *  between SPI Master and SPI Slave.
+  18:main.c        **** *  Received data are displayed on LCD. 
+  19:main.c        **** *
+  20:main.c        **** ********************************************************************************
+  21:main.c        **** * Copyright 2012-2015, Cypress Semiconductor Corporation. All rights reserved.
+  22:main.c        **** * This software is owned by Cypress Semiconductor Corporation and is protected
+  23:main.c        **** * by and subject to worldwide patent and copyright laws and treaties.
+  24:main.c        **** * Therefore, you may use this software only as provided in the license agreement
+  25:main.c        **** * accompanying the software package from which you obtained this software.
+  26:main.c        **** * CYPRESS AND ITS SUPPLIERS MAKE NO WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+  27:main.c        **** * WITH REGARD TO THIS SOFTWARE, INCLUDING, BUT NOT LIMITED TO, NONINFRINGEMENT,
+  28:main.c        **** * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  29:main.c        **** *******************************************************************************/
+  30:main.c        **** 
+  31:main.c        **** #include <project.h>
+  32:main.c        **** 
+  33:main.c        **** void DmaTxConfiguration(void);
+  34:main.c        **** void DmaRxConfiguration(void);
+  35:main.c        **** 
+  36:main.c        **** /* DMA Configuration for DMA_TX */
+  37:main.c        **** #define DMA_TX_BYTES_PER_BURST      (1u)
+  38:main.c        **** #define DMA_TX_REQUEST_PER_BURST    (1u)
+  39:main.c        **** #define DMA_TX_SRC_BASE             (CYDEV_SRAM_BASE)
+  40:main.c        **** #define DMA_TX_DST_BASE             (CYDEV_PERIPH_BASE)
+  41:main.c        **** 
+  42:main.c        **** /* DMA Configuration for DMA_RX */
+  43:main.c        **** #define DMA_RX_BYTES_PER_BURST      (1u)
+  44:main.c        **** #define DMA_RX_REQUEST_PER_BURST    (1u)
+  45:main.c        **** #define DMA_RX_SRC_BASE             (CYDEV_PERIPH_BASE)
+  46:main.c        **** #define DMA_RX_DST_BASE             (CYDEV_SRAM_BASE)
+  47:main.c        **** 
+  48:main.c        **** #define BUFFER_SIZE                 (8u)
+  49:main.c        **** #define STORE_TD_CFG_ONCMPLT        (1u)
+  50:main.c        **** 
+  51:main.c        **** /* Variable declarations for DMA_TX*/
+  52:main.c        **** uint8 txChannel;
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 3
+
+
+  53:main.c        **** uint8 txTD;
+  54:main.c        **** 
+  55:main.c        **** /* Variable declarations for DMA_RX */
+  56:main.c        **** uint8 rxChannel;
+  57:main.c        **** uint8 rxTD;
+  58:main.c        **** 
+  59:main.c        **** /* Data buffers */
+  60:main.c        **** uint8 txBuffer [BUFFER_SIZE] = {0x0u, 0x01u, 0x02u, 0x03u, 0x04u, 0x05u, 0x06u, 0x07u};
+  61:main.c        **** uint8 rxBuffer[BUFFER_SIZE];
+  62:main.c        **** 
+  63:main.c        **** /*******************************************************************************
+  64:main.c        **** * Function Name: main
+  65:main.c        **** ********************************************************************************
+  66:main.c        **** * Summary:
+  67:main.c        **** *  Main function performs following functions:
+  68:main.c        **** *   1. Starts Character LCD and print project info
+  69:main.c        **** *   2. Starts SPI Master component
+  70:main.c        **** *   3. Configures the DMA transfer for RX and TX directions
+  71:main.c        **** *   4. Displays the results on Character LCD
+  72:main.c        **** *   
+  73:main.c        **** * Parameters:
+  74:main.c        **** *  None.
+  75:main.c        **** *
+  76:main.c        **** * Return:
+  77:main.c        **** *  None.
+  78:main.c        **** *
+  79:main.c        **** *******************************************************************************/
+  80:main.c        **** int main()
+  81:main.c        **** {
+  57              		.loc 1 81 0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 8
+  60              		@ frame_needed = 1, uses_anonymous_args = 0
+  61 0000 80B5     		push	{r7, lr}
+  62              		.cfi_def_cfa_offset 8
+  63              		.cfi_offset 7, -8
+  64              		.cfi_offset 14, -4
+  65 0002 82B0     		sub	sp, sp, #8
+  66              		.cfi_def_cfa_offset 16
+  67 0004 00AF     		add	r7, sp, #0
+  68              		.cfi_def_cfa_register 7
+  82:main.c        ****     uint8 i;
+  83:main.c        ****     
+  84:main.c        ****     LCD_Start();
+  69              		.loc 1 84 0
+  70 0006 FFF7FEFF 		bl	LCD_Start
+  85:main.c        ****     LCD_Position(0u,0u);
+  71              		.loc 1 85 0
+  72 000a 0021     		movs	r1, #0
+  73 000c 0020     		movs	r0, #0
+  74 000e FFF7FEFF 		bl	LCD_Position
+  86:main.c        ****     LCD_PrintString("SPI Master");
+  75              		.loc 1 86 0
+  76 0012 2148     		ldr	r0, .L6
+  77 0014 FFF7FEFF 		bl	LCD_PrintString
+  87:main.c        ****     LCD_Position(1u,0u);
+  78              		.loc 1 87 0
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 4
+
+
+  79 0018 0021     		movs	r1, #0
+  80 001a 0120     		movs	r0, #1
+  81 001c FFF7FEFF 		bl	LCD_Position
+  88:main.c        ****     LCD_PrintString("example");
+  82              		.loc 1 88 0
+  83 0020 1E48     		ldr	r0, .L6+4
+  84 0022 FFF7FEFF 		bl	LCD_PrintString
+  89:main.c        ****     CyDelay(2000u);
+  85              		.loc 1 89 0
+  86 0026 4FF4FA60 		mov	r0, #2000
+  87 002a FFF7FEFF 		bl	CyDelay
+  90:main.c        ****     
+  91:main.c        ****     DmaTxConfiguration();
+  88              		.loc 1 91 0
+  89 002e FFF7FEFF 		bl	DmaTxConfiguration
+  92:main.c        ****     DmaRxConfiguration();
+  90              		.loc 1 92 0
+  91 0032 FFF7FEFF 		bl	DmaRxConfiguration
+  93:main.c        ****     
+  94:main.c        ****     SPIM_Start();
+  92              		.loc 1 94 0
+  93 0036 FFF7FEFF 		bl	SPIM_Start
+  95:main.c        ****     
+  96:main.c        ****     CyDmaChEnable(rxChannel, STORE_TD_CFG_ONCMPLT);
+  94              		.loc 1 96 0
+  95 003a 194B     		ldr	r3, .L6+8
+  96 003c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  97 003e 0121     		movs	r1, #1
+  98 0040 1846     		mov	r0, r3
+  99 0042 FFF7FEFF 		bl	CyDmaChEnable
+  97:main.c        ****     CyDmaChEnable(txChannel, STORE_TD_CFG_ONCMPLT);
+ 100              		.loc 1 97 0
+ 101 0046 174B     		ldr	r3, .L6+12
+ 102 0048 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 103 004a 0121     		movs	r1, #1
+ 104 004c 1846     		mov	r0, r3
+ 105 004e FFF7FEFF 		bl	CyDmaChEnable
+  98:main.c        **** 
+  99:main.c        ****     while (0u == (SPIM_ReadTxStatus() & SPIM_STS_SPI_DONE))
+ 106              		.loc 1 99 0
+ 107 0052 00BF     		nop
+ 108              	.L2:
+ 109              		.loc 1 99 0 is_stmt 0 discriminator 1
+ 110 0054 FFF7FEFF 		bl	SPIM_ReadTxStatus
+ 111 0058 0346     		mov	r3, r0
+ 112 005a 03F00103 		and	r3, r3, #1
+ 113 005e 002B     		cmp	r3, #0
+ 114 0060 F8D0     		beq	.L2
+ 100:main.c        ****     {
+ 101:main.c        ****     }
+ 102:main.c        ****     
+ 103:main.c        ****     LCD_ClearDisplay();
+ 115              		.loc 1 103 0 is_stmt 1
+ 116 0062 0120     		movs	r0, #1
+ 117 0064 FFF7FEFF 		bl	LCD_WriteControl
+ 104:main.c        ****     LCD_PrintString("Master Rx data:");
+ 118              		.loc 1 104 0
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 5
+
+
+ 119 0068 0F48     		ldr	r0, .L6+16
+ 120 006a FFF7FEFF 		bl	LCD_PrintString
+ 105:main.c        ****     LCD_Position(1u,0u);
+ 121              		.loc 1 105 0
+ 122 006e 0021     		movs	r1, #0
+ 123 0070 0120     		movs	r0, #1
+ 124 0072 FFF7FEFF 		bl	LCD_Position
+ 106:main.c        ****     
+ 107:main.c        ****     for(i=0u; i<BUFFER_SIZE; i++)
+ 125              		.loc 1 107 0
+ 126 0076 0023     		movs	r3, #0
+ 127 0078 FB71     		strb	r3, [r7, #7]
+ 128 007a 08E0     		b	.L3
+ 129              	.L4:
+ 108:main.c        ****     {
+ 109:main.c        ****         LCD_PrintHexUint8(rxBuffer[i]);
+ 130              		.loc 1 109 0 discriminator 3
+ 131 007c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 132 007e 0B4A     		ldr	r2, .L6+20
+ 133 0080 D35C     		ldrb	r3, [r2, r3]	@ zero_extendqisi2
+ 134 0082 1846     		mov	r0, r3
+ 135 0084 FFF7FEFF 		bl	LCD_PrintInt8
+ 107:main.c        ****     {
+ 136              		.loc 1 107 0 discriminator 3
+ 137 0088 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 138 008a 0133     		adds	r3, r3, #1
+ 139 008c FB71     		strb	r3, [r7, #7]
+ 140              	.L3:
+ 107:main.c        ****     {
+ 141              		.loc 1 107 0 is_stmt 0 discriminator 1
+ 142 008e FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 143 0090 072B     		cmp	r3, #7
+ 144 0092 F3D9     		bls	.L4
+ 145              	.L5:
+ 110:main.c        ****     }
+ 111:main.c        **** 
+ 112:main.c        ****     for(;;)
+ 113:main.c        ****     {
+ 114:main.c        ****     }
+ 146              		.loc 1 114 0 is_stmt 1 discriminator 1
+ 147 0094 FEE7     		b	.L5
+ 148              	.L7:
+ 149 0096 00BF     		.align	2
+ 150              	.L6:
+ 151 0098 00000000 		.word	.LC0
+ 152 009c 0C000000 		.word	.LC1
+ 153 00a0 00000000 		.word	rxChannel
+ 154 00a4 00000000 		.word	txChannel
+ 155 00a8 14000000 		.word	.LC2
+ 156 00ac 00000000 		.word	rxBuffer
+ 157              		.cfi_endproc
+ 158              	.LFE63:
+ 159              		.size	main, .-main
+ 160              		.section	.text.DmaTxConfiguration,"ax",%progbits
+ 161              		.align	2
+ 162              		.global	DmaTxConfiguration
+ 163              		.thumb
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 6
+
+
+ 164              		.thumb_func
+ 165              		.type	DmaTxConfiguration, %function
+ 166              	DmaTxConfiguration:
+ 167              	.LFB64:
+ 115:main.c        **** }
+ 116:main.c        **** 
+ 117:main.c        ****     
+ 118:main.c        **** /*******************************************************************************
+ 119:main.c        **** * Function Name: DmaTxConfiguration
+ 120:main.c        **** ********************************************************************************
+ 121:main.c        **** * Summary:
+ 122:main.c        **** *  Configures the DMA transfer for TX direction
+ 123:main.c        **** *   
+ 124:main.c        **** * Parameters:
+ 125:main.c        **** *  None.
+ 126:main.c        **** *
+ 127:main.c        **** * Return:
+ 128:main.c        **** *  None.
+ 129:main.c        **** *
+ 130:main.c        **** *******************************************************************************/
+ 131:main.c        **** void DmaTxConfiguration()
+ 132:main.c        **** {
+ 168              		.loc 1 132 0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 1, uses_anonymous_args = 0
+ 172 0000 80B5     		push	{r7, lr}
+ 173              		.cfi_def_cfa_offset 8
+ 174              		.cfi_offset 7, -8
+ 175              		.cfi_offset 14, -4
+ 176 0002 00AF     		add	r7, sp, #0
+ 177              		.cfi_def_cfa_register 7
+ 133:main.c        ****     /* Init DMA, 1 byte bursts, each burst requires a request */ 
+ 134:main.c        ****     txChannel = DMA_TX_DmaInitialize(DMA_TX_BYTES_PER_BURST, DMA_TX_REQUEST_PER_BURST, 
+ 178              		.loc 1 134 0
+ 179 0004 4FF48043 		mov	r3, #16384
+ 180 0008 41F6FF72 		movw	r2, #8191
+ 181 000c 0121     		movs	r1, #1
+ 182 000e 0120     		movs	r0, #1
+ 183 0010 FFF7FEFF 		bl	DMA_TX_DmaInitialize
+ 184 0014 0346     		mov	r3, r0
+ 185 0016 1A46     		mov	r2, r3
+ 186 0018 104B     		ldr	r3, .L9
+ 187 001a 1A70     		strb	r2, [r3]
+ 135:main.c        ****                                         HI16(DMA_TX_SRC_BASE), HI16(DMA_TX_DST_BASE));
+ 136:main.c        **** 
+ 137:main.c        ****     txTD = CyDmaTdAllocate();
+ 188              		.loc 1 137 0
+ 189 001c FFF7FEFF 		bl	CyDmaTdAllocate
+ 190 0020 0346     		mov	r3, r0
+ 191 0022 1A46     		mov	r2, r3
+ 192 0024 0E4B     		ldr	r3, .L9+4
+ 193 0026 1A70     		strb	r2, [r3]
+ 138:main.c        **** 
+ 139:main.c        ****     /* Configure this Td as follows:
+ 140:main.c        ****     *  - Increment the source address, but not the destination address   
+ 141:main.c        ****     */
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 7
+
+
+ 142:main.c        ****     CyDmaTdSetConfiguration(txTD, BUFFER_SIZE, CY_DMA_DISABLE_TD, TD_INC_SRC_ADR);
+ 194              		.loc 1 142 0
+ 195 0028 0D4B     		ldr	r3, .L9+4
+ 196 002a 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 197 002c 0123     		movs	r3, #1
+ 198 002e FE22     		movs	r2, #254
+ 199 0030 0821     		movs	r1, #8
+ 200 0032 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 143:main.c        **** 
+ 144:main.c        ****     /* From the memory to the SPIM */
+ 145:main.c        ****     CyDmaTdSetAddress(txTD, LO16((uint32)txBuffer), LO16((uint32) SPIM_TXDATA_PTR));
+ 201              		.loc 1 145 0
+ 202 0036 0A4B     		ldr	r3, .L9+4
+ 203 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 204 003a 0A4A     		ldr	r2, .L9+8
+ 205 003c 91B2     		uxth	r1, r2
+ 206 003e 46F24142 		movw	r2, #25665
+ 207 0042 1846     		mov	r0, r3
+ 208 0044 FFF7FEFF 		bl	CyDmaTdSetAddress
+ 146:main.c        ****     
+ 147:main.c        ****     /* Associate the TD with the channel */
+ 148:main.c        ****     CyDmaChSetInitialTd(txChannel, txTD); 
+ 209              		.loc 1 148 0
+ 210 0048 044B     		ldr	r3, .L9
+ 211 004a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 212 004c 044B     		ldr	r3, .L9+4
+ 213 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 214 0050 1946     		mov	r1, r3
+ 215 0052 1046     		mov	r0, r2
+ 216 0054 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 149:main.c        **** }    
+ 217              		.loc 1 149 0
+ 218 0058 00BF     		nop
+ 219 005a 80BD     		pop	{r7, pc}
+ 220              	.L10:
+ 221              		.align	2
+ 222              	.L9:
+ 223 005c 00000000 		.word	txChannel
+ 224 0060 00000000 		.word	txTD
+ 225 0064 00000000 		.word	txBuffer
+ 226              		.cfi_endproc
+ 227              	.LFE64:
+ 228              		.size	DmaTxConfiguration, .-DmaTxConfiguration
+ 229              		.section	.text.DmaRxConfiguration,"ax",%progbits
+ 230              		.align	2
+ 231              		.global	DmaRxConfiguration
+ 232              		.thumb
+ 233              		.thumb_func
+ 234              		.type	DmaRxConfiguration, %function
+ 235              	DmaRxConfiguration:
+ 236              	.LFB65:
+ 150:main.c        **** 
+ 151:main.c        **** 
+ 152:main.c        **** /*******************************************************************************
+ 153:main.c        **** * Function Name: DmaRxConfiguration
+ 154:main.c        **** ********************************************************************************
+ 155:main.c        **** * Summary:
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 8
+
+
+ 156:main.c        **** *  Configures the DMA transfer for RX direction
+ 157:main.c        **** *   
+ 158:main.c        **** * Parameters:
+ 159:main.c        **** *  None.
+ 160:main.c        **** *
+ 161:main.c        **** * Return:
+ 162:main.c        **** *  None.
+ 163:main.c        **** *
+ 164:main.c        **** *******************************************************************************/
+ 165:main.c        **** void DmaRxConfiguration()
+ 166:main.c        **** { 
+ 237              		.loc 1 166 0
+ 238              		.cfi_startproc
+ 239              		@ args = 0, pretend = 0, frame = 0
+ 240              		@ frame_needed = 1, uses_anonymous_args = 0
+ 241 0000 80B5     		push	{r7, lr}
+ 242              		.cfi_def_cfa_offset 8
+ 243              		.cfi_offset 7, -8
+ 244              		.cfi_offset 14, -4
+ 245 0002 00AF     		add	r7, sp, #0
+ 246              		.cfi_def_cfa_register 7
+ 167:main.c        ****     /* Init DMA, 1 byte bursts, each burst requires a request */ 
+ 168:main.c        ****     rxChannel = DMA_RX_DmaInitialize(DMA_RX_BYTES_PER_BURST, DMA_RX_REQUEST_PER_BURST,
+ 247              		.loc 1 168 0
+ 248 0004 41F6FF73 		movw	r3, #8191
+ 249 0008 4FF48042 		mov	r2, #16384
+ 250 000c 0121     		movs	r1, #1
+ 251 000e 0120     		movs	r0, #1
+ 252 0010 FFF7FEFF 		bl	DMA_RX_DmaInitialize
+ 253 0014 0346     		mov	r3, r0
+ 254 0016 1A46     		mov	r2, r3
+ 255 0018 104B     		ldr	r3, .L12
+ 256 001a 1A70     		strb	r2, [r3]
+ 169:main.c        ****                                      HI16(DMA_RX_SRC_BASE), HI16(DMA_RX_DST_BASE));
+ 170:main.c        **** 
+ 171:main.c        ****     rxTD = CyDmaTdAllocate();
+ 257              		.loc 1 171 0
+ 258 001c FFF7FEFF 		bl	CyDmaTdAllocate
+ 259 0020 0346     		mov	r3, r0
+ 260 0022 1A46     		mov	r2, r3
+ 261 0024 0E4B     		ldr	r3, .L12+4
+ 262 0026 1A70     		strb	r2, [r3]
+ 172:main.c        ****     
+ 173:main.c        ****     /* Configure this Td as follows:
+ 174:main.c        ****     *  - Increment the destination address, but not the source address
+ 175:main.c        ****     */
+ 176:main.c        ****     CyDmaTdSetConfiguration(rxTD, BUFFER_SIZE, CY_DMA_DISABLE_TD, TD_INC_DST_ADR);
+ 263              		.loc 1 176 0
+ 264 0028 0D4B     		ldr	r3, .L12+4
+ 265 002a 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 266 002c 0223     		movs	r3, #2
+ 267 002e FE22     		movs	r2, #254
+ 268 0030 0821     		movs	r1, #8
+ 269 0032 FFF7FEFF 		bl	CyDmaTdSetConfiguration
+ 177:main.c        **** 
+ 178:main.c        ****     /* From the SPIM to the memory */
+ 179:main.c        ****     CyDmaTdSetAddress(rxTD, LO16((uint32)SPIM_RXDATA_PTR), LO16((uint32)rxBuffer));
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 9
+
+
+ 270              		.loc 1 179 0
+ 271 0036 0A4B     		ldr	r3, .L12+4
+ 272 0038 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 273 003a 0A4A     		ldr	r2, .L12+8
+ 274 003c 92B2     		uxth	r2, r2
+ 275 003e 46F25141 		movw	r1, #25681
+ 276 0042 1846     		mov	r0, r3
+ 277 0044 FFF7FEFF 		bl	CyDmaTdSetAddress
+ 180:main.c        **** 
+ 181:main.c        ****     /* Associate the TD with the channel */
+ 182:main.c        ****     CyDmaChSetInitialTd(rxChannel, rxTD);
+ 278              		.loc 1 182 0
+ 279 0048 044B     		ldr	r3, .L12
+ 280 004a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 281 004c 044B     		ldr	r3, .L12+4
+ 282 004e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 283 0050 1946     		mov	r1, r3
+ 284 0052 1046     		mov	r0, r2
+ 285 0054 FFF7FEFF 		bl	CyDmaChSetInitialTd
+ 183:main.c        **** }
+ 286              		.loc 1 183 0
+ 287 0058 00BF     		nop
+ 288 005a 80BD     		pop	{r7, pc}
+ 289              	.L13:
+ 290              		.align	2
+ 291              	.L12:
+ 292 005c 00000000 		.word	rxChannel
+ 293 0060 00000000 		.word	rxTD
+ 294 0064 00000000 		.word	rxBuffer
+ 295              		.cfi_endproc
+ 296              	.LFE65:
+ 297              		.size	DmaRxConfiguration, .-DmaRxConfiguration
+ 298              		.text
+ 299              	.Letext0:
+ 300              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 301              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 302              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 303              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 304              		.section	.debug_info,"",%progbits
+ 305              	.Ldebug_info0:
+ 306 0000 A5010000 		.4byte	0x1a5
+ 307 0004 0400     		.2byte	0x4
+ 308 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 309 000a 04       		.byte	0x4
+ 310 000b 01       		.uleb128 0x1
+ 311 000c 00000000 		.4byte	.LASF29
+ 312 0010 0C       		.byte	0xc
+ 313 0011 C5010000 		.4byte	.LASF30
+ 314 0015 CE000000 		.4byte	.LASF31
+ 315 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 316 001d 00000000 		.4byte	0
+ 317 0021 00000000 		.4byte	.Ldebug_line0
+ 318 0025 02       		.uleb128 0x2
+ 319 0026 01       		.byte	0x1
+ 320 0027 06       		.byte	0x6
+ 321 0028 25020000 		.4byte	.LASF0
+ 322 002c 02       		.uleb128 0x2
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 10
+
+
+ 323 002d 01       		.byte	0x1
+ 324 002e 08       		.byte	0x8
+ 325 002f B1000000 		.4byte	.LASF1
+ 326 0033 02       		.uleb128 0x2
+ 327 0034 02       		.byte	0x2
+ 328 0035 05       		.byte	0x5
+ 329 0036 DA010000 		.4byte	.LASF2
+ 330 003a 02       		.uleb128 0x2
+ 331 003b 02       		.byte	0x2
+ 332 003c 07       		.byte	0x7
+ 333 003d 43010000 		.4byte	.LASF3
+ 334 0041 03       		.uleb128 0x3
+ 335 0042 98000000 		.4byte	.LASF9
+ 336 0046 02       		.byte	0x2
+ 337 0047 3F       		.byte	0x3f
+ 338 0048 4C000000 		.4byte	0x4c
+ 339 004c 02       		.uleb128 0x2
+ 340 004d 04       		.byte	0x4
+ 341 004e 05       		.byte	0x5
+ 342 004f 10020000 		.4byte	.LASF4
+ 343 0053 02       		.uleb128 0x2
+ 344 0054 04       		.byte	0x4
+ 345 0055 07       		.byte	0x7
+ 346 0056 31010000 		.4byte	.LASF5
+ 347 005a 02       		.uleb128 0x2
+ 348 005b 08       		.byte	0x8
+ 349 005c 05       		.byte	0x5
+ 350 005d B7010000 		.4byte	.LASF6
+ 351 0061 02       		.uleb128 0x2
+ 352 0062 08       		.byte	0x8
+ 353 0063 07       		.byte	0x7
+ 354 0064 82010000 		.4byte	.LASF7
+ 355 0068 04       		.uleb128 0x4
+ 356 0069 04       		.byte	0x4
+ 357 006a 05       		.byte	0x5
+ 358 006b 696E7400 		.ascii	"int\000"
+ 359 006f 02       		.uleb128 0x2
+ 360 0070 04       		.byte	0x4
+ 361 0071 07       		.byte	0x7
+ 362 0072 75010000 		.4byte	.LASF8
+ 363 0076 03       		.uleb128 0x3
+ 364 0077 A6010000 		.4byte	.LASF10
+ 365 007b 03       		.byte	0x3
+ 366 007c 2C       		.byte	0x2c
+ 367 007d 41000000 		.4byte	0x41
+ 368 0081 05       		.uleb128 0x5
+ 369 0082 E4010000 		.4byte	.LASF11
+ 370 0086 04       		.byte	0x4
+ 371 0087 9201     		.2byte	0x192
+ 372 0089 2C000000 		.4byte	0x2c
+ 373 008d 05       		.uleb128 0x5
+ 374 008e 67010000 		.4byte	.LASF12
+ 375 0092 04       		.byte	0x4
+ 376 0093 9301     		.2byte	0x193
+ 377 0095 3A000000 		.4byte	0x3a
+ 378 0099 05       		.uleb128 0x5
+ 379 009a 6E010000 		.4byte	.LASF13
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 11
+
+
+ 380 009e 04       		.byte	0x4
+ 381 009f 9401     		.2byte	0x194
+ 382 00a1 53000000 		.4byte	0x53
+ 383 00a5 02       		.uleb128 0x2
+ 384 00a6 04       		.byte	0x4
+ 385 00a7 04       		.byte	0x4
+ 386 00a8 AB000000 		.4byte	.LASF14
+ 387 00ac 02       		.uleb128 0x2
+ 388 00ad 08       		.byte	0x8
+ 389 00ae 04       		.byte	0x4
+ 390 00af 5B010000 		.4byte	.LASF15
+ 391 00b3 02       		.uleb128 0x2
+ 392 00b4 01       		.byte	0x1
+ 393 00b5 08       		.byte	0x8
+ 394 00b6 CC010000 		.4byte	.LASF16
+ 395 00ba 05       		.uleb128 0x5
+ 396 00bb C9000000 		.4byte	.LASF17
+ 397 00bf 04       		.byte	0x4
+ 398 00c0 3C02     		.2byte	0x23c
+ 399 00c2 C6000000 		.4byte	0xc6
+ 400 00c6 06       		.uleb128 0x6
+ 401 00c7 81000000 		.4byte	0x81
+ 402 00cb 02       		.uleb128 0x2
+ 403 00cc 08       		.byte	0x8
+ 404 00cd 04       		.byte	0x4
+ 405 00ce 19020000 		.4byte	.LASF18
+ 406 00d2 02       		.uleb128 0x2
+ 407 00d3 04       		.byte	0x4
+ 408 00d4 07       		.byte	0x7
+ 409 00d5 AE010000 		.4byte	.LASF19
+ 410 00d9 07       		.uleb128 0x7
+ 411 00da 62010000 		.4byte	.LASF32
+ 412 00de 01       		.byte	0x1
+ 413 00df 50       		.byte	0x50
+ 414 00e0 68000000 		.4byte	0x68
+ 415 00e4 00000000 		.4byte	.LFB63
+ 416 00e8 B0000000 		.4byte	.LFE63-.LFB63
+ 417 00ec 01       		.uleb128 0x1
+ 418 00ed 9C       		.byte	0x9c
+ 419 00ee FF000000 		.4byte	0xff
+ 420 00f2 08       		.uleb128 0x8
+ 421 00f3 6900     		.ascii	"i\000"
+ 422 00f5 01       		.byte	0x1
+ 423 00f6 52       		.byte	0x52
+ 424 00f7 81000000 		.4byte	0x81
+ 425 00fb 02       		.uleb128 0x2
+ 426 00fc 91       		.byte	0x91
+ 427 00fd 77       		.sleb128 -9
+ 428 00fe 00       		.byte	0
+ 429 00ff 09       		.uleb128 0x9
+ 430 0100 EA010000 		.4byte	.LASF20
+ 431 0104 01       		.byte	0x1
+ 432 0105 83       		.byte	0x83
+ 433 0106 00000000 		.4byte	.LFB64
+ 434 010a 68000000 		.4byte	.LFE64-.LFB64
+ 435 010e 01       		.uleb128 0x1
+ 436 010f 9C       		.byte	0x9c
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 12
+
+
+ 437 0110 09       		.uleb128 0x9
+ 438 0111 FD010000 		.4byte	.LASF21
+ 439 0115 01       		.byte	0x1
+ 440 0116 A5       		.byte	0xa5
+ 441 0117 00000000 		.4byte	.LFB65
+ 442 011b 68000000 		.4byte	.LFE65-.LFB65
+ 443 011f 01       		.uleb128 0x1
+ 444 0120 9C       		.byte	0x9c
+ 445 0121 0A       		.uleb128 0xa
+ 446 0122 99010000 		.4byte	.LASF22
+ 447 0126 05       		.byte	0x5
+ 448 0127 1207     		.2byte	0x712
+ 449 0129 2D010000 		.4byte	0x12d
+ 450 012d 06       		.uleb128 0x6
+ 451 012e 76000000 		.4byte	0x76
+ 452 0132 0B       		.uleb128 0xb
+ 453 0133 8E000000 		.4byte	.LASF23
+ 454 0137 01       		.byte	0x1
+ 455 0138 34       		.byte	0x34
+ 456 0139 81000000 		.4byte	0x81
+ 457 013d 05       		.uleb128 0x5
+ 458 013e 03       		.byte	0x3
+ 459 013f 00000000 		.4byte	txChannel
+ 460 0143 0B       		.uleb128 0xb
+ 461 0144 56010000 		.4byte	.LASF24
+ 462 0148 01       		.byte	0x1
+ 463 0149 35       		.byte	0x35
+ 464 014a 81000000 		.4byte	0x81
+ 465 014e 05       		.uleb128 0x5
+ 466 014f 03       		.byte	0x3
+ 467 0150 00000000 		.4byte	txTD
+ 468 0154 0B       		.uleb128 0xb
+ 469 0155 BF000000 		.4byte	.LASF25
+ 470 0159 01       		.byte	0x1
+ 471 015a 38       		.byte	0x38
+ 472 015b 81000000 		.4byte	0x81
+ 473 015f 05       		.uleb128 0x5
+ 474 0160 03       		.byte	0x3
+ 475 0161 00000000 		.4byte	rxChannel
+ 476 0165 0B       		.uleb128 0xb
+ 477 0166 31020000 		.4byte	.LASF26
+ 478 016a 01       		.byte	0x1
+ 479 016b 39       		.byte	0x39
+ 480 016c 81000000 		.4byte	0x81
+ 481 0170 05       		.uleb128 0x5
+ 482 0171 03       		.byte	0x3
+ 483 0172 00000000 		.4byte	rxTD
+ 484 0176 0C       		.uleb128 0xc
+ 485 0177 81000000 		.4byte	0x81
+ 486 017b 86010000 		.4byte	0x186
+ 487 017f 0D       		.uleb128 0xd
+ 488 0180 D2000000 		.4byte	0xd2
+ 489 0184 07       		.byte	0x7
+ 490 0185 00       		.byte	0
+ 491 0186 0B       		.uleb128 0xb
+ 492 0187 D1010000 		.4byte	.LASF27
+ 493 018b 01       		.byte	0x1
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 13
+
+
+ 494 018c 3C       		.byte	0x3c
+ 495 018d 76010000 		.4byte	0x176
+ 496 0191 05       		.uleb128 0x5
+ 497 0192 03       		.byte	0x3
+ 498 0193 00000000 		.4byte	txBuffer
+ 499 0197 0B       		.uleb128 0xb
+ 500 0198 A2000000 		.4byte	.LASF28
+ 501 019c 01       		.byte	0x1
+ 502 019d 3D       		.byte	0x3d
+ 503 019e 76010000 		.4byte	0x176
+ 504 01a2 05       		.uleb128 0x5
+ 505 01a3 03       		.byte	0x3
+ 506 01a4 00000000 		.4byte	rxBuffer
+ 507 01a8 00       		.byte	0
+ 508              		.section	.debug_abbrev,"",%progbits
+ 509              	.Ldebug_abbrev0:
+ 510 0000 01       		.uleb128 0x1
+ 511 0001 11       		.uleb128 0x11
+ 512 0002 01       		.byte	0x1
+ 513 0003 25       		.uleb128 0x25
+ 514 0004 0E       		.uleb128 0xe
+ 515 0005 13       		.uleb128 0x13
+ 516 0006 0B       		.uleb128 0xb
+ 517 0007 03       		.uleb128 0x3
+ 518 0008 0E       		.uleb128 0xe
+ 519 0009 1B       		.uleb128 0x1b
+ 520 000a 0E       		.uleb128 0xe
+ 521 000b 55       		.uleb128 0x55
+ 522 000c 17       		.uleb128 0x17
+ 523 000d 11       		.uleb128 0x11
+ 524 000e 01       		.uleb128 0x1
+ 525 000f 10       		.uleb128 0x10
+ 526 0010 17       		.uleb128 0x17
+ 527 0011 00       		.byte	0
+ 528 0012 00       		.byte	0
+ 529 0013 02       		.uleb128 0x2
+ 530 0014 24       		.uleb128 0x24
+ 531 0015 00       		.byte	0
+ 532 0016 0B       		.uleb128 0xb
+ 533 0017 0B       		.uleb128 0xb
+ 534 0018 3E       		.uleb128 0x3e
+ 535 0019 0B       		.uleb128 0xb
+ 536 001a 03       		.uleb128 0x3
+ 537 001b 0E       		.uleb128 0xe
+ 538 001c 00       		.byte	0
+ 539 001d 00       		.byte	0
+ 540 001e 03       		.uleb128 0x3
+ 541 001f 16       		.uleb128 0x16
+ 542 0020 00       		.byte	0
+ 543 0021 03       		.uleb128 0x3
+ 544 0022 0E       		.uleb128 0xe
+ 545 0023 3A       		.uleb128 0x3a
+ 546 0024 0B       		.uleb128 0xb
+ 547 0025 3B       		.uleb128 0x3b
+ 548 0026 0B       		.uleb128 0xb
+ 549 0027 49       		.uleb128 0x49
+ 550 0028 13       		.uleb128 0x13
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 14
+
+
+ 551 0029 00       		.byte	0
+ 552 002a 00       		.byte	0
+ 553 002b 04       		.uleb128 0x4
+ 554 002c 24       		.uleb128 0x24
+ 555 002d 00       		.byte	0
+ 556 002e 0B       		.uleb128 0xb
+ 557 002f 0B       		.uleb128 0xb
+ 558 0030 3E       		.uleb128 0x3e
+ 559 0031 0B       		.uleb128 0xb
+ 560 0032 03       		.uleb128 0x3
+ 561 0033 08       		.uleb128 0x8
+ 562 0034 00       		.byte	0
+ 563 0035 00       		.byte	0
+ 564 0036 05       		.uleb128 0x5
+ 565 0037 16       		.uleb128 0x16
+ 566 0038 00       		.byte	0
+ 567 0039 03       		.uleb128 0x3
+ 568 003a 0E       		.uleb128 0xe
+ 569 003b 3A       		.uleb128 0x3a
+ 570 003c 0B       		.uleb128 0xb
+ 571 003d 3B       		.uleb128 0x3b
+ 572 003e 05       		.uleb128 0x5
+ 573 003f 49       		.uleb128 0x49
+ 574 0040 13       		.uleb128 0x13
+ 575 0041 00       		.byte	0
+ 576 0042 00       		.byte	0
+ 577 0043 06       		.uleb128 0x6
+ 578 0044 35       		.uleb128 0x35
+ 579 0045 00       		.byte	0
+ 580 0046 49       		.uleb128 0x49
+ 581 0047 13       		.uleb128 0x13
+ 582 0048 00       		.byte	0
+ 583 0049 00       		.byte	0
+ 584 004a 07       		.uleb128 0x7
+ 585 004b 2E       		.uleb128 0x2e
+ 586 004c 01       		.byte	0x1
+ 587 004d 3F       		.uleb128 0x3f
+ 588 004e 19       		.uleb128 0x19
+ 589 004f 03       		.uleb128 0x3
+ 590 0050 0E       		.uleb128 0xe
+ 591 0051 3A       		.uleb128 0x3a
+ 592 0052 0B       		.uleb128 0xb
+ 593 0053 3B       		.uleb128 0x3b
+ 594 0054 0B       		.uleb128 0xb
+ 595 0055 49       		.uleb128 0x49
+ 596 0056 13       		.uleb128 0x13
+ 597 0057 11       		.uleb128 0x11
+ 598 0058 01       		.uleb128 0x1
+ 599 0059 12       		.uleb128 0x12
+ 600 005a 06       		.uleb128 0x6
+ 601 005b 40       		.uleb128 0x40
+ 602 005c 18       		.uleb128 0x18
+ 603 005d 9642     		.uleb128 0x2116
+ 604 005f 19       		.uleb128 0x19
+ 605 0060 01       		.uleb128 0x1
+ 606 0061 13       		.uleb128 0x13
+ 607 0062 00       		.byte	0
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 15
+
+
+ 608 0063 00       		.byte	0
+ 609 0064 08       		.uleb128 0x8
+ 610 0065 34       		.uleb128 0x34
+ 611 0066 00       		.byte	0
+ 612 0067 03       		.uleb128 0x3
+ 613 0068 08       		.uleb128 0x8
+ 614 0069 3A       		.uleb128 0x3a
+ 615 006a 0B       		.uleb128 0xb
+ 616 006b 3B       		.uleb128 0x3b
+ 617 006c 0B       		.uleb128 0xb
+ 618 006d 49       		.uleb128 0x49
+ 619 006e 13       		.uleb128 0x13
+ 620 006f 02       		.uleb128 0x2
+ 621 0070 18       		.uleb128 0x18
+ 622 0071 00       		.byte	0
+ 623 0072 00       		.byte	0
+ 624 0073 09       		.uleb128 0x9
+ 625 0074 2E       		.uleb128 0x2e
+ 626 0075 00       		.byte	0
+ 627 0076 3F       		.uleb128 0x3f
+ 628 0077 19       		.uleb128 0x19
+ 629 0078 03       		.uleb128 0x3
+ 630 0079 0E       		.uleb128 0xe
+ 631 007a 3A       		.uleb128 0x3a
+ 632 007b 0B       		.uleb128 0xb
+ 633 007c 3B       		.uleb128 0x3b
+ 634 007d 0B       		.uleb128 0xb
+ 635 007e 27       		.uleb128 0x27
+ 636 007f 19       		.uleb128 0x19
+ 637 0080 11       		.uleb128 0x11
+ 638 0081 01       		.uleb128 0x1
+ 639 0082 12       		.uleb128 0x12
+ 640 0083 06       		.uleb128 0x6
+ 641 0084 40       		.uleb128 0x40
+ 642 0085 18       		.uleb128 0x18
+ 643 0086 9642     		.uleb128 0x2116
+ 644 0088 19       		.uleb128 0x19
+ 645 0089 00       		.byte	0
+ 646 008a 00       		.byte	0
+ 647 008b 0A       		.uleb128 0xa
+ 648 008c 34       		.uleb128 0x34
+ 649 008d 00       		.byte	0
+ 650 008e 03       		.uleb128 0x3
+ 651 008f 0E       		.uleb128 0xe
+ 652 0090 3A       		.uleb128 0x3a
+ 653 0091 0B       		.uleb128 0xb
+ 654 0092 3B       		.uleb128 0x3b
+ 655 0093 05       		.uleb128 0x5
+ 656 0094 49       		.uleb128 0x49
+ 657 0095 13       		.uleb128 0x13
+ 658 0096 3F       		.uleb128 0x3f
+ 659 0097 19       		.uleb128 0x19
+ 660 0098 3C       		.uleb128 0x3c
+ 661 0099 19       		.uleb128 0x19
+ 662 009a 00       		.byte	0
+ 663 009b 00       		.byte	0
+ 664 009c 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 16
+
+
+ 665 009d 34       		.uleb128 0x34
+ 666 009e 00       		.byte	0
+ 667 009f 03       		.uleb128 0x3
+ 668 00a0 0E       		.uleb128 0xe
+ 669 00a1 3A       		.uleb128 0x3a
+ 670 00a2 0B       		.uleb128 0xb
+ 671 00a3 3B       		.uleb128 0x3b
+ 672 00a4 0B       		.uleb128 0xb
+ 673 00a5 49       		.uleb128 0x49
+ 674 00a6 13       		.uleb128 0x13
+ 675 00a7 3F       		.uleb128 0x3f
+ 676 00a8 19       		.uleb128 0x19
+ 677 00a9 02       		.uleb128 0x2
+ 678 00aa 18       		.uleb128 0x18
+ 679 00ab 00       		.byte	0
+ 680 00ac 00       		.byte	0
+ 681 00ad 0C       		.uleb128 0xc
+ 682 00ae 01       		.uleb128 0x1
+ 683 00af 01       		.byte	0x1
+ 684 00b0 49       		.uleb128 0x49
+ 685 00b1 13       		.uleb128 0x13
+ 686 00b2 01       		.uleb128 0x1
+ 687 00b3 13       		.uleb128 0x13
+ 688 00b4 00       		.byte	0
+ 689 00b5 00       		.byte	0
+ 690 00b6 0D       		.uleb128 0xd
+ 691 00b7 21       		.uleb128 0x21
+ 692 00b8 00       		.byte	0
+ 693 00b9 49       		.uleb128 0x49
+ 694 00ba 13       		.uleb128 0x13
+ 695 00bb 2F       		.uleb128 0x2f
+ 696 00bc 0B       		.uleb128 0xb
+ 697 00bd 00       		.byte	0
+ 698 00be 00       		.byte	0
+ 699 00bf 00       		.byte	0
+ 700              		.section	.debug_aranges,"",%progbits
+ 701 0000 2C000000 		.4byte	0x2c
+ 702 0004 0200     		.2byte	0x2
+ 703 0006 00000000 		.4byte	.Ldebug_info0
+ 704 000a 04       		.byte	0x4
+ 705 000b 00       		.byte	0
+ 706 000c 0000     		.2byte	0
+ 707 000e 0000     		.2byte	0
+ 708 0010 00000000 		.4byte	.LFB63
+ 709 0014 B0000000 		.4byte	.LFE63-.LFB63
+ 710 0018 00000000 		.4byte	.LFB64
+ 711 001c 68000000 		.4byte	.LFE64-.LFB64
+ 712 0020 00000000 		.4byte	.LFB65
+ 713 0024 68000000 		.4byte	.LFE65-.LFB65
+ 714 0028 00000000 		.4byte	0
+ 715 002c 00000000 		.4byte	0
+ 716              		.section	.debug_ranges,"",%progbits
+ 717              	.Ldebug_ranges0:
+ 718 0000 00000000 		.4byte	.LFB63
+ 719 0004 B0000000 		.4byte	.LFE63
+ 720 0008 00000000 		.4byte	.LFB64
+ 721 000c 68000000 		.4byte	.LFE64
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 17
+
+
+ 722 0010 00000000 		.4byte	.LFB65
+ 723 0014 68000000 		.4byte	.LFE65
+ 724 0018 00000000 		.4byte	0
+ 725 001c 00000000 		.4byte	0
+ 726              		.section	.debug_line,"",%progbits
+ 727              	.Ldebug_line0:
+ 728 0000 BB010000 		.section	.debug_str,"MS",%progbits,1
+ 728      02004C01 
+ 728      00000201 
+ 728      FB0E0D00 
+ 728      01010101 
+ 729              	.LASF29:
+ 730 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 730      43313120 
+ 730      352E342E 
+ 730      31203230 
+ 730      31363036 
+ 731 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 731      20726576 
+ 731      6973696F 
+ 731      6E203233 
+ 731      37373135 
+ 732 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 732      66756E63 
+ 732      74696F6E 
+ 732      2D736563 
+ 732      74696F6E 
+ 733              	.LASF23:
+ 734 008e 74784368 		.ascii	"txChannel\000"
+ 734      616E6E65 
+ 734      6C00
+ 735              	.LASF9:
+ 736 0098 5F5F696E 		.ascii	"__int32_t\000"
+ 736      7433325F 
+ 736      7400
+ 737              	.LASF28:
+ 738 00a2 72784275 		.ascii	"rxBuffer\000"
+ 738      66666572 
+ 738      00
+ 739              	.LASF14:
+ 740 00ab 666C6F61 		.ascii	"float\000"
+ 740      7400
+ 741              	.LASF1:
+ 742 00b1 756E7369 		.ascii	"unsigned char\000"
+ 742      676E6564 
+ 742      20636861 
+ 742      7200
+ 743              	.LASF25:
+ 744 00bf 72784368 		.ascii	"rxChannel\000"
+ 744      616E6E65 
+ 744      6C00
+ 745              	.LASF17:
+ 746 00c9 72656738 		.ascii	"reg8\000"
+ 746      00
+ 747              	.LASF31:
+ 748 00ce 433A5C64 		.ascii	"C:\\data\\GitHub\\QuadroCopter\\Software\\Cypress_F"
+ 748      6174615C 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 18
+
+
+ 748      47697448 
+ 748      75625C51 
+ 748      75616472 
+ 749 00fc 6C696768 		.ascii	"lightController\\QuadrCopter\\SPIM_Example01_DMA.cy"
+ 749      74436F6E 
+ 749      74726F6C 
+ 749      6C65725C 
+ 749      51756164 
+ 750 012d 64736E00 		.ascii	"dsn\000"
+ 751              	.LASF5:
+ 752 0131 6C6F6E67 		.ascii	"long unsigned int\000"
+ 752      20756E73 
+ 752      69676E65 
+ 752      6420696E 
+ 752      7400
+ 753              	.LASF3:
+ 754 0143 73686F72 		.ascii	"short unsigned int\000"
+ 754      7420756E 
+ 754      7369676E 
+ 754      65642069 
+ 754      6E7400
+ 755              	.LASF24:
+ 756 0156 74785444 		.ascii	"txTD\000"
+ 756      00
+ 757              	.LASF15:
+ 758 015b 646F7562 		.ascii	"double\000"
+ 758      6C6500
+ 759              	.LASF32:
+ 760 0162 6D61696E 		.ascii	"main\000"
+ 760      00
+ 761              	.LASF12:
+ 762 0167 75696E74 		.ascii	"uint16\000"
+ 762      313600
+ 763              	.LASF13:
+ 764 016e 75696E74 		.ascii	"uint32\000"
+ 764      333200
+ 765              	.LASF8:
+ 766 0175 756E7369 		.ascii	"unsigned int\000"
+ 766      676E6564 
+ 766      20696E74 
+ 766      00
+ 767              	.LASF7:
+ 768 0182 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 768      206C6F6E 
+ 768      6720756E 
+ 768      7369676E 
+ 768      65642069 
+ 769              	.LASF22:
+ 770 0199 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 770      52784275 
+ 770      66666572 
+ 770      00
+ 771              	.LASF10:
+ 772 01a6 696E7433 		.ascii	"int32_t\000"
+ 772      325F7400 
+ 773              	.LASF19:
+ 774 01ae 73697A65 		.ascii	"sizetype\000"
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccBbQkJF.s 			page 19
+
+
+ 774      74797065 
+ 774      00
+ 775              	.LASF6:
+ 776 01b7 6C6F6E67 		.ascii	"long long int\000"
+ 776      206C6F6E 
+ 776      6720696E 
+ 776      7400
+ 777              	.LASF30:
+ 778 01c5 6D61696E 		.ascii	"main.c\000"
+ 778      2E6300
+ 779              	.LASF16:
+ 780 01cc 63686172 		.ascii	"char\000"
+ 780      00
+ 781              	.LASF27:
+ 782 01d1 74784275 		.ascii	"txBuffer\000"
+ 782      66666572 
+ 782      00
+ 783              	.LASF2:
+ 784 01da 73686F72 		.ascii	"short int\000"
+ 784      7420696E 
+ 784      7400
+ 785              	.LASF11:
+ 786 01e4 75696E74 		.ascii	"uint8\000"
+ 786      3800
+ 787              	.LASF20:
+ 788 01ea 446D6154 		.ascii	"DmaTxConfiguration\000"
+ 788      78436F6E 
+ 788      66696775 
+ 788      72617469 
+ 788      6F6E00
+ 789              	.LASF21:
+ 790 01fd 446D6152 		.ascii	"DmaRxConfiguration\000"
+ 790      78436F6E 
+ 790      66696775 
+ 790      72617469 
+ 790      6F6E00
+ 791              	.LASF4:
+ 792 0210 6C6F6E67 		.ascii	"long int\000"
+ 792      20696E74 
+ 792      00
+ 793              	.LASF18:
+ 794 0219 6C6F6E67 		.ascii	"long double\000"
+ 794      20646F75 
+ 794      626C6500 
+ 795              	.LASF0:
+ 796 0225 7369676E 		.ascii	"signed char\000"
+ 796      65642063 
+ 796      68617200 
+ 797              	.LASF26:
+ 798 0231 72785444 		.ascii	"rxTD\000"
+ 798      00
+ 799              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

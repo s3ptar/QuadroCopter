@@ -8,9 +8,9 @@
 		3.2::Clock to Out
 		3.3::Pad to Pad
 	4::Path Details for Clock Frequency Summary
-		4.1::Critical Path Report for timer_clock
+		4.1::Critical Path Report for DMA_Timer
 	5::Path Details for Clock Relationship Summary
-		5.1::Critical Path Report for (timer_clock:R vs. timer_clock:R)
+		5.1::Critical Path Report for (DMA_Timer:R vs. DMA_Timer:R)
 ===================================================================== 
                     End of Table of Contents
 ##################################################################### 
@@ -18,14 +18,15 @@
 ##################################################################### 
                     1::Clock Frequency Summary
 ===================================================================== 
-Number of clocks: 7
-Clock: CyBUS_CLK     | N/A                   | Target: 24.00 MHz  | 
-Clock: CyILO         | N/A                   | Target: 0.10 MHz   | 
-Clock: CyIMO         | N/A                   | Target: 24.00 MHz  | 
-Clock: CyMASTER_CLK  | N/A                   | Target: 24.00 MHz  | 
-Clock: CyPLL_OUT     | N/A                   | Target: 24.00 MHz  | 
-Clock: CyXTAL_32kHz  | N/A                   | Target: 0.03 MHz   | 
-Clock: timer_clock   | Frequency: 63.33 MHz  | Target: 0.00 MHz   | 
+Number of clocks: 8
+Clock: CyBUS_CLK                  | N/A                   | Target: 24.00 MHz  | 
+Clock: CyBUS_CLK(fixed-function)  | N/A                   | Target: 24.00 MHz  | 
+Clock: CyILO                      | N/A                   | Target: 0.10 MHz   | 
+Clock: CyIMO                      | N/A                   | Target: 24.00 MHz  | 
+Clock: CyMASTER_CLK               | N/A                   | Target: 24.00 MHz  | 
+Clock: CyPLL_OUT                  | N/A                   | Target: 24.00 MHz  | 
+Clock: CyXTAL_32kHz               | N/A                   | Target: 0.03 MHz   | 
+Clock: DMA_Timer                  | Frequency: 63.33 MHz  | Target: 0.00 MHz   | 
 
  =====================================================================
                     End of Clock Frequency Summary
@@ -38,7 +39,7 @@ Clock: timer_clock   | Frequency: 63.33 MHz  | Target: 0.00 MHz   |
 
 Launch Clock  Capture Clock  Constraint(R-R)  Slack(R-R)   Constraint(R-F)  Slack(R-F)  Constraint(F-F)  Slack(F-F)  Constraint(F-R)  Slack(F-R)  
 ------------  -------------  ---------------  -----------  ---------------  ----------  ---------------  ----------  ---------------  ----------  
-timer_clock   timer_clock    2.73067e+009     -2147483648  N/A              N/A         N/A              N/A         N/A              N/A         
+DMA_Timer     DMA_Timer      2.73067e+009     -2147483648  N/A              N/A         N/A              N/A         N/A              N/A         
 
  =====================================================================
                     End of Clock Relationship Summary
@@ -61,12 +62,14 @@ Port Name  Setup to Clk  Clock Name:Phase
 -----------------------3.2::Clock to Out
 ----------------------------------------
 
-Port Name  Clock to Out  Clock Name:Phase  
----------  ------------  ----------------  
+Port Name         Clock to Out  Clock Name:Phase             
+----------------  ------------  ---------------------------  
+SCL_1(0)_PAD:out  25374         CyBUS_CLK(fixed-function):R  
+SDA_1(0)_PAD:out  25441         CyBUS_CLK(fixed-function):R  
 
 
--------------------------3.3::Pad to Pad
-----------------------------------------
+                         3.3::Pad to Pad
+                         ---------------
 
 Port Name (Source)  Port Name (Destination)  Delay  
 ------------------  -----------------------  -----  
@@ -77,9 +80,9 @@ Port Name (Source)  Port Name (Destination)  Delay
 ##################################################################### 
                     4::Path Details for Clock Frequency Summary
 ===================================================================== 
-4.1::Critical Path Report for timer_clock
-*****************************************
-Clock: timer_clock
+4.1::Critical Path Report for DMA_Timer
+***************************************
+Clock: DMA_Timer
 Frequency: 63.33 MHz | Target: 0.00 MHz
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
@@ -89,12 +92,12 @@ Path End       : \Timer_1:TimerUDB:sT16:timerdp:u1\/ci
 Capture Clock  : \Timer_1:TimerUDB:sT16:timerdp:u1\/clock
 Path slack     : 2730650877p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                -4230
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730662437
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                            -4230
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730662437
 
 Launch Clock Arrival Time                       0
 + Clock path delay                          0
@@ -135,8 +138,8 @@ ClockBlock/dclk_glb_0                                      clockblockcell      0
                     5::Path Details for Clock Relationship Summary
 ===================================================================== 
 
-5.1::Critical Path Report for (timer_clock:R vs. timer_clock:R)
-***************************************************************
+5.1::Critical Path Report for (DMA_Timer:R vs. DMA_Timer:R)
+***********************************************************
 
 ++++ Path 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
 
@@ -145,12 +148,12 @@ Path End       : \Timer_1:TimerUDB:sT16:timerdp:u1\/ci
 Capture Clock  : \Timer_1:TimerUDB:sT16:timerdp:u1\/clock
 Path slack     : 2730650877p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                -4230
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730662437
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                            -4230
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730662437
 
 Launch Clock Arrival Time                       0
 + Clock path delay                          0
@@ -197,12 +200,12 @@ Path End       : \Timer_1:TimerUDB:sT16:timerdp:u1\/ci
 Capture Clock  : \Timer_1:TimerUDB:sT16:timerdp:u1\/clock
 Path slack     : 2730650877p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                -4230
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730662437
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                            -4230
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730662437
 
 Launch Clock Arrival Time                       0
 + Clock path delay                          0
@@ -241,12 +244,12 @@ Path End       : \Timer_1:TimerUDB:rstSts:stsreg\/status_0
 Capture Clock  : \Timer_1:TimerUDB:rstSts:stsreg\/clock
 Path slack     : 2730653933p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                 -500
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730666167
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                             -500
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730666167
 
 Launch Clock Arrival Time                       0
 + Clock path delay                          0
@@ -285,12 +288,12 @@ Path End       : \Timer_1:TimerUDB:sT16:timerdp:u1\/cs_addr_0
 Capture Clock  : \Timer_1:TimerUDB:sT16:timerdp:u1\/clock
 Path slack     : 2730654052p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                -6060
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730660607
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                            -6060
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730660607
 
 Launch Clock Arrival Time                      0
 + Clock path delay                         0
@@ -327,12 +330,12 @@ Path End       : \Timer_1:TimerUDB:sT16:timerdp:u0\/cs_addr_0
 Capture Clock  : \Timer_1:TimerUDB:sT16:timerdp:u0\/clock
 Path slack     : 2730654177p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                -6060
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730660607
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                            -6060
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730660607
 
 Launch Clock Arrival Time                      0
 + Clock path delay                         0
@@ -369,12 +372,12 @@ Path End       : \Timer_1:TimerUDB:sT16:timerdp:u1\/cs_addr_1
 Capture Clock  : \Timer_1:TimerUDB:sT16:timerdp:u1\/clock
 Path slack     : 2730656317p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                -6060
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730660607
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                            -6060
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730660607
 
 Launch Clock Arrival Time                      0
 + Clock path delay                         0
@@ -409,12 +412,12 @@ Path End       : \Timer_1:TimerUDB:sT16:timerdp:u0\/cs_addr_1
 Capture Clock  : \Timer_1:TimerUDB:sT16:timerdp:u0\/clock
 Path slack     : 2730656434p
 
-Capture Clock Arrival Time                                      0
-+ Clock path delay                                              0
-+ Cycle adjust (timer_clock:R#1 vs. timer_clock:R#2)   2730666667
-- Setup time                                                -6060
-----------------------------------------------------   ---------- 
-End-of-path required time (ps)                         2730660607
+Capture Clock Arrival Time                                  0
++ Clock path delay                                          0
++ Cycle adjust (DMA_Timer:R#1 vs. DMA_Timer:R#2)   2730666667
+- Setup time                                            -6060
+------------------------------------------------   ---------- 
+End-of-path required time (ps)                     2730660607
 
 Launch Clock Arrival Time                      0
 + Clock path delay                         0

@@ -28,6 +28,7 @@
 ********************************************************************************/
 /* `#START Cycle_ISR_1_intc` */
 #include "LED.h"
+#include "Timer_1.h"
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -165,7 +166,11 @@ CY_ISR(Cycle_ISR_1_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START Cycle_ISR_1_Interrupt` */
+    /***************** Clear Pending INterrupts *****************************/
     Cycle_ISR_1_ClearPending();
+    /*********** Read Interruptsource to Bring Trigger Down *****************/
+    Timer_1_ReadStatusRegister();
+    /************** Do Interruptaction *****/
     LED_Write(!LED_Read());
     /* `#END` */
 }

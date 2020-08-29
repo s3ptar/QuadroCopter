@@ -43,8 +43,8 @@
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\USB_CDC_1_msc.h" value="HEADER;;;;;USB_CDC_1" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\DieTemp_1.c" value="SOURCE_C;CortexM3;;;;DieTemp_1" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\DieTemp_1.h" value="HEADER;;;;;DieTemp_1" />
-  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\timer_clock.c" value="SOURCE_C;CortexM3;;;;timer_clock" />
-  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\timer_clock.h" value="HEADER;;;;;timer_clock" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\DMA_Timer.c" value="SOURCE_C;CortexM3;;;;DMA_Timer" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\DMA_Timer.h" value="HEADER;;;;;DMA_Timer" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\LED_aliases.h" value="HEADER;;;;;LED" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\LED.c" value="SOURCE_C;CortexM3;;;;LED" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\LED.h" value="HEADER;;;;;LED" />
@@ -53,6 +53,22 @@
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\Timer_1.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\Timer_1.h" value="HEADER;;;;;Timer_1" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\Timer_1_PM.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\DMA_UART_Tx_dma.c" value="SOURCE_C;CortexM3;;;;DMA_UART_Tx" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\DMA_UART_Tx_dma.h" value="HEADER;;;;;DMA_UART_Tx" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\SDA_1_aliases.h" value="HEADER;;;;;SDA_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\SDA_1.c" value="SOURCE_C;CortexM3;;;;SDA_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\SDA_1.h" value="HEADER;;;;;SDA_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\SCL_1_aliases.h" value="HEADER;;;;;SCL_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\SCL_1.c" value="SOURCE_C;CortexM3;;;;SCL_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\SCL_1.h" value="HEADER;;;;;SCL_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1.c" value="SOURCE_C;CortexM3;;;;I2C_Master_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1.h" value="HEADER;;;;;I2C_Master_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1_BOOT.c" value="SOURCE_C;CortexM3;;;;I2C_Master_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1_INT.c" value="SOURCE_C;CortexM3;;;;I2C_Master_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1_PM.c" value="SOURCE_C;CortexM3;;;;I2C_Master_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1_SLAVE.c" value="SOURCE_C;CortexM3;;;;I2C_Master_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1_MASTER.c" value="SOURCE_C;CortexM3;;;;I2C_Master_1" />
+  <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\I2C_Master_1_PVT.h" value="HEADER;;;;;I2C_Master_1" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\USB_CDC_1_Dm_aliases.h" value="HEADER;;;;;USB_CDC_1_Dm" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\USB_CDC_1_Dm.c" value="SOURCE_C;CortexM3;;;;USB_CDC_1_Dm" />
   <file name="C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\codegentemp\USB_CDC_1_Dm.h" value="HEADER;;;;;USB_CDC_1_Dm" />
