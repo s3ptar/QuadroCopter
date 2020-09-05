@@ -58,8 +58,9 @@
 /***********************************************************************
  * Funtions
  **********************************************************************/
- 
- 
+uint8_t setup_itg3200(_Bool ADRPin, uint8_t rate_divider, uint8_t DLPF_CFG);
+void read_itg3200_data(uint8 SlaveAddress, uint8_t StartRegister, uint8_t nRead, uint8_t* ReadBuffer);
+uint8_t read_register_data(uint8 SlaveAddress, uint8_t Register);
  
  
 #endif /* _ITG3200_H_ */

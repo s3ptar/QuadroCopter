@@ -56,7 +56,7 @@ uint8_t DeviceADR;
 ***********************************************************************/
 
 /***********************************************************************
-*! \fn          uint8 write_data(uint8 SlaveAddress, uint8_t Register, uint8 wrData)
+*! \fn          uint8_t write_data(uint8 SlaveAddress, uint8_t Register, uint8 wrData)
 *  \brief       write to an slave register address
 *  \param       uint8 SlaveAddress
 *  \param       uint8_t Register
@@ -64,7 +64,7 @@ uint8_t DeviceADR;
 *  \exception   none
 *  \return      0 = success
 ***********************************************************************/
-uint8 write_data(uint8 SlaveAddress, uint8_t Register, uint8 wrData){
+uint8_t write_data(uint8 SlaveAddress, uint8_t Register, uint8 wrData){
     
     uint8_t write_buffer[2];
     write_buffer[0] =  Register;
@@ -73,18 +73,41 @@ uint8 write_data(uint8 SlaveAddress, uint8_t Register, uint8 wrData){
 }
 
 /***********************************************************************
-*! \fn          uint8 read_register_data(uint8 SlaveAddress, uint8_t Register)
+*! \fn          uint8_t read_register_data(uint8 SlaveAddress, uint8_t Register)
 *  \brief       read single register
 *  \param       uint8 SlaveAddress
+*  \param       uint8 Register - Address of Register
 *  \exception   none
 *  \return      register value
 ***********************************************************************/
-uint8 read_register_data(uint8 SlaveAddress, uint8_t Register){
+uint8_t read_register_data(uint8 SlaveAddress, uint8_t Register){
     
     uint8_t rdData;
     I2C_Master_1_MasterWriteBuf(SlaveAddress, &Register, 1, I2C_Master_1_MODE_NO_STOP );
     I2C_Master_1_MasterReadBuf(SlaveAddress, &rdData, 1, I2C_Master_1_MODE_COMPLETE_XFER);
     return rdData;
+}
+
+
+/***********************************************************************
+*! \fn          void read_itg3200_data(uint8 SlaveAddress, 
+*                   uint8_t StartRegister, uint8_t DataToRead, 
+*                   uint16_t * ReadBuffer)
+*  \brief       read Number of 8 Bit register
+*  \param       uint8 SlaveAddress
+*  \param       uint8 StartRegister - Start Registeradress
+*  \param       uint8_t nRead - Number of Read Register
+*  \param       uint8 * ReadBuffer - Pointer to ReadBuffer
+*  \exception   none
+*  \return      void
+***********************************************************************/
+void read_itg3200_data(uint8 SlaveAddress, uint8_t StartRegister, uint8_t nRead, uint8_t * ReadBuffer){
+    
+    I2C_Master_1_MasterWriteBuf(SlaveAddress, &StartRegister, 1, I2C_Master_1_MODE_NO_STOP );
+    I2C_Master_1_MasterReadBuf(SlaveAddress, ReadBuffer, nRead<<1, I2C_Master_1_MODE_COMPLETE_XFER);
+    
+    //Build Buffer after Read
+
 }
 
 /***********************************************************************
