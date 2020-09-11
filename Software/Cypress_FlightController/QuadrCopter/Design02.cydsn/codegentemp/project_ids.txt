@@ -1,0 +1,12 @@
+C:\projekte\repo\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\Design01.cyprj|67bf06ac-a629-4f0d-8e51-944a4106c02e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|43e24447-16da-4bd2-9e57-692280613b80
+C:\Users\rene_\OneDrive\Dokumente\PSoC Creator\4.3\Downloads ( 4.3).cylib\Downloads ( 4.3).cyprj|4b711c28-b555-4f45-bfe4-e2a1d6f2e33b
+C:\Users\rene_\OneDrive\Dokumente\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|2369e9df-5c53-4396-85fc-38064c7f96d5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|b70b033c-ba51-4779-aa82-0b7538b54b26
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|ac197ad5-dfba-44f8-935b-3cb3b0b4a90d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7b842551-4207-4f38-b1e6-4ab8c77c0dd6
+C:\projekte\repo\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Interrupts_Example01.cydsn\Interrupts_Example01.cyprj|f3540177-6568-4185-a7c4-6a9fae9d5f0b
+C:\projekte\repo\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\SPIM_Example01_DMA.cydsn\SPIM_Example01_DMA.cyprj|74909459-0fe3-4693-818f-8f01a34ba2c4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|e5a736d7-0e1e-4400-a1c0-4af7ffdcd660
+C:\projekte\repo\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design02.cydsn\Design02.cyprj|04c0242c-7950-4bda-895f-f15c5c537786
+C:\projekte\repo\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\USBFS_UART01.cydsn\USBFS_UART01.cyprj|32b9c86b-f6f4-4e79-9b4d-a4791425480d

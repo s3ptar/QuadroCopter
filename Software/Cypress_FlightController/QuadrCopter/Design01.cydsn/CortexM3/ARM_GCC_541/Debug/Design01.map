@@ -1,13 +1,21 @@
 Archive member included to satisfy reference by file (symbol)
 
+.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (USB_CDC_1_Init)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
-                              .\CortexM3\ARM_GCC_541\Debug\main.o (USB_CDC_1_CDC_Init)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (USB_CDC_1_PutData)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
-                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o) (USB_CDC_1_currentTD)
+                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o) (USB_CDC_1_lastPacketSize)
+.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o) (USB_CDC_1_EP_1_ISR)
+.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o) (USB_CDC_1_DP_ISR)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
-                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o) (USB_CDC_1_HandleStandardRqst)
+                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o) (USB_CDC_1_ConfigReg)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
                               .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o) (USB_CDC_1_HandleVendorRqst)
+.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o) (USB_CDC_1_Dp_ClearInterrupt)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
                               .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (CyDmacConfigure)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
@@ -26,18 +34,10 @@ Archive member included to satisfy reference by file (symbol)
                               .\CortexM3\ARM_GCC_541\Debug\ITG3200.o (I2C_Master_1_MasterWriteBuf)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
                               .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o (CyDelayCycles)
-.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
-                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o) (USB_CDC_1_GetEPState)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
                               .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o) (USB_CDC_1_DispatchClassRqst)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
                               .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o) (USB_CDC_1_idSerialNumberStringDescriptor)
-.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
-                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o) (USB_CDC_1_EP_1_ISR)
-.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
-                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o) (USB_CDC_1_DP_ISR)
-.\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
-                              .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o) (USB_CDC_1_Dp_ClearInterrupt)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
                               .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o) (CyFlash_SetWaitCycles)
 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
@@ -104,6 +104,7 @@ USB_CDC_1_configurationChanged
 I2C_Master_1_mstrWrBufIndex
                     0x1               .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
 I2C_Master_1_state  0x1               .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+USB_CDC_Buffer      0x40              .\CortexM3\ARM_GCC_541\Debug\main.o
 I2C_Master_1_mstrWrBufPtr
                     0x4               .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
 DeviceADR           0x1               .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
@@ -154,21 +155,8 @@ Discarded input sections
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .text.write_data
-                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .text.set_sample_rate_divider
-                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .text.read_register_data
-                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
  .text.read_itg3200_data
                 0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .text.set_digital_low_pass_filter_configuration
-                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .text.set_interrupt_configuration
-                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .text.setup_itg3200
-                0x00000000       0x54 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- COMMON         0x00000000        0x1 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
@@ -182,28 +170,45 @@ Discarded input sections
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
  .text._exit    0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
  .text._sbrk    0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_Stop
+                0x00000000       0xb8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_CheckActivity
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_GetInterfaceSetting
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_DisableOutEP
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_Force
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_GetEPAckState
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_SetPowerStatus
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_RWUEnabled
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_GetDeviceAddress
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_EnableSofInt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .text.USB_CDC_1_DisableSofInt
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .data          0x00000000       0x1a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_GetInterfaceComPort
-                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_DispatchCDCClassRqst
+ .text.USB_CDC_1_StrLen
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .text.USB_CDC_1_CDC_Init
                 0x00000000       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_PutData
-                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .text.USB_CDC_1_PutString
+                0x00000000       0xa0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text.USB_CDC_1_PutChar
                 0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text.USB_CDC_1_PutCRLF
                 0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text.USB_CDC_1_GetCount
                 0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_DataIsReady
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_CDCIsReady
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text.USB_CDC_1_GetData
                 0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_GetAll
-                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text.USB_CDC_1_GetChar
                 0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text.USB_CDC_1_IsLineChanged
@@ -228,80 +233,46 @@ Discarded input sections
                 0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text.USB_CDC_1_GetComPort
                 0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_Cdc_EpInit
-                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .rodata        0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_LoadEP0
-                0x00000000       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_InitZeroLengthControlTransfer
-                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_ControlReadDataStage
-                0x00000000        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_ControlWriteDataStage
-                0x00000000       0x84 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_InitNoDataControlTransfer
-                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_UpdateStatusBlock
-                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_HandleSetup
-                0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_ControlReadStatusStage
-                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_HandleOUT
-                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_ControlWriteStatusStage
-                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_NoDataControlStatusStage
-                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_HandleIN
-                0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_EP_0_ISR
-                0x00000000       0xb8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_InitializeStatusBlock
-                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_InitControlRead
-                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .text.USB_CDC_1_InitControlWrite
-                0x00000000       0x48 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .bss           0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .text.USB_CDC_1_SaveConfig
+                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .text.USB_CDC_1_RestoreConfig
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .text.USB_CDC_1_Suspend
+                0x00000000       0xc8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .text.USB_CDC_1_Resume
+                0x00000000       0xbc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .bss           0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_ReadDieID
-                0x00000000       0x6c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_ConfigReg
-                0x00000000       0xa4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
  .text.USB_CDC_1_EpStateInit
                 0x00000000       0x44 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_GetConfigTablePtr
-                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_ConfigAltChanged
-                0x00000000      0x11c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_GetDeviceTablePtr
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_GetInterfaceClassTablePtr
-                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_Config
-                0x00000000      0x1ec .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
  .text.USB_CDC_1_TerminateEP
                 0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_SetEndpointHalt
-                0x00000000       0x64 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_ClearEndpointHalt
-                0x00000000       0xac .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_ValidateAlternateSetting
-                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .text.USB_CDC_1_HandleStandardRqst
-                0x00000000      0x354 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .rodata.str1.4
-                0x00000000       0x11 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
- .text.USB_CDC_1_HandleVendorRqst
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .text.USB_CDC_1_Dp_Write
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .text.USB_CDC_1_Dp_SetDriveMode
+                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .text.USB_CDC_1_Dp_Read
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .text.USB_CDC_1_Dp_ReadDataReg
+                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .text.USB_CDC_1_Dp_SetInterruptMode
+                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
  .text.CyDmacError
@@ -416,7 +387,6 @@ Discarded input sections
                 0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CyXTAL_SetWdVoltage
                 0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .text.CyHalt   0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CyPLL_OUT_SetPQ
                 0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CyPLL_OUT_SetSource
@@ -466,12 +436,8 @@ Discarded input sections
                 0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CyIntGetSysVector
                 0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .text.CyIntSetVector
-                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CyIntGetVector
                 0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .text.CyIntSetPriority
-                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CyIntGetPriority
                 0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CyIntGetState
@@ -508,8 +474,6 @@ Discarded input sections
                 0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text.CySysTickGetCallback
                 0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .text.CyGetUniqueId
-                0x00000000       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
  .bss           0x00000000       0x43 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
@@ -606,10 +570,6 @@ Discarded input sections
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .text.I2C_Master_1_MasterWriteBuf
-                0x00000000       0xcc .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .text.I2C_Master_1_MasterReadBuf
-                0x00000000       0xd0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .text.I2C_Master_1_MasterSendStart
                 0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .text.I2C_Master_1_MasterSendRestart
@@ -632,103 +592,14 @@ Discarded input sections
                 0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .text.I2C_Master_1_MasterClearWriteBuf
                 0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- COMMON         0x00000000       0x13 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
- .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .bss           0x00000000        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_Init
-                0x00000000      0x140 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_InitComponent
-                0x00000000       0xb8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_Start
-                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_ReInitComponent
-                0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_Stop
-                0x00000000       0xb8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_CheckActivity
-                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_GetConfiguration
-                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_IsConfigurationChanged
-                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_GetInterfaceSetting
-                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_GetEPState
-                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_GetEPCount
-                0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_ReadOutEP
-                0x00000000       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_DisableOutEP
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_Force
-                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_GetEPAckState
-                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_SetPowerStatus
-                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_RWUEnabled
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_GetDeviceAddress
-                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_EnableSofInt
-                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .text.USB_CDC_1_DisableSofInt
-                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
- .text.USB_CDC_1_DispatchClassRqst
-                0x00000000       0x60 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
- .rodata        0x00000000      0x15e .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
- COMMON         0x00000000       0x22 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
- .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .text.USB_CDC_1_EP_1_ISR
-                0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .text.USB_CDC_1_EP_2_ISR
-                0x00000000       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .text.USB_CDC_1_EP_3_ISR
-                0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .text.USB_CDC_1_SOF_ISR
-                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .text.USB_CDC_1_BUS_RESET_ISR
-                0x00000000        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .bss           0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .text.USB_CDC_1_DP_ISR
-                0x00000000        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .text.USB_CDC_1_SaveConfig
-                0x00000000        0x4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .text.USB_CDC_1_RestoreConfig
-                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .text.USB_CDC_1_Suspend
-                0x00000000       0xc8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .text.USB_CDC_1_Resume
-                0x00000000       0xbc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .text.USB_CDC_1_Dp_Write
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .text.USB_CDC_1_Dp_SetDriveMode
-                0x00000000       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .text.USB_CDC_1_Dp_Read
-                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .text.USB_CDC_1_Dp_ReadDataReg
-                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .text.USB_CDC_1_Dp_SetInterruptMode
-                0x00000000       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .text.USB_CDC_1_Dp_ClearInterrupt
-                0x00000000       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
@@ -799,7 +670,6 @@ Discarded input sections
                 0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
  .text.I2C_Master_1_Stop
                 0x00000000       0xb4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
- COMMON         0x00000000        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
@@ -907,7 +777,7 @@ END GROUP
                 0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
                 [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
 
-.text           0x00000000      0xa52
+.text           0x00000000     0x2082
  CREATE_OBJECT_SYMBOLS
                 0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -924,234 +794,425 @@ END GROUP
                 0x00000001                ASSERT ((((appl_start + .) <= 0x10000) || 0x1), DMA Init must be within the first 64k of flash)
  *(.text .text.* .gnu.linkonce.t.*)
  .text          0x00000028       0x5c c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .text.main     0x00000084       0x30 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text.main     0x00000084       0x88 .\CortexM3\ARM_GCC_541\Debug\main.o
                 0x00000084                main
+ .text.write_data
+                0x0000010c       0x1c .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+                0x0000010c                write_data
+ .text.set_sample_rate_divider
+                0x00000128       0x10 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+ .text.read_register_data
+                0x00000138       0x2c .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+                0x00000138                read_register_data
+ .text.set_digital_low_pass_filter_configuration
+                0x00000164       0x14 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+                0x00000164                set_digital_low_pass_filter_configuration
+ .text.set_interrupt_configuration
+                0x00000178       0x2c .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+                0x00000178                set_interrupt_configuration
+ .text.setup_itg3200
+                0x000001a4       0x50 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+                0x000001a4                setup_itg3200
  .text.CyClockStartupError
-                0x000000b4        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000001f4        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cfg_write_bytes32
-                0x000000b8       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000001f8       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.AnalogSetDefault
-                0x000000ec       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000022c       0x28 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYMEMZERO
-                0x00000114        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000254        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.ClockSetup
-                0x00000120      0x104 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000260      0x104 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYCONFIGCPY
-                0x00000224        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000364        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cyfitter_cfg
-                0x0000022c      0x104 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x0000022c                cyfitter_cfg
+                0x0000036c      0x104 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000036c                cyfitter_cfg
  .text.IntDefaultHandler
-                0x00000330       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000330                IntDefaultHandler
- .text.Start_c  0x00000340       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000340                Start_c
+                0x00000470       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000470                IntDefaultHandler
+ .text.Start_c  0x00000480       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000480                Start_c
  .text.initialize_psoc
-                0x0000038c       0x6c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x0000038c                initialize_psoc
- .text.USB_CDC_1_StrLen
-                0x000003f8       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .text.USB_CDC_1_CDC_Init
-                0x0000040c       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
-                0x0000040c                USB_CDC_1_CDC_Init
- .text.USB_CDC_1_PutString
-                0x000004a4       0xa0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
-                0x000004a4                USB_CDC_1_PutString
- .text.CyDmacConfigure
-                0x00000544       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
-                0x00000544                CyDmacConfigure
- .text.CyDelayUs
-                0x00000578       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
-                0x00000578                CyDelayUs
- .text.DieTemp_1_Start
-                0x0000058c       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
-                0x0000058c                DieTemp_1_Start
- .text.DieTemp_1_Query
-                0x000005b8       0x84 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
-                0x000005b8                DieTemp_1_Query
- .text.DieTemp_1_GetTempT
-                0x0000063c       0x48 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
- .text.DieTemp_1_GetTemp
-                0x00000684       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
-                0x00000684                DieTemp_1_GetTemp
- .text.Cycle_ISR_1_SetVector
-                0x000006a4        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                0x000006a4                Cycle_ISR_1_SetVector
- .text.Cycle_ISR_1_SetPriority
-                0x000006b0       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                0x000006b0                Cycle_ISR_1_SetPriority
- .text.Cycle_ISR_1_Enable
-                0x000006c0        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                0x000006c0                Cycle_ISR_1_Enable
- .text.Cycle_ISR_1_Disable
-                0x000006cc        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                0x000006cc                Cycle_ISR_1_Disable
- .text.Cycle_ISR_1_Start
-                0x000006d8       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                0x000006d8                Cycle_ISR_1_Start
- .text.Cycle_ISR_1_ClearPending
-                0x000006f4        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                0x000006f4                Cycle_ISR_1_ClearPending
- .text.Cycle_ISR_1_Interrupt
-                0x00000700       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                0x00000700                Cycle_ISR_1_Interrupt
- .text.Timer_1_Enable
-                0x0000071c       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x0000071c                Timer_1_Enable
- .text.Timer_1_SetInterruptMode
-                0x0000072c        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x0000072c                Timer_1_SetInterruptMode
- .text.Timer_1_ReadStatusRegister
-                0x00000738        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x00000738                Timer_1_ReadStatusRegister
- .text.Timer_1_WritePeriod
-                0x00000744        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x00000744                Timer_1_WritePeriod
- .text.Timer_1_ReadCapture
-                0x00000750        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x00000750                Timer_1_ReadCapture
- .text.Timer_1_WriteCounter
-                0x0000075c        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x0000075c                Timer_1_WriteCounter
- .text.Timer_1_ClearFIFO
-                0x00000768       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x00000768                Timer_1_ClearFIFO
- .text.Timer_1_Init
-                0x0000077c       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x0000077c                Timer_1_Init
- .text.Timer_1_Start
-                0x000007b0       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x000007b0                Timer_1_Start
- .text.DMA_Timer_Start
-                0x000007cc       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
-                0x000007cc                DMA_Timer_Start
- .text          0x000007e8       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
-                0x000007e8                CyDelayCycles
-                0x000007f8                CyEnterCriticalSection
-                0x00000800                CyExitCriticalSection
+                0x000004cc       0x6c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000004cc                initialize_psoc
+ .text.USB_CDC_1_Init
+                0x00000538      0x140 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x00000538                USB_CDC_1_Init
+ .text.USB_CDC_1_InitComponent
+                0x00000678       0xb8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x00000678                USB_CDC_1_InitComponent
+ .text.USB_CDC_1_Start
+                0x00000730       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x00000730                USB_CDC_1_Start
+ .text.USB_CDC_1_ReInitComponent
+                0x00000754       0x4c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x00000754                USB_CDC_1_ReInitComponent
+ .text.USB_CDC_1_GetConfiguration
+                0x000007a0        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x000007a0                USB_CDC_1_GetConfiguration
+ .text.USB_CDC_1_IsConfigurationChanged
+                0x000007ac       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x000007ac                USB_CDC_1_IsConfigurationChanged
+ .text.USB_CDC_1_GetEPState
+                0x000007cc       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x000007cc                USB_CDC_1_GetEPState
+ .text.USB_CDC_1_GetEPCount
+                0x000007e0       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x000007e0                USB_CDC_1_GetEPCount
  .text.USB_CDC_1_LoadInEP
                 0x00000808       0x94 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
                 0x00000808                USB_CDC_1_LoadInEP
  .text.USB_CDC_1_EnableOutEP
                 0x0000089c       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
                 0x0000089c                USB_CDC_1_EnableOutEP
+ .text.USB_CDC_1_ReadOutEP
+                0x000008c8       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x000008c8                USB_CDC_1_ReadOutEP
+ .text.USB_CDC_1_GetInterfaceComPort
+                0x00000918       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000918                USB_CDC_1_GetInterfaceComPort
+ .text.USB_CDC_1_DispatchCDCClassRqst
+                0x00000950       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000950                USB_CDC_1_DispatchCDCClassRqst
+ .text.USB_CDC_1_PutData
+                0x000009e8       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x000009e8                USB_CDC_1_PutData
+ .text.USB_CDC_1_DataIsReady
+                0x00000a38       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000a38                USB_CDC_1_DataIsReady
+ .text.USB_CDC_1_CDCIsReady
+                0x00000a50       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000a50                USB_CDC_1_CDCIsReady
+ .text.USB_CDC_1_GetAll
+                0x00000a68       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000a68                USB_CDC_1_GetAll
+ .text.USB_CDC_1_Cdc_EpInit
+                0x00000a98       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000a98                USB_CDC_1_Cdc_EpInit
+ .text.USB_CDC_1_LoadEP0
+                0x00000ae8       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000ae8                USB_CDC_1_LoadEP0
+ .text.USB_CDC_1_InitZeroLengthControlTransfer
+                0x00000b80       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000b80                USB_CDC_1_InitZeroLengthControlTransfer
+ .text.USB_CDC_1_ControlReadDataStage
+                0x00000bb4        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000bb4                USB_CDC_1_ControlReadDataStage
+ .text.USB_CDC_1_ControlWriteDataStage
+                0x00000bbc       0x84 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000bbc                USB_CDC_1_ControlWriteDataStage
+ .text.USB_CDC_1_InitNoDataControlTransfer
+                0x00000c40       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000c40                USB_CDC_1_InitNoDataControlTransfer
+ .text.USB_CDC_1_UpdateStatusBlock
+                0x00000c6c       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000c6c                USB_CDC_1_UpdateStatusBlock
+ .text.USB_CDC_1_HandleSetup
+                0x00000c90       0x5c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000c90                USB_CDC_1_HandleSetup
+ .text.USB_CDC_1_ControlReadStatusStage
+                0x00000cec       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000cec                USB_CDC_1_ControlReadStatusStage
+ .text.USB_CDC_1_HandleOUT
+                0x00000d24       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000d24                USB_CDC_1_HandleOUT
+ .text.USB_CDC_1_ControlWriteStatusStage
+                0x00000d5c       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000d5c                USB_CDC_1_ControlWriteStatusStage
+ .text.USB_CDC_1_NoDataControlStatusStage
+                0x00000d7c       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000d7c                USB_CDC_1_NoDataControlStatusStage
+ .text.USB_CDC_1_HandleIN
+                0x00000dbc       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000dbc                USB_CDC_1_HandleIN
+ .text.USB_CDC_1_EP_0_ISR
+                0x00000de8       0xb8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000de8                USB_CDC_1_EP_0_ISR
+ .text.USB_CDC_1_InitializeStatusBlock
+                0x00000ea0       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000ea0                USB_CDC_1_InitializeStatusBlock
+ .text.USB_CDC_1_InitControlRead
+                0x00000ec4       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000ec4                USB_CDC_1_InitControlRead
+ .text.USB_CDC_1_InitControlWrite
+                0x00000f14       0x48 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000f14                USB_CDC_1_InitControlWrite
+ .text.USB_CDC_1_EP_1_ISR
+                0x00000f5c       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                0x00000f5c                USB_CDC_1_EP_1_ISR
+ .text.USB_CDC_1_EP_2_ISR
+                0x00000f8c       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                0x00000f8c                USB_CDC_1_EP_2_ISR
+ .text.USB_CDC_1_EP_3_ISR
+                0x00000fc0       0x3c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                0x00000fc0                USB_CDC_1_EP_3_ISR
+ .text.USB_CDC_1_SOF_ISR
+                0x00000ffc        0x4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                0x00000ffc                USB_CDC_1_SOF_ISR
+ .text.USB_CDC_1_BUS_RESET_ISR
+                0x00001000        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                0x00001000                USB_CDC_1_BUS_RESET_ISR
+ .text.USB_CDC_1_DP_ISR
+                0x00001008        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+                0x00001008                USB_CDC_1_DP_ISR
+ .text.USB_CDC_1_ReadDieID
+                0x00001010       0x6c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x00001010                USB_CDC_1_ReadDieID
+ .text.USB_CDC_1_ConfigReg
+                0x0000107c       0xa4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x0000107c                USB_CDC_1_ConfigReg
+ .text.USB_CDC_1_GetConfigTablePtr
+                0x00001120       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x00001120                USB_CDC_1_GetConfigTablePtr
+ .text.USB_CDC_1_ConfigAltChanged
+                0x00001148      0x11c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x00001148                USB_CDC_1_ConfigAltChanged
+ .text.USB_CDC_1_GetDeviceTablePtr
+                0x00001264       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x00001264                USB_CDC_1_GetDeviceTablePtr
+ .text.USB_CDC_1_GetInterfaceClassTablePtr
+                0x0000127c       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x0000127c                USB_CDC_1_GetInterfaceClassTablePtr
+ .text.USB_CDC_1_Config
+                0x000012a4      0x1ec .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x000012a4                USB_CDC_1_Config
+ .text.USB_CDC_1_SetEndpointHalt
+                0x00001490       0x64 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x00001490                USB_CDC_1_SetEndpointHalt
+ .text.USB_CDC_1_ClearEndpointHalt
+                0x000014f4       0xac .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x000014f4                USB_CDC_1_ClearEndpointHalt
+ .text.USB_CDC_1_ValidateAlternateSetting
+                0x000015a0       0x4c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x000015a0                USB_CDC_1_ValidateAlternateSetting
+ .text.USB_CDC_1_HandleStandardRqst
+                0x000015ec      0x354 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x000015ec                USB_CDC_1_HandleStandardRqst
+ .text.USB_CDC_1_HandleVendorRqst
+                0x00001940       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+                0x00001940                USB_CDC_1_HandleVendorRqst
+ .text.USB_CDC_1_Dp_ClearInterrupt
+                0x00001958       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+                0x00001958                USB_CDC_1_Dp_ClearInterrupt
+ .text.CyDmacConfigure
+                0x00001968       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+                0x00001968                CyDmacConfigure
+ .text.CyHalt   0x0000199c        0x4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x0000199c                CyHalt
+ .text.CyDelayUs
+                0x000019a0       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x000019a0                CyDelayUs
+ .text.CyIntSetVector
+                0x000019b4       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x000019b4                CyIntSetVector
+ .text.CyIntSetPriority
+                0x000019dc       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x000019dc                CyIntSetPriority
+ .text.CyGetUniqueId
+                0x00001a0c       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x00001a0c                CyGetUniqueId
+ .text.DieTemp_1_Start
+                0x00001a7c       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+                0x00001a7c                DieTemp_1_Start
+ .text.DieTemp_1_Query
+                0x00001aa8       0x84 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+                0x00001aa8                DieTemp_1_Query
+ .text.DieTemp_1_GetTempT
+                0x00001b2c       0x48 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+ .text.DieTemp_1_GetTemp
+                0x00001b74       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+                0x00001b74                DieTemp_1_GetTemp
+ .text.Cycle_ISR_1_SetVector
+                0x00001b94        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x00001b94                Cycle_ISR_1_SetVector
+ .text.Cycle_ISR_1_SetPriority
+                0x00001ba0       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x00001ba0                Cycle_ISR_1_SetPriority
+ .text.Cycle_ISR_1_Enable
+                0x00001bb0        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x00001bb0                Cycle_ISR_1_Enable
+ .text.Cycle_ISR_1_Disable
+                0x00001bbc        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x00001bbc                Cycle_ISR_1_Disable
+ .text.Cycle_ISR_1_Start
+                0x00001bc8       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x00001bc8                Cycle_ISR_1_Start
+ .text.Cycle_ISR_1_ClearPending
+                0x00001be4        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x00001be4                Cycle_ISR_1_ClearPending
+ .text.Cycle_ISR_1_Interrupt
+                0x00001bf0       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x00001bf0                Cycle_ISR_1_Interrupt
+ .text.Timer_1_Enable
+                0x00001c0c       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c0c                Timer_1_Enable
+ .text.Timer_1_SetInterruptMode
+                0x00001c1c        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c1c                Timer_1_SetInterruptMode
+ .text.Timer_1_ReadStatusRegister
+                0x00001c28        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c28                Timer_1_ReadStatusRegister
+ .text.Timer_1_WritePeriod
+                0x00001c34        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c34                Timer_1_WritePeriod
+ .text.Timer_1_ReadCapture
+                0x00001c40        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c40                Timer_1_ReadCapture
+ .text.Timer_1_WriteCounter
+                0x00001c4c        0xc .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c4c                Timer_1_WriteCounter
+ .text.Timer_1_ClearFIFO
+                0x00001c58       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c58                Timer_1_ClearFIFO
+ .text.Timer_1_Init
+                0x00001c6c       0x34 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001c6c                Timer_1_Init
+ .text.Timer_1_Start
+                0x00001ca0       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x00001ca0                Timer_1_Start
+ .text.DMA_Timer_Start
+                0x00001cbc       0x1c .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+                0x00001cbc                DMA_Timer_Start
+ .text.I2C_Master_1_MasterWriteBuf
+                0x00001cd8       0xcc .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+                0x00001cd8                I2C_Master_1_MasterWriteBuf
+ .text.I2C_Master_1_MasterReadBuf
+                0x00001da4       0xd0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+                0x00001da4                I2C_Master_1_MasterReadBuf
+ *fill*         0x00001e74        0x4 
+ .text          0x00001e78       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
+                0x00001e78                CyDelayCycles
+                0x00001e88                CyEnterCriticalSection
+                0x00001e90                CyExitCriticalSection
+ .text.USB_CDC_1_DispatchClassRqst
+                0x00001e98       0x60 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+                0x00001e98                USB_CDC_1_DispatchClassRqst
  .text.CySpcStart
-                0x000008c8       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
-                0x000008c8                CySpcStart
+                0x00001ef8       0x24 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+                0x00001ef8                CySpcStart
  .text.CySpcGetTemp
-                0x000008ec       0x3c .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
-                0x000008ec                CySpcGetTemp
+                0x00001f1c       0x3c .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+                0x00001f1c                CySpcGetTemp
  .text.CySpcLock
-                0x00000928       0x4c .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
-                0x00000928                CySpcLock
+                0x00001f58       0x4c .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+                0x00001f58                CySpcLock
  .text.CySpcUnlock
-                0x00000974       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
-                0x00000974                CySpcUnlock
+                0x00001fa4       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+                0x00001fa4                CySpcUnlock
  .text.LED_Write
-                0x000009ac       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
-                0x000009ac                LED_Write
+                0x00001fdc       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+                0x00001fdc                LED_Write
  .text.LED_Read
-                0x000009c4       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
-                0x000009c4                LED_Read
- .text.__errno  0x000009d4        0xc c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
-                0x000009d4                __errno
+                0x00001ff4       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+                0x00001ff4                LED_Read
+ .text.__errno  0x00002004        0xc c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x00002004                __errno
  .text.__libc_init_array
-                0x000009e0       0x4c c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
-                0x000009e0                __libc_init_array
- .text.memcpy   0x00000a2c       0x16 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x00000a2c                memcpy
- .text.memset   0x00000a42       0x10 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
-                0x00000a42                memset
+                0x00002010       0x4c c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x00002010                __libc_init_array
+ .text.memcpy   0x0000205c       0x16 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x0000205c                memcpy
+ .text.memset   0x00002072       0x10 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00002072                memset
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x00000a52        0x0 linker stubs
+ .glue_7t       0x00002082        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x00000a52        0x0 linker stubs
+ .glue_7        0x00002082        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x00000a52        0x0 linker stubs
+ .vfp11_veneer  0x00002082        0x0 linker stubs
  *(.bootloader)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x00000a54        0x0
- .v4_bx         0x00000a54        0x0 linker stubs
+.v4_bx          0x00002084        0x0
+ .v4_bx         0x00002084        0x0 linker stubs
 
-.iplt           0x00000a54        0x0
- .iplt          0x00000a54        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.iplt           0x00002084        0x0
+ .iplt          0x00002084        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x00000a54        0x4
+.eh_frame       0x00002084        0x4
  *(.eh_frame)
- .eh_frame      0x00000a54        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .eh_frame      0x00000a54        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .eh_frame      0x00002084        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x00002084        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
                 [!provide]                PROVIDE (__exidx_start, .)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00000a58                __exidx_end = .
+                0x00002088                __exidx_end = .
 
-.rodata         0x00000a58       0x78
+.rodata         0x00002088      0x1d8
  *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata        0x00002088       0x30 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .rodata.str1.4
-                0x00000a58        0xc .\CortexM3\ARM_GCC_541\Debug\main.o
-                                  0xb (size before relaxing)
- .rodata        0x00000a64       0x30 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000020b8       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                                 0x11 (size before relaxing)
+ .rodata        0x000020cc      0x15e .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+                0x000020cc                USB_CDC_1_TABLE
+                0x000020d4                USB_CDC_1_DEVICE0_TABLE
+                0x000020ec                USB_CDC_1_DEVICE0_CONFIGURATION0_TABLE
+                0x00002114                USB_CDC_1_DEVICE0_CONFIGURATION0_INTERFACE_CLASS
+                0x00002118                USB_CDC_1_DEVICE0_CONFIGURATION0_EP_SETTINGS_TABLE
+                0x00002130                USB_CDC_1_SN_STRING_DESCRIPTOR
+                0x00002134                USB_CDC_1_STRING_DESCRIPTORS
+                0x000021d4                USB_CDC_1_DEVICE0_CONFIGURATION0_DESCR
+                0x00002218                USB_CDC_1_DEVICE0_DESCR
  .rodata.str1.1
-                0x00000a94        0x2 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
-                0x00000a98                . = ALIGN (0x4)
- *fill*         0x00000a96        0x2 
+                0x0000222a        0x2 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x0000222c                . = ALIGN (0x4)
  *(.init)
- .init          0x00000a98        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x00000a98                _init
- .init          0x00000a9c        0x8 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00000aa4                . = ALIGN (0x4)
-                0x00000aa4                __preinit_array_start = .
+ .init          0x0000222c        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x0000222c                _init
+ .init          0x00002230        0x8 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00002238                . = ALIGN (0x4)
+                0x00002238                __preinit_array_start = .
  *(.preinit_array)
-                0x00000aa4                __preinit_array_end = .
-                0x00000aa4                . = ALIGN (0x4)
-                0x00000aa4                __init_array_start = .
+                0x00002238                __preinit_array_end = .
+                0x00002238                . = ALIGN (0x4)
+                0x00002238                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00000aa4        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .init_array    0x00000aa8        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000aac                __init_array_end = .
-                0x00000aac                . = ALIGN (0x4)
+ .init_array    0x00002238        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x0000223c        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00002240                __init_array_end = .
+                0x00002240                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00000aac        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x00000aac                _fini
- .fini          0x00000ab0        0x8 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00000ab8                . = ALIGN (0x4)
-                0x00000ab8                __fini_array_start = .
+ .fini          0x00002240        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00002240                _fini
+ .fini          0x00002244        0x8 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x0000224c                . = ALIGN (0x4)
+                0x0000224c                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00000ab8        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .fini_array    0x0000224c        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00000abc                __fini_array_end = .
-                0x00000abc                . = ALIGN (0x4)
+                0x00002250                __fini_array_end = .
+                0x00002250                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00000abc                . = ALIGN (0x4)
+                0x00002250                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00000abc                . = ALIGN (0x4)
-                0x00000abc                __cy_regions = .
-                0x00000abc        0x4 LONG 0xad0 __cy_region_init_ram
-                0x00000ac0        0x4 LONG 0x1fff80c8 __cy_region_start_data
-                0x00000ac4        0x4 LONG 0x80 __cy_region_init_size_ram
-                0x00000ac8        0x4 LONG 0xe0 __cy_region_zero_size_ram
-                0x00000acc                __cy_regions_end = .
-                0x00000ad0                . = ALIGN (0x8)
- *fill*         0x00000acc        0x4 
-                0x00000ad0                _etext = .
+                0x00002250                . = ALIGN (0x4)
+                0x00002250                __cy_regions = .
+                0x00002250        0x4 LONG 0x2260 __cy_region_init_ram
+                0x00002254        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x00002258        0x4 LONG 0xa0 __cy_region_init_size_ram
+                0x0000225c        0x4 LONG 0x160 __cy_region_zero_size_ram
+                0x00002260                __cy_regions_end = .
+                0x00002260                . = ALIGN (0x8)
+                0x00002260                _etext = .
 
 .cy_checksum_exclude
-                0x00000ad0        0x0
+                0x00002260        0x0
  *(.cy_checksum_exclude)
 
 .ramvectors     0x1fff8000       0xc0
@@ -1165,7 +1226,7 @@ END GROUP
  .noinit        0x1fff80c0        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
                 0x1fff80c0                CyResetStatus
 
-.data           0x1fff80c8       0x80 load address 0x00000ad0
+.data           0x1fff80c8       0xa0 load address 0x00002260
                 0x1fff80c8                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x1fff80c8        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
@@ -1174,83 +1235,110 @@ END GROUP
  *(.got)
  *(.shdata)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x1fff80cc        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
- .data          0x1fff80d4       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
-                0x1fff80d4                cydelay_32k_ms
-                0x1fff80d8                cydelay_freq_khz
-                0x1fff80dc                cydelay_freq_mhz
-                0x1fff80e0                cydelay_freq_hz
+ .data          0x1fff80cc       0x1a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x1fff80cc                USB_CDC_1_linesCoding
+ *fill*         0x1fff80e6        0x2 
+ .data          0x1fff80e8        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+ .data          0x1fff80f0       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x1fff80f0                cydelay_32k_ms
+                0x1fff80f4                cydelay_freq_khz
+                0x1fff80f8                cydelay_freq_mhz
+                0x1fff80fc                cydelay_freq_hz
  .data.impure_data
-                0x1fff80e4       0x60 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x1fff8100       0x60 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .data._impure_ptr
-                0x1fff8144        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
-                0x1fff8144                _impure_ptr
-                0x1fff8148                . = ALIGN (0x8)
+                0x1fff8160        0x4 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x1fff8160                _impure_ptr
+                0x1fff8168                . = ALIGN (0x8)
+ *fill*         0x1fff8164        0x4 
  *(.ram)
-                0x1fff8148                _edata = .
+                0x1fff8168                _edata = .
 
-.igot.plt       0x1fff8148        0x0 load address 0x00000b50
- .igot.plt      0x1fff8148        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.igot.plt       0x1fff8168        0x0 load address 0x00002300
+ .igot.plt      0x1fff8168        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
-.bss            0x1fff8148       0xe0 load address 0x00000b50
-                0x1fff8148                PROVIDE (__bss_start__, .)
+.bss            0x1fff8168      0x160 load address 0x00002300
+                0x1fff8168                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x1fff8148       0x1c c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .bss           0x1fff8164        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .bss           0x1fff8165        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                0x1fff8165                Timer_1_initVar
- *fill*         0x1fff8166        0x2 
- .bss           0x1fff8168        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
-                0x1fff8168                SpcLockState
+ .bss           0x1fff8168       0x1c c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .bss           0x1fff8184        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x1fff8184                USB_CDC_1_initVar
+ .bss           0x1fff8185        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ *fill*         0x1fff8186        0x2 
+ .bss           0x1fff8188        0x2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+ .bss           0x1fff818a        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x1fff818a                Timer_1_initVar
+ *fill*         0x1fff818b        0x1 
+ .bss           0x1fff818c        0x8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+                0x1fff818c                SpcLockState
  *(COMMON)
- COMMON         0x1fff8170        0x4 .\CortexM3\ARM_GCC_541\Debug\main.o
-                0x1fff8170                DIEtemperature
-                0x1fff8172                txChannel
-                0x1fff8173                txTD
- COMMON         0x1fff8174       0x16 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
-                0x1fff8174                USB_CDC_1_cdcDataOutEp
-                0x1fff8178                USB_CDC_1_linesChanged
-                0x1fff817c                USB_CDC_1_linesControlBitmap
-                0x1fff8180                USB_CDC_1_serialStateBitmap
-                0x1fff8184                USB_CDC_1_cdcDataInEp
-                0x1fff8188                USB_CDC_1_cdcCommInInterruptEp
- *fill*         0x1fff818a        0x2 
- COMMON         0x1fff818c       0x9a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
-                0x1fff818c                USB_CDC_1_interfaceNumber
-                0x1fff818d                USB_CDC_1_ep0Count
-                0x1fff818e                USB_CDC_1_deviceStatus
-                0x1fff818f                USB_CDC_1_lastPacketSize
-                0x1fff8190                USB_CDC_1_transferByteCount
-                0x1fff8194                USB_CDC_1_currentTD
-                0x1fff81a0                USB_CDC_1_ep0Mode
-                0x1fff81a1                USB_CDC_1_configuration
-                0x1fff81a4                USB_CDC_1_interfaceClass
-                0x1fff81a8                USB_CDC_1_ep0Toggle
-                0x1fff81a9                USB_CDC_1_device
-                0x1fff81ac                USB_CDC_1_interfaceStatus
-                0x1fff81ae                USB_CDC_1_configurationChanged
-                0x1fff81b0                USB_CDC_1_interfaceSettingLast
-                0x1fff81b4                USB_CDC_1_interfaceSetting
-                0x1fff81b8                USB_CDC_1_EP
-                0x1fff8224                USB_CDC_1_transferState
-                0x1fff8225                USB_CDC_1_deviceAddress
-                0x1fff8228                . = ALIGN (0x8)
- *fill*         0x1fff8226        0x2 
+ COMMON         0x1fff8194       0x45 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x1fff8194                DIEtemperature
+                0x1fff8196                txChannel
+                0x1fff8198                USB_CDC_Buffer
+                0x1fff81d8                txTD
+ COMMON         0x1fff81d9        0x1 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+                0x1fff81d9                DeviceADR
+ *fill*         0x1fff81da        0x2 
+ COMMON         0x1fff81dc       0x16 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x1fff81dc                USB_CDC_1_cdcDataOutEp
+                0x1fff81e0                USB_CDC_1_linesChanged
+                0x1fff81e4                USB_CDC_1_linesControlBitmap
+                0x1fff81e8                USB_CDC_1_serialStateBitmap
+                0x1fff81ec                USB_CDC_1_cdcDataInEp
+                0x1fff81f0                USB_CDC_1_cdcCommInInterruptEp
+ *fill*         0x1fff81f2        0x2 
+ COMMON         0x1fff81f4       0x9a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x1fff81f4                USB_CDC_1_interfaceNumber
+                0x1fff81f5                USB_CDC_1_ep0Count
+                0x1fff81f6                USB_CDC_1_deviceStatus
+                0x1fff81f7                USB_CDC_1_lastPacketSize
+                0x1fff81f8                USB_CDC_1_transferByteCount
+                0x1fff81fc                USB_CDC_1_currentTD
+                0x1fff8208                USB_CDC_1_ep0Mode
+                0x1fff8209                USB_CDC_1_configuration
+                0x1fff820c                USB_CDC_1_interfaceClass
+                0x1fff8210                USB_CDC_1_ep0Toggle
+                0x1fff8211                USB_CDC_1_device
+                0x1fff8214                USB_CDC_1_interfaceStatus
+                0x1fff8216                USB_CDC_1_configurationChanged
+                0x1fff8218                USB_CDC_1_interfaceSettingLast
+                0x1fff821c                USB_CDC_1_interfaceSetting
+                0x1fff8220                USB_CDC_1_EP
+                0x1fff828c                USB_CDC_1_transferState
+                0x1fff828d                USB_CDC_1_deviceAddress
+ *fill*         0x1fff828e        0x2 
+ COMMON         0x1fff8290       0x13 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+                0x1fff8290                I2C_Master_1_mstrControl
+                0x1fff8291                I2C_Master_1_mstrRdBufSize
+                0x1fff8294                I2C_Master_1_mstrRdBufPtr
+                0x1fff8298                I2C_Master_1_mstrWrBufIndex
+                0x1fff829c                I2C_Master_1_mstrWrBufPtr
+                0x1fff82a0                I2C_Master_1_mstrRdBufIndex
+                0x1fff82a1                I2C_Master_1_mstrWrBufSize
+                0x1fff82a2                I2C_Master_1_mstrStatus
+ *fill*         0x1fff82a3        0x1 
+ COMMON         0x1fff82a4       0x22 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+                0x1fff82a4                USB_CDC_1_idSerialNumberStringDescriptor
+ COMMON         0x1fff82c6        0x1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+                0x1fff82c6                I2C_Master_1_state
+                0x1fff82c8                . = ALIGN (0x8)
+ *fill*         0x1fff82c7        0x1 
  *(.ram.b)
-                0x1fff8228                _end = .
-                0x1fff8228                __end = .
-                0x1fff8228                PROVIDE (end, .)
-                0x1fff8228                PROVIDE (__bss_end__, .)
-                0x00000ad0                __cy_region_init_ram = LOADADDR (.data)
-                0x00000080                __cy_region_init_size_ram = (_edata - ADDR (.data))
-                0x000000e0                __cy_region_zero_size_ram = (_end - _edata)
+                0x1fff82c8                _end = .
+                0x1fff82c8                __end = .
+                0x1fff82c8                PROVIDE (end, .)
+                0x1fff82c8                PROVIDE (__bss_end__, .)
+                0x00002260                __cy_region_init_ram = LOADADDR (.data)
+                0x000000a0                __cy_region_init_size_ram = (_edata - ADDR (.data))
+                0x00000160                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x1fff8228       0x80 load address 0x00000b50
-                0x1fff8228                . = _end
-                0x1fff82a8                . = (. + 0x80)
- *fill*         0x1fff8228       0x80 
-                0x1fff82a8                __cy_heap_limit = .
+.heap           0x1fff82c8       0x80 load address 0x00002300
+                0x1fff82c8                . = _end
+                0x1fff8348                . = (. + 0x80)
+ *fill*         0x1fff82c8       0x80 
+                0x1fff8348                __cy_heap_limit = .
 
 .stack          0x20007800      0x800
                 0x20007800                __cy_stack_limit = .
@@ -1297,8 +1385,8 @@ END GROUP
  .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
                 0x90500000                cy_metadata
 
-.rel.dyn        0x00000b50        0x0 load address 0x9050000c
- .rel.iplt      0x00000b50        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.rel.dyn        0x00002300        0x0 load address 0x9050000c
+ .rel.iplt      0x00002300        0x0 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .stab
  *(.stab)
@@ -1331,43 +1419,43 @@ END GROUP
  .debug_aranges
                 0x000000e8       0x48 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
  .debug_aranges
-                0x00000130       0xe8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000130       0xc8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
  .debug_aranges
-                0x00000218       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x000001f8       0xe8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .debug_aranges
-                0x000002b0       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x000002e0       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
  .debug_aranges
-                0x00000330       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+                0x00000378       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
  .debug_aranges
-                0x00000350       0xd8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+                0x000003b8       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
  .debug_aranges
-                0x00000428      0x2a0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x000003f8       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
  .debug_aranges
-                0x000006c8       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+                0x00000478       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
  .debug_aranges
-                0x00000760       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+                0x00000498       0x48 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
  .debug_aranges
-                0x000007a0       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x000004e0       0xd8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
  .debug_aranges
-                0x00000820       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x000005b8      0x2a0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .debug_aranges
-                0x000008b0       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+                0x00000858       0x98 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
  .debug_aranges
-                0x00000920       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+                0x000008f0       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
  .debug_aranges
-                0x000009a0       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
+                0x00000930       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
  .debug_aranges
-                0x000009c0       0xc8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x000009b0       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
  .debug_aranges
-                0x00000a88       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+                0x00000a40       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
  .debug_aranges
-                0x00000aa8       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+                0x00000ab0       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .debug_aranges
-                0x00000ac0       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                0x00000b30       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
  .debug_aranges
-                0x00000b00       0x40 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+                0x00000b50       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
  .debug_aranges
-                0x00000b40       0x48 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+                0x00000b70       0x18 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
  .debug_aranges
                 0x00000b88       0x88 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
  .debug_aranges
@@ -1384,227 +1472,228 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x8d4d
+.debug_info     0x00000000     0x8eb9
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x2a1 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_info    0x000002a1      0x47e .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .debug_info    0x0000071f      0x52e .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_info    0x00000c4d      0x135 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x00000d82      0x3cf .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_info    0x00001151      0xaf7 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .debug_info    0x00001c48      0x655 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .debug_info    0x0000229d      0xb26 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .debug_info    0x00002dc3       0xed .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
- .debug_info    0x00002eb0      0x94e .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
- .debug_info    0x000037fe     0x1374 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .debug_info    0x00004b72      0xa2a .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
- .debug_info    0x0000559c      0x2c0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
- .debug_info    0x0000585c      0x31c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
- .debug_info    0x00005b78      0x2f0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
- .debug_info    0x00005e68      0x283 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
- .debug_info    0x000060eb      0x407 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .debug_info    0x000064f2       0xa7 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
- .debug_info    0x00006599      0x993 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .debug_info    0x00006f2c      0x1de .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
- .debug_info    0x0000710a      0x2a3 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
- .debug_info    0x000073ad      0x254 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .debug_info    0x00007601      0x2e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .debug_info    0x000078e5      0x174 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .debug_info    0x00007a59      0x64d .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
- .debug_info    0x000080a6      0x550 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
- .debug_info    0x000085f6      0x11f .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
- .debug_info    0x00008715      0x2ad .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
- .debug_info    0x000089c2      0x184 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
- .debug_info    0x00008b46      0x207 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
+ .debug_info    0x00000000      0x400 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_info    0x00000400      0x489 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+ .debug_info    0x00000889      0x52e .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x00000db7      0x135 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00000eec      0x3cf .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_info    0x000012bb      0x993 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .debug_info    0x00001c4e      0xaf7 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .debug_info    0x00002745      0x655 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .debug_info    0x00002d9a      0x254 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .debug_info    0x00002fee      0x2e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .debug_info    0x000032d2      0xb26 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+ .debug_info    0x00003df8       0xed .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+ .debug_info    0x00003ee5      0x174 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .debug_info    0x00004059      0x94e .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+ .debug_info    0x000049a7     0x1374 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+ .debug_info    0x00005d1b      0xa2a .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+ .debug_info    0x00006745      0x2c0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+ .debug_info    0x00006a05      0x31c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+ .debug_info    0x00006d21      0x2f0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+ .debug_info    0x00007011      0x283 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+ .debug_info    0x00007294      0x407 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+ .debug_info    0x0000769b       0xa9 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
+ .debug_info    0x00007744      0x1de .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+ .debug_info    0x00007922      0x2a3 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+ .debug_info    0x00007bc5      0x64d .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
+ .debug_info    0x00008212      0x550 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+ .debug_info    0x00008762      0x11f .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+ .debug_info    0x00008881      0x2ad .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+ .debug_info    0x00008b2e      0x184 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
+ .debug_info    0x00008cb2      0x207 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
 
-.debug_abbrev   0x00000000     0x2637
+.debug_abbrev   0x00000000     0x2675
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x110 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_abbrev  0x00000110      0x154 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .debug_abbrev  0x00000264      0x1fe .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_abbrev  0x00000462       0x66 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
- .debug_abbrev  0x000004c8      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_abbrev  0x000006b0      0x245 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .debug_abbrev  0x000008f5      0x189 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .debug_abbrev  0x00000a7e      0x20a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .debug_abbrev  0x00000c88       0x9b .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
- .debug_abbrev  0x00000d23      0x1b2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
- .debug_abbrev  0x00000ed5      0x254 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .debug_abbrev  0x00001129      0x1ab .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
- .debug_abbrev  0x000012d4      0x15d .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
- .debug_abbrev  0x00001431      0x16c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
- .debug_abbrev  0x0000159d      0x12b .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
- .debug_abbrev  0x000016c8      0x139 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
- .debug_abbrev  0x00001801      0x13c .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .debug_abbrev  0x0000193d       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
- .debug_abbrev  0x00001951      0x215 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .debug_abbrev  0x00001b66       0xe1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
- .debug_abbrev  0x00001c47       0xb4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
- .debug_abbrev  0x00001cfb      0x11b .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .debug_abbrev  0x00001e16      0x108 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .debug_abbrev  0x00001f1e       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .debug_abbrev  0x00001fae      0x1a7 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
- .debug_abbrev  0x00002155      0x194 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
- .debug_abbrev  0x000022e9       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
- .debug_abbrev  0x00002379      0x10a .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
- .debug_abbrev  0x00002483       0xb6 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
- .debug_abbrev  0x00002539       0xfe .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
+ .debug_abbrev  0x00000000      0x13f .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x0000013f      0x163 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+ .debug_abbrev  0x000002a2      0x1fe .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x000004a0       0x66 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x00000506      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_abbrev  0x000006ee      0x215 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .debug_abbrev  0x00000903      0x245 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .debug_abbrev  0x00000b48      0x189 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .debug_abbrev  0x00000cd1      0x11b .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .debug_abbrev  0x00000dec      0x108 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .debug_abbrev  0x00000ef4      0x20a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+ .debug_abbrev  0x000010fe       0x9b .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+ .debug_abbrev  0x00001199       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .debug_abbrev  0x00001229      0x1b2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+ .debug_abbrev  0x000013db      0x254 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+ .debug_abbrev  0x0000162f      0x1ab .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+ .debug_abbrev  0x000017da      0x15d .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+ .debug_abbrev  0x00001937      0x16c .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+ .debug_abbrev  0x00001aa3      0x12b .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+ .debug_abbrev  0x00001bce      0x139 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+ .debug_abbrev  0x00001d07      0x13c .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+ .debug_abbrev  0x00001e43       0x14 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x00001e57       0xe1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+ .debug_abbrev  0x00001f38       0xb4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+ .debug_abbrev  0x00001fec      0x1a7 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
+ .debug_abbrev  0x00002193      0x194 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+ .debug_abbrev  0x00002327       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+ .debug_abbrev  0x000023b7      0x10a .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+ .debug_abbrev  0x000024c1       0xb6 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
+ .debug_abbrev  0x00002577       0xfe .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
 
-.debug_line     0x00000000     0x378c
+.debug_line     0x00000000     0x37b5
  *(.debug_line)
- .debug_line    0x00000000      0x1e5 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_line    0x000001e5      0x205 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .debug_line    0x000003ea      0x1f5 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x000005df      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x00000720      0x241 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_line    0x00000961      0x2f8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .debug_line    0x00000c59      0x227 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .debug_line    0x00000e80      0x3e8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .debug_line    0x00001268       0x77 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
- .debug_line    0x000012df      0x2e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
- .debug_line    0x000015c3      0x816 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .debug_line    0x00001dd9      0x367 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
- .debug_line    0x00002140      0x108 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
- .debug_line    0x00002248      0x151 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
- .debug_line    0x00002399      0x172 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
- .debug_line    0x0000250b      0x178 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
- .debug_line    0x00002683      0x20f .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .debug_line    0x00002892       0x66 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
- .debug_line    0x000028f8      0x2e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .debug_line    0x00002bdc       0x9b .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
- .debug_line    0x00002c77       0x65 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
- .debug_line    0x00002cdc       0xec .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .debug_line    0x00002dc8      0x116 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .debug_line    0x00002ede       0xbd .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .debug_line    0x00002f9b      0x21a .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
- .debug_line    0x000031b5      0x260 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
- .debug_line    0x00003415       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
- .debug_line    0x000034a5       0xf4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
- .debug_line    0x00003599      0x126 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
- .debug_line    0x000036bf       0xcd .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
+ .debug_line    0x00000000      0x20e .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_line    0x0000020e      0x205 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+ .debug_line    0x00000413      0x1f5 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x00000608      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x00000749      0x241 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x0000098a      0x2e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .debug_line    0x00000c6e      0x2f8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .debug_line    0x00000f66      0x227 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .debug_line    0x0000118d       0xec .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .debug_line    0x00001279      0x116 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .debug_line    0x0000138f      0x3e8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+ .debug_line    0x00001777       0x77 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+ .debug_line    0x000017ee       0xbd .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .debug_line    0x000018ab      0x2e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+ .debug_line    0x00001b8f      0x816 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+ .debug_line    0x000023a5      0x367 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+ .debug_line    0x0000270c      0x108 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+ .debug_line    0x00002814      0x151 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+ .debug_line    0x00002965      0x172 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+ .debug_line    0x00002ad7      0x178 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+ .debug_line    0x00002c4f      0x20f .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+ .debug_line    0x00002e5e       0x66 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
+ .debug_line    0x00002ec4       0x9b .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+ .debug_line    0x00002f5f       0x65 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+ .debug_line    0x00002fc4      0x21a .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
+ .debug_line    0x000031de      0x260 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+ .debug_line    0x0000343e       0x90 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+ .debug_line    0x000034ce       0xf4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+ .debug_line    0x000035c2      0x126 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
+ .debug_line    0x000036e8       0xcd .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
 
-.debug_frame    0x00000000     0x2174
+.debug_frame    0x00000000     0x2178
  *(.debug_frame)
  .debug_frame   0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_frame   0x0000004c       0xf0 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .debug_frame   0x0000013c       0xe4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_frame   0x00000220       0xb8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_frame   0x000002d8      0x27c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .debug_frame   0x00000554      0x194 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .debug_frame   0x000006e8      0x17c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .debug_frame   0x00000864       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
- .debug_frame   0x00000884      0x1f8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
- .debug_frame   0x00000a7c      0x738 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .debug_frame   0x000011b4      0x1f8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
- .debug_frame   0x000013ac       0xa0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
- .debug_frame   0x0000144c      0x110 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
- .debug_frame   0x0000155c      0x124 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
- .debug_frame   0x00001680       0xe0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
- .debug_frame   0x00001760      0x138 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .debug_frame   0x00001898      0x1dc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .debug_frame   0x00001a74       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
- .debug_frame   0x00001aa0       0x6c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .debug_frame   0x00001b0c       0xa0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .debug_frame   0x00001bac       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .debug_frame   0x00001c1c      0x194 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
- .debug_frame   0x00001db0      0x180 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
- .debug_frame   0x00001f30       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
- .debug_frame   0x00001f80       0x94 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
- .debug_frame   0x00002014       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
- .debug_frame   0x00002044       0x74 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
- .debug_frame   0x000020b8       0x20 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x000020d8       0x28 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x00002100       0x2c c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x0000212c       0x28 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00002154       0x20 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000004c       0xf4 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+ .debug_frame   0x00000140       0xe4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x00000224       0xb8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_frame   0x000002dc      0x1dc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .debug_frame   0x000004b8      0x27c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .debug_frame   0x00000734      0x194 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .debug_frame   0x000008c8       0x6c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .debug_frame   0x00000934       0xa0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .debug_frame   0x000009d4      0x17c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+ .debug_frame   0x00000b50       0x20 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+ .debug_frame   0x00000b70       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .debug_frame   0x00000be0      0x1f8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+ .debug_frame   0x00000dd8      0x738 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+ .debug_frame   0x00001510      0x1f8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+ .debug_frame   0x00001708       0xa0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+ .debug_frame   0x000017a8      0x110 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+ .debug_frame   0x000018b8      0x124 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+ .debug_frame   0x000019dc       0xe0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+ .debug_frame   0x00001abc      0x138 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+ .debug_frame   0x00001bf4       0x2c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+ .debug_frame   0x00001c20      0x194 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
+ .debug_frame   0x00001db4      0x180 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+ .debug_frame   0x00001f34       0x50 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+ .debug_frame   0x00001f84       0x94 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+ .debug_frame   0x00002018       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
+ .debug_frame   0x00002048       0x74 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
+ .debug_frame   0x000020bc       0x20 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x000020dc       0x28 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00002104       0x2c c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00002130       0x28 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00002158       0x20 c:/program files (x86)/cypress/psoc creator/4.3/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x3418
+.debug_str      0x00000000     0x3438
  *(.debug_str)
- .debug_str     0x00000000      0x284 .\CortexM3\ARM_GCC_541\Debug\main.o
-                                0x2d2 (size before relaxing)
- .debug_str     0x00000284      0x1c1 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
-                                0x396 (size before relaxing)
- .debug_str     0x00000445      0x17d .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                                0x330 (size before relaxing)
- .debug_str     0x000005c2       0x75 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
-                                0x1fb (size before relaxing)
- .debug_str     0x00000637      0x154 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                                0x331 (size before relaxing)
- .debug_str     0x0000078b      0x665 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
-                                0x852 (size before relaxing)
- .debug_str     0x00000df0      0x386 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
-                                0x6b3 (size before relaxing)
- .debug_str     0x00001176      0x379 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
-                                0x828 (size before relaxing)
- .debug_str     0x000014ef       0x27 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
-                                0x20a (size before relaxing)
- .debug_str     0x00001516      0x324 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
-                                0x561 (size before relaxing)
- .debug_str     0x0000183a      0x7da .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
-                                0xa5e (size before relaxing)
- .debug_str     0x00002014      0x365 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
-                                0x74a (size before relaxing)
- .debug_str     0x00002379       0x88 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
-                                0x287 (size before relaxing)
- .debug_str     0x00002401      0x156 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
-                                0x33f (size before relaxing)
- .debug_str     0x00002557      0x176 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
-                                0x376 (size before relaxing)
- .debug_str     0x000026cd      0x16a .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
-                                0x31d (size before relaxing)
- .debug_str     0x00002837      0x28f .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
-                                0x48a (size before relaxing)
- .debug_str     0x00002ac6      0x211 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
-                                0x6d1 (size before relaxing)
- .debug_str     0x00002cd7       0x27 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
-                                0x2d1 (size before relaxing)
- .debug_str     0x00002cfe      0x112 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
-                                0x38a (size before relaxing)
- .debug_str     0x00002e10       0x8c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
-                                0x30c (size before relaxing)
- .debug_str     0x00002e9c       0xbc .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .debug_str     0x00000000      0x33b .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x398 (size before relaxing)
+ .debug_str     0x0000033b      0x1b2 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+                                0x3a1 (size before relaxing)
+ .debug_str     0x000004ed      0x177 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x332 (size before relaxing)
+ .debug_str     0x00000664       0x75 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x1fd (size before relaxing)
+ .debug_str     0x000006d9      0x154 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x333 (size before relaxing)
+ .debug_str     0x0000082d      0x49a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                                0x6d3 (size before relaxing)
+ .debug_str     0x00000cc7      0x538 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                                0x854 (size before relaxing)
+ .debug_str     0x000011ff      0x2c1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                                0x6b5 (size before relaxing)
+ .debug_str     0x000014c0       0x8c .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                                0x30e (size before relaxing)
+ .debug_str     0x0000154c       0xe6 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+                                0x321 (size before relaxing)
+ .debug_str     0x00001632      0x292 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                                0x82a (size before relaxing)
+ .debug_str     0x000018c4       0x27 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+                                0x20c (size before relaxing)
+ .debug_str     0x000018eb       0xb0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+                                0x268 (size before relaxing)
+ .debug_str     0x0000199b      0x2f7 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+                                0x563 (size before relaxing)
+ .debug_str     0x00001c92      0x7ab .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                                0xa60 (size before relaxing)
+ .debug_str     0x0000243d      0x365 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+                                0x74c (size before relaxing)
+ .debug_str     0x000027a2       0x88 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+                                0x289 (size before relaxing)
+ .debug_str     0x0000282a      0x156 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                                0x341 (size before relaxing)
+ .debug_str     0x00002980      0x176 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                                0x378 (size before relaxing)
+ .debug_str     0x00002af6      0x16a .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
                                 0x31f (size before relaxing)
- .debug_str     0x00002f58       0xb0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
-                                0x266 (size before relaxing)
- .debug_str     0x00003008      0x186 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
-                                0x3d7 (size before relaxing)
- .debug_str     0x0000318e       0xac .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
-                                0x34f (size before relaxing)
- .debug_str     0x0000323a       0x3e .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
-                                0x1ef (size before relaxing)
- .debug_str     0x00003278       0xdb .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
-                                0x364 (size before relaxing)
- .debug_str     0x00003353       0x42 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
-                                0x2d9 (size before relaxing)
- .debug_str     0x00003395       0x83 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
-                                0x2e5 (size before relaxing)
+ .debug_str     0x00002c60      0x28f .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+                                0x48c (size before relaxing)
+ .debug_str     0x00002eef       0x27 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+                                0x2d3 (size before relaxing)
+ .debug_str     0x00002f16      0x112 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+                                0x38c (size before relaxing)
+ .debug_str     0x00003028      0x186 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
+                                0x3d9 (size before relaxing)
+ .debug_str     0x000031ae       0xac .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+                                0x351 (size before relaxing)
+ .debug_str     0x0000325a       0x3e .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+                                0x1f1 (size before relaxing)
+ .debug_str     0x00003298       0xdb .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+                                0x366 (size before relaxing)
+ .debug_str     0x00003373       0x42 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
+                                0x2db (size before relaxing)
+ .debug_str     0x000033b5       0x83 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
+                                0x2e7 (size before relaxing)
 
-.debug_loc      0x00000000     0x463a
+.debug_loc      0x00000000     0x4673
  *(.debug_loc)
- .debug_loc     0x00000000      0x27b .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
- .debug_loc     0x0000027b      0x205 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_loc     0x00000480      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_loc     0x000005c4      0x557 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .debug_loc     0x00000b1b      0x171 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .debug_loc     0x00000c8c      0x945 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .debug_loc     0x000015d1      0xb8e .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
- .debug_loc     0x0000215f      0xa11 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .debug_loc     0x00002b70      0x1e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
- .debug_loc     0x00002d54      0x1bf .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
- .debug_loc     0x00002f13       0x56 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
- .debug_loc     0x00002f69       0x13 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
- .debug_loc     0x00002f7c      0x12c .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
- .debug_loc     0x000030a8      0x52f .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .debug_loc     0x000035d7      0x3e1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .debug_loc     0x000039b8       0x6a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
- .debug_loc     0x00003a22       0x26 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .debug_loc     0x00003a48       0x84 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
- .debug_loc     0x00003acc      0x3b2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
- .debug_loc     0x00003e7e      0x705 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
- .debug_loc     0x00004583       0x42 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
- .debug_loc     0x000045c5       0x39 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
- .debug_loc     0x000045fe       0x29 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
- .debug_loc     0x00004627       0x13 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
+ .debug_loc     0x00000000       0x26 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_loc     0x00000026      0x28e .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
+ .debug_loc     0x000002b4      0x205 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x000004b9      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_loc     0x000005fd      0x3e1 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .debug_loc     0x000009de      0x557 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .debug_loc     0x00000f35      0x171 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .debug_loc     0x000010a6       0x26 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .debug_loc     0x000010cc      0x945 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+ .debug_loc     0x00001a11       0x84 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .debug_loc     0x00001a95      0xb8e .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+ .debug_loc     0x00002623      0xa11 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+ .debug_loc     0x00003034      0x1e4 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+ .debug_loc     0x00003218      0x1bf .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+ .debug_loc     0x000033d7       0x56 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+ .debug_loc     0x0000342d       0x13 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+ .debug_loc     0x00003440      0x12c .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+ .debug_loc     0x0000356c      0x52f .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+ .debug_loc     0x00003a9b       0x6a .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+ .debug_loc     0x00003b05      0x3b2 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
+ .debug_loc     0x00003eb7      0x705 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
+ .debug_loc     0x000045bc       0x42 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
+ .debug_loc     0x000045fe       0x39 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1.o)
+ .debug_loc     0x00004637       0x29 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_INT.o)
+ .debug_loc     0x00004660       0x13 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_PM.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1615,23 +1704,23 @@ END GROUP
  .debug_ranges  0x00000018       0x40 .\CortexM3\ARM_GCC_541\Debug\ITG3200.o
  .debug_ranges  0x00000058       0x48 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .debug_ranges  0x000000a0       0x38 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_ranges  0x000000d8       0xd8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
- .debug_ranges  0x000001b0       0x88 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
- .debug_ranges  0x00000238       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
- .debug_ranges  0x000002a8       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
- .debug_ranges  0x000002b8       0xc8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
- .debug_ranges  0x00000380      0x290 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
- .debug_ranges  0x00000610       0x88 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
- .debug_ranges  0x00000698       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
- .debug_ranges  0x000006c8       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
- .debug_ranges  0x00000738       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
- .debug_ranges  0x000007b8       0x60 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
- .debug_ranges  0x00000818       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .debug_ranges  0x00000888       0xd0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
- .debug_ranges  0x00000958       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
- .debug_ranges  0x00000968       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .debug_ranges  0x00000998       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .debug_ranges  0x000009c8       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .debug_ranges  0x000000d8       0xd0 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+ .debug_ranges  0x000001a8       0xd8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+ .debug_ranges  0x00000280       0x88 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .debug_ranges  0x00000308       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .debug_ranges  0x00000338       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+ .debug_ranges  0x00000368       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+ .debug_ranges  0x000003d8       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+ .debug_ranges  0x000003e8       0x38 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+ .debug_ranges  0x00000420       0xc8 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+ .debug_ranges  0x000004e8      0x290 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+ .debug_ranges  0x00000778       0x88 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+ .debug_ranges  0x00000800       0x30 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+ .debug_ranges  0x00000830       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+ .debug_ranges  0x000008a0       0x80 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+ .debug_ranges  0x00000920       0x60 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+ .debug_ranges  0x00000980       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+ .debug_ranges  0x000009f0       0x10 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
  .debug_ranges  0x00000a00       0x78 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
  .debug_ranges  0x00000a78       0x70 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
  .debug_ranges  0x00000ae8       0x28 .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
@@ -1646,10 +1735,14 @@ END GROUP
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
@@ -1658,12 +1751,8 @@ END GROUP
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
- .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
- .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
- .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
- .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(CySpc.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\Design01.a(LED.o)
@@ -1706,43 +1795,43 @@ END GROUP
  .ARM.attributes
                 0x00000131       0x33 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
  .ARM.attributes
-                0x00000164       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
+                0x00000164       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
  .ARM.attributes
-                0x00000197       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
+                0x00000197       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cdc.o)
  .ARM.attributes
-                0x000001ca       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
+                0x000001ca       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_drv.o)
  .ARM.attributes
-                0x000001fd       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
+                0x000001fd       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
  .ARM.attributes
-                0x00000230       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
+                0x00000230       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
  .ARM.attributes
-                0x00000263       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
+                0x00000263       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_std.o)
  .ARM.attributes
-                0x00000296       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
+                0x00000296       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_vnd.o)
  .ARM.attributes
-                0x000002c9       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
+                0x000002c9       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
  .ARM.attributes
-                0x000002fc       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
+                0x000002fc       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyDmac.o)
  .ARM.attributes
-                0x0000032f       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
+                0x0000032f       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyLib.o)
  .ARM.attributes
-                0x00000362       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
+                0x00000362       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(cyPm.o)
  .ARM.attributes
-                0x00000395       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
+                0x00000395       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DieTemp_1.o)
  .ARM.attributes
-                0x000003c8       0x21 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
+                0x000003c8       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Cycle_ISR_1.o)
  .ARM.attributes
-                0x000003e9       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1.o)
+                0x000003fb       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(Timer_1.o)
  .ARM.attributes
-                0x0000041c       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
+                0x0000042e       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(DMA_Timer.o)
  .ARM.attributes
-                0x0000044f       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
+                0x00000461       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(I2C_Master_1_MASTER.o)
  .ARM.attributes
-                0x00000482       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_episr.o)
+                0x00000494       0x21 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyBootAsmGnu.o)
  .ARM.attributes
-                0x000004b5       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_pm.o)
+                0x000004b5       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_cls.o)
  .ARM.attributes
-                0x000004e8       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_Dp.o)
+                0x000004e8       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(USB_CDC_1_descr.o)
  .ARM.attributes
                 0x0000051b       0x33 .\CortexM3\ARM_GCC_541\Debug\Design01.a(CyFlash.o)
  .ARM.attributes
@@ -1774,4 +1863,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(C:\data\GitHub\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\CortexM3\ARM_GCC_541\Debug\Design01.elf elf32-littlearm)
+OUTPUT(C:\projekte\repo\QuadroCopter\Software\Cypress_FlightController\QuadrCopter\Design01.cydsn\CortexM3\ARM_GCC_541\Debug\Design01.elf elf32-littlearm)

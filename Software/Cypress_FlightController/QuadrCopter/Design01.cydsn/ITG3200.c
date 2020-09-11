@@ -170,10 +170,11 @@ uint8_t setup_itg3200(_Bool ADRPin, uint8_t rate_divider, uint8_t DLPF_CFG){
     
     //setup ADR
     DeviceADR = ((uint8_t)DeviceADR_Base)<<1;
+    uint8 DeviceID;
     if(ADRPin)
        DeviceADR |= 0x01;
     /****** Check Chip ID ******/
-    if(! ((read_register_data(DeviceADR, WHO_AM_I_REG)>>1) == DeviceADR_Base))
+    if(! ((DeviceID = read_register_data(DeviceADR, WHO_AM_I_REG)>>1) == DeviceADR_Base))
         return itg3200_device_id_error;
     
     set_sample_rate_divider(rate_divider);
@@ -181,5 +182,5 @@ uint8_t setup_itg3200(_Bool ADRPin, uint8_t rate_divider, uint8_t DLPF_CFG){
     set_interrupt_configuration(Active_Interrupt_Level_High, Interrupt_Pin_PushPull, Interupt_Latch_50usPulse, 
         Interrupt_Clear_after_read , Interrupt_deactivation , Interrupt_Data_Ready );
         
-    return 0;
+    return DeviceID;
 }

@@ -1,0 +1,1335 @@
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 804
+  28              	cy_meta_configecc:
+  29 0000 02       		.byte	2
+  30 0001 4F       		.byte	79
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 02       		.byte	2
+  34 0005 52       		.byte	82
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 64       		.byte	100
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 02       		.byte	2
+  42 000d 65       		.byte	101
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 07       		.byte	7
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 6E       		.byte	110
+  50 0015 08       		.byte	8
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 40       		.byte	64
+  54 0019 09       		.byte	9
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 15       		.byte	21
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 2
+
+
+  58 001d 18       		.byte	24
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 4C       		.byte	76
+  62 0021 19       		.byte	25
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 05       		.byte	5
+  66 0025 1B       		.byte	27
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 04       		.byte	4
+  70 0029 43       		.byte	67
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 04       		.byte	4
+  74 002d 4C       		.byte	76
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 04       		.byte	4
+  78 0031 4D       		.byte	77
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 04       		.byte	4
+  82 0035 50       		.byte	80
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 01       		.byte	1
+  86 0039 10       		.byte	16
+  87 003a 0A       		.byte	10
+  88 003b 1B       		.byte	27
+  89 003c 08       		.byte	8
+  90 003d 80       		.byte	-128
+  91 003e 0C       		.byte	12
+  92 003f 40       		.byte	64
+  93 0040 89       		.byte	-119
+  94 0041 0F       		.byte	15
+  95 0042 88       		.byte	-120
+  96 0043 38       		.byte	56
+  97 0044 89       		.byte	-119
+  98 0045 72       		.byte	114
+  99 0046 E2       		.byte	-30
+ 100 0047 01       		.byte	1
+ 101 0048 03       		.byte	3
+ 102 0049 08       		.byte	8
+ 103 004a 04       		.byte	4
+ 104 004b 0C       		.byte	12
+ 105 004c 06       		.byte	6
+ 106 004d 71       		.byte	113
+ 107 004e 08       		.byte	8
+ 108 004f 14       		.byte	20
+ 109 0050 09       		.byte	9
+ 110 0051 80       		.byte	-128
+ 111 0052 0B       		.byte	11
+ 112 0053 13       		.byte	19
+ 113 0054 0C       		.byte	12
+ 114 0055 10       		.byte	16
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 3
+
+
+ 115 0056 0E       		.byte	14
+ 116 0057 AC       		.byte	-84
+ 117 0058 12       		.byte	18
+ 118 0059 03       		.byte	3
+ 119 005a 13       		.byte	19
+ 120 005b 0C       		.byte	12
+ 121 005c 14       		.byte	20
+ 122 005d DC       		.byte	-36
+ 123 005e 16       		.byte	22
+ 124 005f 22       		.byte	34
+ 125 0060 19       		.byte	25
+ 126 0061 2C       		.byte	44
+ 127 0062 1B       		.byte	27
+ 128 0063 43       		.byte	67
+ 129 0064 1C       		.byte	28
+ 130 0065 10       		.byte	16
+ 131 0066 1E       		.byte	30
+ 132 0067 40       		.byte	64
+ 133 0068 20       		.byte	32
+ 134 0069 09       		.byte	9
+ 135 006a 22       		.byte	34
+ 136 006b D0       		.byte	-48
+ 137 006c 25       		.byte	37
+ 138 006d 71       		.byte	113
+ 139 006e 26       		.byte	38
+ 140 006f 20       		.byte	32
+ 141 0070 27       		.byte	39
+ 142 0071 0E       		.byte	14
+ 143 0072 2D       		.byte	45
+ 144 0073 71       		.byte	113
+ 145 0074 2F       		.byte	47
+ 146 0075 06       		.byte	6
+ 147 0076 30       		.byte	48
+ 148 0077 1F       		.byte	31
+ 149 0078 33       		.byte	51
+ 150 0079 30       		.byte	48
+ 151 007a 34       		.byte	52
+ 152 007b E0       		.byte	-32
+ 153 007c 35       		.byte	53
+ 154 007d 0F       		.byte	15
+ 155 007e 37       		.byte	55
+ 156 007f C0       		.byte	-64
+ 157 0080 38       		.byte	56
+ 158 0081 08       		.byte	8
+ 159 0082 39       		.byte	57
+ 160 0083 88       		.byte	-120
+ 161 0084 3A       		.byte	58
+ 162 0085 20       		.byte	32
+ 163 0086 3B       		.byte	59
+ 164 0087 20       		.byte	32
+ 165 0088 3E       		.byte	62
+ 166 0089 04       		.byte	4
+ 167 008a 3F       		.byte	63
+ 168 008b 04       		.byte	4
+ 169 008c 40       		.byte	64
+ 170 008d 02       		.byte	2
+ 171 008e 45       		.byte	69
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 49       		.byte	73
+ 174 0091 FF       		.byte	-1
+ 175 0092 4A       		.byte	74
+ 176 0093 07       		.byte	7
+ 177 0094 4B       		.byte	75
+ 178 0095 FF       		.byte	-1
+ 179 0096 4C       		.byte	76
+ 180 0097 40       		.byte	64
+ 181 0098 4D       		.byte	77
+ 182 0099 20       		.byte	32
+ 183 009a 4E       		.byte	78
+ 184 009b F0       		.byte	-16
+ 185 009c 4F       		.byte	79
+ 186 009d 05       		.byte	5
+ 187 009e 50       		.byte	80
+ 188 009f 08       		.byte	8
+ 189 00a0 58       		.byte	88
+ 190 00a1 04       		.byte	4
+ 191 00a2 59       		.byte	89
+ 192 00a3 04       		.byte	4
+ 193 00a4 5A       		.byte	90
+ 194 00a5 04       		.byte	4
+ 195 00a6 5F       		.byte	95
+ 196 00a7 01       		.byte	1
+ 197 00a8 60       		.byte	96
+ 198 00a9 40       		.byte	64
+ 199 00aa 61       		.byte	97
+ 200 00ab A8       		.byte	-88
+ 201 00ac 62       		.byte	98
+ 202 00ad 40       		.byte	64
+ 203 00ae 63       		.byte	99
+ 204 00af 20       		.byte	32
+ 205 00b0 80       		.byte	-128
+ 206 00b1 40       		.byte	64
+ 207 00b2 82       		.byte	-126
+ 208 00b3 20       		.byte	32
+ 209 00b4 83       		.byte	-125
+ 210 00b5 02       		.byte	2
+ 211 00b6 84       		.byte	-124
+ 212 00b7 20       		.byte	32
+ 213 00b8 86       		.byte	-122
+ 214 00b9 C0       		.byte	-64
+ 215 00ba 88       		.byte	-120
+ 216 00bb E0       		.byte	-32
+ 217 00bc 8B       		.byte	-117
+ 218 00bd 02       		.byte	2
+ 219 00be 8C       		.byte	-116
+ 220 00bf 13       		.byte	19
+ 221 00c0 8D       		.byte	-115
+ 222 00c1 10       		.byte	16
+ 223 00c2 8E       		.byte	-114
+ 224 00c3 0C       		.byte	12
+ 225 00c4 8F       		.byte	-113
+ 226 00c5 08       		.byte	8
+ 227 00c6 92       		.byte	-110
+ 228 00c7 08       		.byte	8
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 5
+
+
+ 229 00c8 94       		.byte	-108
+ 230 00c9 13       		.byte	19
+ 231 00ca 95       		.byte	-107
+ 232 00cb 1C       		.byte	28
+ 233 00cc 96       		.byte	-106
+ 234 00cd 04       		.byte	4
+ 235 00ce 99       		.byte	-103
+ 236 00cf 1C       		.byte	28
+ 237 00d0 9A       		.byte	-102
+ 238 00d1 15       		.byte	21
+ 239 00d2 9D       		.byte	-99
+ 240 00d3 04       		.byte	4
+ 241 00d4 A0       		.byte	-96
+ 242 00d5 80       		.byte	-128
+ 243 00d6 A1       		.byte	-95
+ 244 00d7 08       		.byte	8
+ 245 00d8 A2       		.byte	-94
+ 246 00d9 20       		.byte	32
+ 247 00da A3       		.byte	-93
+ 248 00db 11       		.byte	17
+ 249 00dc A4       		.byte	-92
+ 250 00dd E0       		.byte	-32
+ 251 00de A8       		.byte	-88
+ 252 00df 0A       		.byte	10
+ 253 00e0 AA       		.byte	-86
+ 254 00e1 14       		.byte	20
+ 255 00e2 AC       		.byte	-84
+ 256 00e3 03       		.byte	3
+ 257 00e4 AE       		.byte	-82
+ 258 00e5 14       		.byte	20
+ 259 00e6 B0       		.byte	-80
+ 260 00e7 0F       		.byte	15
+ 261 00e8 B1       		.byte	-79
+ 262 00e9 01       		.byte	1
+ 263 00ea B2       		.byte	-78
+ 264 00eb E0       		.byte	-32
+ 265 00ec B3       		.byte	-77
+ 266 00ed 02       		.byte	2
+ 267 00ee B5       		.byte	-75
+ 268 00ef 04       		.byte	4
+ 269 00f0 B6       		.byte	-74
+ 270 00f1 10       		.byte	16
+ 271 00f2 B7       		.byte	-73
+ 272 00f3 18       		.byte	24
+ 273 00f4 BA       		.byte	-70
+ 274 00f5 02       		.byte	2
+ 275 00f6 BE       		.byte	-66
+ 276 00f7 40       		.byte	64
+ 277 00f8 BF       		.byte	-65
+ 278 00f9 04       		.byte	4
+ 279 00fa C0       		.byte	-64
+ 280 00fb 53       		.byte	83
+ 281 00fc C1       		.byte	-63
+ 282 00fd 02       		.byte	2
+ 283 00fe C5       		.byte	-59
+ 284 00ff E0       		.byte	-32
+ 285 0100 C6       		.byte	-58
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 6
+
+
+ 286 0101 B0       		.byte	-80
+ 287 0102 C7       		.byte	-57
+ 288 0103 CE       		.byte	-50
+ 289 0104 C8       		.byte	-56
+ 290 0105 3A       		.byte	58
+ 291 0106 C9       		.byte	-55
+ 292 0107 FF       		.byte	-1
+ 293 0108 CA       		.byte	-54
+ 294 0109 FF       		.byte	-1
+ 295 010a CB       		.byte	-53
+ 296 010b FF       		.byte	-1
+ 297 010c CE       		.byte	-50
+ 298 010d F0       		.byte	-16
+ 299 010e CF       		.byte	-49
+ 300 010f 44       		.byte	68
+ 301 0110 D0       		.byte	-48
+ 302 0111 0C       		.byte	12
+ 303 0112 D4       		.byte	-44
+ 304 0113 01       		.byte	1
+ 305 0114 D8       		.byte	-40
+ 306 0115 04       		.byte	4
+ 307 0116 D9       		.byte	-39
+ 308 0117 04       		.byte	4
+ 309 0118 DA       		.byte	-38
+ 310 0119 04       		.byte	4
+ 311 011a DB       		.byte	-37
+ 312 011b 04       		.byte	4
+ 313 011c DF       		.byte	-33
+ 314 011d 01       		.byte	1
+ 315 011e E6       		.byte	-26
+ 316 011f C0       		.byte	-64
+ 317 0120 EA       		.byte	-22
+ 318 0121 40       		.byte	64
+ 319 0122 EB       		.byte	-21
+ 320 0123 02       		.byte	2
+ 321 0124 00       		.byte	0
+ 322 0125 02       		.byte	2
+ 323 0126 01       		.byte	1
+ 324 0127 08       		.byte	8
+ 325 0128 03       		.byte	3
+ 326 0129 06       		.byte	6
+ 327 012a 04       		.byte	4
+ 328 012b 24       		.byte	36
+ 329 012c 05       		.byte	5
+ 330 012d 80       		.byte	-128
+ 331 012e 08       		.byte	8
+ 332 012f 01       		.byte	1
+ 333 0130 09       		.byte	9
+ 334 0131 20       		.byte	32
+ 335 0132 0B       		.byte	11
+ 336 0133 20       		.byte	32
+ 337 0134 0E       		.byte	14
+ 338 0135 60       		.byte	96
+ 339 0136 0F       		.byte	15
+ 340 0137 01       		.byte	1
+ 341 0138 10       		.byte	16
+ 342 0139 10       		.byte	16
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 7
+
+
+ 343 013a 11       		.byte	17
+ 344 013b 20       		.byte	32
+ 345 013c 12       		.byte	18
+ 346 013d 01       		.byte	1
+ 347 013e 13       		.byte	19
+ 348 013f 02       		.byte	2
+ 349 0140 16       		.byte	22
+ 350 0141 20       		.byte	32
+ 351 0142 17       		.byte	23
+ 352 0143 01       		.byte	1
+ 353 0144 19       		.byte	25
+ 354 0145 48       		.byte	72
+ 355 0146 1B       		.byte	27
+ 356 0147 0A       		.byte	10
+ 357 0148 1C       		.byte	28
+ 358 0149 04       		.byte	4
+ 359 014a 1D       		.byte	29
+ 360 014b 08       		.byte	8
+ 361 014c 1E       		.byte	30
+ 362 014d 40       		.byte	64
+ 363 014e 1F       		.byte	31
+ 364 014f 30       		.byte	48
+ 365 0150 20       		.byte	32
+ 366 0151 08       		.byte	8
+ 367 0152 21       		.byte	33
+ 368 0153 40       		.byte	64
+ 369 0154 22       		.byte	34
+ 370 0155 09       		.byte	9
+ 371 0156 23       		.byte	35
+ 372 0157 02       		.byte	2
+ 373 0158 25       		.byte	37
+ 374 0159 10       		.byte	16
+ 375 015a 26       		.byte	38
+ 376 015b 10       		.byte	16
+ 377 015c 27       		.byte	39
+ 378 015d 21       		.byte	33
+ 379 015e 2A       		.byte	42
+ 380 015f 02       		.byte	2
+ 381 0160 2D       		.byte	45
+ 382 0161 80       		.byte	-128
+ 383 0162 2F       		.byte	47
+ 384 0163 22       		.byte	34
+ 385 0164 30       		.byte	48
+ 386 0165 10       		.byte	16
+ 387 0166 32       		.byte	50
+ 388 0167 40       		.byte	64
+ 389 0168 33       		.byte	51
+ 390 0169 14       		.byte	20
+ 391 016a 34       		.byte	52
+ 392 016b 01       		.byte	1
+ 393 016c 36       		.byte	54
+ 394 016d 10       		.byte	16
+ 395 016e 37       		.byte	55
+ 396 016f 01       		.byte	1
+ 397 0170 38       		.byte	56
+ 398 0171 02       		.byte	2
+ 399 0172 39       		.byte	57
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 8
+
+
+ 400 0173 A0       		.byte	-96
+ 401 0174 3F       		.byte	63
+ 402 0175 21       		.byte	33
+ 403 0176 42       		.byte	66
+ 404 0177 20       		.byte	32
+ 405 0178 43       		.byte	67
+ 406 0179 20       		.byte	32
+ 407 017a 47       		.byte	71
+ 408 017b 20       		.byte	32
+ 409 017c 49       		.byte	73
+ 410 017d 81       		.byte	-127
+ 411 017e 4F       		.byte	79
+ 412 017f 01       		.byte	1
+ 413 0180 50       		.byte	80
+ 414 0181 10       		.byte	16
+ 415 0182 51       		.byte	81
+ 416 0183 01       		.byte	1
+ 417 0184 52       		.byte	82
+ 418 0185 05       		.byte	5
+ 419 0186 55       		.byte	85
+ 420 0187 20       		.byte	32
+ 421 0188 56       		.byte	86
+ 422 0189 20       		.byte	32
+ 423 018a 57       		.byte	87
+ 424 018b 10       		.byte	16
+ 425 018c 59       		.byte	89
+ 426 018d 61       		.byte	97
+ 427 018e 5A       		.byte	90
+ 428 018f 04       		.byte	4
+ 429 0190 81       		.byte	-127
+ 430 0191 08       		.byte	8
+ 431 0192 C0       		.byte	-64
+ 432 0193 EF       		.byte	-17
+ 433 0194 C2       		.byte	-62
+ 434 0195 BE       		.byte	-66
+ 435 0196 C4       		.byte	-60
+ 436 0197 3F       		.byte	63
+ 437 0198 CA       		.byte	-54
+ 438 0199 51       		.byte	81
+ 439 019a CC       		.byte	-52
+ 440 019b AE       		.byte	-82
+ 441 019c CE       		.byte	-50
+ 442 019d AD       		.byte	-83
+ 443 019e D0       		.byte	-48
+ 444 019f 26       		.byte	38
+ 445 01a0 D2       		.byte	-46
+ 446 01a1 08       		.byte	8
+ 447 01a2 D6       		.byte	-42
+ 448 01a3 0F       		.byte	15
+ 449 01a4 08       		.byte	8
+ 450 01a5 01       		.byte	1
+ 451 01a6 12       		.byte	18
+ 452 01a7 04       		.byte	4
+ 453 01a8 16       		.byte	22
+ 454 01a9 01       		.byte	1
+ 455 01aa 1C       		.byte	28
+ 456 01ab 01       		.byte	1
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 9
+
+
+ 457 01ac 26       		.byte	38
+ 458 01ad 04       		.byte	4
+ 459 01ae 28       		.byte	40
+ 460 01af 02       		.byte	2
+ 461 01b0 2D       		.byte	45
+ 462 01b1 01       		.byte	1
+ 463 01b2 2E       		.byte	46
+ 464 01b3 01       		.byte	1
+ 465 01b4 30       		.byte	48
+ 466 01b5 01       		.byte	1
+ 467 01b6 31       		.byte	49
+ 468 01b7 01       		.byte	1
+ 469 01b8 32       		.byte	50
+ 470 01b9 04       		.byte	4
+ 471 01ba 34       		.byte	52
+ 472 01bb 02       		.byte	2
+ 473 01bc 38       		.byte	56
+ 474 01bd 02       		.byte	2
+ 475 01be 3A       		.byte	58
+ 476 01bf 80       		.byte	-128
+ 477 01c0 3E       		.byte	62
+ 478 01c1 14       		.byte	20
+ 479 01c2 3F       		.byte	63
+ 480 01c3 01       		.byte	1
+ 481 01c4 54       		.byte	84
+ 482 01c5 18       		.byte	24
+ 483 01c6 58       		.byte	88
+ 484 01c7 04       		.byte	4
+ 485 01c8 59       		.byte	89
+ 486 01c9 04       		.byte	4
+ 487 01ca 5B       		.byte	91
+ 488 01cb 04       		.byte	4
+ 489 01cc 5F       		.byte	95
+ 490 01cd 01       		.byte	1
+ 491 01ce 00       		.byte	0
+ 492 01cf 0A       		.byte	10
+ 493 01d0 01       		.byte	1
+ 494 01d1 80       		.byte	-128
+ 495 01d2 03       		.byte	3
+ 496 01d3 08       		.byte	8
+ 497 01d4 05       		.byte	5
+ 498 01d5 20       		.byte	32
+ 499 01d6 08       		.byte	8
+ 500 01d7 20       		.byte	32
+ 501 01d8 09       		.byte	9
+ 502 01d9 88       		.byte	-120
+ 503 01da 0A       		.byte	10
+ 504 01db 08       		.byte	8
+ 505 01dc 0B       		.byte	11
+ 506 01dd 02       		.byte	2
+ 507 01de 0D       		.byte	13
+ 508 01df 82       		.byte	-126
+ 509 01e0 0F       		.byte	15
+ 510 01e1 10       		.byte	16
+ 511 01e2 10       		.byte	16
+ 512 01e3 40       		.byte	64
+ 513 01e4 11       		.byte	17
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 10
+
+
+ 514 01e5 40       		.byte	64
+ 515 01e6 12       		.byte	18
+ 516 01e7 08       		.byte	8
+ 517 01e8 13       		.byte	19
+ 518 01e9 06       		.byte	6
+ 519 01ea 15       		.byte	21
+ 520 01eb 48       		.byte	72
+ 521 01ec 16       		.byte	22
+ 522 01ed 04       		.byte	4
+ 523 01ee 18       		.byte	24
+ 524 01ef 01       		.byte	1
+ 525 01f0 19       		.byte	25
+ 526 01f1 21       		.byte	33
+ 527 01f2 1A       		.byte	26
+ 528 01f3 28       		.byte	40
+ 529 01f4 1D       		.byte	29
+ 530 01f5 82       		.byte	-126
+ 531 01f6 1E       		.byte	30
+ 532 01f7 06       		.byte	6
+ 533 01f8 1F       		.byte	31
+ 534 01f9 04       		.byte	4
+ 535 01fa 21       		.byte	33
+ 536 01fb 10       		.byte	16
+ 537 01fc 22       		.byte	34
+ 538 01fd 08       		.byte	8
+ 539 01fe 23       		.byte	35
+ 540 01ff 11       		.byte	17
+ 541 0200 24       		.byte	36
+ 542 0201 80       		.byte	-128
+ 543 0202 28       		.byte	40
+ 544 0203 20       		.byte	32
+ 545 0204 29       		.byte	41
+ 546 0205 C0       		.byte	-64
+ 547 0206 2A       		.byte	42
+ 548 0207 02       		.byte	2
+ 549 0208 2B       		.byte	43
+ 550 0209 08       		.byte	8
+ 551 020a 2E       		.byte	46
+ 552 020b 40       		.byte	64
+ 553 020c 30       		.byte	48
+ 554 020d 40       		.byte	64
+ 555 020e 31       		.byte	49
+ 556 020f 10       		.byte	16
+ 557 0210 32       		.byte	50
+ 558 0211 09       		.byte	9
+ 559 0212 38       		.byte	56
+ 560 0213 28       		.byte	40
+ 561 0214 39       		.byte	57
+ 562 0215 40       		.byte	64
+ 563 0216 3B       		.byte	59
+ 564 0217 02       		.byte	2
+ 565 0218 40       		.byte	64
+ 566 0219 21       		.byte	33
+ 567 021a 41       		.byte	65
+ 568 021b 10       		.byte	16
+ 569 021c 48       		.byte	72
+ 570 021d 04       		.byte	4
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 11
+
+
+ 571 021e 49       		.byte	73
+ 572 021f 10       		.byte	16
+ 573 0220 4A       		.byte	74
+ 574 0221 01       		.byte	1
+ 575 0222 50       		.byte	80
+ 576 0223 01       		.byte	1
+ 577 0224 51       		.byte	81
+ 578 0225 04       		.byte	4
+ 579 0226 59       		.byte	89
+ 580 0227 01       		.byte	1
+ 581 0228 5F       		.byte	95
+ 582 0229 01       		.byte	1
+ 583 022a 66       		.byte	102
+ 584 022b 40       		.byte	64
+ 585 022c 67       		.byte	103
+ 586 022d 08       		.byte	8
+ 587 022e 6A       		.byte	106
+ 588 022f 80       		.byte	-128
+ 589 0230 6B       		.byte	107
+ 590 0231 14       		.byte	20
+ 591 0232 70       		.byte	112
+ 592 0233 14       		.byte	20
+ 593 0234 71       		.byte	113
+ 594 0235 48       		.byte	72
+ 595 0236 73       		.byte	115
+ 596 0237 04       		.byte	4
+ 597 0238 92       		.byte	-110
+ 598 0239 42       		.byte	66
+ 599 023a 94       		.byte	-108
+ 600 023b 02       		.byte	2
+ 601 023c 95       		.byte	-107
+ 602 023d 20       		.byte	32
+ 603 023e 96       		.byte	-106
+ 604 023f 84       		.byte	-124
+ 605 0240 9A       		.byte	-102
+ 606 0241 44       		.byte	68
+ 607 0242 9B       		.byte	-101
+ 608 0243 02       		.byte	2
+ 609 0244 9E       		.byte	-98
+ 610 0245 02       		.byte	2
+ 611 0246 9F       		.byte	-97
+ 612 0247 14       		.byte	20
+ 613 0248 A0       		.byte	-96
+ 614 0249 04       		.byte	4
+ 615 024a A3       		.byte	-93
+ 616 024b 08       		.byte	8
+ 617 024c A4       		.byte	-92
+ 618 024d 01       		.byte	1
+ 619 024e AD       		.byte	-83
+ 620 024f 21       		.byte	33
+ 621 0250 B2       		.byte	-78
+ 622 0251 48       		.byte	72
+ 623 0252 C0       		.byte	-64
+ 624 0253 4F       		.byte	79
+ 625 0254 C2       		.byte	-62
+ 626 0255 B7       		.byte	-73
+ 627 0256 C4       		.byte	-60
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 12
+
+
+ 628 0257 EF       		.byte	-17
+ 629 0258 CA       		.byte	-54
+ 630 0259 1F       		.byte	31
+ 631 025a CC       		.byte	-52
+ 632 025b 0F       		.byte	15
+ 633 025c CE       		.byte	-50
+ 634 025d 0F       		.byte	15
+ 635 025e D0       		.byte	-48
+ 636 025f 0E       		.byte	14
+ 637 0260 D2       		.byte	-46
+ 638 0261 0C       		.byte	12
+ 639 0262 D6       		.byte	-42
+ 640 0263 81       		.byte	-127
+ 641 0264 D8       		.byte	-40
+ 642 0265 30       		.byte	48
+ 643 0266 B0       		.byte	-80
+ 644 0267 01       		.byte	1
+ 645 0268 B2       		.byte	-78
+ 646 0269 02       		.byte	2
+ 647 026a B4       		.byte	-76
+ 648 026b 40       		.byte	64
+ 649 026c B5       		.byte	-75
+ 650 026d 40       		.byte	64
+ 651 026e B6       		.byte	-74
+ 652 026f 10       		.byte	16
+ 653 0270 62       		.byte	98
+ 654 0271 02       		.byte	2
+ 655 0272 82       		.byte	-126
+ 656 0273 02       		.byte	2
+ 657 0274 D8       		.byte	-40
+ 658 0275 40       		.byte	64
+ 659 0276 E2       		.byte	-30
+ 660 0277 80       		.byte	-128
+ 661 0278 08       		.byte	8
+ 662 0279 40       		.byte	64
+ 663 027a 5C       		.byte	92
+ 664 027b 01       		.byte	1
+ 665 027c C2       		.byte	-62
+ 666 027d 02       		.byte	2
+ 667 027e D6       		.byte	-42
+ 668 027f 01       		.byte	1
+ 669 0280 B0       		.byte	-80
+ 670 0281 40       		.byte	64
+ 671 0282 B4       		.byte	-76
+ 672 0283 01       		.byte	1
+ 673 0284 EA       		.byte	-22
+ 674 0285 01       		.byte	1
+ 675 0286 EC       		.byte	-20
+ 676 0287 08       		.byte	8
+ 677 0288 00       		.byte	0
+ 678 0289 01       		.byte	1
+ 679 028a 0C       		.byte	12
+ 680 028b 01       		.byte	1
+ 681 028c 10       		.byte	16
+ 682 028d 01       		.byte	1
+ 683 028e 1C       		.byte	28
+ 684 028f 01       		.byte	1
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 13
+
+
+ 685 0290 01       		.byte	1
+ 686 0291 FF       		.byte	-1
+ 687 0292 80       		.byte	-128
+ 688 0293 00       		.byte	0
+ 689 0294 00       		.byte	0
+ 690 0295 18       		.byte	24
+ 691 0296 23       		.byte	35
+ 692 0297 00       		.byte	0
+ 693 0298 03       		.byte	3
+ 694 0299 08       		.byte	8
+ 695 029a 40       		.byte	64
+ 696 029b 00       		.byte	0
+ 697 029c 08       		.byte	8
+ 698 029d 1C       		.byte	28
+ 699 029e 00       		.byte	0
+ 700 029f E1       		.byte	-31
+ 701 02a0 00       		.byte	0
+ 702 02a1 00       		.byte	0
+ 703 02a2 00       		.byte	0
+ 704 02a3 04       		.byte	4
+ 705 02a4 0C       		.byte	12
+ 706 02a5 3C       		.byte	60
+ 707 02a6 00       		.byte	0
+ 708 02a7 C2       		.byte	-62
+ 709 02a8 33       		.byte	51
+ 710 02a9 00       		.byte	0
+ 711 02aa 0C       		.byte	12
+ 712 02ab E3       		.byte	-29
+ 713 02ac 3F       		.byte	63
+ 714 02ad 80       		.byte	-128
+ 715 02ae 00       		.byte	0
+ 716 02af 00       		.byte	0
+ 717 02b0 02       		.byte	2
+ 718 02b1 44       		.byte	68
+ 719 02b2 80       		.byte	-128
+ 720 02b3 00       		.byte	0
+ 721 02b4 04       		.byte	4
+ 722 02b5 E7       		.byte	-25
+ 723 02b6 00       		.byte	0
+ 724 02b7 18       		.byte	24
+ 725 02b8 1C       		.byte	28
+ 726 02b9 C0       		.byte	-64
+ 727 02ba 23       		.byte	35
+ 728 02bb 00       		.byte	0
+ 729 02bc 1F       		.byte	31
+ 730 02bd 10       		.byte	16
+ 731 02be 20       		.byte	32
+ 732 02bf 00       		.byte	0
+ 733 02c0 10       		.byte	16
+ 734 02c1 00       		.byte	0
+ 735 02c2 2C       		.byte	44
+ 736 02c3 1F       		.byte	31
+ 737 02c4 0F       		.byte	15
+ 738 02c5 38       		.byte	56
+ 739 02c6 C0       		.byte	-64
+ 740 02c7 C0       		.byte	-64
+ 741 02c8 00       		.byte	0
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 14
+
+
+ 742 02c9 00       		.byte	0
+ 743 02ca 28       		.byte	40
+ 744 02cb 08       		.byte	8
+ 745 02cc 00       		.byte	0
+ 746 02cd 00       		.byte	0
+ 747 02ce 41       		.byte	65
+ 748 02cf 00       		.byte	0
+ 749 02d0 36       		.byte	54
+ 750 02d1 05       		.byte	5
+ 751 02d2 02       		.byte	2
+ 752 02d3 00       		.byte	0
+ 753 02d4 01       		.byte	1
+ 754 02d5 00       		.byte	0
+ 755 02d6 00       		.byte	0
+ 756 02d7 CE       		.byte	-50
+ 757 02d8 30       		.byte	48
+ 758 02d9 FF       		.byte	-1
+ 759 02da FF       		.byte	-1
+ 760 02db FF       		.byte	-1
+ 761 02dc 62       		.byte	98
+ 762 02dd A0       		.byte	-96
+ 763 02de F0       		.byte	-16
+ 764 02df 41       		.byte	65
+ 765 02e0 0C       		.byte	12
+ 766 02e1 00       		.byte	0
+ 767 02e2 00       		.byte	0
+ 768 02e3 00       		.byte	0
+ 769 02e4 00       		.byte	0
+ 770 02e5 00       		.byte	0
+ 771 02e6 02       		.byte	2
+ 772 02e7 13       		.byte	19
+ 773 02e8 04       		.byte	4
+ 774 02e9 04       		.byte	4
+ 775 02ea 04       		.byte	4
+ 776 02eb 04       		.byte	4
+ 777 02ec 00       		.byte	0
+ 778 02ed 00       		.byte	0
+ 779 02ee 00       		.byte	0
+ 780 02ef 01       		.byte	1
+ 781 02f0 00       		.byte	0
+ 782 02f1 00       		.byte	0
+ 783 02f2 00       		.byte	0
+ 784 02f3 00       		.byte	0
+ 785 02f4 00       		.byte	0
+ 786 02f5 00       		.byte	0
+ 787 02f6 40       		.byte	64
+ 788 02f7 02       		.byte	2
+ 789 02f8 00       		.byte	0
+ 790 02f9 10       		.byte	16
+ 791 02fa 30       		.byte	48
+ 792 02fb 10       		.byte	16
+ 793 02fc 00       		.byte	0
+ 794 02fd 10       		.byte	16
+ 795 02fe 10       		.byte	16
+ 796 02ff 12       		.byte	18
+ 797 0300 00       		.byte	0
+ 798 0301 00       		.byte	0
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 15
+
+
+ 799 0302 00       		.byte	0
+ 800 0303 00       		.byte	0
+ 801 0304 00       		.byte	0
+ 802 0305 00       		.byte	0
+ 803 0306 00       		.byte	0
+ 804 0307 00       		.byte	0
+ 805 0308 00       		.byte	0
+ 806 0309 00       		.byte	0
+ 807 030a 00       		.byte	0
+ 808 030b 00       		.byte	0
+ 809 030c 00       		.byte	0
+ 810 030d 00       		.byte	0
+ 811 030e 00       		.byte	0
+ 812 030f 00       		.byte	0
+ 813 0310 80       		.byte	-128
+ 814 0311 00       		.byte	0
+ 815 0312 40       		.byte	64
+ 816 0313 8B       		.byte	-117
+ 817 0314 8B       		.byte	-117
+ 818 0315 00       		.byte	0
+ 819 0316 80       		.byte	-128
+ 820 0317 00       		.byte	0
+ 821 0318 00       		.byte	0
+ 822 0319 00       		.byte	0
+ 823 031a 00       		.byte	0
+ 824 031b 00       		.byte	0
+ 825 031c 00       		.byte	0
+ 826 031d 02       		.byte	2
+ 827 031e 02       		.byte	2
+ 828 031f 00       		.byte	0
+ 829 0320 00       		.byte	0
+ 830 0321 00       		.byte	0
+ 831 0322 00       		.byte	0
+ 832 0323 00       		.byte	0
+ 833              		.section	.cywolatch,"a",%progbits
+ 834              		.align	2
+ 835              		.type	cy_meta_wonvl, %object
+ 836              		.size	cy_meta_wonvl, 4
+ 837              	cy_meta_wonvl:
+ 838 0000 BC       		.byte	-68
+ 839 0001 90       		.byte	-112
+ 840 0002 AC       		.byte	-84
+ 841 0003 AF       		.byte	-81
+ 842              		.section	.cycustnvl,"a",%progbits
+ 843              		.align	2
+ 844              		.type	cy_meta_custnvl, %object
+ 845              		.size	cy_meta_custnvl, 4
+ 846              	cy_meta_custnvl:
+ 847 0000 00       		.byte	0
+ 848 0001 00       		.byte	0
+ 849 0002 40       		.byte	64
+ 850 0003 05       		.byte	5
+ 851              		.section	.cymeta,"a",%progbits
+ 852              		.align	2
+ 853              		.type	cy_metadata, %object
+ 854              		.size	cy_metadata, 12
+ 855              	cy_metadata:
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 16
+
+
+ 856 0000 00       		.byte	0
+ 857 0001 01       		.byte	1
+ 858 0002 2E       		.byte	46
+ 859 0003 16       		.byte	22
+ 860 0004 10       		.byte	16
+ 861 0005 69       		.byte	105
+ 862 0006 00       		.byte	0
+ 863 0007 01       		.byte	1
+ 864 0008 00       		.byte	0
+ 865 0009 00       		.byte	0
+ 866 000a 00       		.byte	0
+ 867 000b 00       		.byte	0
+ 868              		.section	.cyflashprotect,"a",%progbits
+ 869              		.align	2
+ 870              		.type	cy_meta_flashprotect, %object
+ 871              		.size	cy_meta_flashprotect, 256
+ 872              	cy_meta_flashprotect:
+ 873 0000 00000000 		.space	256
+ 873      00000000 
+ 873      00000000 
+ 873      00000000 
+ 873      00000000 
+ 874              		.text
+ 875              	.Letext0:
+ 876              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 877              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.3\\psoc creator\\import\\gnu\\arm\\5.4.
+ 878              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 879              		.section	.debug_info,"",%progbits
+ 880              	.Ldebug_info0:
+ 881 0000 31010000 		.4byte	0x131
+ 882 0004 0400     		.2byte	0x4
+ 883 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 884 000a 04       		.byte	0x4
+ 885 000b 01       		.uleb128 0x1
+ 886 000c 24000000 		.4byte	.LASF17
+ 887 0010 0C       		.byte	0xc
+ 888 0011 D9010000 		.4byte	.LASF18
+ 889 0015 7E010000 		.4byte	.LASF19
+ 890 0019 00000000 		.4byte	.Ldebug_line0
+ 891 001d 02       		.uleb128 0x2
+ 892 001e 01       		.byte	0x1
+ 893 001f 06       		.byte	0x6
+ 894 0020 72010000 		.4byte	.LASF0
+ 895 0024 03       		.uleb128 0x3
+ 896 0025 00000000 		.4byte	.LASF9
+ 897 0029 01       		.byte	0x1
+ 898 002a 1D       		.byte	0x1d
+ 899 002b 2F000000 		.4byte	0x2f
+ 900 002f 02       		.uleb128 0x2
+ 901 0030 01       		.byte	0x1
+ 902 0031 08       		.byte	0x8
+ 903 0032 16000000 		.4byte	.LASF1
+ 904 0036 02       		.uleb128 0x2
+ 905 0037 02       		.byte	0x2
+ 906 0038 05       		.byte	0x5
+ 907 0039 5F010000 		.4byte	.LASF2
+ 908 003d 02       		.uleb128 0x2
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 17
+
+
+ 909 003e 02       		.byte	0x2
+ 910 003f 07       		.byte	0x7
+ 911 0040 C4000000 		.4byte	.LASF3
+ 912 0044 02       		.uleb128 0x2
+ 913 0045 04       		.byte	0x4
+ 914 0046 05       		.byte	0x5
+ 915 0047 69010000 		.4byte	.LASF4
+ 916 004b 02       		.uleb128 0x2
+ 917 004c 04       		.byte	0x4
+ 918 004d 07       		.byte	0x7
+ 919 004e B2000000 		.4byte	.LASF5
+ 920 0052 02       		.uleb128 0x2
+ 921 0053 08       		.byte	0x8
+ 922 0054 05       		.byte	0x5
+ 923 0055 51010000 		.4byte	.LASF6
+ 924 0059 02       		.uleb128 0x2
+ 925 005a 08       		.byte	0x8
+ 926 005b 07       		.byte	0x7
+ 927 005c 06010000 		.4byte	.LASF7
+ 928 0060 04       		.uleb128 0x4
+ 929 0061 04       		.byte	0x4
+ 930 0062 05       		.byte	0x5
+ 931 0063 696E7400 		.ascii	"int\000"
+ 932 0067 02       		.uleb128 0x2
+ 933 0068 04       		.byte	0x4
+ 934 0069 07       		.byte	0x7
+ 935 006a F9000000 		.4byte	.LASF8
+ 936 006e 03       		.uleb128 0x3
+ 937 006f 1D010000 		.4byte	.LASF10
+ 938 0073 02       		.byte	0x2
+ 939 0074 18       		.byte	0x18
+ 940 0075 24000000 		.4byte	0x24
+ 941 0079 05       		.uleb128 0x5
+ 942 007a 91000000 		.4byte	0x91
+ 943 007e 8A000000 		.4byte	0x8a
+ 944 0082 06       		.uleb128 0x6
+ 945 0083 8A000000 		.4byte	0x8a
+ 946 0087 2303     		.2byte	0x323
+ 947 0089 00       		.byte	0
+ 948 008a 02       		.uleb128 0x2
+ 949 008b 04       		.byte	0x4
+ 950 008c 07       		.byte	0x7
+ 951 008d 48010000 		.4byte	.LASF11
+ 952 0091 07       		.uleb128 0x7
+ 953 0092 6E000000 		.4byte	0x6e
+ 954 0096 08       		.uleb128 0x8
+ 955 0097 E7000000 		.4byte	.LASF12
+ 956 009b 03       		.byte	0x3
+ 957 009c 1F       		.byte	0x1f
+ 958 009d A7000000 		.4byte	0xa7
+ 959 00a1 05       		.uleb128 0x5
+ 960 00a2 03       		.byte	0x3
+ 961 00a3 00000000 		.4byte	cy_meta_configecc
+ 962 00a7 07       		.uleb128 0x7
+ 963 00a8 79000000 		.4byte	0x79
+ 964 00ac 05       		.uleb128 0x5
+ 965 00ad 91000000 		.4byte	0x91
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 18
+
+
+ 966 00b1 BC000000 		.4byte	0xbc
+ 967 00b5 09       		.uleb128 0x9
+ 968 00b6 8A000000 		.4byte	0x8a
+ 969 00ba 03       		.byte	0x3
+ 970 00bb 00       		.byte	0
+ 971 00bc 08       		.uleb128 0x8
+ 972 00bd D7000000 		.4byte	.LASF13
+ 973 00c1 03       		.byte	0x3
+ 974 00c2 91       		.byte	0x91
+ 975 00c3 CD000000 		.4byte	0xcd
+ 976 00c7 05       		.uleb128 0x5
+ 977 00c8 03       		.byte	0x3
+ 978 00c9 00000000 		.4byte	cy_meta_custnvl
+ 979 00cd 07       		.uleb128 0x7
+ 980 00ce AC000000 		.4byte	0xac
+ 981 00d2 08       		.uleb128 0x8
+ 982 00d3 3A010000 		.4byte	.LASF14
+ 983 00d7 03       		.byte	0x3
+ 984 00d8 9F       		.byte	0x9f
+ 985 00d9 E3000000 		.4byte	0xe3
+ 986 00dd 05       		.uleb128 0x5
+ 987 00de 03       		.byte	0x3
+ 988 00df 00000000 		.4byte	cy_meta_wonvl
+ 989 00e3 07       		.uleb128 0x7
+ 990 00e4 AC000000 		.4byte	0xac
+ 991 00e8 05       		.uleb128 0x5
+ 992 00e9 91000000 		.4byte	0x91
+ 993 00ed F8000000 		.4byte	0xf8
+ 994 00f1 09       		.uleb128 0x9
+ 995 00f2 8A000000 		.4byte	0x8a
+ 996 00f6 FF       		.byte	0xff
+ 997 00f7 00       		.byte	0
+ 998 00f8 08       		.uleb128 0x8
+ 999 00f9 25010000 		.4byte	.LASF15
+ 1000 00fd 03       		.byte	0x3
+ 1001 00fe AD       		.byte	0xad
+ 1002 00ff 09010000 		.4byte	0x109
+ 1003 0103 05       		.uleb128 0x5
+ 1004 0104 03       		.byte	0x3
+ 1005 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1006 0109 07       		.uleb128 0x7
+ 1007 010a E8000000 		.4byte	0xe8
+ 1008 010e 05       		.uleb128 0x5
+ 1009 010f 91000000 		.4byte	0x91
+ 1010 0113 1E010000 		.4byte	0x11e
+ 1011 0117 09       		.uleb128 0x9
+ 1012 0118 8A000000 		.4byte	0x8a
+ 1013 011c 0B       		.byte	0xb
+ 1014 011d 00       		.byte	0
+ 1015 011e 08       		.uleb128 0x8
+ 1016 011f 0A000000 		.4byte	.LASF16
+ 1017 0123 03       		.byte	0x3
+ 1018 0124 DA       		.byte	0xda
+ 1019 0125 2F010000 		.4byte	0x12f
+ 1020 0129 05       		.uleb128 0x5
+ 1021 012a 03       		.byte	0x3
+ 1022 012b 00000000 		.4byte	cy_metadata
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 19
+
+
+ 1023 012f 07       		.uleb128 0x7
+ 1024 0130 0E010000 		.4byte	0x10e
+ 1025 0134 00       		.byte	0
+ 1026              		.section	.debug_abbrev,"",%progbits
+ 1027              	.Ldebug_abbrev0:
+ 1028 0000 01       		.uleb128 0x1
+ 1029 0001 11       		.uleb128 0x11
+ 1030 0002 01       		.byte	0x1
+ 1031 0003 25       		.uleb128 0x25
+ 1032 0004 0E       		.uleb128 0xe
+ 1033 0005 13       		.uleb128 0x13
+ 1034 0006 0B       		.uleb128 0xb
+ 1035 0007 03       		.uleb128 0x3
+ 1036 0008 0E       		.uleb128 0xe
+ 1037 0009 1B       		.uleb128 0x1b
+ 1038 000a 0E       		.uleb128 0xe
+ 1039 000b 10       		.uleb128 0x10
+ 1040 000c 17       		.uleb128 0x17
+ 1041 000d 00       		.byte	0
+ 1042 000e 00       		.byte	0
+ 1043 000f 02       		.uleb128 0x2
+ 1044 0010 24       		.uleb128 0x24
+ 1045 0011 00       		.byte	0
+ 1046 0012 0B       		.uleb128 0xb
+ 1047 0013 0B       		.uleb128 0xb
+ 1048 0014 3E       		.uleb128 0x3e
+ 1049 0015 0B       		.uleb128 0xb
+ 1050 0016 03       		.uleb128 0x3
+ 1051 0017 0E       		.uleb128 0xe
+ 1052 0018 00       		.byte	0
+ 1053 0019 00       		.byte	0
+ 1054 001a 03       		.uleb128 0x3
+ 1055 001b 16       		.uleb128 0x16
+ 1056 001c 00       		.byte	0
+ 1057 001d 03       		.uleb128 0x3
+ 1058 001e 0E       		.uleb128 0xe
+ 1059 001f 3A       		.uleb128 0x3a
+ 1060 0020 0B       		.uleb128 0xb
+ 1061 0021 3B       		.uleb128 0x3b
+ 1062 0022 0B       		.uleb128 0xb
+ 1063 0023 49       		.uleb128 0x49
+ 1064 0024 13       		.uleb128 0x13
+ 1065 0025 00       		.byte	0
+ 1066 0026 00       		.byte	0
+ 1067 0027 04       		.uleb128 0x4
+ 1068 0028 24       		.uleb128 0x24
+ 1069 0029 00       		.byte	0
+ 1070 002a 0B       		.uleb128 0xb
+ 1071 002b 0B       		.uleb128 0xb
+ 1072 002c 3E       		.uleb128 0x3e
+ 1073 002d 0B       		.uleb128 0xb
+ 1074 002e 03       		.uleb128 0x3
+ 1075 002f 08       		.uleb128 0x8
+ 1076 0030 00       		.byte	0
+ 1077 0031 00       		.byte	0
+ 1078 0032 05       		.uleb128 0x5
+ 1079 0033 01       		.uleb128 0x1
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 20
+
+
+ 1080 0034 01       		.byte	0x1
+ 1081 0035 49       		.uleb128 0x49
+ 1082 0036 13       		.uleb128 0x13
+ 1083 0037 01       		.uleb128 0x1
+ 1084 0038 13       		.uleb128 0x13
+ 1085 0039 00       		.byte	0
+ 1086 003a 00       		.byte	0
+ 1087 003b 06       		.uleb128 0x6
+ 1088 003c 21       		.uleb128 0x21
+ 1089 003d 00       		.byte	0
+ 1090 003e 49       		.uleb128 0x49
+ 1091 003f 13       		.uleb128 0x13
+ 1092 0040 2F       		.uleb128 0x2f
+ 1093 0041 05       		.uleb128 0x5
+ 1094 0042 00       		.byte	0
+ 1095 0043 00       		.byte	0
+ 1096 0044 07       		.uleb128 0x7
+ 1097 0045 26       		.uleb128 0x26
+ 1098 0046 00       		.byte	0
+ 1099 0047 49       		.uleb128 0x49
+ 1100 0048 13       		.uleb128 0x13
+ 1101 0049 00       		.byte	0
+ 1102 004a 00       		.byte	0
+ 1103 004b 08       		.uleb128 0x8
+ 1104 004c 34       		.uleb128 0x34
+ 1105 004d 00       		.byte	0
+ 1106 004e 03       		.uleb128 0x3
+ 1107 004f 0E       		.uleb128 0xe
+ 1108 0050 3A       		.uleb128 0x3a
+ 1109 0051 0B       		.uleb128 0xb
+ 1110 0052 3B       		.uleb128 0x3b
+ 1111 0053 0B       		.uleb128 0xb
+ 1112 0054 49       		.uleb128 0x49
+ 1113 0055 13       		.uleb128 0x13
+ 1114 0056 3F       		.uleb128 0x3f
+ 1115 0057 19       		.uleb128 0x19
+ 1116 0058 02       		.uleb128 0x2
+ 1117 0059 18       		.uleb128 0x18
+ 1118 005a 00       		.byte	0
+ 1119 005b 00       		.byte	0
+ 1120 005c 09       		.uleb128 0x9
+ 1121 005d 21       		.uleb128 0x21
+ 1122 005e 00       		.byte	0
+ 1123 005f 49       		.uleb128 0x49
+ 1124 0060 13       		.uleb128 0x13
+ 1125 0061 2F       		.uleb128 0x2f
+ 1126 0062 0B       		.uleb128 0xb
+ 1127 0063 00       		.byte	0
+ 1128 0064 00       		.byte	0
+ 1129 0065 00       		.byte	0
+ 1130              		.section	.debug_aranges,"",%progbits
+ 1131 0000 14000000 		.4byte	0x14
+ 1132 0004 0200     		.2byte	0x2
+ 1133 0006 00000000 		.4byte	.Ldebug_info0
+ 1134 000a 04       		.byte	0x4
+ 1135 000b 00       		.byte	0
+ 1136 000c 0000     		.2byte	0
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 21
+
+
+ 1137 000e 0000     		.2byte	0
+ 1138 0010 00000000 		.4byte	0
+ 1139 0014 00000000 		.4byte	0
+ 1140              		.section	.debug_line,"",%progbits
+ 1141              	.Ldebug_line0:
+ 1142 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1142      02003701 
+ 1142      00000201 
+ 1142      FB0E0D00 
+ 1142      01010101 
+ 1143              	.LASF9:
+ 1144 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1144      6E74385F 
+ 1144      7400
+ 1145              	.LASF16:
+ 1146 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1146      65746164 
+ 1146      61746100 
+ 1147              	.LASF1:
+ 1148 0016 756E7369 		.ascii	"unsigned char\000"
+ 1148      676E6564 
+ 1148      20636861 
+ 1148      7200
+ 1149              	.LASF17:
+ 1150 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1150      43313120 
+ 1150      352E342E 
+ 1150      31203230 
+ 1150      31363036 
+ 1151 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1151      20726576 
+ 1151      6973696F 
+ 1151      6E203233 
+ 1151      37373135 
+ 1152 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1152      66756E63 
+ 1152      74696F6E 
+ 1152      2D736563 
+ 1152      74696F6E 
+ 1153              	.LASF5:
+ 1154 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1154      20756E73 
+ 1154      69676E65 
+ 1154      6420696E 
+ 1154      7400
+ 1155              	.LASF3:
+ 1156 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1156      7420756E 
+ 1156      7369676E 
+ 1156      65642069 
+ 1156      6E7400
+ 1157              	.LASF13:
+ 1158 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1158      6574615F 
+ 1158      63757374 
+ 1158      6E766C00 
+ 1159              	.LASF12:
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 22
+
+
+ 1160 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1160      6574615F 
+ 1160      636F6E66 
+ 1160      69676563 
+ 1160      6300
+ 1161              	.LASF8:
+ 1162 00f9 756E7369 		.ascii	"unsigned int\000"
+ 1162      676E6564 
+ 1162      20696E74 
+ 1162      00
+ 1163              	.LASF7:
+ 1164 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1164      206C6F6E 
+ 1164      6720756E 
+ 1164      7369676E 
+ 1164      65642069 
+ 1165              	.LASF10:
+ 1166 011d 75696E74 		.ascii	"uint8_t\000"
+ 1166      385F7400 
+ 1167              	.LASF15:
+ 1168 0125 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1168      6574615F 
+ 1168      666C6173 
+ 1168      6870726F 
+ 1168      74656374 
+ 1169              	.LASF14:
+ 1170 013a 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1170      6574615F 
+ 1170      776F6E76 
+ 1170      6C00
+ 1171              	.LASF11:
+ 1172 0148 73697A65 		.ascii	"sizetype\000"
+ 1172      74797065 
+ 1172      00
+ 1173              	.LASF6:
+ 1174 0151 6C6F6E67 		.ascii	"long long int\000"
+ 1174      206C6F6E 
+ 1174      6720696E 
+ 1174      7400
+ 1175              	.LASF2:
+ 1176 015f 73686F72 		.ascii	"short int\000"
+ 1176      7420696E 
+ 1176      7400
+ 1177              	.LASF4:
+ 1178 0169 6C6F6E67 		.ascii	"long int\000"
+ 1178      20696E74 
+ 1178      00
+ 1179              	.LASF0:
+ 1180 0172 7369676E 		.ascii	"signed char\000"
+ 1180      65642063 
+ 1180      68617200 
+ 1181              	.LASF19:
+ 1182 017e 433A5C70 		.ascii	"C:\\projekte\\repo\\QuadroCopter\\Software\\Cypress"
+ 1182      726F6A65 
+ 1182      6B74655C 
+ 1182      7265706F 
+ 1182      5C517561 
+ARM GAS  C:\Users\rene_\AppData\Local\Temp\ccFC6PAA.s 			page 23
+
+
+ 1183 01ac 5F466C69 		.ascii	"_FlightController\\QuadrCopter\\Design02.cydsn\000"
+ 1183      67687443 
+ 1183      6F6E7472 
+ 1183      6F6C6C65 
+ 1183      725C5175 
+ 1184              	.LASF18:
+ 1185 01d9 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1185      72617465 
+ 1185      645F536F 
+ 1185      75726365 
+ 1185      5C50536F 
+ 1186              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

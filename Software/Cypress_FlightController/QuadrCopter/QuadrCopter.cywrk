@@ -3,13 +3,15 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="QuadrCopter" persistent="QuadrCopter.cywrk" platform="NOT_USED">
-<current_project name=".\Design01.cydsn\Design01.cyprj" />
+<current_project name=".\Design02.cydsn\Design02.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
 <v>.\Design01.cydsn\Design01.cyprj</v>
 <v>.\Interrupts_Example01.cydsn\Interrupts_Example01.cyprj</v>
 <v>.\SPIM_Example01_DMA.cydsn\SPIM_Example01_DMA.cyprj</v>
+<v>.\USBFS_UART01.cydsn\USBFS_UART01.cyprj</v>
+<v>.\Design02.cydsn\Design02.cyprj</v>
 </projects>
 <workspace_id v="d945e3df-12db-42e1-aa26-30cc11c582fe" />
 <WriteAppVersionLastSavedWith v="4.3.0.1445" />
