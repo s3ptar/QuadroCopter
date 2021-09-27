@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="FlightController\Design01\Generated_Source\PSoC5\USR_LED\USR_LED.h">
+<ExpandedNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\TopDesign</v>
+<v>FlightController\Design01\Design01.cydwr</v>
+<v>FlightController\Design01\Design01.cydwr\Pins</v>
+<v>FlightController\Design01\Design01.cydwr\Analog</v>
+<v>FlightController\Design01\Design01.cydwr\Clocks</v>
+<v>FlightController\Design01\Design01.cydwr\Interrupts</v>
+<v>FlightController\Design01\Design01.cydwr\DMA</v>
+<v>FlightController\Design01\Design01.cydwr\System</v>
+<v>FlightController\Design01\Design01.cydwr\Directives</v>
+<v>FlightController\Design01\Design01.cydwr\Flash Security</v>
+<v>FlightController\Design01\Design01.cydwr\EEPROM</v>
+<v>FlightController\Design01\Header Files</v>
+<v>FlightController\Design01\Header Files\config.h</v>
+<v>FlightController\Design01\Header Files\cyapicallbacks.h</v>
+<v>FlightController\Design01\Header Files\error_handling.h</v>
+<v>FlightController\Design01\Header Files\interrutps.h</v>
+<v>FlightController\Design01\Source Files</v>
+<v>FlightController\Design01\Source Files\error_handling.c</v>
+<v>FlightController\Design01\Source Files\interrupts.c</v>
+<v>FlightController\Design01\Source Files\main.c</v>
+<v>FlightController\Design01\Generated_Source</v>
+<v>FlightController\Design01\Generated_Source\PSoC5</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\ISR_USR_BTN</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_BTN</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_LED</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\TopDesign</v>
+<v>FlightController\Design01\Design01.cydwr</v>
+<v>FlightController\Design01\Design01.cydwr\Pins</v>
+<v>FlightController\Design01\Design01.cydwr\Analog</v>
+<v>FlightController\Design01\Design01.cydwr\Clocks</v>
+<v>FlightController\Design01\Design01.cydwr\Interrupts</v>
+<v>FlightController\Design01\Design01.cydwr\DMA</v>
+<v>FlightController\Design01\Design01.cydwr\System</v>
+<v>FlightController\Design01\Design01.cydwr\Directives</v>
+<v>FlightController\Design01\Design01.cydwr\Flash Security</v>
+<v>FlightController\Design01\Design01.cydwr\EEPROM</v>
+<v>FlightController\Design01\Header Files</v>
+<v>FlightController\Design01\Header Files\config.h</v>
+<v>FlightController\Design01\Header Files\cyapicallbacks.h</v>
+<v>FlightController\Design01\Header Files\error_handling.h</v>
+<v>FlightController\Design01\Header Files\interrutps.h</v>
+<v>FlightController\Design01\Source Files</v>
+<v>FlightController\Design01\Source Files\error_handling.c</v>
+<v>FlightController\Design01\Source Files\interrupts.c</v>
+<v>FlightController\Design01\Source Files\main.c</v>
+<v>FlightController\Design01\Generated_Source</v>
+<v>FlightController\Design01\Generated_Source\PSoC5</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cy_boot</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\ISR_USR_BTN</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\ISR_USR_BTN\ISR_USR_BTN.c</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\ISR_USR_BTN\ISR_USR_BTN.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_BTN</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_BTN\USR_BTN.c</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_BTN\USR_BTN.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_BTN\USR_BTN_aliases.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_LED</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_LED\USR_LED.c</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_LED\USR_LED.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\USR_LED\USR_LED_aliases.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydevice.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cyfitter.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>FlightController\Design01\Generated_Source\PSoC5\cyfitteriar.inc</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\TopDesign</v>
+<v>FlightController\Design01\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\TopDesign</v>
+<v>FlightController\Design01\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="FlightController">
+<ExpandedNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\CortexM3</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\error_handling.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\interrupts.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\ISR_USR_BTN.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\USR_BTN.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\USR_LED.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Design01.elf</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Design01.hex</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Design01.map</v>
+<v>FlightController\Design01\Design01.gpdsc</v>
+<v>FlightController\Design01\Design01.rpt</v>
+<v>FlightController\Design01\Design01_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\CortexM3</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\error_handling.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\interrupts.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\ISR_USR_BTN.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\USR_BTN.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\USR_LED.lst</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Design01.elf</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Design01.hex</v>
+<v>FlightController\Design01\CortexM3\ARM_GCC_541\Debug\Design01.map</v>
+<v>FlightController\Design01\Design01.gpdsc</v>
+<v>FlightController\Design01\Design01.rpt</v>
+<v>FlightController\Design01\Design01_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="FlightController">
+<ExpandedNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\PSoC 5LP Architecture TRM</v>
+<v>FlightController\Design01\CY8C58LP Family Datasheet</v>
+<v>FlightController\Design01\System Reference Guides</v>
+<v>FlightController\Design01\System Reference Guides\cy_boot_v6_10</v>
+<v>FlightController\Design01\cy_isr_v1_71.pdf</v>
+<v>FlightController\Design01\cy_pins_v2_20</v>
+<v>FlightController\Design01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>FlightController\Design01\Gnd_v1_0</v>
+<v>FlightController\Design01\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>FlightController\Design01\LED_v1_0.pdf</v>
+<v>FlightController\Design01\Resistor_v1_0.pdf</v>
+<v>FlightController\Design01\SwitchSPST_v1_0.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>FlightController</v>
+<v>FlightController\Design01</v>
+<v>FlightController\Design01\PSoC 5LP Architecture TRM</v>
+<v>FlightController\Design01\CY8C58LP Family Datasheet</v>
+<v>FlightController\Design01\System Reference Guides</v>
+<v>FlightController\Design01\System Reference Guides\cy_boot_v6_10</v>
+<v>FlightController\Design01\cy_isr_v1_71.pdf</v>
+<v>FlightController\Design01\cy_pins_v2_20</v>
+<v>FlightController\Design01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>FlightController\Design01\Gnd_v1_0</v>
+<v>FlightController\Design01\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>FlightController\Design01\LED_v1_0.pdf</v>
+<v>FlightController\Design01\Resistor_v1_0.pdf</v>
+<v>FlightController\Design01\SwitchSPST_v1_0.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Design01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Design01.cydsn\Design01.cydwr" />
+<name v=".\Design01.cydsn\main.c" />
+<name v=".\Design01.cydsn\Generated_Source\PSoC5\ISR_USR_BTN.h" />
+<name v=".\Design01.cydsn\config.h" />
+<name v=".\Design01.cydsn\Generated_Source\PSoC5\USR_BTN.h" />
+<name v=".\Design01.cydsn\Generated_Source\PSoC5\ISR_USR_BTN.c" />
+<name v=".\Design01.cydsn\interrutps.h" />
+<name v=".\Design01.cydsn\interrupts.c" />
+<name v=".\Design01.cydsn\Generated_Source\PSoC5\USR_LED.h" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1781, 1005" SelectedTabbedMdiWindow="cd29a1ba-79e1-458f-ba3b-234819e529a7"><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\TopDesign\TopDesign.cysch" Guid="cd29a1ba-79e1-458f-ba3b-234819e529a7" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\Design01.cydwr" Guid="9f69f169-f044-4cda-a4f6-0895dfd14b4a" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\main.c" Guid="27c4560d-e0f4-4948-9d8d-24b3e57f0b82" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\Generated_Source\PSoC5\ISR_USR_BTN.h" Guid="56a1bae5-4df3-4d22-8d3f-5a493b2c2d64" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\config.h" Guid="a109cb79-5c85-497e-a4ae-0c3fabdd4a0f" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\Generated_Source\PSoC5\USR_BTN.h" Guid="9f61d3d5-2537-46a9-96a1-e8f1dc89c250" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\Generated_Source\PSoC5\ISR_USR_BTN.c" Guid="7d340215-e81c-4949-b3e3-67b378ac0042" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\interrutps.h" Guid="faf8d7cc-5a32-4f13-b38a-154ac6dbe6ad" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\interrupts.c" Guid="cfa516b7-351d-489c-8954-7b9581bfdc22" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\Generated_Source\PSoC5\USR_LED.h" Guid="791e6b78-6ccf-442c-8fae-aaff9725c74f" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="869b76fb-2c5c-4276-89a1-c42e0450448b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

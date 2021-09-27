@@ -1,0 +1,7 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7a10b098-42cb-4fd5-b925-f3c84bab9b2a
+C:\Users\Besitzer\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|403aace8-fe93-496b-aef9-8a71059b416b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|bc232abb-fb3b-4515-9ae8-2d668b5c9a03
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|63bda9db-029a-45c2-8338-d9d2b434c955
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|4494bb2b-7b90-4346-ba4a-8d5da4cc37ff
+D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\Design01.cyprj|11d48b92-ee09-4b76-901d-2ab07ac87145
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc3\AnalogDevice\PSoC35AnalogDevice.cylib\PSoC35AnalogDevice.cyprj|0904165b-30e2-47ea-ba25-fb038cec6027
