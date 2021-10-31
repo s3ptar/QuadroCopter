@@ -1,0 +1,708 @@
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include "config.h"
+  14:main.c        **** #include "interrutps.h"
+  15:main.c        **** #include "ssd1306.h"
+  16:main.c        **** 
+  17:main.c        **** #define DISPLAY_ADDRESS 0x3C // 011110+SA0+RW - 0x3C or 0x3D
+  18:main.c        **** 
+  19:main.c        **** int main(void)
+  20:main.c        **** {
+  28              		.loc 1 20 0
+  29              		.cfi_startproc
+  30              		@ Volatile: function does not return.
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 00B5     		push	{lr}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 14, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 2
+
+
+  21:main.c        **** 
+  22:main.c        ****     CyGlobalIntEnable;
+  38              		.loc 1 22 0
+  39              		.syntax unified
+  40              	@ 22 "main.c" 1
+  41 0004 62B6     		CPSIE   i
+  42              	@ 0 "" 2
+  23:main.c        **** 
+  24:main.c        ****     SSD1306_Init(DISPLAY_ADDRESS);
+  43              		.loc 1 24 0
+  44              		.thumb
+  45              		.syntax unified
+  46 0006 3C20     		movs	r0, #60
+  47 0008 FFF7FEFF 		bl	SSD1306_Init
+  48              	.LVL0:
+  25:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  49              		.loc 1 25 0
+  50              		.syntax unified
+  51              	@ 25 "main.c" 1
+  52 000c 62B6     		CPSIE   i
+  53              	@ 0 "" 2
+  26:main.c        ****     
+  27:main.c        ****     // clearing display
+  28:main.c        ****     display_clear();    
+  54              		.loc 1 28 0
+  55              		.thumb
+  56              		.syntax unified
+  57 000e FFF7FEFF 		bl	display_clear
+  58              	.LVL1:
+  29:main.c        ****     display_update();    
+  59              		.loc 1 29 0
+  60 0012 FFF7FEFF 		bl	display_update
+  61              	.LVL2:
+  30:main.c        **** 
+  31:main.c        **** 
+  32:main.c        ****     // drawing a pixel
+  33:main.c        ****     gfx_drawLine(10, 10, 20, 20, WHITE);    
+  62              		.loc 1 33 0
+  63 0016 0123     		movs	r3, #1
+  64 0018 0093     		str	r3, [sp]
+  65 001a 1423     		movs	r3, #20
+  66 001c 1A46     		mov	r2, r3
+  67 001e 0A21     		movs	r1, #10
+  68 0020 0846     		mov	r0, r1
+  69 0022 FFF7FEFF 		bl	gfx_drawLine
+  70              	.LVL3:
+  34:main.c        ****     display_update(); 
+  71              		.loc 1 34 0
+  72 0026 FFF7FEFF 		bl	display_update
+  73              	.LVL4:
+  35:main.c        ****     
+  36:main.c        ****     CyDelay(800);
+  74              		.loc 1 36 0
+  75 002a 4FF44870 		mov	r0, #800
+  76 002e FFF7FEFF 		bl	CyDelay
+  77              	.LVL5:
+  37:main.c        **** 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 3
+
+
+  38:main.c        **** 
+  39:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  40:main.c        ****     ISR_USR_BTN_Enable();
+  78              		.loc 1 40 0
+  79 0032 FFF7FEFF 		bl	ISR_USR_BTN_Enable
+  80              	.LVL6:
+  41:main.c        ****     //setup ISR Routines
+  42:main.c        ****     ISR_USR_BTN_StartEx(isr_usr_btn_handling);
+  81              		.loc 1 42 0
+  82 0036 0248     		ldr	r0, .L4
+  83 0038 FFF7FEFF 		bl	ISR_USR_BTN_StartEx
+  84              	.LVL7:
+  85              	.L2:
+  86 003c FEE7     		b	.L2
+  87              	.L5:
+  88 003e 00BF     		.align	2
+  89              	.L4:
+  90 0040 00000000 		.word	isr_usr_btn_handling
+  91              		.cfi_endproc
+  92              	.LFE63:
+  93              		.size	main, .-main
+  94              		.text
+  95              	.Letext0:
+  96              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  97              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+  98              		.file 4 "ssd1306.h"
+  99              		.file 5 "Generated_Source\\PSoC5/CyLib.h"
+ 100              		.file 6 "Generated_Source\\PSoC5/ISR_USR_BTN.h"
+ 101              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 102              		.section	.debug_info,"",%progbits
+ 103              	.Ldebug_info0:
+ 104 0000 97010000 		.4byte	0x197
+ 105 0004 0400     		.2byte	0x4
+ 106 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 107 000a 04       		.byte	0x4
+ 108 000b 01       		.uleb128 0x1
+ 109 000c 55000000 		.4byte	.LASF23
+ 110 0010 0C       		.byte	0xc
+ 111 0011 41000000 		.4byte	.LASF24
+ 112 0015 CA010000 		.4byte	.LASF25
+ 113 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 114 001d 00000000 		.4byte	0
+ 115 0021 00000000 		.4byte	.Ldebug_line0
+ 116 0025 02       		.uleb128 0x2
+ 117 0026 01       		.byte	0x1
+ 118 0027 06       		.byte	0x6
+ 119 0028 75010000 		.4byte	.LASF0
+ 120 002c 02       		.uleb128 0x2
+ 121 002d 01       		.byte	0x1
+ 122 002e 08       		.byte	0x8
+ 123 002f 26010000 		.4byte	.LASF1
+ 124 0033 02       		.uleb128 0x2
+ 125 0034 02       		.byte	0x2
+ 126 0035 05       		.byte	0x5
+ 127 0036 AB010000 		.4byte	.LASF2
+ 128 003a 02       		.uleb128 0x2
+ 129 003b 02       		.byte	0x2
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 4
+
+
+ 130 003c 07       		.byte	0x7
+ 131 003d 0E000000 		.4byte	.LASF3
+ 132 0041 03       		.uleb128 0x3
+ 133 0042 8D010000 		.4byte	.LASF9
+ 134 0046 02       		.byte	0x2
+ 135 0047 3F       		.byte	0x3f
+ 136 0048 4C000000 		.4byte	0x4c
+ 137 004c 02       		.uleb128 0x2
+ 138 004d 04       		.byte	0x4
+ 139 004e 05       		.byte	0x5
+ 140 004f 39010000 		.4byte	.LASF4
+ 141 0053 02       		.uleb128 0x2
+ 142 0054 04       		.byte	0x4
+ 143 0055 07       		.byte	0x7
+ 144 0056 EB000000 		.4byte	.LASF5
+ 145 005a 02       		.uleb128 0x2
+ 146 005b 08       		.byte	0x8
+ 147 005c 05       		.byte	0x5
+ 148 005d 00000000 		.4byte	.LASF6
+ 149 0061 02       		.uleb128 0x2
+ 150 0062 08       		.byte	0x8
+ 151 0063 07       		.byte	0x7
+ 152 0064 FD000000 		.4byte	.LASF7
+ 153 0068 04       		.uleb128 0x4
+ 154 0069 04       		.byte	0x4
+ 155 006a 05       		.byte	0x5
+ 156 006b 696E7400 		.ascii	"int\000"
+ 157 006f 02       		.uleb128 0x2
+ 158 0070 04       		.byte	0x4
+ 159 0071 07       		.byte	0x7
+ 160 0072 34000000 		.4byte	.LASF8
+ 161 0076 03       		.uleb128 0x3
+ 162 0077 B5010000 		.4byte	.LASF10
+ 163 007b 03       		.byte	0x3
+ 164 007c 2C       		.byte	0x2c
+ 165 007d 41000000 		.4byte	0x41
+ 166 0081 02       		.uleb128 0x2
+ 167 0082 04       		.byte	0x4
+ 168 0083 04       		.byte	0x4
+ 169 0084 A5010000 		.4byte	.LASF11
+ 170 0088 02       		.uleb128 0x2
+ 171 0089 08       		.byte	0x8
+ 172 008a 04       		.byte	0x4
+ 173 008b 42010000 		.4byte	.LASF12
+ 174 008f 02       		.uleb128 0x2
+ 175 0090 01       		.byte	0x1
+ 176 0091 08       		.byte	0x8
+ 177 0092 34010000 		.4byte	.LASF13
+ 178 0096 02       		.uleb128 0x2
+ 179 0097 08       		.byte	0x8
+ 180 0098 04       		.byte	0x4
+ 181 0099 81010000 		.4byte	.LASF14
+ 182 009d 02       		.uleb128 0x2
+ 183 009e 04       		.byte	0x4
+ 184 009f 07       		.byte	0x7
+ 185 00a0 5D010000 		.4byte	.LASF15
+ 186 00a4 05       		.uleb128 0x5
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 5
+
+
+ 187 00a5 21010000 		.4byte	.LASF26
+ 188 00a9 01       		.byte	0x1
+ 189 00aa 13       		.byte	0x13
+ 190 00ab 68000000 		.4byte	0x68
+ 191 00af 00000000 		.4byte	.LFB63
+ 192 00b3 44000000 		.4byte	.LFE63-.LFB63
+ 193 00b7 01       		.uleb128 0x1
+ 194 00b8 9C       		.byte	0x9c
+ 195 00b9 3C010000 		.4byte	0x13c
+ 196 00bd 06       		.uleb128 0x6
+ 197 00be 0C000000 		.4byte	.LVL0
+ 198 00c2 4D010000 		.4byte	0x14d
+ 199 00c6 D1000000 		.4byte	0xd1
+ 200 00ca 07       		.uleb128 0x7
+ 201 00cb 01       		.uleb128 0x1
+ 202 00cc 50       		.byte	0x50
+ 203 00cd 02       		.uleb128 0x2
+ 204 00ce 08       		.byte	0x8
+ 205 00cf 3C       		.byte	0x3c
+ 206 00d0 00       		.byte	0
+ 207 00d1 08       		.uleb128 0x8
+ 208 00d2 12000000 		.4byte	.LVL1
+ 209 00d6 58010000 		.4byte	0x158
+ 210 00da 08       		.uleb128 0x8
+ 211 00db 16000000 		.4byte	.LVL2
+ 212 00df 63010000 		.4byte	0x163
+ 213 00e3 06       		.uleb128 0x6
+ 214 00e4 26000000 		.4byte	.LVL3
+ 215 00e8 6E010000 		.4byte	0x16e
+ 216 00ec 0B010000 		.4byte	0x10b
+ 217 00f0 07       		.uleb128 0x7
+ 218 00f1 01       		.uleb128 0x1
+ 219 00f2 50       		.byte	0x50
+ 220 00f3 01       		.uleb128 0x1
+ 221 00f4 3A       		.byte	0x3a
+ 222 00f5 07       		.uleb128 0x7
+ 223 00f6 01       		.uleb128 0x1
+ 224 00f7 51       		.byte	0x51
+ 225 00f8 01       		.uleb128 0x1
+ 226 00f9 3A       		.byte	0x3a
+ 227 00fa 07       		.uleb128 0x7
+ 228 00fb 01       		.uleb128 0x1
+ 229 00fc 52       		.byte	0x52
+ 230 00fd 01       		.uleb128 0x1
+ 231 00fe 44       		.byte	0x44
+ 232 00ff 07       		.uleb128 0x7
+ 233 0100 01       		.uleb128 0x1
+ 234 0101 53       		.byte	0x53
+ 235 0102 01       		.uleb128 0x1
+ 236 0103 44       		.byte	0x44
+ 237 0104 07       		.uleb128 0x7
+ 238 0105 02       		.uleb128 0x2
+ 239 0106 7D       		.byte	0x7d
+ 240 0107 00       		.sleb128 0
+ 241 0108 01       		.uleb128 0x1
+ 242 0109 31       		.byte	0x31
+ 243 010a 00       		.byte	0
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 6
+
+
+ 244 010b 08       		.uleb128 0x8
+ 245 010c 2A000000 		.4byte	.LVL4
+ 246 0110 63010000 		.4byte	0x163
+ 247 0114 06       		.uleb128 0x6
+ 248 0115 32000000 		.4byte	.LVL5
+ 249 0119 79010000 		.4byte	0x179
+ 250 011d 29010000 		.4byte	0x129
+ 251 0121 07       		.uleb128 0x7
+ 252 0122 01       		.uleb128 0x1
+ 253 0123 50       		.byte	0x50
+ 254 0124 03       		.uleb128 0x3
+ 255 0125 0A       		.byte	0xa
+ 256 0126 2003     		.2byte	0x320
+ 257 0128 00       		.byte	0
+ 258 0129 08       		.uleb128 0x8
+ 259 012a 36000000 		.4byte	.LVL6
+ 260 012e 84010000 		.4byte	0x184
+ 261 0132 08       		.uleb128 0x8
+ 262 0133 3C000000 		.4byte	.LVL7
+ 263 0137 8F010000 		.4byte	0x18f
+ 264 013b 00       		.byte	0
+ 265 013c 09       		.uleb128 0x9
+ 266 013d 14010000 		.4byte	.LASF27
+ 267 0141 07       		.byte	0x7
+ 268 0142 1207     		.2byte	0x712
+ 269 0144 48010000 		.4byte	0x148
+ 270 0148 0A       		.uleb128 0xa
+ 271 0149 76000000 		.4byte	0x76
+ 272 014d 0B       		.uleb128 0xb
+ 273 014e 48000000 		.4byte	.LASF16
+ 274 0152 48000000 		.4byte	.LASF16
+ 275 0156 04       		.byte	0x4
+ 276 0157 9A       		.byte	0x9a
+ 277 0158 0B       		.uleb128 0xb
+ 278 0159 97010000 		.4byte	.LASF17
+ 279 015d 97010000 		.4byte	.LASF17
+ 280 0161 04       		.byte	0x4
+ 281 0162 9C       		.byte	0x9c
+ 282 0163 0B       		.uleb128 0xb
+ 283 0164 66010000 		.4byte	.LASF18
+ 284 0168 66010000 		.4byte	.LASF18
+ 285 016c 04       		.byte	0x4
+ 286 016d 9B       		.byte	0x9b
+ 287 016e 0B       		.uleb128 0xb
+ 288 016f BD010000 		.4byte	.LASF19
+ 289 0173 BD010000 		.4byte	.LASF19
+ 290 0177 04       		.byte	0x4
+ 291 0178 A3       		.byte	0xa3
+ 292 0179 0B       		.uleb128 0xb
+ 293 017a E3000000 		.4byte	.LASF20
+ 294 017e E3000000 		.4byte	.LASF20
+ 295 0182 05       		.byte	0x5
+ 296 0183 76       		.byte	0x76
+ 297 0184 0B       		.uleb128 0xb
+ 298 0185 21000000 		.4byte	.LASF21
+ 299 0189 21000000 		.4byte	.LASF21
+ 300 018d 06       		.byte	0x6
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 7
+
+
+ 301 018e 23       		.byte	0x23
+ 302 018f 0B       		.uleb128 0xb
+ 303 0190 49010000 		.4byte	.LASF22
+ 304 0194 49010000 		.4byte	.LASF22
+ 305 0198 06       		.byte	0x6
+ 306 0199 18       		.byte	0x18
+ 307 019a 00       		.byte	0
+ 308              		.section	.debug_abbrev,"",%progbits
+ 309              	.Ldebug_abbrev0:
+ 310 0000 01       		.uleb128 0x1
+ 311 0001 11       		.uleb128 0x11
+ 312 0002 01       		.byte	0x1
+ 313 0003 25       		.uleb128 0x25
+ 314 0004 0E       		.uleb128 0xe
+ 315 0005 13       		.uleb128 0x13
+ 316 0006 0B       		.uleb128 0xb
+ 317 0007 03       		.uleb128 0x3
+ 318 0008 0E       		.uleb128 0xe
+ 319 0009 1B       		.uleb128 0x1b
+ 320 000a 0E       		.uleb128 0xe
+ 321 000b 55       		.uleb128 0x55
+ 322 000c 17       		.uleb128 0x17
+ 323 000d 11       		.uleb128 0x11
+ 324 000e 01       		.uleb128 0x1
+ 325 000f 10       		.uleb128 0x10
+ 326 0010 17       		.uleb128 0x17
+ 327 0011 00       		.byte	0
+ 328 0012 00       		.byte	0
+ 329 0013 02       		.uleb128 0x2
+ 330 0014 24       		.uleb128 0x24
+ 331 0015 00       		.byte	0
+ 332 0016 0B       		.uleb128 0xb
+ 333 0017 0B       		.uleb128 0xb
+ 334 0018 3E       		.uleb128 0x3e
+ 335 0019 0B       		.uleb128 0xb
+ 336 001a 03       		.uleb128 0x3
+ 337 001b 0E       		.uleb128 0xe
+ 338 001c 00       		.byte	0
+ 339 001d 00       		.byte	0
+ 340 001e 03       		.uleb128 0x3
+ 341 001f 16       		.uleb128 0x16
+ 342 0020 00       		.byte	0
+ 343 0021 03       		.uleb128 0x3
+ 344 0022 0E       		.uleb128 0xe
+ 345 0023 3A       		.uleb128 0x3a
+ 346 0024 0B       		.uleb128 0xb
+ 347 0025 3B       		.uleb128 0x3b
+ 348 0026 0B       		.uleb128 0xb
+ 349 0027 49       		.uleb128 0x49
+ 350 0028 13       		.uleb128 0x13
+ 351 0029 00       		.byte	0
+ 352 002a 00       		.byte	0
+ 353 002b 04       		.uleb128 0x4
+ 354 002c 24       		.uleb128 0x24
+ 355 002d 00       		.byte	0
+ 356 002e 0B       		.uleb128 0xb
+ 357 002f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 8
+
+
+ 358 0030 3E       		.uleb128 0x3e
+ 359 0031 0B       		.uleb128 0xb
+ 360 0032 03       		.uleb128 0x3
+ 361 0033 08       		.uleb128 0x8
+ 362 0034 00       		.byte	0
+ 363 0035 00       		.byte	0
+ 364 0036 05       		.uleb128 0x5
+ 365 0037 2E       		.uleb128 0x2e
+ 366 0038 01       		.byte	0x1
+ 367 0039 3F       		.uleb128 0x3f
+ 368 003a 19       		.uleb128 0x19
+ 369 003b 03       		.uleb128 0x3
+ 370 003c 0E       		.uleb128 0xe
+ 371 003d 3A       		.uleb128 0x3a
+ 372 003e 0B       		.uleb128 0xb
+ 373 003f 3B       		.uleb128 0x3b
+ 374 0040 0B       		.uleb128 0xb
+ 375 0041 27       		.uleb128 0x27
+ 376 0042 19       		.uleb128 0x19
+ 377 0043 49       		.uleb128 0x49
+ 378 0044 13       		.uleb128 0x13
+ 379 0045 8701     		.uleb128 0x87
+ 380 0047 19       		.uleb128 0x19
+ 381 0048 11       		.uleb128 0x11
+ 382 0049 01       		.uleb128 0x1
+ 383 004a 12       		.uleb128 0x12
+ 384 004b 06       		.uleb128 0x6
+ 385 004c 40       		.uleb128 0x40
+ 386 004d 18       		.uleb128 0x18
+ 387 004e 9742     		.uleb128 0x2117
+ 388 0050 19       		.uleb128 0x19
+ 389 0051 01       		.uleb128 0x1
+ 390 0052 13       		.uleb128 0x13
+ 391 0053 00       		.byte	0
+ 392 0054 00       		.byte	0
+ 393 0055 06       		.uleb128 0x6
+ 394 0056 898201   		.uleb128 0x4109
+ 395 0059 01       		.byte	0x1
+ 396 005a 11       		.uleb128 0x11
+ 397 005b 01       		.uleb128 0x1
+ 398 005c 31       		.uleb128 0x31
+ 399 005d 13       		.uleb128 0x13
+ 400 005e 01       		.uleb128 0x1
+ 401 005f 13       		.uleb128 0x13
+ 402 0060 00       		.byte	0
+ 403 0061 00       		.byte	0
+ 404 0062 07       		.uleb128 0x7
+ 405 0063 8A8201   		.uleb128 0x410a
+ 406 0066 00       		.byte	0
+ 407 0067 02       		.uleb128 0x2
+ 408 0068 18       		.uleb128 0x18
+ 409 0069 9142     		.uleb128 0x2111
+ 410 006b 18       		.uleb128 0x18
+ 411 006c 00       		.byte	0
+ 412 006d 00       		.byte	0
+ 413 006e 08       		.uleb128 0x8
+ 414 006f 898201   		.uleb128 0x4109
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 9
+
+
+ 415 0072 00       		.byte	0
+ 416 0073 11       		.uleb128 0x11
+ 417 0074 01       		.uleb128 0x1
+ 418 0075 31       		.uleb128 0x31
+ 419 0076 13       		.uleb128 0x13
+ 420 0077 00       		.byte	0
+ 421 0078 00       		.byte	0
+ 422 0079 09       		.uleb128 0x9
+ 423 007a 34       		.uleb128 0x34
+ 424 007b 00       		.byte	0
+ 425 007c 03       		.uleb128 0x3
+ 426 007d 0E       		.uleb128 0xe
+ 427 007e 3A       		.uleb128 0x3a
+ 428 007f 0B       		.uleb128 0xb
+ 429 0080 3B       		.uleb128 0x3b
+ 430 0081 05       		.uleb128 0x5
+ 431 0082 49       		.uleb128 0x49
+ 432 0083 13       		.uleb128 0x13
+ 433 0084 3F       		.uleb128 0x3f
+ 434 0085 19       		.uleb128 0x19
+ 435 0086 3C       		.uleb128 0x3c
+ 436 0087 19       		.uleb128 0x19
+ 437 0088 00       		.byte	0
+ 438 0089 00       		.byte	0
+ 439 008a 0A       		.uleb128 0xa
+ 440 008b 35       		.uleb128 0x35
+ 441 008c 00       		.byte	0
+ 442 008d 49       		.uleb128 0x49
+ 443 008e 13       		.uleb128 0x13
+ 444 008f 00       		.byte	0
+ 445 0090 00       		.byte	0
+ 446 0091 0B       		.uleb128 0xb
+ 447 0092 2E       		.uleb128 0x2e
+ 448 0093 00       		.byte	0
+ 449 0094 3F       		.uleb128 0x3f
+ 450 0095 19       		.uleb128 0x19
+ 451 0096 3C       		.uleb128 0x3c
+ 452 0097 19       		.uleb128 0x19
+ 453 0098 6E       		.uleb128 0x6e
+ 454 0099 0E       		.uleb128 0xe
+ 455 009a 03       		.uleb128 0x3
+ 456 009b 0E       		.uleb128 0xe
+ 457 009c 3A       		.uleb128 0x3a
+ 458 009d 0B       		.uleb128 0xb
+ 459 009e 3B       		.uleb128 0x3b
+ 460 009f 0B       		.uleb128 0xb
+ 461 00a0 00       		.byte	0
+ 462 00a1 00       		.byte	0
+ 463 00a2 00       		.byte	0
+ 464              		.section	.debug_aranges,"",%progbits
+ 465 0000 1C000000 		.4byte	0x1c
+ 466 0004 0200     		.2byte	0x2
+ 467 0006 00000000 		.4byte	.Ldebug_info0
+ 468 000a 04       		.byte	0x4
+ 469 000b 00       		.byte	0
+ 470 000c 0000     		.2byte	0
+ 471 000e 0000     		.2byte	0
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 10
+
+
+ 472 0010 00000000 		.4byte	.LFB63
+ 473 0014 44000000 		.4byte	.LFE63-.LFB63
+ 474 0018 00000000 		.4byte	0
+ 475 001c 00000000 		.4byte	0
+ 476              		.section	.debug_ranges,"",%progbits
+ 477              	.Ldebug_ranges0:
+ 478 0000 00000000 		.4byte	.LFB63
+ 479 0004 44000000 		.4byte	.LFE63
+ 480 0008 00000000 		.4byte	0
+ 481 000c 00000000 		.4byte	0
+ 482              		.section	.debug_line,"",%progbits
+ 483              	.Ldebug_line0:
+ 484 0000 87010000 		.section	.debug_str,"MS",%progbits,1
+ 484      02006801 
+ 484      00000201 
+ 484      FB0E0D00 
+ 484      01010101 
+ 485              	.LASF6:
+ 486 0000 6C6F6E67 		.ascii	"long long int\000"
+ 486      206C6F6E 
+ 486      6720696E 
+ 486      7400
+ 487              	.LASF3:
+ 488 000e 73686F72 		.ascii	"short unsigned int\000"
+ 488      7420756E 
+ 488      7369676E 
+ 488      65642069 
+ 488      6E7400
+ 489              	.LASF21:
+ 490 0021 4953525F 		.ascii	"ISR_USR_BTN_Enable\000"
+ 490      5553525F 
+ 490      42544E5F 
+ 490      456E6162 
+ 490      6C6500
+ 491              	.LASF8:
+ 492 0034 756E7369 		.ascii	"unsigned int\000"
+ 492      676E6564 
+ 492      20696E74 
+ 492      00
+ 493              	.LASF24:
+ 494 0041 6D61696E 		.ascii	"main.c\000"
+ 494      2E6300
+ 495              	.LASF16:
+ 496 0048 53534431 		.ascii	"SSD1306_Init\000"
+ 496      3330365F 
+ 496      496E6974 
+ 496      00
+ 497              	.LASF23:
+ 498 0055 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 498      43313120 
+ 498      352E342E 
+ 498      31203230 
+ 498      31363036 
+ 499 0088 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 499      20726576 
+ 499      6973696F 
+ 499      6E203233 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 11
+
+
+ 499      37373135 
+ 500 00bb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 500      66756E63 
+ 500      74696F6E 
+ 500      2D736563 
+ 500      74696F6E 
+ 501              	.LASF20:
+ 502 00e3 43794465 		.ascii	"CyDelay\000"
+ 502      6C617900 
+ 503              	.LASF5:
+ 504 00eb 6C6F6E67 		.ascii	"long unsigned int\000"
+ 504      20756E73 
+ 504      69676E65 
+ 504      6420696E 
+ 504      7400
+ 505              	.LASF7:
+ 506 00fd 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 506      206C6F6E 
+ 506      6720756E 
+ 506      7369676E 
+ 506      65642069 
+ 507              	.LASF27:
+ 508 0114 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 508      52784275 
+ 508      66666572 
+ 508      00
+ 509              	.LASF26:
+ 510 0121 6D61696E 		.ascii	"main\000"
+ 510      00
+ 511              	.LASF1:
+ 512 0126 756E7369 		.ascii	"unsigned char\000"
+ 512      676E6564 
+ 512      20636861 
+ 512      7200
+ 513              	.LASF13:
+ 514 0134 63686172 		.ascii	"char\000"
+ 514      00
+ 515              	.LASF4:
+ 516 0139 6C6F6E67 		.ascii	"long int\000"
+ 516      20696E74 
+ 516      00
+ 517              	.LASF12:
+ 518 0142 646F7562 		.ascii	"double\000"
+ 518      6C6500
+ 519              	.LASF22:
+ 520 0149 4953525F 		.ascii	"ISR_USR_BTN_StartEx\000"
+ 520      5553525F 
+ 520      42544E5F 
+ 520      53746172 
+ 520      74457800 
+ 521              	.LASF15:
+ 522 015d 73697A65 		.ascii	"sizetype\000"
+ 522      74797065 
+ 522      00
+ 523              	.LASF18:
+ 524 0166 64697370 		.ascii	"display_update\000"
+ 524      6C61795F 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccVIVy4g.s 			page 12
+
+
+ 524      75706461 
+ 524      746500
+ 525              	.LASF0:
+ 526 0175 7369676E 		.ascii	"signed char\000"
+ 526      65642063 
+ 526      68617200 
+ 527              	.LASF14:
+ 528 0181 6C6F6E67 		.ascii	"long double\000"
+ 528      20646F75 
+ 528      626C6500 
+ 529              	.LASF9:
+ 530 018d 5F5F696E 		.ascii	"__int32_t\000"
+ 530      7433325F 
+ 530      7400
+ 531              	.LASF17:
+ 532 0197 64697370 		.ascii	"display_clear\000"
+ 532      6C61795F 
+ 532      636C6561 
+ 532      7200
+ 533              	.LASF11:
+ 534 01a5 666C6F61 		.ascii	"float\000"
+ 534      7400
+ 535              	.LASF2:
+ 536 01ab 73686F72 		.ascii	"short int\000"
+ 536      7420696E 
+ 536      7400
+ 537              	.LASF10:
+ 538 01b5 696E7433 		.ascii	"int32_t\000"
+ 538      325F7400 
+ 539              	.LASF19:
+ 540 01bd 6766785F 		.ascii	"gfx_drawLine\000"
+ 540      64726177 
+ 540      4C696E65 
+ 540      00
+ 541              	.LASF25:
+ 542 01ca 443A5C52 		.ascii	"D:\\Repos\\QuadroCopter\\Software\\FlightController"
+ 542      65706F73 
+ 542      5C517561 
+ 542      64726F43 
+ 542      6F707465 
+ 543 01f9 5C535344 		.ascii	"\\SSD1306.cydsn\000"
+ 543      31333036 
+ 543      2E637964 
+ 543      736E00
+ 544              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

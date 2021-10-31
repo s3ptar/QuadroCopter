@@ -24,6 +24,8 @@
 #include "ISR_USR_BTN.h"
 #include "USR_LED_aliases.h"
 #include "USR_LED.h"
+#include "DBG_OUT.h"
+#include "DBG_OUT_IntClock.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"
 #include "CyFlash.h"
