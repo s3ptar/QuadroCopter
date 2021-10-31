@@ -84,13 +84,13 @@ Discarded input sections
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\error_handling.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\error_handling.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
- .text.display_contrast
+ .text.SSD1306_contrast
                 0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
- .text.display_invert
+ .text.SSD1306_invert
                 0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
- .text.display_stopscroll
+ .text.SSD1306_stopscroll
                 0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
- .text.display_scroll
+ .text.SSD1306_scroll
                 0x00000000       0x3c .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
  .text.gfx_width
                 0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
@@ -605,27 +605,27 @@ END GROUP
  .text.isr_usr_btn_handling
                 0x000000c8       0x24 .\CortexM3\ARM_GCC_541\Debug\interrupts.o
                 0x000000c8                isr_usr_btn_handling
- .text.display_setPixel
+ .text.SSD1306_setPixel
                 0x000000ec       0x88 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
- .text.display_line
+ .text.SSD1306_line
                 0x00000174      0x134 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
  .text.gfx_rotation_adjust
                 0x000002a8       0x68 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
  .text.gfx_hvLine
                 0x00000310      0x114 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
- .text.display_write_buf
+ .text.SSD1306_write_buf
                 0x00000424       0x50 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
  .text.SSD1306_SetColStartAddr
                 0x00000474       0x34 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
- .text.display_clear
+ .text.SSD1306_clear
                 0x000004a8       0x1c .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
-                0x000004a8                display_clear
+                0x000004a8                SSD1306_clear
  .text.SSD1306_SetPageStartAddr
                 0x000004c4       0x28 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
                 0x000004c4                SSD1306_SetPageStartAddr
- .text.display_update
+ .text.SSD1306_update
                 0x000004ec       0x20 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
-                0x000004ec                display_update
+                0x000004ec                SSD1306_update
  .text.gfx_init
                 0x0000050c       0x40 .\CortexM3\ARM_GCC_541\Debug\ssd1306.o
                 0x0000050c                gfx_init
@@ -702,27 +702,26 @@ END GROUP
                 0x00000ae0       0x18 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(SSD1306_Reset.o)
                 0x00000ae0                SSD1306_Reset_Write
  .text.I2C_1_Init
-                0x00000af8       0x68 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
+                0x00000af8       0x6c .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
                 0x00000af8                I2C_1_Init
  .text.I2C_1_Enable
-                0x00000b60       0x24 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
-                0x00000b60                I2C_1_Enable
+                0x00000b64       0x24 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
+                0x00000b64                I2C_1_Enable
  .text.I2C_1_Start
-                0x00000b84       0x28 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
-                0x00000b84                I2C_1_Start
+                0x00000b88       0x28 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
+                0x00000b88                I2C_1_Start
  .text.I2C_1_ISR
-                0x00000bac      0x2d0 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
-                0x00000bac                I2C_1_ISR
+                0x00000bb0      0x2d0 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
+                0x00000bb0                I2C_1_ISR
  .text.I2C_1_MasterSendStart
-                0x00000e7c       0x80 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
-                0x00000e7c                I2C_1_MasterSendStart
+                0x00000e80       0x80 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
+                0x00000e80                I2C_1_MasterSendStart
  .text.I2C_1_MasterSendStop
-                0x00000efc       0x38 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
-                0x00000efc                I2C_1_MasterSendStop
+                0x00000f00       0x38 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
+                0x00000f00                I2C_1_MasterSendStop
  .text.I2C_1_MasterWriteByte
-                0x00000f34       0x58 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
-                0x00000f34                I2C_1_MasterWriteByte
- *fill*         0x00000f8c        0x4 
+                0x00000f38       0x58 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
+                0x00000f38                I2C_1_MasterWriteByte
  .text          0x00000f90       0x20 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyBootAsmGnu.o)
                 0x00000f90                CyDelayCycles
                 0x00000fa0                CyEnterCriticalSection
@@ -1022,7 +1021,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5caa
+.debug_info     0x00000000     0x5ca8
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x19b .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_info    0x0000019b      0x145 .\CortexM3\ARM_GCC_541\Debug\interrupts.o
@@ -1037,13 +1036,13 @@ END GROUP
  .debug_info    0x00002785     0x1374 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyLib.o)
  .debug_info    0x00003af9      0xa2a .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(cyPm.o)
  .debug_info    0x00004523      0x11f .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(SSD1306_Reset.o)
- .debug_info    0x00004642      0x2ad .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
- .debug_info    0x000048ef      0x184 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
- .debug_info    0x00004a73      0x207 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_PM.o)
- .debug_info    0x00004c7a      0x407 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
- .debug_info    0x00005081       0x8c .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyBootAsmGnu.o)
- .debug_info    0x0000510d      0x64d .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyFlash.o)
- .debug_info    0x0000575a      0x550 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CySpc.o)
+ .debug_info    0x00004642      0x2ab .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
+ .debug_info    0x000048ed      0x184 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
+ .debug_info    0x00004a71      0x207 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_PM.o)
+ .debug_info    0x00004c78      0x407 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
+ .debug_info    0x0000507f       0x8c .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyBootAsmGnu.o)
+ .debug_info    0x0000510b      0x64d .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyFlash.o)
+ .debug_info    0x00005758      0x550 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CySpc.o)
 
 .debug_abbrev   0x00000000     0x1684
  *(.debug_abbrev)
@@ -1068,7 +1067,7 @@ END GROUP
  .debug_abbrev  0x00001349      0x1a7 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyFlash.o)
  .debug_abbrev  0x000014f0      0x194 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CySpc.o)
 
-.debug_line     0x00000000     0x272e
+.debug_line     0x00000000     0x272f
  *(.debug_line)
  .debug_line    0x00000000      0x18b .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_line    0x0000018b      0x188 .\CortexM3\ARM_GCC_541\Debug\interrupts.o
@@ -1083,15 +1082,15 @@ END GROUP
  .debug_line    0x00001180      0x816 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyLib.o)
  .debug_line    0x00001996      0x367 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(cyPm.o)
  .debug_line    0x00001cfd       0x9a .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(SSD1306_Reset.o)
- .debug_line    0x00001d97       0xdf .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
- .debug_line    0x00001e76      0x118 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
- .debug_line    0x00001f8e       0xbf .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_PM.o)
- .debug_line    0x0000204d      0x201 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
- .debug_line    0x0000224e       0x66 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyBootAsmGnu.o)
- .debug_line    0x000022b4      0x21a .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyFlash.o)
- .debug_line    0x000024ce      0x260 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CySpc.o)
+ .debug_line    0x00001d97       0xe0 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
+ .debug_line    0x00001e77      0x118 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
+ .debug_line    0x00001f8f       0xbf .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_PM.o)
+ .debug_line    0x0000204e      0x201 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
+ .debug_line    0x0000224f       0x66 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyBootAsmGnu.o)
+ .debug_line    0x000022b5      0x21a .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyFlash.o)
+ .debug_line    0x000024cf      0x260 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CySpc.o)
 
-.debug_frame    0x00000000     0x17cc
+.debug_frame    0x00000000     0x17c8
  *(.debug_frame)
  .debug_frame   0x00000000       0x2c .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_frame   0x0000002c       0x2c .\CortexM3\ARM_GCC_541\Debug\interrupts.o
@@ -1104,17 +1103,17 @@ END GROUP
  .debug_frame   0x0000080c      0x738 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyLib.o)
  .debug_frame   0x00000f44      0x1f8 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(cyPm.o)
  .debug_frame   0x0000113c       0x50 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(SSD1306_Reset.o)
- .debug_frame   0x0000118c       0x94 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
- .debug_frame   0x00001220       0x30 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
- .debug_frame   0x00001250       0x74 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_PM.o)
- .debug_frame   0x000012c4      0x138 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
- .debug_frame   0x000013fc      0x194 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyFlash.o)
- .debug_frame   0x00001590      0x180 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CySpc.o)
- .debug_frame   0x00001710       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x00001730       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x00001758       0x2c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x00001784       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x000017ac       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x0000118c       0x90 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1.o)
+ .debug_frame   0x0000121c       0x30 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_INT.o)
+ .debug_frame   0x0000124c       0x74 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_PM.o)
+ .debug_frame   0x000012c0      0x138 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(I2C_1_MASTER.o)
+ .debug_frame   0x000013f8      0x194 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CyFlash.o)
+ .debug_frame   0x0000158c      0x180 .\CortexM3\ARM_GCC_541\Debug\SSD1306.a(CySpc.o)
+ .debug_frame   0x0000170c       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000172c       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00001754       0x2c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x00001780       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x000017a8       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
 .debug_str      0x00000000     0x1d90
  *(.debug_str)

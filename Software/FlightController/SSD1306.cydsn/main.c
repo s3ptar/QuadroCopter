@@ -25,13 +25,13 @@ int main(void)
     CyGlobalIntEnable; /* Enable global interrupts. */
     
     // clearing display
-    display_clear();    
-    display_update();    
+    SSD1306_clear();    
+    SSD1306_update();    
 
 
     // drawing a pixel
     gfx_drawLine(10, 10, 20, 20, WHITE);    
-    display_update(); 
+    SSD1306_update(); 
     
     CyDelay(800);
 

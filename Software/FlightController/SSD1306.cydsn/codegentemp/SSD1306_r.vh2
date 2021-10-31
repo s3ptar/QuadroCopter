@@ -1,5 +1,5 @@
 -- Project:   SSD1306
--- Generated: 10/30/2021 22:04:21
+-- Generated: 10/31/2021 11:01:08
 -- PSoC Creator  4.4
 
 ENTITY SSD1306 IS

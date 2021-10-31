@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 1
 
 
    1              		.syntax unified
@@ -19,12 +19,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
   16              		.text
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
-  19              		.section	.text.display_setPixel,"ax",%progbits
+  19              		.section	.text.SSD1306_setPixel,"ax",%progbits
   20              		.align	2
   21              		.thumb
   22              		.thumb_func
-  23              		.type	display_setPixel, %function
-  24              	display_setPixel:
+  23              		.type	SSD1306_setPixel, %function
+  24              	SSD1306_setPixel:
   25              	.LFB1:
   26              		.file 1 "ssd1306.c"
    1:ssd1306.c     **** /***********************************************************************
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
   29:ssd1306.c     **** //https://www.nxp.com/files-static/sensors/doc/data_sheet/MMA7260QT.pdf
   30:ssd1306.c     **** //https://www.mikrocontroller.net/topic/415651
   31:ssd1306.c     **** /***********************************************************************
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 2
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 2
 
 
   32:ssd1306.c     **** * Global Variable
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
   86:ssd1306.c     **** #define SSD1306_COLOR_PIXEL_CLR      	                    SSD1306_PIXEL_BLACK /* color for a pixel 
   87:ssd1306.c     **** 
   88:ssd1306.c     **** #define SSD1306_COLOR_BLACK          	                    SSD1306_PIXEL_BLACK
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 3
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 3
 
 
   89:ssd1306.c     **** #define SSD1306_COLOR_WHITE          	                    SSD1306_PIXEL_WHITE
@@ -157,7 +157,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  122:ssd1306.c     **** /***********************************************************************
  123:ssd1306.c     **** * Local Funtions
  124:ssd1306.c     **** ***********************************************************************/
- 125:ssd1306.c     **** static uint32 display_write_buf( uint8_t* buf, uint16_t size );
+ 125:ssd1306.c     **** static uint32 SSD1306_write_buf( uint8_t* buf, uint16_t size );
  126:ssd1306.c     **** void gfx_init( int16_t width, int16_t height );
  127:ssd1306.c     **** // display memory buffer ( === MUST INCLUDE === the preceding I2C 0x40 control byte for the display
  128:ssd1306.c     **** static uint8_t SSD1306_buffer[DISPLAYHEIGHT * DISPLAYWIDTH / 8 + 1] = { 0x40 };
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  143:ssd1306.c     **** static uint8_t textsize;
  144:ssd1306.c     **** uint8_t rotation;
  145:ssd1306.c     **** uint8_t wrap; // If set, 'wrap' text at right edge of display
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 4
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 4
 
 
  146:ssd1306.c     **** static uint8_t actCol = 0;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  200:ssd1306.c     ****         0xf1,
  201:ssd1306.c     ****         
  202:ssd1306.c     ****         SSD1306_SETVCOMDETECT,                      /* set vcomh */
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 5
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 5
 
 
  203:ssd1306.c     ****         0x40,
@@ -254,19 +254,19 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  213:ssd1306.c     ****         SSD1306_COMSCANDEC                         /* set COM output scan direction 64 to 0 */
  214:ssd1306.c     ****     };
  215:ssd1306.c     ****     
- 216:ssd1306.c     ****     display_write_buf( cmdbuf, sizeof(cmdbuf) ); 
+ 216:ssd1306.c     ****     SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) ); 
  217:ssd1306.c     **** 
  218:ssd1306.c     **** }
  219:ssd1306.c     **** /***********************************************************************
- 220:ssd1306.c     **** *! \fn			static void display_setPixel( int16_t x, int16_t y, uint16_t color )
- 221:ssd1306.c     **** *  \brief		used by gfx_ functions. Needs to be implemented by display_
+ 220:ssd1306.c     **** *! \fn			static void SSD1306_setPixel( int16_t x, int16_t y, uint16_t color )
+ 221:ssd1306.c     **** *  \brief		used by gfx_ functions. Needs to be implemented by SSD1306_
  222:ssd1306.c     **** *  \param		int16_t x
  223:ssd1306.c     **** *  \param		int16_t y
  224:ssd1306.c     **** *  \param		uint16_t color
  225:ssd1306.c     **** *  \exception	none
  226:ssd1306.c     **** *  \return		none
  227:ssd1306.c     **** ***********************************************************************/
- 228:ssd1306.c     **** static void display_setPixel( int16_t x, int16_t y, uint16_t color ){
+ 228:ssd1306.c     **** static void SSD1306_setPixel( int16_t x, int16_t y, uint16_t color ){
   27              		.loc 1 228 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
   50              	.L3:
  234:ssd1306.c     ****         case WHITE: 
  235:ssd1306.c     ****             PIXEL_ON(x,y);
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 6
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 6
 
 
   51              		.loc 1 235 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
   99 0064 0029     		cmp	r1, #0
  100 0066 00DA     		bge	.L8
  101 0068 CB1D     		adds	r3, r1, #7
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 7
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 7
 
 
  102              	.L8:
@@ -380,76 +380,76 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  118 0084 01000000 		.word	.LANCHOR0+1
  119              		.cfi_endproc
  120              	.LFE1:
- 121              		.size	display_setPixel, .-display_setPixel
- 122              		.section	.text.display_line,"ax",%progbits
+ 121              		.size	SSD1306_setPixel, .-SSD1306_setPixel
+ 122              		.section	.text.SSD1306_line,"ax",%progbits
  123              		.align	2
  124              		.thumb
  125              		.thumb_func
- 126              		.type	display_line, %function
- 127              	display_line:
+ 126              		.type	SSD1306_line, %function
+ 127              	SSD1306_line:
  128              	.LFB8:
  242:ssd1306.c     ****             break;
  243:ssd1306.c     ****     }
  244:ssd1306.c     **** }
  245:ssd1306.c     **** /***********************************************************************
- 246:ssd1306.c     **** *! \fn			void display_clear(void)
+ 246:ssd1306.c     **** *! \fn			void SSD1306_clear(void)
  247:ssd1306.c     **** *  \brief		clear display buffer
  248:ssd1306.c     **** *  \param		none
  249:ssd1306.c     **** *  \exception	none
  250:ssd1306.c     **** *  \return		none
  251:ssd1306.c     **** ***********************************************************************/
- 252:ssd1306.c     **** void display_clear(void){
+ 252:ssd1306.c     **** void SSD1306_clear(void){
  253:ssd1306.c     ****     memset( _displaybuf, 0, _displaybuf_size );
  254:ssd1306.c     ****     SSD1306_buffer[0] = 0x40; // to be sure its there
  255:ssd1306.c     **** }
  256:ssd1306.c     **** /***********************************************************************
- 257:ssd1306.c     **** *! \fn			void display_contrast( uint8_t contrast )
+ 257:ssd1306.c     **** *! \fn			void SSD1306_contrast( uint8_t contrast )
  258:ssd1306.c     **** *  \brief		contrast: 0 ...255
  259:ssd1306.c     **** *  \param		uint8_t contrast
  260:ssd1306.c     **** *  \exception	none
  261:ssd1306.c     **** *  \return		none
  262:ssd1306.c     **** ***********************************************************************/
- 263:ssd1306.c     **** void display_contrast( uint8_t contrast ){
+ 263:ssd1306.c     **** void SSD1306_contrast( uint8_t contrast ){
  264:ssd1306.c     ****         
  265:ssd1306.c     ****     uint8 cmdbuf[] = {
  266:ssd1306.c     ****         0x00,  
  267:ssd1306.c     ****         SSD1306_SETCONTRAST,
  268:ssd1306.c     ****         contrast
  269:ssd1306.c     ****     };
- 270:ssd1306.c     ****     display_write_buf( cmdbuf, sizeof(cmdbuf) ); 
+ 270:ssd1306.c     ****     SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) ); 
  271:ssd1306.c     **** }
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 8
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 8
 
 
  272:ssd1306.c     **** /***********************************************************************
- 273:ssd1306.c     **** *! \fn			void display_invert( uint8_t invert )
+ 273:ssd1306.c     **** *! \fn			void SSD1306_invert( uint8_t invert )
  274:ssd1306.c     **** *  \brief		invert <> 0 for inverse display, invert == 0 for normal display
  275:ssd1306.c     **** *  \param		uint8_t invert
  276:ssd1306.c     **** *  \exception	none
  277:ssd1306.c     **** *  \return		none
  278:ssd1306.c     **** ***********************************************************************/
- 279:ssd1306.c     **** void display_invert( uint8_t invert ){
+ 279:ssd1306.c     **** void SSD1306_invert( uint8_t invert ){
  280:ssd1306.c     **** 
  281:ssd1306.c     ****     uint8 cmdbuf[] = {
  282:ssd1306.c     ****         0x00,  
  283:ssd1306.c     ****         0
  284:ssd1306.c     ****     };
  285:ssd1306.c     ****     cmdbuf[1] = invert ? SSD1306_INVERTDISPLAY : SSD1306_NORMALDISPLAY;
- 286:ssd1306.c     ****     display_write_buf( cmdbuf, sizeof(cmdbuf) ); 
+ 286:ssd1306.c     ****     SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) ); 
  287:ssd1306.c     **** }
  288:ssd1306.c     **** /***********************************************************************
- 289:ssd1306.c     **** *! \fn			void display_update(void) 
+ 289:ssd1306.c     **** *! \fn			void SSD1306_update(void) 
  290:ssd1306.c     **** *  \brief		send display buffer
  291:ssd1306.c     **** *  \param		none
  292:ssd1306.c     **** *  \exception	none
  293:ssd1306.c     **** *  \return		none
  294:ssd1306.c     **** ***********************************************************************/
- 295:ssd1306.c     **** void display_update(void) {
+ 295:ssd1306.c     **** void SSD1306_update(void) {
  296:ssd1306.c     ****       
  297:ssd1306.c     **** 
  298:ssd1306.c     ****     SSD1306_SetPageStartAddr(0);
  299:ssd1306.c     **** 	SSD1306_SetColStartAddr(0);
- 300:ssd1306.c     ****     display_write_buf( SSD1306_buffer, sizeof(SSD1306_buffer) );
+ 300:ssd1306.c     ****     SSD1306_write_buf( SSD1306_buffer, sizeof(SSD1306_buffer) );
  301:ssd1306.c     **** }
  302:ssd1306.c     **** /***********************************************************************
  303:ssd1306.c     **** *! \fn			void SSD1306_SetPageStartAddr(uint8_t page) 
@@ -468,7 +468,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  316:ssd1306.c     ****         0x00,
  317:ssd1306.c     ****         0xB0 | actPage          //set Page Address
  318:ssd1306.c     ****     };
- 319:ssd1306.c     **** 	display_write_buf( cmdbuf, sizeof(cmdbuf) );
+ 319:ssd1306.c     **** 	SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) );
  320:ssd1306.c     **** }
  321:ssd1306.c     **** /***********************************************************************
  322:ssd1306.c     **** *! \fn			static void SSD1306_SetColStartAddr(uint8_t col)
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  326:ssd1306.c     **** *  \return		none
  327:ssd1306.c     **** ***********************************************************************/
  328:ssd1306.c     **** static void SSD1306_SetColStartAddr(uint8_t col){
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 9
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 9
 
 
  329:ssd1306.c     **** 	
@@ -491,10 +491,10 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  336:ssd1306.c     ****         (0x10 | (actCol>>4)),         //set Collum Address
  337:ssd1306.c     ****         actCol & 0x0F
  338:ssd1306.c     ****     };
- 339:ssd1306.c     **** 	display_write_buf( cmdbuf, sizeof(cmdbuf));
+ 339:ssd1306.c     **** 	SSD1306_write_buf( cmdbuf, sizeof(cmdbuf));
  340:ssd1306.c     **** }
  341:ssd1306.c     **** /***********************************************************************
- 342:ssd1306.c     **** *! \fn			static void display_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color )
+ 342:ssd1306.c     **** *! \fn			static void SSD1306_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color )
  343:ssd1306.c     **** *  \brief		draws horizontal or vertical line
  344:ssd1306.c     **** *               Note: no check for valid coords, this needs to be done by caller
  345:ssd1306.c     **** *               should only be called from gfx_hvline which is doing all validity checking
@@ -506,7 +506,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  351:ssd1306.c     **** *  \exception	none
  352:ssd1306.c     **** *  \return		none
  353:ssd1306.c     **** ***********************************************************************/
- 354:ssd1306.c     **** static void display_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color ){
+ 354:ssd1306.c     **** static void SSD1306_line( int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color ){
  129              		.loc 1 354 0
  130              		.cfi_startproc
  131              		@ args = 4, pretend = 0, frame = 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  153 0014 00EBC510 		add	r0, r0, r5, lsl #7
  154              	.LVL13:
  155 0018 444F     		ldr	r7, .L41
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 10
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 10
 
 
  156 001a 0744     		add	r7, r7, r0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  198 004e 00D9     		bls	.L18
  371:ssd1306.c     ****                     ubit = 7;
  199              		.loc 1 371 0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 11
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 11
 
 
  200 0050 0725     		movs	r5, #7
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  245 0090 03D0     		beq	.L24
  246 0092 34B1     		cbz	r4, .L25
  247 0094 022C     		cmp	r4, #2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 12
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 12
 
 
  248 0096 09D0     		beq	.L26
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  391:ssd1306.c     ****             }
  392:ssd1306.c     ****             
  393:ssd1306.c     ****             ptr += DISPLAYWIDTH;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 13
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 13
 
 
  292              		.loc 1 393 0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  335 00fe 012C     		cmp	r4, #1
  336 0100 03D0     		beq	.L35
  337 0102 34B1     		cbz	r4, .L36
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 14
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 14
 
 
  338 0104 022C     		cmp	r4, #2
@@ -825,7 +825,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  373              	.LBE5:
  374              		.cfi_endproc
  375              	.LFE8:
- 376              		.size	display_line, .-display_line
+ 376              		.size	SSD1306_line, .-SSD1306_line
  377              		.section	.text.gfx_rotation_adjust,"ax",%progbits
  378              		.align	2
  379              		.thumb
@@ -837,8 +837,8 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  410:ssd1306.c     ****     }
  411:ssd1306.c     **** }
  412:ssd1306.c     **** /***********************************************************************
- 413:ssd1306.c     **** *! \fn			void display_stopscroll(void)
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 15
+ 413:ssd1306.c     **** *! \fn			void SSD1306_stopscroll(void)
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 15
 
 
  414:ssd1306.c     **** *  \brief		stop scrolling 
@@ -846,16 +846,16 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  416:ssd1306.c     **** *  \exception	none
  417:ssd1306.c     **** *  \return		none
  418:ssd1306.c     **** ***********************************************************************/
- 419:ssd1306.c     **** void display_stopscroll(void){
+ 419:ssd1306.c     **** void SSD1306_stopscroll(void){
  420:ssd1306.c     **** 
  421:ssd1306.c     ****     uint8 cmdbuf[] = {
  422:ssd1306.c     ****         0x00,
  423:ssd1306.c     ****         SSD1306_DEACTIVATE_SCROLL
  424:ssd1306.c     ****     };
- 425:ssd1306.c     ****     display_write_buf( cmdbuf, sizeof(cmdbuf) ); 
+ 425:ssd1306.c     ****     SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) ); 
  426:ssd1306.c     **** }
  427:ssd1306.c     **** /***********************************************************************
- 428:ssd1306.c     **** *! \fn			void display_scroll( SCROLL_AREA start, SCROLL_AREA end, SCROLL_DIR dir, SCROLL_SPEED spee
+ 428:ssd1306.c     **** *! \fn			void SSD1306_scroll( SCROLL_AREA start, SCROLL_AREA end, SCROLL_DIR dir, SCROLL_SPEED spee
  429:ssd1306.c     **** *  \brief		scrolling
  430:ssd1306.c     **** *  \param		SCROLL_AREA start
  431:ssd1306.c     **** *  \param		SCROLL_AREA end
@@ -864,7 +864,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  434:ssd1306.c     **** *  \exception	none
  435:ssd1306.c     **** *  \return		none
  436:ssd1306.c     **** ***********************************************************************/
- 437:ssd1306.c     **** void display_scroll( SCROLL_AREA start, SCROLL_AREA end, SCROLL_DIR dir, SCROLL_SPEED speed ){
+ 437:ssd1306.c     **** void SSD1306_scroll( SCROLL_AREA start, SCROLL_AREA end, SCROLL_DIR dir, SCROLL_SPEED speed ){
  438:ssd1306.c     ****    
  439:ssd1306.c     ****     uint8 cmdbuf[] = {
  440:ssd1306.c     ****         0x00,
@@ -877,7 +877,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  447:ssd1306.c     ****         0xFF,                   // dummy byte
  448:ssd1306.c     ****         SSD1306_ACTIVATE_SCROLL // 0x2F
  449:ssd1306.c     ****     };
- 450:ssd1306.c     ****     display_write_buf( cmdbuf, sizeof(cmdbuf) ); 
+ 450:ssd1306.c     ****     SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) ); 
  451:ssd1306.c     **** }
  452:ssd1306.c     **** //########################################### Graphic #############################################
  453:ssd1306.c     **** /***********************************************************************
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  468:ssd1306.c     ****     cursor_y = cursor_x = 0;
  469:ssd1306.c     ****     textsize = 1;
  470:ssd1306.c     ****     textcolor = textbgcolor = 0xFFFF;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 16
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 16
 
 
  471:ssd1306.c     ****     wrap = 1;
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  525:ssd1306.c     **** }
  526:ssd1306.c     **** 
  527:ssd1306.c     **** /***********************************************************************
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 17
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 17
 
 
  528:ssd1306.c     **** *! \fn			void gfx_setTextColor( uint16_t color )
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  582:ssd1306.c     **** /***********************************************************************
  583:ssd1306.c     **** *! \fn			static void gfx_rotation_adjust( int16_t* px, int16_t* py )
  584:ssd1306.c     **** *  \brief		set rotation adjust
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 18
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 18
 
 
  585:ssd1306.c     **** *  \param		int16_t* px
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  422 0032 0380     		strh	r3, [r0]	@ movhi
  423              	.LVL43:
  601:ssd1306.c     ****             *py = HEIGHT - *py - 1;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 19
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 19
 
 
  424              		.loc 1 601 0
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  609:ssd1306.c     **** /***********************************************************************
  610:ssd1306.c     **** *! \fn			void gfx_drawPixel( int16_t x, int16_t y, uint16_t color )
  611:ssd1306.c     **** *  \brief		draw pixel
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 20
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 20
 
 
  612:ssd1306.c     **** *  \param		int16_t x,
@@ -1154,7 +1154,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  622:ssd1306.c     ****     
  623:ssd1306.c     ****     gfx_rotation_adjust( &x, &y );
  624:ssd1306.c     **** 
- 625:ssd1306.c     ****     display_setPixel(x,y,color);
+ 625:ssd1306.c     ****     SSD1306_setPixel(x,y,color);
  626:ssd1306.c     **** }
  627:ssd1306.c     **** 
  628:ssd1306.c     **** /***********************************************************************
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  493 001c 9942     		cmp	r1, r3
  494 001e 71D1     		bne	.L53
  495              	.L54:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 21
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 21
 
 
  643:ssd1306.c     ****         // neither vertical nor horizontal
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  654:ssd1306.c     ****         if( y1 < 0 || y1 >= HEIGHT || y2 < 0 || y2 >= HEIGHT )
  539              		.loc 1 654 0 is_stmt 1
  540 0062 BDF90C30 		ldrsh	r3, [sp, #12]
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 22
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 22
 
 
  541 0066 002B     		cmp	r3, #0
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  585              		.loc 1 664 0
  586 00aa BDF90E30 		ldrsh	r3, [sp, #14]
  587 00ae BDF90A20 		ldrsh	r2, [sp, #10]
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 23
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 23
 
 
  588 00b2 9342     		cmp	r3, r2
@@ -1357,7 +1357,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  618              	.LBE6:
  668:ssd1306.c     ****     }
  669:ssd1306.c     ****     
- 670:ssd1306.c     ****     display_line( x1, y1, x2, y2, color );
+ 670:ssd1306.c     ****     SSD1306_line( x1, y1, x2, y2, color );
  619              		.loc 1 670 0
  620 00ea BDF90830 		ldrsh	r3, [sp, #8]
  621 00ee BDF90A20 		ldrsh	r2, [sp, #10]
@@ -1365,7 +1365,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  623 00f6 BDF90E00 		ldrsh	r0, [sp, #14]
  624 00fa BDF81840 		ldrh	r4, [sp, #24]
  625 00fe 0094     		str	r4, [sp]
- 626 0100 FFF7FEFF 		bl	display_line
+ 626 0100 FFF7FEFF 		bl	SSD1306_line
  627              	.LVL60:
  628              	.L53:
  671:ssd1306.c     **** }
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  635              	.L64:
  636              		.align	2
  637              	.L63:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 24
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 24
 
 
  638 0108 00000000 		.word	rotation
@@ -1387,12 +1387,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  641              		.cfi_endproc
  642              	.LFE23:
  643              		.size	gfx_hvLine, .-gfx_hvLine
- 644              		.section	.text.display_write_buf,"ax",%progbits
+ 644              		.section	.text.SSD1306_write_buf,"ax",%progbits
  645              		.align	2
  646              		.thumb
  647              		.thumb_func
- 648              		.type	display_write_buf, %function
- 649              	display_write_buf:
+ 648              		.type	SSD1306_write_buf, %function
+ 649              	SSD1306_write_buf:
  650              	.LFB33:
  672:ssd1306.c     **** /***********************************************************************
  673:ssd1306.c     **** *! \fn			void gfx_drawLine( int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color )
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  713:ssd1306.c     ****         if( steep ){
  714:ssd1306.c     ****             gfx_drawPixel( y0, x0, color );
  715:ssd1306.c     ****         }else{
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 25
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 25
 
 
  716:ssd1306.c     ****             gfx_drawPixel( x0, y0, color );
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  770:ssd1306.c     **** *  \param	    int16_t y0
  771:ssd1306.c     **** *  \param		int16_t r
  772:ssd1306.c     **** *  \param		uint16_t color
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 26
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 26
 
 
  773:ssd1306.c     **** *  \exception	none
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  827:ssd1306.c     **** *  \param		int16_t y
  828:ssd1306.c     **** *  \param		unsigned char c
  829:ssd1306.c     **** *  \param		uint16_t color
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 27
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 27
 
 
  830:ssd1306.c     **** *  \param		uint16_t bg
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  884:ssd1306.c     ****         if( wrap && (cursor_x > (_width - textsize*6)) ){
  885:ssd1306.c     ****             cursor_y += textsize*8;
  886:ssd1306.c     ****             cursor_x = 0;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 28
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 28
 
 
  887:ssd1306.c     ****         }
@@ -1653,7 +1653,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  916:ssd1306.c     **** //########################################### HAL #################################################
  917:ssd1306.c     **** 
  918:ssd1306.c     **** /***********************************************************************
- 919:ssd1306.c     **** *! \fn			static uint32 display_write_buf( uint8_t* buf, uint16_t size )
+ 919:ssd1306.c     **** *! \fn			static uint32 SSD1306_write_buf( uint8_t* buf, uint16_t size )
  920:ssd1306.c     **** *  \brief		for submitting command sequences:
  921:ssd1306.c     **** *               buf[0] must be 0x00
  922:ssd1306.c     **** *               for submitting bulk data (writing to display RAM):
@@ -1662,7 +1662,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  925:ssd1306.c     **** *  \exception	none
  926:ssd1306.c     **** *  \return		none
  927:ssd1306.c     **** ***********************************************************************/
- 928:ssd1306.c     **** static uint32 display_write_buf( uint8_t* buf, uint16_t size ){
+ 928:ssd1306.c     **** static uint32 SSD1306_write_buf( uint8_t* buf, uint16_t size ){
  651              		.loc 1 928 0
  652              		.cfi_startproc
  653              		@ args = 0, pretend = 0, frame = 0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  663              		.cfi_offset 14, -4
  664 0002 0546     		mov	r5, r0
  665 0004 0F46     		mov	r7, r1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 29
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 29
 
 
  666              	.LVL63:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  696 0028 A4B2     		uxth	r4, r4
  697              	.LVL72:
  950:ssd1306.c     ****             if (transmit_status != I2C_1_MSTR_NO_ERROR){
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 30
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 30
 
 
  698              		.loc 1 950 0 discriminator 2
@@ -1786,7 +1786,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  728 004c 00E100E0 		.word	-536813312
  729              		.cfi_endproc
  730              	.LFE33:
- 731              		.size	display_write_buf, .-display_write_buf
+ 731              		.size	SSD1306_write_buf, .-SSD1306_write_buf
  732              		.section	.text.SSD1306_SetColStartAddr,"ax",%progbits
  733              		.align	2
  734              		.thumb
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  739              		.loc 1 328 0
  740              		.cfi_startproc
  741              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 31
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 31
 
 
  742              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1828,7 +1828,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  762              		.loc 1 339 0
  763 0022 0321     		movs	r1, #3
  764 0024 01A8     		add	r0, sp, #4
- 765 0026 FFF7FEFF 		bl	display_write_buf
+ 765 0026 FFF7FEFF 		bl	SSD1306_write_buf
  766              	.LVL80:
  340:ssd1306.c     **** /***********************************************************************
  767              		.loc 1 340 0
@@ -1844,13 +1844,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  777              		.cfi_endproc
  778              	.LFE7:
  779              		.size	SSD1306_SetColStartAddr, .-SSD1306_SetColStartAddr
- 780 0032 00BF     		.section	.text.display_clear,"ax",%progbits
+ 780 0032 00BF     		.section	.text.SSD1306_clear,"ax",%progbits
  781              		.align	2
- 782              		.global	display_clear
+ 782              		.global	SSD1306_clear
  783              		.thumb
  784              		.thumb_func
- 785              		.type	display_clear, %function
- 786              	display_clear:
+ 785              		.type	SSD1306_clear, %function
+ 786              	SSD1306_clear:
  787              	.LFB2:
  252:ssd1306.c     ****     memset( _displaybuf, 0, _displaybuf_size );
  788              		.loc 1 252 0
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  790              		@ args = 0, pretend = 0, frame = 0
  791              		@ frame_needed = 0, uses_anonymous_args = 0
  792 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 32
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 32
 
 
  793              		.cfi_def_cfa_offset 8
@@ -1883,14 +1883,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  810 0018 00000000 		.word	.LANCHOR0
  811              		.cfi_endproc
  812              	.LFE2:
- 813              		.size	display_clear, .-display_clear
- 814              		.section	.text.display_contrast,"ax",%progbits
+ 813              		.size	SSD1306_clear, .-SSD1306_clear
+ 814              		.section	.text.SSD1306_contrast,"ax",%progbits
  815              		.align	2
- 816              		.global	display_contrast
+ 816              		.global	SSD1306_contrast
  817              		.thumb
  818              		.thumb_func
- 819              		.type	display_contrast, %function
- 820              	display_contrast:
+ 819              		.type	SSD1306_contrast, %function
+ 820              	SSD1306_contrast:
  821              	.LFB3:
  263:ssd1306.c     ****         
  822              		.loc 1 263 0
@@ -1915,10 +1915,10 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  839 0014 0321     		movs	r1, #3
  840 0016 01A8     		add	r0, sp, #4
  841              	.LVL84:
- 842 0018 FFF7FEFF 		bl	display_write_buf
+ 842 0018 FFF7FEFF 		bl	SSD1306_write_buf
  843              	.LVL85:
  271:ssd1306.c     **** /***********************************************************************
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 33
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 33
 
 
  844              		.loc 1 271 0
@@ -1928,14 +1928,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  848 001e 5DF804FB 		ldr	pc, [sp], #4
  849              		.cfi_endproc
  850              	.LFE3:
- 851              		.size	display_contrast, .-display_contrast
- 852 0022 00BF     		.section	.text.display_invert,"ax",%progbits
+ 851              		.size	SSD1306_contrast, .-SSD1306_contrast
+ 852 0022 00BF     		.section	.text.SSD1306_invert,"ax",%progbits
  853              		.align	2
- 854              		.global	display_invert
+ 854              		.global	SSD1306_invert
  855              		.thumb
  856              		.thumb_func
- 857              		.type	display_invert, %function
- 858              	display_invert:
+ 857              		.type	SSD1306_invert, %function
+ 858              	SSD1306_invert:
  859              	.LFB4:
  279:ssd1306.c     **** 
  860              		.loc 1 279 0
@@ -1952,7 +1952,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  870              		.loc 1 281 0
  871 0004 0023     		movs	r3, #0
  872 0006 8DF80430 		strb	r3, [sp, #4]
- 285:ssd1306.c     ****     display_write_buf( cmdbuf, sizeof(cmdbuf) ); 
+ 285:ssd1306.c     ****     SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) ); 
  873              		.loc 1 285 0
  874 000a 08B1     		cbz	r0, .L87
  875 000c A723     		movs	r3, #167
@@ -1960,7 +1960,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  877              	.L87:
  878 0010 A623     		movs	r3, #166
  879              	.L86:
- 285:ssd1306.c     ****     display_write_buf( cmdbuf, sizeof(cmdbuf) ); 
+ 285:ssd1306.c     ****     SSD1306_write_buf( cmdbuf, sizeof(cmdbuf) ); 
  880              		.loc 1 285 0 is_stmt 0 discriminator 4
  881 0012 8DF80530 		strb	r3, [sp, #5]
  286:ssd1306.c     **** }
@@ -1968,7 +1968,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  883 0016 0221     		movs	r1, #2
  884 0018 01A8     		add	r0, sp, #4
  885              	.LVL87:
- 886 001a FFF7FEFF 		bl	display_write_buf
+ 886 001a FFF7FEFF 		bl	SSD1306_write_buf
  887              	.LVL88:
  287:ssd1306.c     **** /***********************************************************************
  888              		.loc 1 287 0 discriminator 4
@@ -1978,10 +1978,10 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  892 0020 5DF804FB 		ldr	pc, [sp], #4
  893              		.cfi_endproc
  894              	.LFE4:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 34
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 34
 
 
- 895              		.size	display_invert, .-display_invert
+ 895              		.size	SSD1306_invert, .-SSD1306_invert
  896              		.section	.text.SSD1306_SetPageStartAddr,"ax",%progbits
  897              		.align	2
  898              		.global	SSD1306_SetPageStartAddr
@@ -2018,7 +2018,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  924              		.loc 1 319 0
  925 0016 0221     		movs	r1, #2
  926 0018 01A8     		add	r0, sp, #4
- 927 001a FFF7FEFF 		bl	display_write_buf
+ 927 001a FFF7FEFF 		bl	SSD1306_write_buf
  928              	.LVL91:
  320:ssd1306.c     **** /***********************************************************************
  929              		.loc 1 320 0
@@ -2034,16 +2034,16 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  939              		.cfi_endproc
  940              	.LFE6:
  941              		.size	SSD1306_SetPageStartAddr, .-SSD1306_SetPageStartAddr
- 942 0026 00BF     		.section	.text.display_update,"ax",%progbits
+ 942 0026 00BF     		.section	.text.SSD1306_update,"ax",%progbits
  943              		.align	2
- 944              		.global	display_update
+ 944              		.global	SSD1306_update
  945              		.thumb
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 35
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 35
 
 
  946              		.thumb_func
- 947              		.type	display_update, %function
- 948              	display_update:
+ 947              		.type	SSD1306_update, %function
+ 948              	SSD1306_update:
  949              	.LFB5:
  295:ssd1306.c     ****       
  950              		.loc 1 295 0
@@ -2059,7 +2059,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  959 0002 0020     		movs	r0, #0
  960 0004 FFF7FEFF 		bl	SSD1306_SetPageStartAddr
  961              	.LVL93:
- 299:ssd1306.c     ****     display_write_buf( SSD1306_buffer, sizeof(SSD1306_buffer) );
+ 299:ssd1306.c     ****     SSD1306_write_buf( SSD1306_buffer, sizeof(SSD1306_buffer) );
  962              		.loc 1 299 0
  963 0008 0020     		movs	r0, #0
  964 000a FFF7FEFF 		bl	SSD1306_SetColStartAddr
@@ -2068,7 +2068,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  966              		.loc 1 300 0
  967 000e 40F20141 		movw	r1, #1025
  968 0012 0248     		ldr	r0, .L96
- 969 0014 FFF7FEFF 		bl	display_write_buf
+ 969 0014 FFF7FEFF 		bl	SSD1306_write_buf
  970              	.LVL95:
  971 0018 08BD     		pop	{r3, pc}
  972              	.L97:
@@ -2077,14 +2077,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  975 001c 00000000 		.word	.LANCHOR0
  976              		.cfi_endproc
  977              	.LFE5:
- 978              		.size	display_update, .-display_update
- 979              		.section	.text.display_stopscroll,"ax",%progbits
+ 978              		.size	SSD1306_update, .-SSD1306_update
+ 979              		.section	.text.SSD1306_stopscroll,"ax",%progbits
  980              		.align	2
- 981              		.global	display_stopscroll
+ 981              		.global	SSD1306_stopscroll
  982              		.thumb
  983              		.thumb_func
- 984              		.type	display_stopscroll, %function
- 985              	display_stopscroll:
+ 984              		.type	SSD1306_stopscroll, %function
+ 985              	SSD1306_stopscroll:
  986              	.LFB9:
  419:ssd1306.c     **** 
  987              		.loc 1 419 0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  995              		.cfi_def_cfa_offset 16
  421:ssd1306.c     ****         0x00,
  996              		.loc 1 421 0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 36
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 36
 
 
  997 0004 0023     		movs	r3, #0
@@ -2109,7 +2109,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1001              		.loc 1 425 0
  1002 0010 0221     		movs	r1, #2
  1003 0012 01A8     		add	r0, sp, #4
- 1004 0014 FFF7FEFF 		bl	display_write_buf
+ 1004 0014 FFF7FEFF 		bl	SSD1306_write_buf
  1005              	.LVL96:
  426:ssd1306.c     **** /***********************************************************************
  1006              		.loc 1 426 0
@@ -2119,14 +2119,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1010 001a 5DF804FB 		ldr	pc, [sp], #4
  1011              		.cfi_endproc
  1012              	.LFE9:
- 1013              		.size	display_stopscroll, .-display_stopscroll
- 1014 001e 00BF     		.section	.text.display_scroll,"ax",%progbits
+ 1013              		.size	SSD1306_stopscroll, .-SSD1306_stopscroll
+ 1014 001e 00BF     		.section	.text.SSD1306_scroll,"ax",%progbits
  1015              		.align	2
- 1016              		.global	display_scroll
+ 1016              		.global	SSD1306_scroll
  1017              		.thumb
  1018              		.thumb_func
- 1019              		.type	display_scroll, %function
- 1020              	display_scroll:
+ 1019              		.type	SSD1306_scroll, %function
+ 1020              	SSD1306_scroll:
  1021              	.LFB10:
  437:ssd1306.c     ****    
  1022              		.loc 1 437 0
@@ -2158,13 +2158,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  450:ssd1306.c     **** }
  1047              		.loc 1 450 0
  1048 002e 0921     		movs	r1, #9
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 37
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 37
 
 
  1049              	.LVL99:
  1050 0030 01A8     		add	r0, sp, #4
  1051              	.LVL100:
- 1052 0032 FFF7FEFF 		bl	display_write_buf
+ 1052 0032 FFF7FEFF 		bl	SSD1306_write_buf
  1053              	.LVL101:
  451:ssd1306.c     **** //########################################### Graphic #############################################
  1054              		.loc 1 451 0
@@ -2174,7 +2174,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1058 0038 10BD     		pop	{r4, pc}
  1059              		.cfi_endproc
  1060              	.LFE10:
- 1061              		.size	display_scroll, .-display_scroll
+ 1061              		.size	SSD1306_scroll, .-SSD1306_scroll
  1062 003a 00BF     		.section	.text.gfx_init,"ax",%progbits
  1063              		.align	2
  1064              		.global	gfx_init
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  469:ssd1306.c     ****     textcolor = textbgcolor = 0xFFFF;
  1095              		.loc 1 469 0
  1096 0018 0122     		movs	r2, #1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 38
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 38
 
 
  1097 001a 9A72     		strb	r2, [r3, #10]
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1147              	gfx_height:
  1148              	.LFB13:
  491:ssd1306.c     ****     return _height;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 39
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 39
 
 
  1149              		.loc 1 491 0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1199              		@ args = 0, pretend = 0, frame = 0
  1200              		@ frame_needed = 0, uses_anonymous_args = 0
  1201              		@ link register save eliminated.
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 40
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 40
 
 
  1202              	.LVL104:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1251              		.global	gfx_setTextColor
  1252              		.thumb
  1253              		.thumb_func
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 41
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 41
 
 
  1254              		.type	gfx_setTextColor, %function
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1304              		.thumb_func
  1305              		.type	gfx_setTextWrap, %function
  1306              	gfx_setTextWrap:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 42
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 42
 
 
  1307              	.LFB19:
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1355              		.loc 1 572 0
  1356 0014 084B     		ldr	r3, .L136+4
  1357 0016 094A     		ldr	r2, .L136+8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 43
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 43
 
 
  1358 0018 1288     		ldrh	r2, [r2]
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1407 0004 ADF80600 		strh	r0, [sp, #6]	@ movhi
  1408 0008 ADF80410 		strh	r1, [sp, #4]	@ movhi
  620:ssd1306.c     ****         return;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 44
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 44
 
 
  1409              		.loc 1 620 0
@@ -2617,7 +2617,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1437 0036 2246     		mov	r2, r4
  1438 0038 BDF90410 		ldrsh	r1, [sp, #4]
  1439 003c BDF90600 		ldrsh	r0, [sp, #6]
- 1440 0040 FFF7FEFF 		bl	display_setPixel
+ 1440 0040 FFF7FEFF 		bl	SSD1306_setPixel
  1441              	.LVL119:
  1442              	.L138:
  626:ssd1306.c     **** 
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1457              		.align	2
  1458              		.global	gfx_drawLine
  1459              		.thumb
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 45
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 45
 
 
  1460              		.thumb_func
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  693:ssd1306.c     ****     if( steep ){
  1509              		.loc 1 693 0
  1510 002a C1EB0308 		rsb	r8, r1, r3
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 46
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 46
 
 
  1511 002e B8F1000F 		cmp	r8, #0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1557 007a CAF1000A 		rsblt	r10, r10, #0
  1558              	.LVL135:
  705:ssd1306.c     ****     int16_t ystep;
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 47
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 47
 
 
  1559              		.loc 1 705 0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1605              		.loc 1 719 0
  1606 00b8 002C     		cmp	r4, #0
  1607 00ba 05DA     		bge	.L153
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 48
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 48
 
 
  720:ssd1306.c     ****             err += dx;
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1656              		.cfi_offset 6, -16
  1657              		.cfi_offset 7, -12
  1658              		.cfi_offset 8, -8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 49
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 49
 
 
  1659              		.cfi_offset 14, -4
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1708 0052 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  1709              		.cfi_endproc
  1710              	.LFE25:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 50
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 50
 
 
  1711              		.size	gfx_drawRect, .-gfx_drawRect
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1761              	.LVL164:
  1762 0032 24B2     		sxth	r4, r4
  1763              	.LVL165:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 51
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 51
 
 
  1764 0034 00E0     		b	.L162
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  776:ssd1306.c     **** 
  1813              		.loc 1 776 0
  1814              		.cfi_startproc
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 52
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 52
 
 
  1815              		@ args = 0, pretend = 0, frame = 24
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1864              		.loc 1 785 0
  1865 0040 1FFA8AFA 		uxth	r10, r10
  1866 0044 05EB0A00 		add	r0, r5, r10
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 53
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 53
 
 
  1867 0048 3A46     		mov	r2, r7
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1912 0088 ADB2     		uxth	r5, r5
  1913 008a 0FFA85F9 		sxth	r9, r5
  1914              	.LVL186:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 54
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 54
 
 
  794:ssd1306.c     ****         f += ddF_x;
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  1962 00e6 0AEB0607 		add	r7, r10, r6
  1963 00ea 3FB2     		sxth	r7, r7
  1964 00ec 0BEB0508 		add	r8, fp, r5
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 55
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 55
 
 
  1965 00f0 0FFA88F8 		sxth	r8, r8
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2014              	.LFB28:
  816:ssd1306.c     ****     
  2015              		.loc 1 816 0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 56
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 56
 
 
  2016              		.cfi_startproc
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2066              		.size	gfx_drawTriangle, .-gfx_drawTriangle
  2067 0042 00BF     		.section	.text.gfx_drawChar,"ax",%progbits
  2068              		.align	2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 57
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 57
 
 
  2069              		.global	gfx_drawChar
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2115              		.loc 1 838 0
  2116 0032 012C     		cmp	r4, #1
  2117 0034 52D4     		bmi	.L176
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 58
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 58
 
 
  2118 0036 9846     		mov	r8, r3
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2164              		.loc 1 855 0
  2165 0078 B0B2     		uxth	r0, r6
  2166 007a 32B2     		sxth	r2, r6
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 59
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 59
 
 
  2167 007c 04FB00A1 		mla	r1, r4, r0, r10
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2214              		.loc 1 850 0 is_stmt 0 discriminator 1
  2215 00d0 072C     		cmp	r4, #7
  2216 00d2 C2DD     		ble	.L185
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 60
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 60
 
 
  2217              	.LBE7:
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  878:ssd1306.c     ****     }else if( ch == '\r' ){
  2265              		.loc 1 878 0
  2266 0010 0022     		movs	r2, #0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 61
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 61
 
 
  2267 0012 DA80     		strh	r2, [r3, #6]	@ movhi
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  885:ssd1306.c     ****             cursor_x = 0;
  2315              		.loc 1 885 0 is_stmt 1
  2316 0060 2289     		ldrh	r2, [r4, #8]
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 62
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 62
 
 
  2317 0062 02EBC101 		add	r1, r2, r1, lsl #3
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  902:ssd1306.c     ****     }
  2366              		.loc 1 902 0 discriminator 3
  2367 000e 305D     		ldrb	r0, [r6, r4]	@ zero_extendqisi2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 63
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 63
 
 
  2368 0010 FFF7FEFF 		bl	gfx_write
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2416              	SSD1306_HAL_Reset:
  2417              	.LFB34:
  963:ssd1306.c     **** 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 64
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 64
 
 
  964:ssd1306.c     **** /***********************************************************************
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2458              	.LVL236:
  2459 0000 30B5     		push	{r4, r5, lr}
  2460              		.cfi_def_cfa_offset 12
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 65
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 65
 
 
  2461              		.cfi_offset 4, -12
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2506 0046 6969     		ldr	r1, [r5, #20]	@ unaligned
  2507 0048 AA69     		ldr	r2, [r5, #24]	@ unaligned
  2508 004a EB69     		ldr	r3, [r5, #28]	@ unaligned
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 66
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 66
 
 
  2509 004c 0FC4     		stmia	r4!, {r0, r1, r2, r3}
@@ -3906,7 +3906,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2510              		.loc 1 216 0
  2511 004e 2021     		movs	r1, #32
  2512 0050 6846     		mov	r0, sp
- 2513 0052 FFF7FEFF 		bl	display_write_buf
+ 2513 0052 FFF7FEFF 		bl	SSD1306_write_buf
  2514              	.LVL244:
  218:ssd1306.c     **** /***********************************************************************
  2515              		.loc 1 218 0
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2551              		.type	SSD1306_HAL_DC, %function
  2552              	SSD1306_HAL_DC:
  2553              	.LFB36:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 67
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 67
 
 
  987:ssd1306.c     **** #ifdef _Interface_SPI_
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2592 0012 3E       		.byte	62
  2593 0013 1C       		.byte	28
  2594 0014 18       		.byte	24
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 68
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 68
 
 
  2595 0015 3C       		.byte	60
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2649 004b 5A       		.byte	90
  2650 004c 3C       		.byte	60
  2651 004d E7       		.byte	-25
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 69
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 69
 
 
  2652 004e 3C       		.byte	60
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2706 0084 2A       		.byte	42
  2707 0085 1C       		.byte	28
  2708 0086 08       		.byte	8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 70
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 70
 
 
  2709 0087 08       		.byte	8
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2763 00bd 62       		.byte	98
  2764 00be 36       		.byte	54
  2765 00bf 49       		.byte	73
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 71
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 71
 
 
  2766 00c0 56       		.byte	86
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2820 00f6 42       		.byte	66
  2821 00f7 7F       		.byte	127
  2822 00f8 40       		.byte	64
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 72
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 72
 
 
  2823 00f9 00       		.byte	0
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2877 012f 22       		.byte	34
  2878 0130 41       		.byte	65
  2879 0131 14       		.byte	20
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 73
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 73
 
 
  2880 0132 14       		.byte	20
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2934 0168 7F       		.byte	127
  2935 0169 08       		.byte	8
  2936 016a 08       		.byte	8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 74
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 74
 
 
  2937 016b 08       		.byte	8
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  2991 01a1 49       		.byte	73
  2992 01a2 49       		.byte	73
  2993 01a3 32       		.byte	50
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 75
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 75
 
 
  2994 01a4 03       		.byte	3
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3048 01da 04       		.byte	4
  3049 01db 40       		.byte	64
  3050 01dc 40       		.byte	64
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 76
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 76
 
 
  3051 01dd 40       		.byte	64
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3105 0213 40       		.byte	64
  3106 0214 40       		.byte	64
  3107 0215 3D       		.byte	61
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 77
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 77
 
 
  3108 0216 00       		.byte	0
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3162 024c 20       		.byte	32
  3163 024d 7C       		.byte	124
  3164 024e 1C       		.byte	28
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 78
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 78
 
 
  3165 024f 20       		.byte	32
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3219 0285 3A       		.byte	58
  3220 0286 40       		.byte	64
  3221 0287 40       		.byte	64
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 79
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 79
 
 
  3222 0288 20       		.byte	32
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3276 02be 45       		.byte	69
  3277 02bf 7D       		.byte	125
  3278 02c0 42       		.byte	66
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 80
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 80
 
 
  3279 02c1 00       		.byte	0
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3333 02f7 78       		.byte	120
  3334 02f8 00       		.byte	0
  3335 02f9 9D       		.byte	-99
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 81
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 81
 
 
  3336 02fa A0       		.byte	-96
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3390 0330 40       		.byte	64
  3391 0331 40       		.byte	64
  3392 0332 22       		.byte	34
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 82
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 82
 
 
  3393 0333 7A       		.byte	122
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3447 0369 14       		.byte	20
  3448 036a 22       		.byte	34
  3449 036b 22       		.byte	34
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 83
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 83
 
 
  3450 036c 14       		.byte	20
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3504 03a2 14       		.byte	20
  3505 03a3 14       		.byte	20
  3506 03a4 F4       		.byte	-12
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 84
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 84
 
 
  3507 03a5 04       		.byte	4
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3561 03db 00       		.byte	0
  3562 03dc FF       		.byte	-1
  3563 03dd 14       		.byte	20
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 85
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 85
 
 
  3564 03de 00       		.byte	0
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3618 0414 14       		.byte	20
  3619 0415 10       		.byte	16
  3620 0416 10       		.byte	16
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 86
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 86
 
 
  3621 0417 F0       		.byte	-16
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3675 044d FF       		.byte	-1
  3676 044e FF       		.byte	-1
  3677 044f 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 87
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 87
 
 
  3678 0450 00       		.byte	0
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3732 0486 A5       		.byte	-91
  3733 0487 99       		.byte	-103
  3734 0488 1C       		.byte	28
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 88
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 88
 
 
  3735 0489 2A       		.byte	42
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3789 04bf 00       		.byte	0
  3790 04c0 00       		.byte	0
  3791 04c1 FF       		.byte	-1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 89
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 89
 
 
  3792 04c2 01       		.byte	1
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3846 04f8 00       		.byte	0
  3847 04f9 00       		.byte	0
  3848 04fa 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 90
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 90
 
 
  3849 04fb 00       		.space	1
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3899              		.type	_width, %object
  3900              		.size	_width, 2
  3901              	_width:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 91
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 91
 
 
  3902 0002 0000     		.space	2
@@ -5445,10 +5445,10 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3943 0006 00000000 		.4byte	.Ldebug_abbrev0
  3944 000a 04       		.byte	0x4
  3945 000b 01       		.uleb128 0x1
- 3946 000c E0010000 		.4byte	.LASF136
+ 3946 000c F7010000 		.4byte	.LASF136
  3947 0010 0C       		.byte	0xc
- 3948 0011 E4040000 		.4byte	.LASF137
- 3949 0015 79040000 		.4byte	.LASF138
+ 3948 0011 EE040000 		.4byte	.LASF137
+ 3949 0015 83040000 		.4byte	.LASF138
  3950 0019 00000000 		.4byte	.Ldebug_ranges0+0
  3951 001d 00000000 		.4byte	0
  3952 0021 00000000 		.4byte	.Ldebug_line0
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3956 0028 2B000000 		.4byte	.LASF0
  3957 002c 03       		.uleb128 0x3
  3958 002d 04       		.byte	0x4
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 92
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 92
 
 
  3959 002e 05       		.byte	0x5
@@ -5466,102 +5466,102 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  3961 0033 02       		.uleb128 0x2
  3962 0034 08       		.byte	0x8
  3963 0035 05       		.byte	0x5
- 3964 0036 88030000 		.4byte	.LASF1
+ 3964 0036 96030000 		.4byte	.LASF1
  3965 003a 02       		.uleb128 0x2
  3966 003b 08       		.byte	0x8
  3967 003c 04       		.byte	0x4
- 3968 003d B7040000 		.4byte	.LASF2
+ 3968 003d C1040000 		.4byte	.LASF2
  3969 0041 04       		.uleb128 0x4
- 3970 0042 70040000 		.4byte	.LASF4
+ 3970 0042 7A040000 		.4byte	.LASF4
  3971 0046 02       		.byte	0x2
  3972 0047 1B       		.byte	0x1b
  3973 0048 4C000000 		.4byte	0x4c
  3974 004c 02       		.uleb128 0x2
  3975 004d 01       		.byte	0x1
  3976 004e 06       		.byte	0x6
- 3977 004f 9B060000 		.4byte	.LASF3
+ 3977 004f 8D060000 		.4byte	.LASF3
  3978 0053 04       		.uleb128 0x4
- 3979 0054 6D050000 		.4byte	.LASF5
+ 3979 0054 68050000 		.4byte	.LASF5
  3980 0058 02       		.byte	0x2
  3981 0059 1D       		.byte	0x1d
  3982 005a 5E000000 		.4byte	0x5e
  3983 005e 02       		.uleb128 0x2
  3984 005f 01       		.byte	0x1
  3985 0060 08       		.byte	0x8
- 3986 0061 24060000 		.4byte	.LASF6
+ 3986 0061 20060000 		.4byte	.LASF6
  3987 0065 04       		.uleb128 0x4
- 3988 0066 ED030000 		.4byte	.LASF7
+ 3988 0066 FB030000 		.4byte	.LASF7
  3989 006a 02       		.byte	0x2
  3990 006b 29       		.byte	0x29
  3991 006c 70000000 		.4byte	0x70
  3992 0070 02       		.uleb128 0x2
  3993 0071 02       		.byte	0x2
  3994 0072 05       		.byte	0x5
- 3995 0073 FB040000 		.4byte	.LASF8
+ 3995 0073 05050000 		.4byte	.LASF8
  3996 0077 04       		.uleb128 0x4
- 3997 0078 A9010000 		.4byte	.LASF9
+ 3997 0078 C0010000 		.4byte	.LASF9
  3998 007c 02       		.byte	0x2
  3999 007d 2B       		.byte	0x2b
  4000 007e 82000000 		.4byte	0x82
  4001 0082 02       		.uleb128 0x2
  4002 0083 02       		.byte	0x2
  4003 0084 07       		.byte	0x7
- 4004 0085 A7060000 		.4byte	.LASF10
+ 4004 0085 99060000 		.4byte	.LASF10
  4005 0089 02       		.uleb128 0x2
  4006 008a 04       		.byte	0x4
  4007 008b 05       		.byte	0x5
- 4008 008c 23050000 		.4byte	.LASF11
+ 4008 008c 2D050000 		.4byte	.LASF11
  4009 0090 04       		.uleb128 0x4
- 4010 0091 32060000 		.4byte	.LASF12
+ 4010 0091 2E060000 		.4byte	.LASF12
  4011 0095 02       		.byte	0x2
  4012 0096 41       		.byte	0x41
  4013 0097 9B000000 		.4byte	0x9b
  4014 009b 02       		.uleb128 0x2
  4015 009c 04       		.byte	0x4
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 93
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 93
 
 
  4016 009d 07       		.byte	0x7
- 4017 009e A7050000 		.4byte	.LASF13
+ 4017 009e B1050000 		.4byte	.LASF13
  4018 00a2 02       		.uleb128 0x2
  4019 00a3 08       		.byte	0x8
  4020 00a4 07       		.byte	0x7
- 4021 00a5 7A010000 		.4byte	.LASF14
+ 4021 00a5 80010000 		.4byte	.LASF14
  4022 00a9 02       		.uleb128 0x2
  4023 00aa 04       		.byte	0x4
  4024 00ab 07       		.byte	0x7
- 4025 00ac 97050000 		.4byte	.LASF15
+ 4025 00ac A1050000 		.4byte	.LASF15
  4026 00b0 02       		.uleb128 0x2
  4027 00b1 01       		.byte	0x1
  4028 00b2 08       		.byte	0x8
- 4029 00b3 4B030000 		.4byte	.LASF16
+ 4029 00b3 3D030000 		.4byte	.LASF16
  4030 00b7 05       		.uleb128 0x5
  4031 00b8 04       		.byte	0x4
  4032 00b9 BD000000 		.4byte	0xbd
  4033 00bd 06       		.uleb128 0x6
  4034 00be B0000000 		.4byte	0xb0
  4035 00c2 04       		.uleb128 0x4
- 4036 00c3 2D010000 		.4byte	.LASF17
+ 4036 00c3 33010000 		.4byte	.LASF17
  4037 00c7 03       		.byte	0x3
  4038 00c8 14       		.byte	0x14
  4039 00c9 41000000 		.4byte	0x41
  4040 00cd 04       		.uleb128 0x4
- 4041 00ce 5F030000 		.4byte	.LASF18
+ 4041 00ce 6D030000 		.4byte	.LASF18
  4042 00d2 03       		.byte	0x3
  4043 00d3 18       		.byte	0x18
  4044 00d4 53000000 		.4byte	0x53
  4045 00d8 04       		.uleb128 0x4
- 4046 00d9 72010000 		.4byte	.LASF19
+ 4046 00d9 78010000 		.4byte	.LASF19
  4047 00dd 03       		.byte	0x3
  4048 00de 20       		.byte	0x20
  4049 00df 65000000 		.4byte	0x65
  4050 00e3 04       		.uleb128 0x4
- 4051 00e4 CE040000 		.4byte	.LASF20
+ 4051 00e4 D8040000 		.4byte	.LASF20
  4052 00e8 03       		.byte	0x3
  4053 00e9 24       		.byte	0x24
  4054 00ea 77000000 		.4byte	0x77
  4055 00ee 04       		.uleb128 0x4
- 4056 00ef 24010000 		.4byte	.LASF21
+ 4056 00ef 2A010000 		.4byte	.LASF21
  4057 00f3 03       		.byte	0x3
  4058 00f4 30       		.byte	0x30
  4059 00f5 90000000 		.4byte	0x90
@@ -5572,35 +5572,35 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4064 0100 70       		.byte	0x70
  4065 0101 36010000 		.4byte	0x136
  4066 0105 08       		.uleb128 0x8
- 4067 0106 9A020000 		.4byte	.LASF22
+ 4067 0106 A0020000 		.4byte	.LASF22
  4068 010a 00       		.byte	0
  4069 010b 08       		.uleb128 0x8
- 4070 010c A8020000 		.4byte	.LASF23
+ 4070 010c AE020000 		.4byte	.LASF23
  4071 0110 01       		.byte	0x1
  4072 0111 08       		.uleb128 0x8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 94
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 94
 
 
- 4073 0112 B6020000 		.4byte	.LASF24
+ 4073 0112 BC020000 		.4byte	.LASF24
  4074 0116 02       		.byte	0x2
  4075 0117 08       		.uleb128 0x8
- 4076 0118 C4020000 		.4byte	.LASF25
+ 4076 0118 CA020000 		.4byte	.LASF25
  4077 011c 03       		.byte	0x3
  4078 011d 08       		.uleb128 0x8
- 4079 011e D2020000 		.4byte	.LASF26
+ 4079 011e D8020000 		.4byte	.LASF26
  4080 0122 04       		.byte	0x4
  4081 0123 08       		.uleb128 0x8
- 4082 0124 E0020000 		.4byte	.LASF27
+ 4082 0124 E6020000 		.4byte	.LASF27
  4083 0128 05       		.byte	0x5
  4084 0129 08       		.uleb128 0x8
- 4085 012a EE020000 		.4byte	.LASF28
+ 4085 012a F4020000 		.4byte	.LASF28
  4086 012e 06       		.byte	0x6
  4087 012f 08       		.uleb128 0x8
- 4088 0130 FC020000 		.4byte	.LASF29
+ 4088 0130 02030000 		.4byte	.LASF29
  4089 0134 07       		.byte	0x7
  4090 0135 00       		.byte	0
  4091 0136 04       		.uleb128 0x4
- 4092 0137 B1030000 		.4byte	.LASF30
+ 4092 0137 BF030000 		.4byte	.LASF30
  4093 013b 04       		.byte	0x4
  4094 013c 79       		.byte	0x79
  4095 013d F9000000 		.4byte	0xf9
@@ -5611,14 +5611,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4100 0148 7B       		.byte	0x7b
  4101 0149 5A010000 		.4byte	0x15a
  4102 014d 08       		.uleb128 0x8
- 4103 014e 0B060000 		.4byte	.LASF31
+ 4103 014e 07060000 		.4byte	.LASF31
  4104 0152 26       		.byte	0x26
  4105 0153 08       		.uleb128 0x8
- 4106 0154 B9050000 		.4byte	.LASF32
+ 4106 0154 C3050000 		.4byte	.LASF32
  4107 0158 2A       		.byte	0x2a
  4108 0159 00       		.byte	0
  4109 015a 04       		.uleb128 0x4
- 4110 015b 76000000 		.4byte	.LASF33
+ 4110 015b 69000000 		.4byte	.LASF33
  4111 015f 04       		.byte	0x4
  4112 0160 7E       		.byte	0x7e
  4113 0161 41010000 		.4byte	0x141
@@ -5629,65 +5629,65 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4118 016c 80       		.byte	0x80
  4119 016d A2010000 		.4byte	0x1a2
  4120 0171 08       		.uleb128 0x8
- 4121 0172 90000000 		.4byte	.LASF34
+ 4121 0172 96000000 		.4byte	.LASF34
  4122 0176 03       		.byte	0x3
  4123 0177 08       		.uleb128 0x8
- 4124 0178 9F000000 		.4byte	.LASF35
+ 4124 0178 A5000000 		.4byte	.LASF35
  4125 017c 02       		.byte	0x2
  4126 017d 08       		.uleb128 0x8
- 4127 017e AE000000 		.4byte	.LASF36
+ 4127 017e B4000000 		.4byte	.LASF36
  4128 0182 01       		.byte	0x1
  4129 0183 08       		.uleb128 0x8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 95
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 95
 
 
- 4130 0184 BD000000 		.4byte	.LASF37
+ 4130 0184 C3000000 		.4byte	.LASF37
  4131 0188 06       		.byte	0x6
  4132 0189 08       		.uleb128 0x8
- 4133 018a CC000000 		.4byte	.LASF38
+ 4133 018a D2000000 		.4byte	.LASF38
  4134 018e 00       		.byte	0
  4135 018f 08       		.uleb128 0x8
- 4136 0190 DB000000 		.4byte	.LASF39
+ 4136 0190 E1000000 		.4byte	.LASF39
  4137 0194 05       		.byte	0x5
  4138 0195 08       		.uleb128 0x8
- 4139 0196 EA000000 		.4byte	.LASF40
+ 4139 0196 F0000000 		.4byte	.LASF40
  4140 019a 04       		.byte	0x4
  4141 019b 08       		.uleb128 0x8
- 4142 019c F9000000 		.4byte	.LASF41
+ 4142 019c FF000000 		.4byte	.LASF41
  4143 01a0 07       		.byte	0x7
  4144 01a1 00       		.byte	0
  4145 01a2 04       		.uleb128 0x4
- 4146 01a3 9F030000 		.4byte	.LASF42
+ 4146 01a3 AD030000 		.4byte	.LASF42
  4147 01a7 04       		.byte	0x4
  4148 01a8 89       		.byte	0x89
  4149 01a9 65010000 		.4byte	0x165
  4150 01ad 09       		.uleb128 0x9
- 4151 01ae CD060000 		.4byte	.LASF43
+ 4151 01ae BB060000 		.4byte	.LASF43
  4152 01b2 05       		.byte	0x5
  4153 01b3 E901     		.2byte	0x1e9
  4154 01b5 5E000000 		.4byte	0x5e
  4155 01b9 09       		.uleb128 0x9
- 4156 01ba 29040000 		.4byte	.LASF44
+ 4156 01ba 45040000 		.4byte	.LASF44
  4157 01be 05       		.byte	0x5
  4158 01bf EB01     		.2byte	0x1eb
  4159 01c1 9B000000 		.4byte	0x9b
  4160 01c5 02       		.uleb128 0x2
  4161 01c6 04       		.byte	0x4
  4162 01c7 04       		.byte	0x4
- 4163 01c8 39010000 		.4byte	.LASF45
+ 4163 01c8 3F010000 		.4byte	.LASF45
  4164 01cc 02       		.uleb128 0x2
  4165 01cd 08       		.byte	0x8
  4166 01ce 04       		.byte	0x4
- 4167 01cf D3060000 		.4byte	.LASF46
+ 4167 01cf C1060000 		.4byte	.LASF46
  4168 01d3 09       		.uleb128 0x9
- 4169 01d4 D7040000 		.4byte	.LASF47
+ 4169 01d4 E1040000 		.4byte	.LASF47
  4170 01d8 05       		.byte	0x5
  4171 01d9 9502     		.2byte	0x295
  4172 01db DF010000 		.4byte	0x1df
  4173 01df 0A       		.uleb128 0xa
  4174 01e0 B9010000 		.4byte	0x1b9
  4175 01e4 0B       		.uleb128 0xb
- 4176 01e5 83020000 		.4byte	.LASF49
+ 4176 01e5 AF010000 		.4byte	.LASF49
  4177 01e9 01       		.byte	0x1
  4178 01ea E4       		.byte	0xe4
  4179 01eb 00000000 		.4byte	.LFB1
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4184 01f9 0C       		.uleb128 0xc
  4185 01fa 7800     		.ascii	"x\000"
  4186 01fc 01       		.byte	0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 96
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 96
 
 
  4187 01fd E4       		.byte	0xe4
@@ -5711,14 +5711,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4194 020b D8000000 		.4byte	0xd8
  4195 020f 53000000 		.4byte	.LLST1
  4196 0213 0D       		.uleb128 0xd
- 4197 0214 51050000 		.4byte	.LASF48
+ 4197 0214 4C050000 		.4byte	.LASF48
  4198 0218 01       		.byte	0x1
  4199 0219 E4       		.byte	0xe4
  4200 021a E3000000 		.4byte	0xe3
  4201 021e A6000000 		.4byte	.LLST2
  4202 0222 00       		.byte	0
  4203 0223 0E       		.uleb128 0xe
- 4204 0224 5E000000 		.4byte	.LASF50
+ 4204 0224 42030000 		.4byte	.LASF50
  4205 0228 01       		.byte	0x1
  4206 0229 6201     		.2byte	0x162
  4207 022b 00000000 		.4byte	.LFB8
@@ -5751,26 +5751,26 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4234 026d D8000000 		.4byte	0xd8
  4235 0271 8E010000 		.4byte	.LLST6
  4236 0275 10       		.uleb128 0x10
- 4237 0276 51050000 		.4byte	.LASF48
+ 4237 0276 4C050000 		.4byte	.LASF48
  4238 027a 01       		.byte	0x1
  4239 027b 6201     		.2byte	0x162
  4240 027d E3000000 		.4byte	0xe3
  4241 0281 AF010000 		.4byte	.LLST7
  4242 0285 11       		.uleb128 0x11
  4243 0286 0A000000 		.4byte	.LBB2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 97
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 97
 
 
  4244 028a D0000000 		.4byte	.LBE2-.LBB2
  4245 028e 07030000 		.4byte	0x307
  4246 0292 12       		.uleb128 0x12
- 4247 0293 3F010000 		.4byte	.LASF51
+ 4247 0293 45010000 		.4byte	.LASF51
  4248 0297 01       		.byte	0x1
  4249 0298 6601     		.2byte	0x166
  4250 029a 4E030000 		.4byte	0x34e
  4251 029e DB010000 		.4byte	.LLST8
  4252 02a2 12       		.uleb128 0x12
- 4253 02a3 13040000 		.4byte	.LASF52
+ 4253 02a3 2F040000 		.4byte	.LASF52
  4254 02a7 01       		.byte	0x1
  4255 02a8 6701     		.2byte	0x167
  4256 02aa 4E030000 		.4byte	0x34e
@@ -5785,7 +5785,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4265 02c3 32000000 		.4byte	.LBB3
  4266 02c7 A2000000 		.4byte	.LBE3-.LBB3
  4267 02cb 12       		.uleb128 0x12
- 4268 02cc 4A040000 		.4byte	.LASF53
+ 4268 02cc 54040000 		.4byte	.LASF53
  4269 02d0 01       		.byte	0x1
  4270 02d1 6C01     		.2byte	0x16c
  4271 02d3 CD000000 		.4byte	0xcd
@@ -5794,13 +5794,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4274 02dc 36000000 		.4byte	.LBB4
  4275 02e0 30000000 		.4byte	.LBE4-.LBB4
  4276 02e4 12       		.uleb128 0x12
- 4277 02e5 77050000 		.4byte	.LASF54
+ 4277 02e5 72050000 		.4byte	.LASF54
  4278 02e9 01       		.byte	0x1
  4279 02ea 6F01     		.2byte	0x16f
  4280 02ec CD000000 		.4byte	0xcd
  4281 02f0 48020000 		.4byte	.LLST12
  4282 02f4 12       		.uleb128 0x12
- 4283 02f5 3D060000 		.4byte	.LASF55
+ 4283 02f5 39060000 		.4byte	.LASF55
  4284 02f9 01       		.byte	0x1
  4285 02fa 7101     		.2byte	0x171
  4286 02fc CD000000 		.4byte	0xcd
@@ -5812,23 +5812,23 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4292 0308 DA000000 		.4byte	.LBB5
  4293 030c 5A000000 		.4byte	.LBE5-.LBB5
  4294 0310 12       		.uleb128 0x12
- 4295 0311 3F010000 		.4byte	.LASF51
+ 4295 0311 45010000 		.4byte	.LASF51
  4296 0315 01       		.byte	0x1
  4297 0316 8D01     		.2byte	0x18d
  4298 0318 4E030000 		.4byte	0x34e
  4299 031c 6E020000 		.4byte	.LLST14
  4300 0320 15       		.uleb128 0x15
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 98
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 98
 
 
- 4301 0321 13040000 		.4byte	.LASF52
+ 4301 0321 2F040000 		.4byte	.LASF52
  4302 0325 01       		.byte	0x1
  4303 0326 8E01     		.2byte	0x18e
  4304 0328 4E030000 		.4byte	0x34e
  4305 032c 01       		.uleb128 0x1
  4306 032d 52       		.byte	0x52
  4307 032e 12       		.uleb128 0x12
- 4308 032f 05050000 		.4byte	.LASF56
+ 4308 032f 0F050000 		.4byte	.LASF56
  4309 0333 01       		.byte	0x1
  4310 0334 8F01     		.2byte	0x18f
  4311 0336 CD000000 		.4byte	0xcd
@@ -5846,7 +5846,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4323 034f 04       		.byte	0x4
  4324 0350 CD000000 		.4byte	0xcd
  4325 0354 0E       		.uleb128 0xe
- 4326 0355 C6010000 		.4byte	.LASF57
+ 4326 0355 DD010000 		.4byte	.LASF57
  4327 0359 01       		.byte	0x1
  4328 035a 4E02     		.2byte	0x24e
  4329 035c 00000000 		.4byte	.LFB21
@@ -5878,11 +5878,11 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4355 0394 05       		.uleb128 0x5
  4356 0395 04       		.byte	0x4
  4357 0396 D8000000 		.4byte	0xd8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 99
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 99
 
 
  4358 039a 0E       		.uleb128 0xe
- 4359 039b 6B000000 		.4byte	.LASF58
+ 4359 039b 5E000000 		.4byte	.LASF58
  4360 039f 01       		.byte	0x1
  4361 03a0 8002     		.2byte	0x280
  4362 03a2 00000000 		.4byte	.LFB23
@@ -5915,7 +5915,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4389 03e4 D8000000 		.4byte	0xd8
  4390 03e8 A8030000 		.4byte	.LLST20
  4391 03ec 10       		.uleb128 0x10
- 4392 03ed 51050000 		.4byte	.LASF48
+ 4392 03ed 4C050000 		.4byte	.LASF48
  4393 03f1 01       		.byte	0x1
  4394 03f2 8002     		.2byte	0x280
  4395 03f4 E3000000 		.4byte	0xe3
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4412 0425 19       		.uleb128 0x19
  4413 0426 01       		.uleb128 0x1
  4414 0427 50       		.byte	0x50
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 100
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 100
 
 
  4415 0428 02       		.uleb128 0x2
@@ -5981,7 +5981,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4452 045c 00       		.byte	0
  4453 045d 00       		.byte	0
  4454 045e 1B       		.uleb128 0x1b
- 4455 045f 30040000 		.4byte	.LASF139
+ 4455 045f FC060000 		.4byte	.LASF139
  4456 0463 01       		.byte	0x1
  4457 0464 A003     		.2byte	0x3a0
  4458 0466 B9010000 		.4byte	0x1b9
@@ -5997,8 +5997,8 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4468 0480 4E030000 		.4byte	0x34e
  4469 0484 1E040000 		.4byte	.LLST23
  4470 0488 10       		.uleb128 0x10
- 4471 0489 34010000 		.4byte	.LASF59
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 101
+ 4471 0489 3A010000 		.4byte	.LASF59
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 101
 
 
  4472 048d 01       		.byte	0x1
@@ -6006,13 +6006,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4474 0490 E3000000 		.4byte	0xe3
  4475 0494 52040000 		.4byte	.LLST24
  4476 0498 12       		.uleb128 0x12
- 4477 0499 67030000 		.4byte	.LASF60
+ 4477 0499 75030000 		.4byte	.LASF60
  4478 049d 01       		.byte	0x1
  4479 049e A203     		.2byte	0x3a2
  4480 04a0 EE000000 		.4byte	0xee
  4481 04a4 73040000 		.4byte	.LLST25
  4482 04a8 12       		.uleb128 0x12
- 4483 04a9 FB050000 		.4byte	.LASF61
+ 4483 04a9 F7050000 		.4byte	.LASF61
  4484 04ad 01       		.byte	0x1
  4485 04ae A303     		.2byte	0x3a3
  4486 04b0 CD000000 		.4byte	0xcd
@@ -6041,7 +6041,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4509 04e9 B2140000 		.4byte	0x14b2
  4510 04ed 00       		.byte	0
  4511 04ee 0E       		.uleb128 0xe
- 4512 04ef 91010000 		.4byte	.LASF62
+ 4512 04ef 97010000 		.4byte	.LASF62
  4513 04f3 01       		.byte	0x1
  4514 04f4 4801     		.2byte	0x148
  4515 04f6 00000000 		.4byte	.LFB7
@@ -6056,9 +6056,9 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4524 050c CD000000 		.4byte	0xcd
  4525 0510 F3040000 		.4byte	.LLST28
  4526 0514 15       		.uleb128 0x15
- 4527 0515 A0050000 		.4byte	.LASF63
+ 4527 0515 AA050000 		.4byte	.LASF63
  4528 0519 01       		.byte	0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 102
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 102
 
 
  4529 051a 4E01     		.2byte	0x14e
@@ -6090,7 +6090,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4555 0547 02       		.byte	0x2
  4556 0548 00       		.byte	0
  4557 0549 1F       		.uleb128 0x1f
- 4558 054a D9050000 		.4byte	.LASF64
+ 4558 054a 21040000 		.4byte	.LASF64
  4559 054e 01       		.byte	0x1
  4560 054f FC       		.byte	0xfc
  4561 0550 00000000 		.4byte	.LFB2
@@ -6118,13 +6118,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4583 0575 03       		.uleb128 0x3
  4584 0576 0A       		.byte	0xa
  4585 0577 0004     		.2byte	0x400
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 103
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 103
 
 
  4586 0579 00       		.byte	0
  4587 057a 00       		.byte	0
  4588 057b 20       		.uleb128 0x20
- 4589 057c 7E060000 		.4byte	.LASF65
+ 4589 057c 1F030000 		.4byte	.LASF65
  4590 0580 01       		.byte	0x1
  4591 0581 0701     		.2byte	0x107
  4592 0583 00000000 		.4byte	.LFB3
@@ -6133,13 +6133,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4595 058c 9C       		.byte	0x9c
  4596 058d C6050000 		.4byte	0x5c6
  4597 0591 10       		.uleb128 0x10
- 4598 0592 96030000 		.4byte	.LASF66
+ 4598 0592 A4030000 		.4byte	.LASF66
  4599 0596 01       		.byte	0x1
  4600 0597 0701     		.2byte	0x107
  4601 0599 CD000000 		.4byte	0xcd
  4602 059d 1F050000 		.4byte	.LLST29
  4603 05a1 15       		.uleb128 0x15
- 4604 05a2 A0050000 		.4byte	.LASF63
+ 4604 05a2 AA050000 		.4byte	.LASF63
  4605 05a6 01       		.byte	0x1
  4606 05a7 0901     		.2byte	0x109
  4607 05a9 39050000 		.4byte	0x539
@@ -6163,7 +6163,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4625 05c4 00       		.byte	0
  4626 05c5 00       		.byte	0
  4627 05c6 20       		.uleb128 0x20
- 4628 05c7 42050000 		.4byte	.LASF67
+ 4628 05c7 87050000 		.4byte	.LASF67
  4629 05cb 01       		.byte	0x1
  4630 05cc 1701     		.2byte	0x117
  4631 05ce 00000000 		.4byte	.LFB4
@@ -6172,16 +6172,16 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4634 05d7 9C       		.byte	0x9c
  4635 05d8 11060000 		.4byte	0x611
  4636 05dc 10       		.uleb128 0x10
- 4637 05dd 58030000 		.4byte	.LASF68
+ 4637 05dd 57030000 		.4byte	.LASF68
  4638 05e1 01       		.byte	0x1
  4639 05e2 1701     		.2byte	0x117
  4640 05e4 CD000000 		.4byte	0xcd
  4641 05e8 4C050000 		.4byte	.LLST30
  4642 05ec 15       		.uleb128 0x15
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 104
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 104
 
 
- 4643 05ed A0050000 		.4byte	.LASF63
+ 4643 05ed AA050000 		.4byte	.LASF63
  4644 05f1 01       		.byte	0x1
  4645 05f2 1901     		.2byte	0x119
  4646 05f4 11060000 		.4byte	0x611
@@ -6212,7 +6212,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4671 061f 01       		.byte	0x1
  4672 0620 00       		.byte	0
  4673 0621 20       		.uleb128 0x20
- 4674 0622 BD030000 		.4byte	.LASF69
+ 4674 0622 CB030000 		.4byte	.LASF69
  4675 0626 01       		.byte	0x1
  4676 0627 3501     		.2byte	0x135
  4677 0629 00000000 		.4byte	.LFB6
@@ -6221,13 +6221,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4680 0632 9C       		.byte	0x9c
  4681 0633 6C060000 		.4byte	0x66c
  4682 0637 10       		.uleb128 0x10
- 4683 0638 AC030000 		.4byte	.LASF70
+ 4683 0638 BA030000 		.4byte	.LASF70
  4684 063c 01       		.byte	0x1
  4685 063d 3501     		.2byte	0x135
  4686 063f CD000000 		.4byte	0xcd
  4687 0643 6D050000 		.4byte	.LLST31
  4688 0647 15       		.uleb128 0x15
- 4689 0648 A0050000 		.4byte	.LASF63
+ 4689 0648 AA050000 		.4byte	.LASF63
  4690 064c 01       		.byte	0x1
  4691 064d 3B01     		.2byte	0x13b
  4692 064f 11060000 		.4byte	0x611
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4697 0657 1E000000 		.4byte	.LVL91
  4698 065b 5E040000 		.4byte	0x45e
  4699 065f 19       		.uleb128 0x19
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 105
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 105
 
 
  4700 0660 01       		.uleb128 0x1
@@ -6254,7 +6254,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4710 066a 00       		.byte	0
  4711 066b 00       		.byte	0
  4712 066c 20       		.uleb128 0x20
- 4713 066d 3C030000 		.4byte	.LASF71
+ 4713 066d 5E030000 		.4byte	.LASF71
  4714 0671 01       		.byte	0x1
  4715 0672 2701     		.2byte	0x127
  4716 0674 00000000 		.4byte	.LFB5
@@ -6298,12 +6298,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4754 06be 0A       		.byte	0xa
  4755 06bf 0104     		.2byte	0x401
  4756 06c1 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 106
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 106
 
 
  4757 06c2 00       		.byte	0
  4758 06c3 20       		.uleb128 0x20
- 4759 06c4 BA060000 		.4byte	.LASF72
+ 4759 06c4 74000000 		.4byte	.LASF72
  4760 06c8 01       		.byte	0x1
  4761 06c9 A301     		.2byte	0x1a3
  4762 06cb 00000000 		.4byte	.LFB9
@@ -6312,7 +6312,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4765 06d4 9C       		.byte	0x9c
  4766 06d5 FE060000 		.4byte	0x6fe
  4767 06d9 15       		.uleb128 0x15
- 4768 06da A0050000 		.4byte	.LASF63
+ 4768 06da AA050000 		.4byte	.LASF63
  4769 06de 01       		.byte	0x1
  4770 06df A501     		.2byte	0x1a5
  4771 06e1 11060000 		.4byte	0x611
@@ -6336,7 +6336,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4789 06fc 00       		.byte	0
  4790 06fd 00       		.byte	0
  4791 06fe 20       		.uleb128 0x20
- 4792 06ff 63060000 		.4byte	.LASF73
+ 4792 06ff AC060000 		.4byte	.LASF73
  4793 0703 01       		.byte	0x1
  4794 0704 B501     		.2byte	0x1b5
  4795 0706 00000000 		.4byte	.LFB10
@@ -6345,7 +6345,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4798 070f 9C       		.byte	0x9c
  4799 0710 79070000 		.4byte	0x779
  4800 0714 10       		.uleb128 0x10
- 4801 0715 7C050000 		.4byte	.LASF74
+ 4801 0715 77050000 		.4byte	.LASF74
  4802 0719 01       		.byte	0x1
  4803 071a B501     		.2byte	0x1b5
  4804 071c 36010000 		.4byte	0x136
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4811 0730 C6050000 		.4byte	.LLST33
  4812 0734 0F       		.uleb128 0xf
  4813 0735 64697200 		.ascii	"dir\000"
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 107
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 107
 
 
  4814 0739 01       		.byte	0x1
@@ -6366,13 +6366,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4816 073c 5A010000 		.4byte	0x15a
  4817 0740 F3050000 		.4byte	.LLST34
  4818 0744 10       		.uleb128 0x10
- 4819 0745 8A000000 		.4byte	.LASF75
+ 4819 0745 90000000 		.4byte	.LASF75
  4820 0749 01       		.byte	0x1
  4821 074a B501     		.2byte	0x1b5
  4822 074c A2010000 		.4byte	0x1a2
  4823 0750 14060000 		.4byte	.LLST35
  4824 0754 15       		.uleb128 0x15
- 4825 0755 A0050000 		.4byte	.LASF63
+ 4825 0755 AA050000 		.4byte	.LASF63
  4826 0759 01       		.byte	0x1
  4827 075a B701     		.2byte	0x1b7
  4828 075c 79070000 		.4byte	0x779
@@ -6412,24 +6412,24 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4862 079a 9C       		.byte	0x9c
  4863 079b BE070000 		.4byte	0x7be
  4864 079f 21       		.uleb128 0x21
- 4865 07a0 7D020000 		.4byte	.LASF77
+ 4865 07a0 94020000 		.4byte	.LASF77
  4866 07a4 01       		.byte	0x1
  4867 07a5 CD01     		.2byte	0x1cd
  4868 07a7 D8000000 		.4byte	0xd8
  4869 07ab 01       		.uleb128 0x1
  4870 07ac 50       		.byte	0x50
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 108
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 108
 
 
  4871 07ad 10       		.uleb128 0x10
- 4872 07ae 58040000 		.4byte	.LASF78
+ 4872 07ae 62040000 		.4byte	.LASF78
  4873 07b2 01       		.byte	0x1
  4874 07b3 CD01     		.2byte	0x1cd
  4875 07b5 D8000000 		.4byte	0xd8
  4876 07b9 41060000 		.4byte	.LLST36
  4877 07bd 00       		.byte	0
  4878 07be 22       		.uleb128 0x22
- 4879 07bf D6030000 		.4byte	.LASF79
+ 4879 07bf E4030000 		.4byte	.LASF79
  4880 07c3 01       		.byte	0x1
  4881 07c4 E101     		.2byte	0x1e1
  4882 07c6 D8000000 		.4byte	0xd8
@@ -6438,7 +6438,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4885 07d2 01       		.uleb128 0x1
  4886 07d3 9C       		.byte	0x9c
  4887 07d4 22       		.uleb128 0x22
- 4888 07d5 C3040000 		.4byte	.LASF80
+ 4888 07d5 CD040000 		.4byte	.LASF80
  4889 07d9 01       		.byte	0x1
  4890 07da EB01     		.2byte	0x1eb
  4891 07dc D8000000 		.4byte	0xd8
@@ -6456,7 +6456,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4903 07fe 01       		.uleb128 0x1
  4904 07ff 9C       		.byte	0x9c
  4905 0800 20       		.uleb128 0x20
- 4906 0801 F0060000 		.4byte	.LASF82
+ 4906 0801 DE060000 		.4byte	.LASF82
  4907 0805 01       		.byte	0x1
  4908 0806 0002     		.2byte	0x200
  4909 0808 00000000 		.4byte	.LFB15
@@ -6478,12 +6478,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4925 0828 D8000000 		.4byte	0xd8
  4926 082c 01       		.uleb128 0x1
  4927 082d 51       		.byte	0x51
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 109
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 109
 
 
  4928 082e 00       		.byte	0
  4929 082f 20       		.uleb128 0x20
- 4930 0830 57050000 		.4byte	.LASF83
+ 4930 0830 52050000 		.4byte	.LASF83
  4931 0834 01       		.byte	0x1
  4932 0835 0B02     		.2byte	0x20b
  4933 0837 00000000 		.4byte	.LFB16
@@ -6492,14 +6492,14 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4936 0840 9C       		.byte	0x9c
  4937 0841 56080000 		.4byte	0x856
  4938 0845 10       		.uleb128 0x10
- 4939 0846 34010000 		.4byte	.LASF59
+ 4939 0846 3A010000 		.4byte	.LASF59
  4940 084a 01       		.byte	0x1
  4941 084b 0B02     		.2byte	0x20b
  4942 084d CD000000 		.4byte	0xcd
  4943 0851 63060000 		.4byte	.LLST37
  4944 0855 00       		.byte	0
  4945 0856 20       		.uleb128 0x20
- 4946 0857 5F040000 		.4byte	.LASF84
+ 4946 0857 69040000 		.4byte	.LASF84
  4947 085b 01       		.byte	0x1
  4948 085c 1602     		.2byte	0x216
  4949 085e 00000000 		.4byte	.LFB17
@@ -6508,7 +6508,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4952 0867 9C       		.byte	0x9c
  4953 0868 7B080000 		.4byte	0x87b
  4954 086c 21       		.uleb128 0x21
- 4955 086d 51050000 		.4byte	.LASF48
+ 4955 086d 4C050000 		.4byte	.LASF48
  4956 0871 01       		.byte	0x1
  4957 0872 1602     		.2byte	0x216
  4958 0874 E3000000 		.4byte	0xe3
@@ -6525,7 +6525,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4969 088c 9C       		.byte	0x9c
  4970 088d A0080000 		.4byte	0x8a0
  4971 0891 21       		.uleb128 0x21
- 4972 0892 51050000 		.4byte	.LASF48
+ 4972 0892 4C050000 		.4byte	.LASF48
  4973 0896 01       		.byte	0x1
  4974 0897 2102     		.2byte	0x221
  4975 0899 E3000000 		.4byte	0xe3
@@ -6533,12 +6533,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  4977 089e 50       		.byte	0x50
  4978 089f 00       		.byte	0
  4979 08a0 20       		.uleb128 0x20
- 4980 08a1 FE060000 		.4byte	.LASF86
+ 4980 08a1 EC060000 		.4byte	.LASF86
  4981 08a5 01       		.byte	0x1
  4982 08a6 2C02     		.2byte	0x22c
  4983 08a8 00000000 		.4byte	.LFB19
  4984 08ac 0C000000 		.4byte	.LFE19-.LFB19
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 110
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 110
 
 
  4985 08b0 01       		.uleb128 0x1
@@ -6590,7 +6590,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5031 0912 D8000000 		.4byte	0xd8
  5032 0916 E8060000 		.4byte	.LLST40
  5033 091a 10       		.uleb128 0x10
- 5034 091b 51050000 		.4byte	.LASF48
+ 5034 091b 4C050000 		.4byte	.LASF48
  5035 091f 01       		.byte	0x1
  5036 0920 6A02     		.2byte	0x26a
  5037 0922 E3000000 		.4byte	0xe3
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5039 092a 18       		.uleb128 0x18
  5040 092b 36000000 		.4byte	.LVL118
  5041 092f 54030000 		.4byte	0x354
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 111
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 111
 
 
  5042 0933 44090000 		.4byte	0x944
@@ -6627,7 +6627,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5065 0953 00       		.byte	0
  5066 0954 00       		.byte	0
  5067 0955 20       		.uleb128 0x20
- 5068 0956 2F030000 		.4byte	.LASF89
+ 5068 0956 30030000 		.4byte	.LASF89
  5069 095a 01       		.byte	0x1
  5070 095b AB02     		.2byte	0x2ab
  5071 095d 00000000 		.4byte	.LFB24
@@ -6658,12 +6658,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5096 099c 01       		.byte	0x1
  5097 099d AB02     		.2byte	0x2ab
  5098 099f D8000000 		.4byte	0xd8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 112
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 112
 
 
  5099 09a3 12080000 		.4byte	.LLST45
  5100 09a7 21       		.uleb128 0x21
- 5101 09a8 51050000 		.4byte	.LASF48
+ 5101 09a8 4C050000 		.4byte	.LASF48
  5102 09ac 01       		.byte	0x1
  5103 09ad AB02     		.2byte	0x2ab
  5104 09af E3000000 		.4byte	0xe3
@@ -6676,7 +6676,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5111 09ba B302     		.2byte	0x2b3
  5112 09bc D8000000 		.4byte	0xd8
  5113 09c0 12       		.uleb128 0x12
- 5114 09c1 82030000 		.4byte	.LASF90
+ 5114 09c1 90030000 		.4byte	.LASF90
  5115 09c5 01       		.byte	0x1
  5116 09c6 B502     		.2byte	0x2b5
  5117 09c8 D8000000 		.4byte	0xd8
@@ -6700,7 +6700,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5135 09f6 D8000000 		.4byte	0xd8
  5136 09fa B9080000 		.4byte	.LLST49
  5137 09fe 12       		.uleb128 0x12
- 5138 09ff 8C050000 		.4byte	.LASF91
+ 5138 09ff 96050000 		.4byte	.LASF91
  5139 0a03 01       		.byte	0x1
  5140 0a04 C202     		.2byte	0x2c2
  5141 0a06 D8000000 		.4byte	0xd8
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5153 0a21 19       		.uleb128 0x19
  5154 0a22 01       		.uleb128 0x1
  5155 0a23 51       		.byte	0x51
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 113
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 113
 
 
  5156 0a24 02       		.uleb128 0x2
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5210 0a69 01       		.uleb128 0x1
  5211 0a6a 51       		.byte	0x51
  5212 0a6b 02       		.uleb128 0x2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 114
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 114
 
 
  5213 0a6c 76       		.byte	0x76
@@ -6794,7 +6794,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5223 0a76 00       		.byte	0
  5224 0a77 00       		.byte	0
  5225 0a78 20       		.uleb128 0x20
- 5226 0a79 6E030000 		.4byte	.LASF92
+ 5226 0a79 7C030000 		.4byte	.LASF92
  5227 0a7d 01       		.byte	0x1
  5228 0a7e DF02     		.2byte	0x2df
  5229 0a80 00000000 		.4byte	.LFB25
@@ -6827,7 +6827,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5256 0abe D8000000 		.4byte	0xd8
  5257 0ac2 64090000 		.4byte	.LLST54
  5258 0ac6 21       		.uleb128 0x21
- 5259 0ac7 51050000 		.4byte	.LASF48
+ 5259 0ac7 4C050000 		.4byte	.LASF48
  5260 0acb 01       		.byte	0x1
  5261 0acc DF02     		.2byte	0x2df
  5262 0ace E3000000 		.4byte	0xe3
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5267 0ad6 20000000 		.4byte	.LVL156
  5268 0ada 55090000 		.4byte	0x955
  5269 0ade 020B0000 		.4byte	0xb02
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 115
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 115
 
 
  5270 0ae2 19       		.uleb128 0x19
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5324 0b21 19       		.uleb128 0x19
  5325 0b22 01       		.uleb128 0x1
  5326 0b23 53       		.byte	0x53
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 116
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 116
 
 
  5327 0b24 02       		.uleb128 0x2
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5381 0b69 75       		.byte	0x75
  5382 0b6a 00       		.sleb128 0
  5383 0b6b 19       		.uleb128 0x19
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 117
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 117
 
 
  5384 0b6c 01       		.uleb128 0x1
@@ -6988,7 +6988,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5408 0b84 00       		.byte	0
  5409 0b85 00       		.byte	0
  5410 0b86 20       		.uleb128 0x20
- 5411 0b87 EE040000 		.4byte	.LASF93
+ 5411 0b87 F8040000 		.4byte	.LASF93
  5412 0b8b 01       		.byte	0x1
  5413 0b8c F102     		.2byte	0x2f1
  5414 0b8e 00000000 		.4byte	.LFB26
@@ -7018,13 +7018,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5438 0bc7 6800     		.ascii	"h\000"
  5439 0bc9 01       		.byte	0x1
  5440 0bca F102     		.2byte	0x2f1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 118
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 118
 
 
  5441 0bcc D8000000 		.4byte	0xd8
  5442 0bd0 330A0000 		.4byte	.LLST58
  5443 0bd4 21       		.uleb128 0x21
- 5444 0bd5 51050000 		.4byte	.LASF48
+ 5444 0bd5 4C050000 		.4byte	.LASF48
  5445 0bd9 01       		.byte	0x1
  5446 0bda F102     		.2byte	0x2f1
  5447 0bdc E3000000 		.4byte	0xe3
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5495 0c20 79       		.byte	0x79
  5496 0c21 00       		.sleb128 0
  5497 0c22 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 119
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 119
 
 
  5498 0c23 1A       		.uleb128 0x1a
@@ -7123,7 +7123,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5537 0c50 00       		.byte	0
  5538 0c51 00       		.byte	0
  5539 0c52 20       		.uleb128 0x20
- 5540 0c53 6E020000 		.4byte	.LASF94
+ 5540 0c53 85020000 		.4byte	.LASF94
  5541 0c57 01       		.byte	0x1
  5542 0c58 0803     		.2byte	0x308
  5543 0c5a 00000000 		.4byte	.LFB27
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5552 0c6f D8000000 		.4byte	0xd8
  5553 0c73 B90A0000 		.4byte	.LLST60
  5554 0c77 0F       		.uleb128 0xf
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 120
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 120
 
 
  5555 0c78 793000   		.ascii	"y0\000"
@@ -7153,7 +7153,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5564 0c8c D8000000 		.4byte	0xd8
  5565 0c90 F80A0000 		.4byte	.LLST62
  5566 0c94 10       		.uleb128 0x10
- 5567 0c95 51050000 		.4byte	.LASF48
+ 5567 0c95 4C050000 		.4byte	.LASF48
  5568 0c99 01       		.byte	0x1
  5569 0c9a 0803     		.2byte	0x308
  5570 0c9c E3000000 		.4byte	0xe3
@@ -7165,13 +7165,13 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5576 0caa D8000000 		.4byte	0xd8
  5577 0cae 450B0000 		.4byte	.LLST64
  5578 0cb2 12       		.uleb128 0x12
- 5579 0cb3 8F060000 		.4byte	.LASF95
+ 5579 0cb3 81060000 		.4byte	.LASF95
  5580 0cb7 01       		.byte	0x1
  5581 0cb8 0B03     		.2byte	0x30b
  5582 0cba D8000000 		.4byte	0xd8
  5583 0cbe 6E0B0000 		.4byte	.LLST65
  5584 0cc2 15       		.uleb128 0x15
- 5585 0cc3 95060000 		.4byte	.LASF96
+ 5585 0cc3 87060000 		.4byte	.LASF96
  5586 0cc7 01       		.byte	0x1
  5587 0cc8 0C03     		.2byte	0x30c
  5588 0cca D8000000 		.4byte	0xd8
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5609 0cf5 0F0D0000 		.4byte	0xd0f
  5610 0cf9 19       		.uleb128 0x19
  5611 0cfa 01       		.uleb128 0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 121
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 121
 
 
  5612 0cfb 50       		.byte	0x50
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5666 0d43 75       		.byte	0x75
  5667 0d44 00       		.sleb128 0
  5668 0d45 7A       		.byte	0x7a
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 122
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 122
 
 
  5669 0d46 00       		.sleb128 0
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5723 0d8e 01       		.uleb128 0x1
  5724 0d8f 51       		.byte	0x51
  5725 0d90 02       		.uleb128 0x2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 123
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 123
 
 
  5726 0d91 78       		.byte	0x78
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5780 0dd9 19       		.uleb128 0x19
  5781 0dda 01       		.uleb128 0x1
  5782 0ddb 52       		.byte	0x52
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 124
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 124
 
 
  5783 0ddc 04       		.uleb128 0x4
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5837 0e24 02       		.byte	0x2
  5838 0e25 00       		.byte	0
  5839 0e26 18       		.uleb128 0x18
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 125
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 125
 
 
  5840 0e27 0E010000 		.4byte	.LVL195
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5894 0e75 76       		.byte	0x76
  5895 0e76 00       		.sleb128 0
  5896 0e77 19       		.uleb128 0x19
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 126
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 126
 
 
  5897 0e78 01       		.uleb128 0x1
@@ -7515,7 +7515,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5908 0e83 00       		.byte	0
  5909 0e84 00       		.byte	0
  5910 0e85 20       		.uleb128 0x20
- 5911 0e86 58010000 		.4byte	.LASF97
+ 5911 0e86 5E010000 		.4byte	.LASF97
  5912 0e8a 01       		.byte	0x1
  5913 0e8b 3003     		.2byte	0x330
  5914 0e8d 00000000 		.4byte	.LFB28
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5951 0ee5 17       		.uleb128 0x17
  5952 0ee6 793200   		.ascii	"y2\000"
  5953 0ee9 01       		.byte	0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 127
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 127
 
 
  5954 0eea 3003     		.2byte	0x330
@@ -7567,7 +7567,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  5957 0ef1 91       		.byte	0x91
  5958 0ef2 04       		.sleb128 4
  5959 0ef3 21       		.uleb128 0x21
- 5960 0ef4 51050000 		.4byte	.LASF48
+ 5960 0ef4 4C050000 		.4byte	.LASF48
  5961 0ef8 01       		.byte	0x1
  5962 0ef9 3003     		.2byte	0x330
  5963 0efb E3000000 		.4byte	0xe3
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6008 0f3d 01       		.uleb128 0x1
  6009 0f3e 50       		.byte	0x50
  6010 0f3f 02       		.uleb128 0x2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 128
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 128
 
 
  6011 0f40 79       		.byte	0x79
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6065 0f7c 00       		.sleb128 0
  6066 0f7d 19       		.uleb128 0x19
  6067 0f7e 02       		.uleb128 0x2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 129
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 129
 
 
  6068 0f7f 7D       		.byte	0x7d
@@ -7689,7 +7689,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6073 0f84 00       		.byte	0
  6074 0f85 00       		.byte	0
  6075 0f86 20       		.uleb128 0x20
- 6076 0f87 47060000 		.4byte	.LASF98
+ 6076 0f87 43060000 		.4byte	.LASF98
  6077 0f8b 01       		.byte	0x1
  6078 0f8c 4303     		.2byte	0x343
  6079 0f8e 00000000 		.4byte	.LFB29
@@ -7716,7 +7716,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6100 0fbe 5E000000 		.4byte	0x5e
  6101 0fc2 730C0000 		.4byte	.LLST73
  6102 0fc6 10       		.uleb128 0x10
- 6103 0fc7 51050000 		.4byte	.LASF48
+ 6103 0fc7 4C050000 		.4byte	.LASF48
  6104 0fcb 01       		.byte	0x1
  6105 0fcc 4303     		.2byte	0x343
  6106 0fce E3000000 		.4byte	0xe3
@@ -7728,7 +7728,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6112 0fdd E3000000 		.4byte	0xe3
  6113 0fe1 B50C0000 		.4byte	.LLST75
  6114 0fe5 10       		.uleb128 0x10
- 6115 0fe6 34010000 		.4byte	.LASF59
+ 6115 0fe6 3A010000 		.4byte	.LASF59
  6116 0fea 01       		.byte	0x1
  6117 0feb 4303     		.2byte	0x343
  6118 0fed CD000000 		.4byte	0xcd
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6122 0ff8 01       		.byte	0x1
  6123 0ff9 4A03     		.2byte	0x34a
  6124 0ffb C2000000 		.4byte	0xc2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 130
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 130
 
 
  6125 0fff F50C0000 		.4byte	.LLST77
@@ -7746,7 +7746,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6127 1004 42000000 		.4byte	.LBB7
  6128 1008 92000000 		.4byte	.LBE7-.LBB7
  6129 100c 12       		.uleb128 0x12
- 6130 100d 42060000 		.4byte	.LASF99
+ 6130 100d 3E060000 		.4byte	.LASF99
  6131 1011 01       		.byte	0x1
  6132 1012 4C03     		.2byte	0x34c
  6133 1014 CD000000 		.4byte	0xcd
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6179 1062 00       		.sleb128 0
  6180 1063 0A       		.byte	0xa
  6181 1064 FFFF     		.2byte	0xffff
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 131
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 131
 
 
  6182 1066 1A       		.byte	0x1a
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6236 10a6 22       		.byte	0x22
  6237 10a7 19       		.uleb128 0x19
  6238 10a8 01       		.uleb128 0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 132
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 132
 
 
  6239 10a9 51       		.byte	0x51
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6293 10e7 01       		.uleb128 0x1
  6294 10e8 53       		.byte	0x53
  6295 10e9 02       		.uleb128 0x2
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 133
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 133
 
 
  6296 10ea 76       		.byte	0x76
@@ -7934,7 +7934,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6306 10f4 00       		.byte	0
  6307 10f5 00       		.byte	0
  6308 10f6 20       		.uleb128 0x20
- 6309 10f7 38050000 		.4byte	.LASF100
+ 6309 10f7 42050000 		.4byte	.LASF100
  6310 10fb 01       		.byte	0x1
  6311 10fc 6B03     		.2byte	0x36b
  6312 10fe 00000000 		.4byte	.LFB30
@@ -7961,7 +7961,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6333 112b 00       		.byte	0
  6334 112c 00       		.byte	0
  6335 112d 20       		.uleb128 0x20
- 6336 112e 82050000 		.4byte	.LASF101
+ 6336 112e 7D050000 		.4byte	.LASF101
  6337 1132 01       		.byte	0x1
  6338 1133 8103     		.2byte	0x381
  6339 1135 00000000 		.4byte	.LFB31
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6350 1151 13       		.uleb128 0x13
  6351 1152 6C656E00 		.ascii	"len\000"
  6352 1156 01       		.byte	0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 134
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 134
 
 
  6353 1157 8303     		.2byte	0x383
@@ -8006,7 +8006,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6375 1188 F6100000 		.4byte	0x10f6
  6376 118c 00       		.byte	0
  6377 118d 20       		.uleb128 0x20
- 6378 118e 2C050000 		.4byte	.LASF102
+ 6378 118e 36050000 		.4byte	.LASF102
  6379 1192 01       		.byte	0x1
  6380 1193 9003     		.2byte	0x390
  6381 1195 00000000 		.4byte	.LFB32
@@ -8038,7 +8038,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6407 11cf 19       		.uleb128 0x19
  6408 11d0 01       		.uleb128 0x1
  6409 11d1 50       		.byte	0x50
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 135
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 135
 
 
  6410 11d2 01       		.uleb128 0x1
@@ -8046,7 +8046,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6412 11d4 00       		.byte	0
  6413 11d5 00       		.byte	0
  6414 11d6 20       		.uleb128 0x20
- 6415 11d7 B4010000 		.4byte	.LASF103
+ 6415 11d7 CB010000 		.4byte	.LASF103
  6416 11db 01       		.byte	0x1
  6417 11dc CB03     		.2byte	0x3cb
  6418 11de 00000000 		.4byte	.LFB34
@@ -8055,7 +8055,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6421 11e7 9C       		.byte	0x9c
  6422 11e8 1F120000 		.4byte	0x121f
  6423 11ec 10       		.uleb128 0x10
- 6424 11ed 67050000 		.4byte	.LASF104
+ 6424 11ed 62050000 		.4byte	.LASF104
  6425 11f1 01       		.byte	0x1
  6426 11f2 CB03     		.2byte	0x3cb
  6427 11f4 1F120000 		.4byte	0x121f
@@ -8083,9 +8083,9 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6449 121f 02       		.uleb128 0x2
  6450 1220 01       		.byte	0x1
  6451 1221 02       		.byte	0x2
- 6452 1222 94020000 		.4byte	.LASF105
+ 6452 1222 9A020000 		.4byte	.LASF105
  6453 1226 1F       		.uleb128 0x1f
- 6454 1227 E0030000 		.4byte	.LASF106
+ 6454 1227 EE030000 		.4byte	.LASF106
  6455 122b 01       		.byte	0x1
  6456 122c 9B       		.byte	0x9b
  6457 122d 00000000 		.4byte	.LFB0
@@ -8098,12 +8098,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6464 1240 01       		.byte	0x1
  6465 1241 9B       		.byte	0x9b
  6466 1242 CD000000 		.4byte	0xcd
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 136
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 136
 
 
  6467 1246 260E0000 		.4byte	.LLST86
  6468 124a 24       		.uleb128 0x24
- 6469 124b A0050000 		.4byte	.LASF63
+ 6469 124b AA050000 		.4byte	.LASF63
  6470 124f 01       		.byte	0x1
  6471 1250 A8       		.byte	0xa8
  6472 1251 EB120000 		.4byte	0x12eb
@@ -8158,7 +8158,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6521 12ad 2E000000 		.4byte	.LVL242
  6522 12b1 D6110000 		.4byte	0x11d6
  6523 12b5 BF120000 		.4byte	0x12bf
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 137
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 137
 
 
  6524 12b9 19       		.uleb128 0x19
@@ -8203,7 +8203,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6563 12f9 1F       		.byte	0x1f
  6564 12fa 00       		.byte	0
  6565 12fb 20       		.uleb128 0x20
- 6566 12fc EC050000 		.4byte	.LASF108
+ 6566 12fc E8050000 		.4byte	.LASF108
  6567 1300 01       		.byte	0x1
  6568 1301 DA03     		.2byte	0x3da
  6569 1303 00000000 		.4byte	.LFB35
@@ -8218,12 +8218,12 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6578 1318 1F120000 		.4byte	0x121f
  6579 131c 01       		.uleb128 0x1
  6580 131d 50       		.byte	0x50
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 138
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 138
 
 
  6581 131e 00       		.byte	0
  6582 131f 20       		.uleb128 0x20
- 6583 1320 54060000 		.4byte	.LASF109
+ 6583 1320 50060000 		.4byte	.LASF109
  6584 1324 01       		.byte	0x1
  6585 1325 EA03     		.2byte	0x3ea
  6586 1327 00000000 		.4byte	.LFB36
@@ -8249,7 +8249,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6606 1354 06       		.uleb128 0x6
  6607 1355 5E000000 		.4byte	0x5e
  6608 1359 24       		.uleb128 0x24
- 6609 135a 92050000 		.4byte	.LASF110
+ 6609 135a 9C050000 		.4byte	.LASF110
  6610 135e 06       		.byte	0x6
  6611 135f 05       		.byte	0x5
  6612 1360 6A130000 		.4byte	0x136a
@@ -8266,7 +8266,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6623 137d 0004     		.2byte	0x400
  6624 137f 00       		.byte	0
  6625 1380 24       		.uleb128 0x24
- 6626 1381 0A030000 		.4byte	.LASF111
+ 6626 1381 10030000 		.4byte	.LASF111
  6627 1385 01       		.byte	0x1
  6628 1386 80       		.byte	0x80
  6629 1387 6F130000 		.4byte	0x136f
@@ -8274,11 +8274,11 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6631 138c 03       		.byte	0x3
  6632 138d 00000000 		.4byte	SSD1306_buffer
  6633 1391 24       		.uleb128 0x24
- 6634 1392 72060000 		.4byte	.LASF112
+ 6634 1392 75060000 		.4byte	.LASF112
  6635 1396 01       		.byte	0x1
  6636 1397 82       		.byte	0x82
  6637 1398 A3130000 		.4byte	0x13a3
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 139
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 139
 
 
  6638 139c 06       		.uleb128 0x6
@@ -8288,7 +8288,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6642 13a3 06       		.uleb128 0x6
  6643 13a4 4E030000 		.4byte	0x34e
  6644 13a8 26       		.uleb128 0x26
- 6645 13a9 18040000 		.4byte	.LASF113
+ 6645 13a9 34040000 		.4byte	.LASF113
  6646 13ad 01       		.byte	0x1
  6647 13ae 83       		.byte	0x83
  6648 13af B5130000 		.4byte	0x13b5
@@ -8296,7 +8296,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6650 13b5 06       		.uleb128 0x6
  6651 13b6 E3000000 		.4byte	0xe3
  6652 13ba 24       		.uleb128 0x24
- 6653 13bb 4F040000 		.4byte	.LASF114
+ 6653 13bb 59040000 		.4byte	.LASF114
  6654 13bf 01       		.byte	0x1
  6655 13c0 8A       		.byte	0x8a
  6656 13c1 AD010000 		.4byte	0x1ad
@@ -8304,7 +8304,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6658 13c6 03       		.byte	0x3
  6659 13c7 00000000 		.4byte	_i2caddr
  6660 13cb 24       		.uleb128 0x24
- 6661 13cc 7B030000 		.4byte	.LASF115
+ 6661 13cc 89030000 		.4byte	.LASF115
  6662 13d0 01       		.byte	0x1
  6663 13d1 8C       		.byte	0x8c
  6664 13d2 D8000000 		.4byte	0xd8
@@ -8312,7 +8312,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6666 13d7 03       		.byte	0x3
  6667 13d8 02000000 		.4byte	_width
  6668 13dc 24       		.uleb128 0x24
- 6669 13dd 04040000 		.4byte	.LASF116
+ 6669 13dd 12040000 		.4byte	.LASF116
  6670 13e1 01       		.byte	0x1
  6671 13e2 8C       		.byte	0x8c
  6672 13e3 D8000000 		.4byte	0xd8
@@ -8320,7 +8320,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6674 13e8 03       		.byte	0x3
  6675 13e9 04000000 		.4byte	_height
  6676 13ed 24       		.uleb128 0x24
- 6677 13ee 46010000 		.4byte	.LASF117
+ 6677 13ee 4C010000 		.4byte	.LASF117
  6678 13f2 01       		.byte	0x1
  6679 13f3 8D       		.byte	0x8d
  6680 13f4 D8000000 		.4byte	0xd8
@@ -8328,7 +8328,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6682 13f9 03       		.byte	0x3
  6683 13fa 06000000 		.4byte	cursor_x
  6684 13fe 24       		.uleb128 0x24
- 6685 13ff 4F010000 		.4byte	.LASF118
+ 6685 13ff 55010000 		.4byte	.LASF118
  6686 1403 01       		.byte	0x1
  6687 1404 8D       		.byte	0x8d
  6688 1405 D8000000 		.4byte	0xd8
@@ -8336,9 +8336,9 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6690 140a 03       		.byte	0x3
  6691 140b 08000000 		.4byte	cursor_y
  6692 140f 24       		.uleb128 0x24
- 6693 1410 DA060000 		.4byte	.LASF119
+ 6693 1410 C8060000 		.4byte	.LASF119
  6694 1414 01       		.byte	0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 140
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 140
 
 
  6695 1415 8E       		.byte	0x8e
@@ -8347,7 +8347,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6698 141b 03       		.byte	0x3
  6699 141c 0E000000 		.4byte	textcolor
  6700 1420 24       		.uleb128 0x24
- 6701 1421 E4060000 		.4byte	.LASF120
+ 6701 1421 D2060000 		.4byte	.LASF120
  6702 1425 01       		.byte	0x1
  6703 1426 8E       		.byte	0x8e
  6704 1427 E3000000 		.4byte	0xe3
@@ -8355,7 +8355,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6706 142c 03       		.byte	0x3
  6707 142d 0C000000 		.4byte	textbgcolor
  6708 1431 24       		.uleb128 0x24
- 6709 1432 69010000 		.4byte	.LASF121
+ 6709 1432 6F010000 		.4byte	.LASF121
  6710 1436 01       		.byte	0x1
  6711 1437 8F       		.byte	0x8f
  6712 1438 CD000000 		.4byte	0xcd
@@ -8363,17 +8363,17 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6714 143d 03       		.byte	0x3
  6715 143e 0A000000 		.4byte	textsize
  6716 1442 27       		.uleb128 0x27
- 6717 1443 DD040000 		.4byte	.LASF122
+ 6717 1443 E7040000 		.4byte	.LASF122
  6718 1447 01       		.byte	0x1
  6719 1448 92       		.byte	0x92
  6720 1449 CD000000 		.4byte	0xcd
  6721 144d 27       		.uleb128 0x27
- 6722 144e 42040000 		.4byte	.LASF123
+ 6722 144e 4C040000 		.4byte	.LASF123
  6723 1452 01       		.byte	0x1
  6724 1453 93       		.byte	0x93
  6725 1454 CD000000 		.4byte	0xcd
  6726 1458 28       		.uleb128 0x28
- 6727 1459 DA010000 		.4byte	.LASF124
+ 6727 1459 F1010000 		.4byte	.LASF124
  6728 145d 01       		.byte	0x1
  6729 145e 8B       		.byte	0x8b
  6730 145f D8000000 		.4byte	0xd8
@@ -8381,7 +8381,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6732 1464 03       		.byte	0x3
  6733 1465 00000000 		.4byte	WIDTH
  6734 1469 28       		.uleb128 0x28
- 6735 146a 1D010000 		.4byte	.LASF125
+ 6735 146a 23010000 		.4byte	.LASF125
  6736 146e 01       		.byte	0x1
  6737 146f 8B       		.byte	0x8b
  6738 1470 D8000000 		.4byte	0xd8
@@ -8389,7 +8389,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6740 1475 03       		.byte	0x3
  6741 1476 00000000 		.4byte	HEIGHT
  6742 147a 28       		.uleb128 0x28
- 6743 147b 81000000 		.4byte	.LASF126
+ 6743 147b 87000000 		.4byte	.LASF126
  6744 147f 01       		.byte	0x1
  6745 1480 90       		.byte	0x90
  6746 1481 CD000000 		.4byte	0xcd
@@ -8397,8 +8397,8 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6748 1486 03       		.byte	0x3
  6749 1487 00000000 		.4byte	rotation
  6750 148b 28       		.uleb128 0x28
- 6751 148c E7050000 		.4byte	.LASF127
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 141
+ 6751 148c E3050000 		.4byte	.LASF127
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 141
 
 
  6752 1490 01       		.byte	0x1
@@ -8408,46 +8408,46 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6756 1497 03       		.byte	0x3
  6757 1498 00000000 		.4byte	wrap
  6758 149c 29       		.uleb128 0x29
- 6759 149d 0D050000 		.4byte	.LASF128
- 6760 14a1 0D050000 		.4byte	.LASF128
+ 6759 149d 17050000 		.4byte	.LASF128
+ 6760 14a1 17050000 		.4byte	.LASF128
  6761 14a5 07       		.byte	0x7
  6762 14a6 B1       		.byte	0xb1
  6763 14a7 29       		.uleb128 0x29
- 6764 14a8 19030000 		.4byte	.LASF129
- 6765 14ac 19030000 		.4byte	.LASF129
+ 6764 14a8 5F060000 		.4byte	.LASF129
+ 6765 14ac 5F060000 		.4byte	.LASF129
  6766 14b0 07       		.byte	0x7
  6767 14b1 B6       		.byte	0xb6
  6768 14b2 29       		.uleb128 0x29
- 6769 14b3 08010000 		.4byte	.LASF130
- 6770 14b7 08010000 		.4byte	.LASF130
+ 6769 14b3 0E010000 		.4byte	.LASF130
+ 6770 14b7 0E010000 		.4byte	.LASF130
  6771 14bb 07       		.byte	0x7
  6772 14bc B5       		.byte	0xb5
  6773 14bd 2A       		.uleb128 0x2a
- 6774 14be 0C040000 		.4byte	.LASF140
- 6775 14c2 0C040000 		.4byte	.LASF140
+ 6774 14be 1A040000 		.4byte	.LASF140
+ 6775 14c2 1A040000 		.4byte	.LASF140
  6776 14c6 29       		.uleb128 0x29
  6777 14c7 0E000000 		.4byte	.LASF131
  6778 14cb 0E000000 		.4byte	.LASF131
  6779 14cf 08       		.byte	0x8
  6780 14d0 21       		.byte	0x21
  6781 14d1 29       		.uleb128 0x29
- 6782 14d2 C5050000 		.4byte	.LASF132
- 6783 14d6 C5050000 		.4byte	.LASF132
+ 6782 14d2 CF050000 		.4byte	.LASF132
+ 6783 14d6 CF050000 		.4byte	.LASF132
  6784 14da 09       		.byte	0x9
  6785 14db 26       		.byte	0x26
  6786 14dc 29       		.uleb128 0x29
- 6787 14dd F7030000 		.4byte	.LASF133
- 6788 14e1 F7030000 		.4byte	.LASF133
+ 6787 14dd 05040000 		.4byte	.LASF133
+ 6788 14e1 05040000 		.4byte	.LASF133
  6789 14e5 07       		.byte	0x7
  6790 14e6 91       		.byte	0x91
  6791 14e7 29       		.uleb128 0x29
- 6792 14e8 18060000 		.4byte	.LASF134
- 6793 14ec 18060000 		.4byte	.LASF134
+ 6792 14e8 14060000 		.4byte	.LASF134
+ 6793 14ec 14060000 		.4byte	.LASF134
  6794 14f0 07       		.byte	0x7
  6795 14f1 93       		.byte	0x93
  6796 14f2 29       		.uleb128 0x29
- 6797 14f3 50030000 		.4byte	.LASF135
- 6798 14f7 50030000 		.4byte	.LASF135
+ 6797 14f3 4F030000 		.4byte	.LASF135
+ 6798 14f7 4F030000 		.4byte	.LASF135
  6799 14fb 0A       		.byte	0xa
  6800 14fc 76       		.byte	0x76
  6801 14fd 00       		.byte	0
@@ -8458,7 +8458,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6806 0002 01       		.byte	0x1
  6807 0003 25       		.uleb128 0x25
  6808 0004 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 142
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 142
 
 
  6809 0005 13       		.uleb128 0x13
@@ -8518,7 +8518,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6863 003b 49       		.uleb128 0x49
  6864 003c 13       		.uleb128 0x13
  6865 003d 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 143
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 143
 
 
  6866 003e 00       		.byte	0
@@ -8578,7 +8578,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6920 0074 01       		.byte	0x1
  6921 0075 03       		.uleb128 0x3
  6922 0076 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 144
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 144
 
 
  6923 0077 3A       		.uleb128 0x3a
@@ -8638,7 +8638,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  6977 00ae 0B       		.uleb128 0xb
  6978 00af 3B       		.uleb128 0x3b
  6979 00b0 05       		.uleb128 0x5
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 145
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 145
 
 
  6980 00b1 27       		.uleb128 0x27
@@ -8698,7 +8698,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7034 00e8 00       		.byte	0
  7035 00e9 12       		.uleb128 0x12
  7036 00ea 34       		.uleb128 0x34
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 146
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 146
 
 
  7037 00eb 00       		.byte	0
@@ -8758,7 +8758,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7091 0121 00       		.byte	0
  7092 0122 03       		.uleb128 0x3
  7093 0123 08       		.uleb128 0x8
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 147
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 147
 
 
  7094 0124 3A       		.uleb128 0x3a
@@ -8818,7 +8818,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7148 0161 1B       		.uleb128 0x1b
  7149 0162 2E       		.uleb128 0x2e
  7150 0163 01       		.byte	0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 148
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 148
 
 
  7151 0164 03       		.uleb128 0x3
@@ -8878,7 +8878,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7205 019d 03       		.uleb128 0x3
  7206 019e 0E       		.uleb128 0xe
  7207 019f 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 149
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 149
 
 
  7208 01a0 0B       		.uleb128 0xb
@@ -8938,7 +8938,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7262 01d8 18       		.uleb128 0x18
  7263 01d9 00       		.byte	0
  7264 01da 00       		.byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 150
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 150
 
 
  7265 01db 22       		.uleb128 0x22
@@ -8998,7 +8998,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7319 0212 21       		.uleb128 0x21
  7320 0213 00       		.byte	0
  7321 0214 49       		.uleb128 0x49
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 151
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 151
 
 
  7322 0215 13       		.uleb128 0x13
@@ -9058,7 +9058,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7376 024b 19       		.uleb128 0x19
  7377 024c 3C       		.uleb128 0x3c
  7378 024d 19       		.uleb128 0x19
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 152
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 152
 
 
  7379 024e 6E       		.uleb128 0x6e
@@ -9118,7 +9118,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7433 0041 88000000 		.4byte	.LFE1
  7434 0045 0400     		.2byte	0x4
  7435 0047 F3       		.byte	0xf3
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 153
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 153
 
 
  7436 0048 01       		.uleb128 0x1
@@ -9178,7 +9178,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7490 00c3 3E000000 		.4byte	.LVL5
  7491 00c7 0100     		.2byte	0x1
  7492 00c9 52       		.byte	0x52
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 154
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 154
 
 
  7493 00ca 3E000000 		.4byte	.LVL5
@@ -9238,7 +9238,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7547 0149 01       		.uleb128 0x1
  7548 014a 51       		.byte	0x51
  7549 014b 9F       		.byte	0x9f
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 155
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 155
 
 
  7550 014c 00000000 		.4byte	0
@@ -9298,7 +9298,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7604 01cf 0200     		.2byte	0x2
  7605 01d1 7D       		.byte	0x7d
  7606 01d2 00       		.sleb128 0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 156
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 156
 
 
  7607 01d3 00000000 		.4byte	0
@@ -9358,7 +9358,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7661 0266 00000000 		.4byte	0
  7662 026a 00000000 		.4byte	0
  7663              	.LLST14:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 157
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 157
 
 
  7664 026e EC000000 		.4byte	.LVL29
@@ -9418,7 +9418,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7718 02ff 0200     		.2byte	0x2
  7719 0301 7D       		.byte	0x7d
  7720 0302 76       		.sleb128 -10
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 158
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 158
 
 
  7721 0303 00000000 		.4byte	0
@@ -9478,7 +9478,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7775 038c 08010000 		.4byte	.LVL61
  7776 0390 0200     		.2byte	0x2
  7777 0392 91       		.byte	0x91
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 159
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 159
 
 
  7778 0393 72       		.sleb128 -14
@@ -9538,7 +9538,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7832 041a 00000000 		.4byte	0
  7833              	.LLST23:
  7834 041e 00000000 		.4byte	.LVL62
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 160
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 160
 
 
  7835 0422 14000000 		.4byte	.LVL65
@@ -9598,7 +9598,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7889 04aa 00000000 		.4byte	0
  7890 04ae 00000000 		.4byte	0
  7891              	.LLST27:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 161
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 161
 
 
  7892 04b2 06000000 		.4byte	.LVL63
@@ -9658,7 +9658,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  7946 053e 0400     		.2byte	0x4
  7947 0540 F3       		.byte	0xf3
  7948 0541 01       		.uleb128 0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 162
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 162
 
 
  7949 0542 50       		.byte	0x50
@@ -9718,7 +9718,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8003 05c2 00000000 		.4byte	0
  8004              	.LLST33:
  8005 05c6 00000000 		.4byte	.LVL97
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 163
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 163
 
 
  8006 05ca 30000000 		.4byte	.LVL99
@@ -9778,7 +9778,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8060 064b 51       		.byte	0x51
  8061 064c 12000000 		.4byte	.LVL103
  8062 0650 40000000 		.4byte	.LFE11
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 164
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 164
 
 
  8063 0654 0500     		.2byte	0x5
@@ -9838,7 +9838,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8117 06d8 4C000000 		.4byte	.LFE22
  8118 06dc 0200     		.2byte	0x2
  8119 06de 7D       		.byte	0x7d
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 165
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 165
 
 
  8120 06df 76       		.sleb128 -10
@@ -9898,7 +9898,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8174 0763 50       		.byte	0x50
  8175 0764 9F       		.byte	0x9f
  8176 0765 2A000000 		.4byte	.LVL126
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 166
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 166
 
 
  8177 0769 54000000 		.4byte	.LVL129
@@ -9958,7 +9958,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8231 07f9 0400     		.2byte	0x4
  8232 07fb F3       		.byte	0xf3
  8233 07fc 01       		.uleb128 0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 167
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 167
 
 
  8234 07fd 52       		.byte	0x52
@@ -10018,7 +10018,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8288 087c 08       		.byte	0x8
  8289 087d FF       		.byte	0xff
  8290 087e 1A       		.byte	0x1a
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 168
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 168
 
 
  8291 087f 9F       		.byte	0x9f
@@ -10078,7 +10078,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8345 0910 56000000 		.4byte	.LFE25
  8346 0914 0400     		.2byte	0x4
  8347 0916 F3       		.byte	0xf3
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 169
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 169
 
 
  8348 0917 01       		.uleb128 0x1
@@ -10138,7 +10138,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8402 0998 0400     		.2byte	0x4
  8403 099a F3       		.byte	0xf3
  8404 099b 01       		.uleb128 0x1
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 170
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 170
 
 
  8405 099c 50       		.byte	0x50
@@ -10198,7 +10198,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8459 0a1a 0100     		.2byte	0x1
  8460 0a1c 52       		.byte	0x52
  8461 0a1d 38000000 		.4byte	.LVL167
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 171
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 171
 
 
  8462 0a21 66000000 		.4byte	.LFE26
@@ -10258,7 +10258,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8516 0aa3 0100     		.2byte	0x1
  8517 0aa5 54       		.byte	0x54
  8518 0aa6 58000000 		.4byte	.LVL170
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 172
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 172
 
 
  8519 0aaa 66000000 		.4byte	.LFE26
@@ -10318,7 +10318,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8573 0b33 38010000 		.4byte	.LFE27
  8574 0b37 0400     		.2byte	0x4
  8575 0b39 F3       		.byte	0xf3
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 173
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 173
 
 
  8576 0b3a 01       		.uleb128 0x1
@@ -10378,7 +10378,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8630 0bc3 01       		.uleb128 0x1
  8631 0bc4 50       		.byte	0x50
  8632 0bc5 9F       		.byte	0x9f
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 174
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 174
 
 
  8633 0bc6 00000000 		.4byte	0
@@ -10438,7 +10438,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8687 0c48 50       		.byte	0x50
  8688 0c49 9F       		.byte	0x9f
  8689 0c4a 00000000 		.4byte	0
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 175
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 175
 
 
  8690 0c4e 00000000 		.4byte	0
@@ -10498,7 +10498,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8744 0ccd 00000000 		.4byte	0
  8745 0cd1 00000000 		.4byte	0
  8746              	.LLST76:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 176
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 176
 
 
  8747 0cd5 00000000 		.4byte	.LVL202
@@ -10558,7 +10558,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8801 0d65 01       		.uleb128 0x1
  8802 0d66 50       		.byte	0x50
  8803 0d67 9F       		.byte	0x9f
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 177
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 177
 
 
  8804 0d68 00000000 		.4byte	0
@@ -10618,7 +10618,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8858 0df6 50       		.byte	0x50
  8859 0df7 06000000 		.4byte	.LVL231
  8860 0dfb 0C000000 		.4byte	.LVL233
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 178
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 178
 
 
  8861 0dff 0400     		.2byte	0x4
@@ -10678,7 +10678,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8915 0048 00000000 		.4byte	.LFB3
  8916 004c 22000000 		.4byte	.LFE3-.LFB3
  8917 0050 00000000 		.4byte	.LFB4
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 179
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 179
 
 
  8918 0054 24000000 		.4byte	.LFE4-.LFB4
@@ -10738,7 +10738,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  8972 012c 02000000 		.4byte	.LFE35-.LFB35
  8973 0130 00000000 		.4byte	.LFB36
  8974 0134 02000000 		.4byte	.LFE36-.LFB36
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 180
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 180
 
 
  8975 0138 00000000 		.4byte	0
@@ -10798,7 +10798,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  9029 00c8 00000000 		.4byte	.LFB25
  9030 00cc 56000000 		.4byte	.LFE25
  9031 00d0 00000000 		.4byte	.LFB26
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 181
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 181
 
 
  9032 00d4 66000000 		.4byte	.LFE26
@@ -10858,7 +10858,7 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  9069      73657454 
  9069      65787442 
  9069      6700
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 182
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 182
 
 
  9070              	.LASF107:
@@ -10869,617 +10869,617 @@ ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 1
  9073      73657452 
  9073      6F746174 
  9073      696F6E00 
- 9074              	.LASF50:
- 9075 005e 64697370 		.ascii	"display_line\000"
- 9075      6C61795F 
- 9075      6C696E65 
- 9075      00
- 9076              	.LASF58:
- 9077 006b 6766785F 		.ascii	"gfx_hvLine\000"
- 9077      68764C69 
- 9077      6E6500
- 9078              	.LASF33:
- 9079 0076 5343524F 		.ascii	"SCROLL_DIR\000"
- 9079      4C4C5F44 
- 9079      495200
+ 9074              	.LASF58:
+ 9075 005e 6766785F 		.ascii	"gfx_hvLine\000"
+ 9075      68764C69 
+ 9075      6E6500
+ 9076              	.LASF33:
+ 9077 0069 5343524F 		.ascii	"SCROLL_DIR\000"
+ 9077      4C4C5F44 
+ 9077      495200
+ 9078              	.LASF72:
+ 9079 0074 53534431 		.ascii	"SSD1306_stopscroll\000"
+ 9079      3330365F 
+ 9079      73746F70 
+ 9079      7363726F 
+ 9079      6C6C00
  9080              	.LASF126:
- 9081 0081 726F7461 		.ascii	"rotation\000"
+ 9081 0087 726F7461 		.ascii	"rotation\000"
  9081      74696F6E 
  9081      00
  9082              	.LASF75:
- 9083 008a 73706565 		.ascii	"speed\000"
+ 9083 0090 73706565 		.ascii	"speed\000"
  9083      6400
  9084              	.LASF34:
- 9085 0090 5343524F 		.ascii	"SCROLL_SPEED_0\000"
+ 9085 0096 5343524F 		.ascii	"SCROLL_SPEED_0\000"
  9085      4C4C5F53 
  9085      50454544 
  9085      5F3000
  9086              	.LASF35:
- 9087 009f 5343524F 		.ascii	"SCROLL_SPEED_1\000"
+ 9087 00a5 5343524F 		.ascii	"SCROLL_SPEED_1\000"
  9087      4C4C5F53 
  9087      50454544 
  9087      5F3100
  9088              	.LASF36:
- 9089 00ae 5343524F 		.ascii	"SCROLL_SPEED_2\000"
+ 9089 00b4 5343524F 		.ascii	"SCROLL_SPEED_2\000"
  9089      4C4C5F53 
  9089      50454544 
  9089      5F3200
  9090              	.LASF37:
- 9091 00bd 5343524F 		.ascii	"SCROLL_SPEED_3\000"
+ 9091 00c3 5343524F 		.ascii	"SCROLL_SPEED_3\000"
  9091      4C4C5F53 
  9091      50454544 
  9091      5F3300
  9092              	.LASF38:
- 9093 00cc 5343524F 		.ascii	"SCROLL_SPEED_4\000"
+ 9093 00d2 5343524F 		.ascii	"SCROLL_SPEED_4\000"
  9093      4C4C5F53 
  9093      50454544 
  9093      5F3400
  9094              	.LASF39:
- 9095 00db 5343524F 		.ascii	"SCROLL_SPEED_5\000"
+ 9095 00e1 5343524F 		.ascii	"SCROLL_SPEED_5\000"
  9095      4C4C5F53 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 183
+
+
  9095      50454544 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 183
-
-
  9095      5F3500
  9096              	.LASF40:
- 9097 00ea 5343524F 		.ascii	"SCROLL_SPEED_6\000"
+ 9097 00f0 5343524F 		.ascii	"SCROLL_SPEED_6\000"
  9097      4C4C5F53 
  9097      50454544 
  9097      5F3600
  9098              	.LASF41:
- 9099 00f9 5343524F 		.ascii	"SCROLL_SPEED_7\000"
+ 9099 00ff 5343524F 		.ascii	"SCROLL_SPEED_7\000"
  9099      4C4C5F53 
  9099      50454544 
  9099      5F3700
  9100              	.LASF130:
- 9101 0108 4932435F 		.ascii	"I2C_1_MasterSendStop\000"
+ 9101 010e 4932435F 		.ascii	"I2C_1_MasterSendStop\000"
  9101      315F4D61 
  9101      73746572 
  9101      53656E64 
  9101      53746F70 
  9102              	.LASF125:
- 9103 011d 48454947 		.ascii	"HEIGHT\000"
+ 9103 0123 48454947 		.ascii	"HEIGHT\000"
  9103      485400
  9104              	.LASF21:
- 9105 0124 75696E74 		.ascii	"uint32_t\000"
+ 9105 012a 75696E74 		.ascii	"uint32_t\000"
  9105      33325F74 
  9105      00
  9106              	.LASF17:
- 9107 012d 696E7438 		.ascii	"int8_t\000"
+ 9107 0133 696E7438 		.ascii	"int8_t\000"
  9107      5F7400
  9108              	.LASF59:
- 9109 0134 73697A65 		.ascii	"size\000"
+ 9109 013a 73697A65 		.ascii	"size\000"
  9109      00
  9110              	.LASF45:
- 9111 0139 666C6F61 		.ascii	"float\000"
+ 9111 013f 666C6F61 		.ascii	"float\000"
  9111      7400
  9112              	.LASF51:
- 9113 013f 70737461 		.ascii	"pstart\000"
+ 9113 0145 70737461 		.ascii	"pstart\000"
  9113      727400
  9114              	.LASF117:
- 9115 0146 63757273 		.ascii	"cursor_x\000"
+ 9115 014c 63757273 		.ascii	"cursor_x\000"
  9115      6F725F78 
  9115      00
  9116              	.LASF118:
- 9117 014f 63757273 		.ascii	"cursor_y\000"
+ 9117 0155 63757273 		.ascii	"cursor_y\000"
  9117      6F725F79 
  9117      00
  9118              	.LASF97:
- 9119 0158 6766785F 		.ascii	"gfx_drawTriangle\000"
+ 9119 015e 6766785F 		.ascii	"gfx_drawTriangle\000"
  9119      64726177 
  9119      54726961 
  9119      6E676C65 
  9119      00
  9120              	.LASF121:
- 9121 0169 74657874 		.ascii	"textsize\000"
+ 9121 016f 74657874 		.ascii	"textsize\000"
  9121      73697A65 
  9121      00
  9122              	.LASF19:
- 9123 0172 696E7431 		.ascii	"int16_t\000"
+ 9123 0178 696E7431 		.ascii	"int16_t\000"
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 184
+
+
  9123      365F7400 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 184
-
-
  9124              	.LASF14:
- 9125 017a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 9125 0180 6C6F6E67 		.ascii	"long long unsigned int\000"
  9125      206C6F6E 
  9125      6720756E 
  9125      7369676E 
  9125      65642069 
  9126              	.LASF62:
- 9127 0191 53534431 		.ascii	"SSD1306_SetColStartAddr\000"
+ 9127 0197 53534431 		.ascii	"SSD1306_SetColStartAddr\000"
  9127      3330365F 
  9127      53657443 
  9127      6F6C5374 
  9127      61727441 
- 9128              	.LASF9:
- 9129 01a9 5F5F7569 		.ascii	"__uint16_t\000"
- 9129      6E743136 
- 9129      5F7400
- 9130              	.LASF103:
- 9131 01b4 53534431 		.ascii	"SSD1306_HAL_Reset\000"
- 9131      3330365F 
- 9131      48414C5F 
- 9131      52657365 
- 9131      7400
- 9132              	.LASF57:
- 9133 01c6 6766785F 		.ascii	"gfx_rotation_adjust\000"
- 9133      726F7461 
- 9133      74696F6E 
- 9133      5F61646A 
- 9133      75737400 
- 9134              	.LASF124:
- 9135 01da 57494454 		.ascii	"WIDTH\000"
- 9135      4800
- 9136              	.LASF136:
- 9137 01e0 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 9137      43313120 
- 9137      352E342E 
- 9137      31203230 
- 9137      31363036 
- 9138 0213 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 9138      20726576 
- 9138      6973696F 
- 9138      6E203233 
- 9138      37373135 
- 9139 0246 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 9139      66756E63 
- 9139      74696F6E 
- 9139      2D736563 
- 9139      74696F6E 
- 9140              	.LASF94:
- 9141 026e 6766785F 		.ascii	"gfx_drawCircle\000"
- 9141      64726177 
- 9141      43697263 
- 9141      6C6500
- 9142              	.LASF77:
- 9143 027d 77696474 		.ascii	"width\000"
- 9143      6800
- 9144              	.LASF49:
- 9145 0283 64697370 		.ascii	"display_setPixel\000"
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 185
+ 9128              	.LASF49:
+ 9129 01af 53534431 		.ascii	"SSD1306_setPixel\000"
+ 9129      3330365F 
+ 9129      73657450 
+ 9129      6978656C 
+ 9129      00
+ 9130              	.LASF9:
+ 9131 01c0 5F5F7569 		.ascii	"__uint16_t\000"
+ 9131      6E743136 
+ 9131      5F7400
+ 9132              	.LASF103:
+ 9133 01cb 53534431 		.ascii	"SSD1306_HAL_Reset\000"
+ 9133      3330365F 
+ 9133      48414C5F 
+ 9133      52657365 
+ 9133      7400
+ 9134              	.LASF57:
+ 9135 01dd 6766785F 		.ascii	"gfx_rotation_adjust\000"
+ 9135      726F7461 
+ 9135      74696F6E 
+ 9135      5F61646A 
+ 9135      75737400 
+ 9136              	.LASF124:
+ 9137 01f1 57494454 		.ascii	"WIDTH\000"
+ 9137      4800
+ 9138              	.LASF136:
+ 9139 01f7 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 9139      43313120 
+ 9139      352E342E 
+ 9139      31203230 
+ 9139      31363036 
+ 9140 022a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 9140      20726576 
+ 9140      6973696F 
+ 9140      6E203233 
+ 9140      37373135 
+ 9141 025d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 9141      66756E63 
+ 9141      74696F6E 
+ 9141      2D736563 
+ 9141      74696F6E 
+ 9142              	.LASF94:
+ 9143 0285 6766785F 		.ascii	"gfx_drawCircle\000"
+ 9143      64726177 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 185
 
 
- 9145      6C61795F 
- 9145      73657450 
- 9145      6978656C 
- 9145      00
+ 9143      43697263 
+ 9143      6C6500
+ 9144              	.LASF77:
+ 9145 0294 77696474 		.ascii	"width\000"
+ 9145      6800
  9146              	.LASF105:
- 9147 0294 5F426F6F 		.ascii	"_Bool\000"
+ 9147 029a 5F426F6F 		.ascii	"_Bool\000"
  9147      6C00
  9148              	.LASF22:
- 9149 029a 5343524F 		.ascii	"SCROLL_PAGE_0\000"
+ 9149 02a0 5343524F 		.ascii	"SCROLL_PAGE_0\000"
  9149      4C4C5F50 
  9149      4147455F 
  9149      3000
  9150              	.LASF23:
- 9151 02a8 5343524F 		.ascii	"SCROLL_PAGE_1\000"
+ 9151 02ae 5343524F 		.ascii	"SCROLL_PAGE_1\000"
  9151      4C4C5F50 
  9151      4147455F 
  9151      3100
  9152              	.LASF24:
- 9153 02b6 5343524F 		.ascii	"SCROLL_PAGE_2\000"
+ 9153 02bc 5343524F 		.ascii	"SCROLL_PAGE_2\000"
  9153      4C4C5F50 
  9153      4147455F 
  9153      3200
  9154              	.LASF25:
- 9155 02c4 5343524F 		.ascii	"SCROLL_PAGE_3\000"
+ 9155 02ca 5343524F 		.ascii	"SCROLL_PAGE_3\000"
  9155      4C4C5F50 
  9155      4147455F 
  9155      3300
  9156              	.LASF26:
- 9157 02d2 5343524F 		.ascii	"SCROLL_PAGE_4\000"
+ 9157 02d8 5343524F 		.ascii	"SCROLL_PAGE_4\000"
  9157      4C4C5F50 
  9157      4147455F 
  9157      3400
  9158              	.LASF27:
- 9159 02e0 5343524F 		.ascii	"SCROLL_PAGE_5\000"
+ 9159 02e6 5343524F 		.ascii	"SCROLL_PAGE_5\000"
  9159      4C4C5F50 
  9159      4147455F 
  9159      3500
  9160              	.LASF28:
- 9161 02ee 5343524F 		.ascii	"SCROLL_PAGE_6\000"
+ 9161 02f4 5343524F 		.ascii	"SCROLL_PAGE_6\000"
  9161      4C4C5F50 
  9161      4147455F 
  9161      3600
  9162              	.LASF29:
- 9163 02fc 5343524F 		.ascii	"SCROLL_PAGE_7\000"
+ 9163 0302 5343524F 		.ascii	"SCROLL_PAGE_7\000"
  9163      4C4C5F50 
  9163      4147455F 
  9163      3700
  9164              	.LASF111:
- 9165 030a 53534431 		.ascii	"SSD1306_buffer\000"
+ 9165 0310 53534431 		.ascii	"SSD1306_buffer\000"
  9165      3330365F 
  9165      62756666 
  9165      657200
- 9166              	.LASF129:
- 9167 0319 4932435F 		.ascii	"I2C_1_MasterWriteByte\000"
- 9167      315F4D61 
- 9167      73746572 
- 9167      57726974 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 186
+ 9166              	.LASF65:
+ 9167 031f 53534431 		.ascii	"SSD1306_contrast\000"
+ 9167      3330365F 
+ 9167      636F6E74 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 186
 
 
- 9167      65427974 
+ 9167      72617374 
+ 9167      00
  9168              	.LASF89:
- 9169 032f 6766785F 		.ascii	"gfx_drawLine\000"
+ 9169 0330 6766785F 		.ascii	"gfx_drawLine\000"
  9169      64726177 
  9169      4C696E65 
  9169      00
- 9170              	.LASF71:
- 9171 033c 64697370 		.ascii	"display_update\000"
- 9171      6C61795F 
- 9171      75706461 
- 9171      746500
- 9172              	.LASF16:
- 9173 034b 63686172 		.ascii	"char\000"
+ 9170              	.LASF16:
+ 9171 033d 63686172 		.ascii	"char\000"
+ 9171      00
+ 9172              	.LASF50:
+ 9173 0342 53534431 		.ascii	"SSD1306_line\000"
+ 9173      3330365F 
+ 9173      6C696E65 
  9173      00
  9174              	.LASF135:
- 9175 0350 43794465 		.ascii	"CyDelay\000"
+ 9175 034f 43794465 		.ascii	"CyDelay\000"
  9175      6C617900 
  9176              	.LASF68:
- 9177 0358 696E7665 		.ascii	"invert\000"
+ 9177 0357 696E7665 		.ascii	"invert\000"
  9177      727400
- 9178              	.LASF18:
- 9179 035f 75696E74 		.ascii	"uint8_t\000"
- 9179      385F7400 
- 9180              	.LASF60:
- 9181 0367 73746174 		.ascii	"status\000"
- 9181      757300
- 9182              	.LASF92:
- 9183 036e 6766785F 		.ascii	"gfx_drawRect\000"
- 9183      64726177 
- 9183      52656374 
- 9183      00
- 9184              	.LASF115:
- 9185 037b 5F776964 		.ascii	"_width\000"
- 9185      746800
- 9186              	.LASF90:
- 9187 0382 73746565 		.ascii	"steep\000"
- 9187      7000
- 9188              	.LASF1:
- 9189 0388 6C6F6E67 		.ascii	"long long int\000"
- 9189      206C6F6E 
- 9189      6720696E 
- 9189      7400
- 9190              	.LASF66:
- 9191 0396 636F6E74 		.ascii	"contrast\000"
- 9191      72617374 
- 9191      00
- 9192              	.LASF42:
- 9193 039f 5343524F 		.ascii	"SCROLL_SPEED\000"
- 9193      4C4C5F53 
- 9193      50454544 
+ 9178              	.LASF71:
+ 9179 035e 53534431 		.ascii	"SSD1306_update\000"
+ 9179      3330365F 
+ 9179      75706461 
+ 9179      746500
+ 9180              	.LASF18:
+ 9181 036d 75696E74 		.ascii	"uint8_t\000"
+ 9181      385F7400 
+ 9182              	.LASF60:
+ 9183 0375 73746174 		.ascii	"status\000"
+ 9183      757300
+ 9184              	.LASF92:
+ 9185 037c 6766785F 		.ascii	"gfx_drawRect\000"
+ 9185      64726177 
+ 9185      52656374 
+ 9185      00
+ 9186              	.LASF115:
+ 9187 0389 5F776964 		.ascii	"_width\000"
+ 9187      746800
+ 9188              	.LASF90:
+ 9189 0390 73746565 		.ascii	"steep\000"
+ 9189      7000
+ 9190              	.LASF1:
+ 9191 0396 6C6F6E67 		.ascii	"long long int\000"
+ 9191      206C6F6E 
+ 9191      6720696E 
+ 9191      7400
+ 9192              	.LASF66:
+ 9193 03a4 636F6E74 		.ascii	"contrast\000"
+ 9193      72617374 
  9193      00
- 9194              	.LASF70:
- 9195 03ac 70616765 		.ascii	"page\000"
+ 9194              	.LASF42:
+ 9195 03ad 5343524F 		.ascii	"SCROLL_SPEED\000"
+ 9195      4C4C5F53 
+ 9195      50454544 
  9195      00
- 9196              	.LASF30:
- 9197 03b1 5343524F 		.ascii	"SCROLL_AREA\000"
- 9197      4C4C5F41 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 187
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 187
 
 
- 9197      52454100 
- 9198              	.LASF69:
- 9199 03bd 53534431 		.ascii	"SSD1306_SetPageStartAddr\000"
- 9199      3330365F 
- 9199      53657450 
- 9199      61676553 
- 9199      74617274 
- 9200              	.LASF79:
- 9201 03d6 6766785F 		.ascii	"gfx_width\000"
- 9201      77696474 
- 9201      6800
- 9202              	.LASF106:
- 9203 03e0 53534431 		.ascii	"SSD1306_Init\000"
- 9203      3330365F 
- 9203      496E6974 
- 9203      00
- 9204              	.LASF7:
- 9205 03ed 5F5F696E 		.ascii	"__int16_t\000"
- 9205      7431365F 
- 9205      7400
- 9206              	.LASF133:
- 9207 03f7 4932435F 		.ascii	"I2C_1_Enable\000"
- 9207      315F456E 
- 9207      61626C65 
- 9207      00
- 9208              	.LASF116:
- 9209 0404 5F686569 		.ascii	"_height\000"
- 9209      67687400 
- 9210              	.LASF140:
- 9211 040c 6D656D73 		.ascii	"memset\000"
- 9211      657400
- 9212              	.LASF52:
- 9213 0413 70656E64 		.ascii	"pend\000"
- 9213      00
- 9214              	.LASF113:
- 9215 0418 5F646973 		.ascii	"_displaybuf_size\000"
- 9215      706C6179 
- 9215      6275665F 
- 9215      73697A65 
- 9215      00
- 9216              	.LASF44:
- 9217 0429 75696E74 		.ascii	"uint32\000"
- 9217      333200
- 9218              	.LASF139:
- 9219 0430 64697370 		.ascii	"display_write_buf\000"
- 9219      6C61795F 
- 9219      77726974 
- 9219      655F6275 
- 9219      6600
- 9220              	.LASF123:
- 9221 0442 61637450 		.ascii	"actPage\000"
- 9221      61676500 
- 9222              	.LASF53:
- 9223 044a 6D61736B 		.ascii	"mask\000"
- 9223      00
- 9224              	.LASF114:
- 9225 044f 5F693263 		.ascii	"_i2caddr\000"
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 188
+ 9196              	.LASF70:
+ 9197 03ba 70616765 		.ascii	"page\000"
+ 9197      00
+ 9198              	.LASF30:
+ 9199 03bf 5343524F 		.ascii	"SCROLL_AREA\000"
+ 9199      4C4C5F41 
+ 9199      52454100 
+ 9200              	.LASF69:
+ 9201 03cb 53534431 		.ascii	"SSD1306_SetPageStartAddr\000"
+ 9201      3330365F 
+ 9201      53657450 
+ 9201      61676553 
+ 9201      74617274 
+ 9202              	.LASF79:
+ 9203 03e4 6766785F 		.ascii	"gfx_width\000"
+ 9203      77696474 
+ 9203      6800
+ 9204              	.LASF106:
+ 9205 03ee 53534431 		.ascii	"SSD1306_Init\000"
+ 9205      3330365F 
+ 9205      496E6974 
+ 9205      00
+ 9206              	.LASF7:
+ 9207 03fb 5F5F696E 		.ascii	"__int16_t\000"
+ 9207      7431365F 
+ 9207      7400
+ 9208              	.LASF133:
+ 9209 0405 4932435F 		.ascii	"I2C_1_Enable\000"
+ 9209      315F456E 
+ 9209      61626C65 
+ 9209      00
+ 9210              	.LASF116:
+ 9211 0412 5F686569 		.ascii	"_height\000"
+ 9211      67687400 
+ 9212              	.LASF140:
+ 9213 041a 6D656D73 		.ascii	"memset\000"
+ 9213      657400
+ 9214              	.LASF64:
+ 9215 0421 53534431 		.ascii	"SSD1306_clear\000"
+ 9215      3330365F 
+ 9215      636C6561 
+ 9215      7200
+ 9216              	.LASF52:
+ 9217 042f 70656E64 		.ascii	"pend\000"
+ 9217      00
+ 9218              	.LASF113:
+ 9219 0434 5F646973 		.ascii	"_displaybuf_size\000"
+ 9219      706C6179 
+ 9219      6275665F 
+ 9219      73697A65 
+ 9219      00
+ 9220              	.LASF44:
+ 9221 0445 75696E74 		.ascii	"uint32\000"
+ 9221      333200
+ 9222              	.LASF123:
+ 9223 044c 61637450 		.ascii	"actPage\000"
+ 9223      61676500 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 188
 
 
- 9225      61646472 
+ 9224              	.LASF53:
+ 9225 0454 6D61736B 		.ascii	"mask\000"
  9225      00
- 9226              	.LASF78:
- 9227 0458 68656967 		.ascii	"height\000"
- 9227      687400
- 9228              	.LASF84:
- 9229 045f 6766785F 		.ascii	"gfx_setTextColor\000"
- 9229      73657454 
- 9229      65787443 
- 9229      6F6C6F72 
- 9229      00
- 9230              	.LASF4:
- 9231 0470 5F5F696E 		.ascii	"__int8_t\000"
- 9231      74385F74 
+ 9226              	.LASF114:
+ 9227 0459 5F693263 		.ascii	"_i2caddr\000"
+ 9227      61646472 
+ 9227      00
+ 9228              	.LASF78:
+ 9229 0462 68656967 		.ascii	"height\000"
+ 9229      687400
+ 9230              	.LASF84:
+ 9231 0469 6766785F 		.ascii	"gfx_setTextColor\000"
+ 9231      73657454 
+ 9231      65787443 
+ 9231      6F6C6F72 
  9231      00
- 9232              	.LASF138:
- 9233 0479 443A5C52 		.ascii	"D:\\Repos\\QuadroCopter\\Software\\FlightController"
- 9233      65706F73 
- 9233      5C517561 
- 9233      64726F43 
- 9233      6F707465 
- 9234 04a8 5C535344 		.ascii	"\\SSD1306.cydsn\000"
- 9234      31333036 
- 9234      2E637964 
- 9234      736E00
- 9235              	.LASF2:
- 9236 04b7 6C6F6E67 		.ascii	"long double\000"
- 9236      20646F75 
- 9236      626C6500 
- 9237              	.LASF80:
- 9238 04c3 6766785F 		.ascii	"gfx_height\000"
- 9238      68656967 
- 9238      687400
- 9239              	.LASF20:
- 9240 04ce 75696E74 		.ascii	"uint16_t\000"
- 9240      31365F74 
- 9240      00
- 9241              	.LASF47:
- 9242 04d7 72656733 		.ascii	"reg32\000"
- 9242      3200
- 9243              	.LASF122:
- 9244 04dd 61637443 		.ascii	"actCol\000"
- 9244      6F6C00
- 9245              	.LASF137:
- 9246 04e4 73736431 		.ascii	"ssd1306.c\000"
- 9246      3330362E 
- 9246      6300
- 9247              	.LASF93:
- 9248 04ee 6766785F 		.ascii	"gfx_fillRect\000"
- 9248      66696C6C 
- 9248      52656374 
- 9248      00
- 9249              	.LASF8:
- 9250 04fb 73686F72 		.ascii	"short int\000"
- 9250      7420696E 
- 9250      7400
- 9251              	.LASF56:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 189
+ 9232              	.LASF4:
+ 9233 047a 5F5F696E 		.ascii	"__int8_t\000"
+ 9233      74385F74 
+ 9233      00
+ 9234              	.LASF138:
+ 9235 0483 443A5C52 		.ascii	"D:\\Repos\\QuadroCopter\\Software\\FlightController"
+ 9235      65706F73 
+ 9235      5C517561 
+ 9235      64726F43 
+ 9235      6F707465 
+ 9236 04b2 5C535344 		.ascii	"\\SSD1306.cydsn\000"
+ 9236      31333036 
+ 9236      2E637964 
+ 9236      736E00
+ 9237              	.LASF2:
+ 9238 04c1 6C6F6E67 		.ascii	"long double\000"
+ 9238      20646F75 
+ 9238      626C6500 
+ 9239              	.LASF80:
+ 9240 04cd 6766785F 		.ascii	"gfx_height\000"
+ 9240      68656967 
+ 9240      687400
+ 9241              	.LASF20:
+ 9242 04d8 75696E74 		.ascii	"uint16_t\000"
+ 9242      31365F74 
+ 9242      00
+ 9243              	.LASF47:
+ 9244 04e1 72656733 		.ascii	"reg32\000"
+ 9244      3200
+ 9245              	.LASF122:
+ 9246 04e7 61637443 		.ascii	"actCol\000"
+ 9246      6F6C00
+ 9247              	.LASF137:
+ 9248 04ee 73736431 		.ascii	"ssd1306.c\000"
+ 9248      3330362E 
+ 9248      6300
+ 9249              	.LASF93:
+ 9250 04f8 6766785F 		.ascii	"gfx_fillRect\000"
+ 9250      66696C6C 
+ 9250      52656374 
+ 9250      00
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 189
 
 
- 9252 0505 7069786D 		.ascii	"pixmask\000"
- 9252      61736B00 
- 9253              	.LASF128:
- 9254 050d 4932435F 		.ascii	"I2C_1_MasterSendStart\000"
- 9254      315F4D61 
- 9254      73746572 
- 9254      53656E64 
- 9254      53746172 
- 9255              	.LASF11:
- 9256 0523 6C6F6E67 		.ascii	"long int\000"
- 9256      20696E74 
- 9256      00
- 9257              	.LASF102:
- 9258 052c 6766785F 		.ascii	"gfx_println\000"
- 9258      7072696E 
- 9258      746C6E00 
- 9259              	.LASF100:
- 9260 0538 6766785F 		.ascii	"gfx_write\000"
- 9260      77726974 
- 9260      6500
- 9261              	.LASF67:
- 9262 0542 64697370 		.ascii	"display_invert\000"
- 9262      6C61795F 
- 9262      696E7665 
- 9262      727400
+ 9251              	.LASF8:
+ 9252 0505 73686F72 		.ascii	"short int\000"
+ 9252      7420696E 
+ 9252      7400
+ 9253              	.LASF56:
+ 9254 050f 7069786D 		.ascii	"pixmask\000"
+ 9254      61736B00 
+ 9255              	.LASF128:
+ 9256 0517 4932435F 		.ascii	"I2C_1_MasterSendStart\000"
+ 9256      315F4D61 
+ 9256      73746572 
+ 9256      53656E64 
+ 9256      53746172 
+ 9257              	.LASF11:
+ 9258 052d 6C6F6E67 		.ascii	"long int\000"
+ 9258      20696E74 
+ 9258      00
+ 9259              	.LASF102:
+ 9260 0536 6766785F 		.ascii	"gfx_println\000"
+ 9260      7072696E 
+ 9260      746C6E00 
+ 9261              	.LASF100:
+ 9262 0542 6766785F 		.ascii	"gfx_write\000"
+ 9262      77726974 
+ 9262      6500
  9263              	.LASF48:
- 9264 0551 636F6C6F 		.ascii	"color\000"
+ 9264 054c 636F6C6F 		.ascii	"color\000"
  9264      7200
  9265              	.LASF83:
- 9266 0557 6766785F 		.ascii	"gfx_setTextSize\000"
+ 9266 0552 6766785F 		.ascii	"gfx_setTextSize\000"
  9266      73657454 
  9266      65787453 
  9266      697A6500 
  9267              	.LASF104:
- 9268 0567 72657365 		.ascii	"reset\000"
+ 9268 0562 72657365 		.ascii	"reset\000"
  9268      7400
  9269              	.LASF5:
- 9270 056d 5F5F7569 		.ascii	"__uint8_t\000"
+ 9270 0568 5F5F7569 		.ascii	"__uint8_t\000"
  9270      6E74385F 
  9270      7400
  9271              	.LASF54:
- 9272 0577 6C626974 		.ascii	"lbit\000"
+ 9272 0572 6C626974 		.ascii	"lbit\000"
  9272      00
  9273              	.LASF74:
- 9274 057c 73746172 		.ascii	"start\000"
+ 9274 0577 73746172 		.ascii	"start\000"
  9274      7400
  9275              	.LASF101:
- 9276 0582 6766785F 		.ascii	"gfx_print\000"
+ 9276 057d 6766785F 		.ascii	"gfx_print\000"
  9276      7072696E 
  9276      7400
- 9277              	.LASF91:
- 9278 058c 79737465 		.ascii	"ystep\000"
- 9278      7000
- 9279              	.LASF110:
- 9280 0592 666F6E74 		.ascii	"font\000"
- 9280      00
- 9281              	.LASF15:
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 190
+ 9277              	.LASF67:
+ 9278 0587 53534431 		.ascii	"SSD1306_invert\000"
+ 9278      3330365F 
+ 9278      696E7665 
+ 9278      727400
+ 9279              	.LASF91:
+ 9280 0596 79737465 		.ascii	"ystep\000"
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 190
 
 
- 9282 0597 73697A65 		.ascii	"sizetype\000"
- 9282      74797065 
+ 9280      7000
+ 9281              	.LASF110:
+ 9282 059c 666F6E74 		.ascii	"font\000"
  9282      00
- 9283              	.LASF63:
- 9284 05a0 636D6462 		.ascii	"cmdbuf\000"
- 9284      756600
- 9285              	.LASF13:
- 9286 05a7 6C6F6E67 		.ascii	"long unsigned int\000"
- 9286      20756E73 
- 9286      69676E65 
- 9286      6420696E 
- 9286      7400
- 9287              	.LASF32:
- 9288 05b9 5343524F 		.ascii	"SCROLL_LEFT\000"
- 9288      4C4C5F4C 
- 9288      45465400 
- 9289              	.LASF132:
- 9290 05c5 53534431 		.ascii	"SSD1306_Reset_Write\000"
- 9290      3330365F 
- 9290      52657365 
- 9290      745F5772 
- 9290      69746500 
- 9291              	.LASF64:
- 9292 05d9 64697370 		.ascii	"display_clear\000"
- 9292      6C61795F 
- 9292      636C6561 
- 9292      7200
+ 9283              	.LASF15:
+ 9284 05a1 73697A65 		.ascii	"sizetype\000"
+ 9284      74797065 
+ 9284      00
+ 9285              	.LASF63:
+ 9286 05aa 636D6462 		.ascii	"cmdbuf\000"
+ 9286      756600
+ 9287              	.LASF13:
+ 9288 05b1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 9288      20756E73 
+ 9288      69676E65 
+ 9288      6420696E 
+ 9288      7400
+ 9289              	.LASF32:
+ 9290 05c3 5343524F 		.ascii	"SCROLL_LEFT\000"
+ 9290      4C4C5F4C 
+ 9290      45465400 
+ 9291              	.LASF132:
+ 9292 05cf 53534431 		.ascii	"SSD1306_Reset_Write\000"
+ 9292      3330365F 
+ 9292      52657365 
+ 9292      745F5772 
+ 9292      69746500 
  9293              	.LASF127:
- 9294 05e7 77726170 		.ascii	"wrap\000"
+ 9294 05e3 77726170 		.ascii	"wrap\000"
  9294      00
  9295              	.LASF108:
- 9296 05ec 53534431 		.ascii	"SSD1306_HAL_CS\000"
+ 9296 05e8 53534431 		.ascii	"SSD1306_HAL_CS\000"
  9296      3330365F 
  9296      48414C5F 
  9296      435300
  9297              	.LASF61:
- 9298 05fb 7472616E 		.ascii	"transmit_status\000"
+ 9298 05f7 7472616E 		.ascii	"transmit_status\000"
  9298      736D6974 
  9298      5F737461 
  9298      74757300 
  9299              	.LASF31:
- 9300 060b 5343524F 		.ascii	"SCROLL_RIGHT\000"
+ 9300 0607 5343524F 		.ascii	"SCROLL_RIGHT\000"
  9300      4C4C5F52 
  9300      49474854 
  9300      00
  9301              	.LASF134:
- 9302 0618 4932435F 		.ascii	"I2C_1_Start\000"
+ 9302 0614 4932435F 		.ascii	"I2C_1_Start\000"
  9302      315F5374 
  9302      61727400 
  9303              	.LASF6:
- 9304 0624 756E7369 		.ascii	"unsigned char\000"
+ 9304 0620 756E7369 		.ascii	"unsigned char\000"
  9304      676E6564 
  9304      20636861 
  9304      7200
  9305              	.LASF12:
- 9306 0632 5F5F7569 		.ascii	"__uint32_t\000"
+ 9306 062e 5F5F7569 		.ascii	"__uint32_t\000"
  9306      6E743332 
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 191
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 191
 
 
  9306      5F7400
  9307              	.LASF55:
- 9308 063d 75626974 		.ascii	"ubit\000"
+ 9308 0639 75626974 		.ascii	"ubit\000"
  9308      00
  9309              	.LASF99:
- 9310 0642 6C696E65 		.ascii	"line\000"
+ 9310 063e 6C696E65 		.ascii	"line\000"
  9310      00
  9311              	.LASF98:
- 9312 0647 6766785F 		.ascii	"gfx_drawChar\000"
+ 9312 0643 6766785F 		.ascii	"gfx_drawChar\000"
  9312      64726177 
  9312      43686172 
  9312      00
  9313              	.LASF109:
- 9314 0654 53534431 		.ascii	"SSD1306_HAL_DC\000"
+ 9314 0650 53534431 		.ascii	"SSD1306_HAL_DC\000"
  9314      3330365F 
  9314      48414C5F 
  9314      444300
- 9315              	.LASF73:
- 9316 0663 64697370 		.ascii	"display_scroll\000"
- 9316      6C61795F 
- 9316      7363726F 
- 9316      6C6C00
+ 9315              	.LASF129:
+ 9316 065f 4932435F 		.ascii	"I2C_1_MasterWriteByte\000"
+ 9316      315F4D61 
+ 9316      73746572 
+ 9316      57726974 
+ 9316      65427974 
  9317              	.LASF112:
- 9318 0672 5F646973 		.ascii	"_displaybuf\000"
+ 9318 0675 5F646973 		.ascii	"_displaybuf\000"
  9318      706C6179 
  9318      62756600 
- 9319              	.LASF65:
- 9320 067e 64697370 		.ascii	"display_contrast\000"
- 9320      6C61795F 
- 9320      636F6E74 
- 9320      72617374 
- 9320      00
- 9321              	.LASF95:
- 9322 068f 6464465F 		.ascii	"ddF_x\000"
- 9322      7800
- 9323              	.LASF96:
- 9324 0695 6464465F 		.ascii	"ddF_y\000"
- 9324      7900
- 9325              	.LASF3:
- 9326 069b 7369676E 		.ascii	"signed char\000"
- 9326      65642063 
- 9326      68617200 
- 9327              	.LASF10:
- 9328 06a7 73686F72 		.ascii	"short unsigned int\000"
- 9328      7420756E 
- 9328      7369676E 
- 9328      65642069 
- 9328      6E7400
- 9329              	.LASF72:
- 9330 06ba 64697370 		.ascii	"display_stopscroll\000"
- 9330      6C61795F 
- 9330      73746F70 
- 9330      7363726F 
- 9330      6C6C00
- 9331              	.LASF43:
- 9332 06cd 75696E74 		.ascii	"uint8\000"
- 9332      3800
-ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\cczB0neC.s 			page 192
+ 9319              	.LASF95:
+ 9320 0681 6464465F 		.ascii	"ddF_x\000"
+ 9320      7800
+ 9321              	.LASF96:
+ 9322 0687 6464465F 		.ascii	"ddF_y\000"
+ 9322      7900
+ 9323              	.LASF3:
+ 9324 068d 7369676E 		.ascii	"signed char\000"
+ 9324      65642063 
+ 9324      68617200 
+ 9325              	.LASF10:
+ 9326 0699 73686F72 		.ascii	"short unsigned int\000"
+ 9326      7420756E 
+ 9326      7369676E 
+ 9326      65642069 
+ 9326      6E7400
+ 9327              	.LASF73:
+ 9328 06ac 53534431 		.ascii	"SSD1306_scroll\000"
+ 9328      3330365F 
+ 9328      7363726F 
+ 9328      6C6C00
+ 9329              	.LASF43:
+ 9330 06bb 75696E74 		.ascii	"uint8\000"
+ 9330      3800
+ 9331              	.LASF46:
+ 9332 06c1 646F7562 		.ascii	"double\000"
+ 9332      6C6500
+ 9333              	.LASF119:
+ 9334 06c8 74657874 		.ascii	"textcolor\000"
+ 9334      636F6C6F 
+ARM GAS  C:\Users\Besitzer\AppData\Local\Temp\ccqizrvO.s 			page 192
 
 
- 9333              	.LASF46:
- 9334 06d3 646F7562 		.ascii	"double\000"
- 9334      6C6500
- 9335              	.LASF119:
- 9336 06da 74657874 		.ascii	"textcolor\000"
- 9336      636F6C6F 
- 9336      7200
- 9337              	.LASF120:
- 9338 06e4 74657874 		.ascii	"textbgcolor\000"
- 9338      6267636F 
- 9338      6C6F7200 
- 9339              	.LASF82:
- 9340 06f0 6766785F 		.ascii	"gfx_setCursor\000"
- 9340      73657443 
- 9340      7572736F 
- 9340      7200
- 9341              	.LASF86:
- 9342 06fe 6766785F 		.ascii	"gfx_setTextWrap\000"
- 9342      73657454 
- 9342      65787457 
- 9342      72617000 
+ 9334      7200
+ 9335              	.LASF120:
+ 9336 06d2 74657874 		.ascii	"textbgcolor\000"
+ 9336      6267636F 
+ 9336      6C6F7200 
+ 9337              	.LASF82:
+ 9338 06de 6766785F 		.ascii	"gfx_setCursor\000"
+ 9338      73657443 
+ 9338      7572736F 
+ 9338      7200
+ 9339              	.LASF86:
+ 9340 06ec 6766785F 		.ascii	"gfx_setTextWrap\000"
+ 9340      73657454 
+ 9340      65787457 
+ 9340      72617000 
+ 9341              	.LASF139:
+ 9342 06fc 53534431 		.ascii	"SSD1306_write_buf\000"
+ 9342      3330365F 
+ 9342      77726974 
+ 9342      655F6275 
+ 9342      6600
  9343              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
