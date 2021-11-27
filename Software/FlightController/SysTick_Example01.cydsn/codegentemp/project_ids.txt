@@ -1,0 +1,8 @@
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b7596223-de45-406f-9f27-7d60f76a546f
+C:\Users\Besitzer\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|07922d84-d845-435b-965b-a7368c0cf28d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3b47a25a-de71-40d5-b7e8-10502569330b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a241dfe4-4bb2-433d-bcbc-ee294d475c38
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|770fbb96-3b51-4b03-9aa8-9d8209549836
+D:\Repos\QuadroCopter\Software\FlightController\SSD1306.cydsn\SSD1306.cyprj|01dd403d-c0d6-4a6b-a894-7180b53b406e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|5ea3f1e9-d584-477f-bb56-a5c0e01c631e
+D:\Repos\QuadroCopter\Software\FlightController\SysTick_Example01.cydsn\SysTick_Example01.cyprj|f4f29fa1-8ea1-4d8b-a8f1-70f4891cdf44

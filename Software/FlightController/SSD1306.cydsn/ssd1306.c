@@ -23,6 +23,8 @@
 #include "SSD1306_Reset.h"
 #include "I2C_1.h"
 #include "font.h"
+#include "SCL.h"
+#include "SDA.h"
 /***********************************************************************
 * Informations
 ***********************************************************************/
@@ -293,8 +295,12 @@ void SSD1306_invert( uint8_t invert ){
 *  \return		none
 ***********************************************************************/
 void SSD1306_update(void) {
-      
-
+    
+    //Check if pins available and high
+    if(! (SCL_Read() && SDA_Read()))
+        return;
+    
+    //send Data out
     SSD1306_SetPageStartAddr(0);
 	SSD1306_SetColStartAddr(0);
     SSD1306_write_buf( SSD1306_buffer, sizeof(SSD1306_buffer) );

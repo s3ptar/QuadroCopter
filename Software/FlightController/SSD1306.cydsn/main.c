@@ -30,7 +30,11 @@ int main(void)
 
 
     // drawing a pixel
-    gfx_drawLine(10, 10, 20, 20, WHITE);    
+    gfx_drawRect( 0, 0, 128, 15, WHITE);
+    gfx_setTextColor( WHITE );
+    gfx_setTextBg( BLACK );
+    gfx_setCursor( 0, 30 );
+    gfx_println("Start Up!");
     SSD1306_update(); 
     
     CyDelay(800);

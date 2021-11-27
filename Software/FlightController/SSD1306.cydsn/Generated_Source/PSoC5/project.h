@@ -33,6 +33,7 @@
 #include "SCL.h"
 #include "I2C_1.h"
 #include "I2C_1_PVT.h"
+#include "DieTemp_1.h"
 #include "DBG_OUT_IntClock.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"

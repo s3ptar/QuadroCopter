@@ -131,6 +131,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_SLAVE.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_MASTER.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\I2C_1_PVT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DieTemp_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\DieTemp_1.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="D:\Repos\QuadroCopter\Software\FlightController\SSD1306.cydsn\Export\ARM_GCC_Generic">

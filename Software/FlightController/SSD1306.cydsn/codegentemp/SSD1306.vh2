@@ -2,7 +2,7 @@
 --	Conversion of SSD1306.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sun Oct 31 11:01:06 2021
+--	Sat Nov 27 17:02:32 2021
 --
 
 USE cypress.cypress.all;
@@ -416,6 +416,16 @@ SIGNAL Net_272 : bit;
 SIGNAL \I2C_1:Net_975\ : bit;
 SIGNAL Net_270 : bit;
 SIGNAL Net_271 : bit;
+SIGNAL Net_300 : bit;
+SIGNAL Net_12 : bit;
+SIGNAL \Timer_1:Net_260\ : bit;
+SIGNAL \Timer_1:Net_266\ : bit;
+SIGNAL \Timer_1:Net_51\ : bit;
+SIGNAL \Timer_1:Net_261\ : bit;
+SIGNAL \Timer_1:Net_57\ : bit;
+SIGNAL Net_311 : bit;
+SIGNAL Net_312 : bit;
+SIGNAL \Timer_1:Net_102\ : bit;
 SIGNAL \DBG_OUT:BUART:reset_reg\\D\ : bit;
 SIGNAL \DBG_OUT:BUART:txn\\D\ : bit;
 SIGNAL \DBG_OUT:BUART:tx_state_1\\D\ : bit;
@@ -1416,6 +1426,30 @@ SCL:cy_psoc3_pins_v1_10
 		oe=>tmpOE__USR_BTN_net_0,
 		y=>Net_274,
 		yfb=>\I2C_1:Net_1109_1\);
+timer_clock:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"c0fb34bd-1044-4931-9788-16b01ce89812",
+		source_clock_id=>"315365C3-2E3E-4f04-84A2-BB564A173261",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_300,
+		dig_domain_out=>open);
+\Timer_1:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_300,
+		kill=>zero,
+		enable=>tmpOE__USR_BTN_net_0,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>Net_312,
+		compare=>\Timer_1:Net_261\,
+		interrupt=>\Timer_1:Net_57\);
+ISR_Update_Info:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_312);
 \DBG_OUT:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\DBG_OUT:BUART:clock_op\,

@@ -1,0 +1,21 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2021-11-27T16:20:35Z")
+ (DESIGN "SysTick_Example01")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.4")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "SysTick_Example01")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT LED_Sec\(0\)_PAD LED_Sec\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED_Min\(0\)_PAD LED_Min\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT \\UART\:tx\(0\)_PAD\\ \\UART\:tx\(0\)\\.pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

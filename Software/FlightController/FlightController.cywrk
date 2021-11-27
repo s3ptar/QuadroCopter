@@ -3,7 +3,7 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="FlightController" persistent="FlightController.cywrk" platform="NOT_USED">
-<current_project name=".\SSD1306.cydsn\SSD1306.cyprj" />
+<current_project name=".\SysTick_Example01.cydsn\SysTick_Example01.cyprj" />
 <wrkspc_folders />
 <files>
 <CyGuid_8b8ab257-35d3-4473-b57b-36315200b38b type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtFileSerialize" version="3" xml_contents_version="1">
@@ -15,8 +15,8 @@
 </CyGuid_8b8ab257-35d3-4473-b57b-36315200b38b>
 </files>
 <projects>
-<v>.\Design01.cydsn\Design01.cyprj</v>
 <v>.\SSD1306.cydsn\SSD1306.cyprj</v>
+<v>.\SysTick_Example01.cydsn\SysTick_Example01.cyprj</v>
 </projects>
 <workspace_id v="e6b37cca-33a4-4efa-8117-e9a0f0052698" />
 <WriteAppVersionLastSavedWith v="4.4.0.80" />

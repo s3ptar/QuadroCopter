@@ -1,7 +1,6 @@
-D:\Repos\QuadroCopter\Software\FlightController\Design01.cydsn\Design01.cyprj|414d18a6-cc8e-4ad9-a093-7613e6de0795
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4fde5e59-756f-4f11-9781-ba4728680fa9
-C:\Users\Besitzer\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|da37c16a-fe38-4399-a79a-92a3a80d2536
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|294c45f9-c8a9-4315-8ea5-0b5fc0874df9
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b1a911d6-4b89-483d-b87d-d534c6ee7e7b
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a00dcdc0-4c85-45ab-a762-a7e07e06f118
-D:\Repos\QuadroCopter\Software\FlightController\SSD1306.cydsn\SSD1306.cyprj|7cb22fd6-43d9-4b58-a4dc-929b5ea05056
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b7596223-de45-406f-9f27-7d60f76a546f
+C:\Users\Besitzer\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|07922d84-d845-435b-965b-a7368c0cf28d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3b47a25a-de71-40d5-b7e8-10502569330b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a241dfe4-4bb2-433d-bcbc-ee294d475c38
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|770fbb96-3b51-4b03-9aa8-9d8209549836
+D:\Repos\QuadroCopter\Software\FlightController\SSD1306.cydsn\SSD1306.cyprj|01dd403d-c0d6-4a6b-a894-7180b53b406e
