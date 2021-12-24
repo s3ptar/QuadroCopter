@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="QuadroCopter\Main01\TopDesign">
 <ExpandedNodeIds>
 <v>QuadroCopter</v>
 <v>QuadroCopter\Main01</v>
@@ -75,7 +75,13 @@
 <v>QuadroCopter\Main01\Main01.rpt</v>
 <v>QuadroCopter\Main01\Main01_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds />
+<VisibleNodeIds>
+<v>QuadroCopter</v>
+<v>QuadroCopter\Main01</v>
+<v>QuadroCopter\Main01\Main01.gpdsc</v>
+<v>QuadroCopter\Main01\Main01.rpt</v>
+<v>QuadroCopter\Main01\Main01_timing.html</v>
+</VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -89,7 +95,6 @@
 <v>QuadroCopter\Main01\PSoC 5LP Architecture TRM</v>
 <v>QuadroCopter\Main01\CY8C58LP Family Datasheet</v>
 <v>QuadroCopter\Main01\System Reference Guides</v>
-<v>QuadroCopter\Main01\System Reference Guides\cy_boot_v6_10</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>QuadroCopter</v>
@@ -97,7 +102,6 @@
 <v>QuadroCopter\Main01\PSoC 5LP Architecture TRM</v>
 <v>QuadroCopter\Main01\CY8C58LP Family Datasheet</v>
 <v>QuadroCopter\Main01\System Reference Guides</v>
-<v>QuadroCopter\Main01\System Reference Guides\cy_boot_v6_10</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -115,7 +119,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="2204, 1071" SelectedTabbedMdiWindow="46e5f746-c4e0-4e7f-9bc7-b1c23a966274"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5166fe8e-68d8-463a-9777-8948a4e6ad44" /><DocumentWindow Key="C:\data\GitHub\QuadroCopter\Software\QuadroCopter\Main01.cydsn\TopDesign\TopDesign.cysch" Guid="46e5f746-c4e0-4e7f-9bc7-b1c23a966274" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="2079, 1063" SelectedTabbedMdiWindow="120ed512-761b-453e-b88c-d78d87cdb67b"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5166fe8e-68d8-463a-9777-8948a4e6ad44" /><DocumentWindow Key="D:\Repos\QuadroCopter\Software\QuadroCopter\Main01.cydsn\TopDesign\TopDesign.cysch" Guid="120ed512-761b-453e-b88c-d78d87cdb67b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
